@@ -249,6 +249,7 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
         if route["from"] != route["to"]
     )
     return f"""
+    <button id="trip-panel-toggle" class="panel-toggle panel-toggle-left" type="button" aria-controls="trip-panel" aria-expanded="true">Ukryj panel</button>
     <div id="trip-panel">
       <h1>Południe Chin 2026/27</h1>
       <p>Mapa planistyczna: noclegi, atrakcje, day tripy, transport i budżet. Najedź na marker, żeby zobaczyć zdjęcie i skrót; kliknij, żeby otworzyć szczegóły.</p>
@@ -288,6 +289,39 @@ def build_styles() -> str:
         border-radius: 8px;
         padding: 14px 15px 16px;
         color: #172033;
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+      body.trip-panel-hidden #trip-panel {
+        transform: translateX(calc(-100% - 32px));
+        opacity: 0;
+        pointer-events: none;
+      }
+      .panel-toggle {
+        position: fixed;
+        z-index: 10000;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+        padding: 0 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        background: rgba(255,255,255,0.96);
+        color: #172033;
+        box-shadow: 0 6px 16px rgba(15,23,42,0.14);
+        font: 700 12px/1 "Segoe UI", Arial, sans-serif;
+        cursor: pointer;
+      }
+      .panel-toggle:hover { background: #f8fafc; }
+      .panel-toggle-left {
+        top: 12px;
+        left: 388px;
+        transition: left 180ms ease;
+      }
+      body.trip-panel-hidden .panel-toggle-left { left: 12px; }
+      .panel-toggle-right {
+        right: 12px;
+        bottom: 28px;
       }
       #trip-panel h1 { font-size: 18px; margin: 0 0 8px; }
       #trip-panel h2 { font-size: 14px; margin: 14px 0 6px; }
@@ -435,7 +469,7 @@ def build_styles() -> str:
       .legend {
         position: fixed;
         right: 12px;
-        bottom: 28px;
+        bottom: 72px;
         z-index: 9999;
         background: rgba(255,255,255,0.94);
         border: 1px solid #cbd5e1;
@@ -444,6 +478,12 @@ def build_styles() -> str:
         font-size: 12px;
         line-height: 1.45;
         box-shadow: 0 8px 20px rgba(15,23,42,0.14);
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+      body.legend-hidden .legend {
+        transform: translateX(calc(100% + 32px));
+        opacity: 0;
+        pointer-events: none;
       }
       .legend h3 { margin: 0 0 6px; font-size: 13px; }
       .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
@@ -468,7 +508,21 @@ def build_styles() -> str:
           position: static;
           width: auto;
           max-height: none;
-          margin: 8px;
+          margin: 50px 8px 8px;
+        }
+        .panel-toggle-left {
+          top: 8px;
+          left: 8px;
+        }
+        body.trip-panel-hidden .panel-toggle-left { left: 8px; }
+        .panel-toggle-right {
+          right: 8px;
+          bottom: 8px;
+        }
+        .legend {
+          right: 8px;
+          bottom: 52px;
+          max-width: min(260px, calc(100vw - 16px));
         }
         .leaflet-tooltip.foliumtooltip {
           width: 270px !important;
@@ -503,7 +557,8 @@ def build_legend(provinces: dict[str, Any]) -> str:
         else ""
     )
     return f"""
-    <div class="legend">
+    <button id="legend-toggle" class="panel-toggle panel-toggle-right" type="button" aria-controls="map-legend" aria-expanded="true">Ukryj legendę</button>
+    <div id="map-legend" class="legend">
       <h3>Nocleg / osoba / noc</h3>
       <div><span class="dot" style="background:#16803c"></span>do 50 PLN</div>
       <div><span class="dot" style="background:#d88900"></span>51-75 PLN</div>
@@ -515,6 +570,31 @@ def build_legend(provinces: dict[str, Any]) -> str:
       <div style="color:#d97706">pomarańczowy: lot</div>
       <div style="color:#7c3aed">fioletowy: granica/prom</div>
     </div>
+    """
+
+
+def build_panel_script() -> str:
+    return """
+    <script>
+      (function () {
+        function bindPanelToggle(buttonId, hiddenClass, openText, closedText) {
+          const button = document.getElementById(buttonId);
+          if (!button) return;
+          function sync() {
+            const hidden = document.body.classList.contains(hiddenClass);
+            button.textContent = hidden ? closedText : openText;
+            button.setAttribute("aria-expanded", hidden ? "false" : "true");
+          }
+          button.addEventListener("click", function () {
+            document.body.classList.toggle(hiddenClass);
+            sync();
+          });
+          sync();
+        }
+        bindPanelToggle("trip-panel-toggle", "trip-panel-hidden", "Ukryj panel", "Pokaż panel");
+        bindPanelToggle("legend-toggle", "legend-hidden", "Ukryj legendę", "Pokaż legendę");
+      })();
+    </script>
     """
 
 
@@ -671,11 +751,12 @@ def build_map() -> None:
 
     MiniMap(toggle_display=True, minimized=True).add_to(fmap)
     Fullscreen(position="topleft").add_to(fmap)
-    LayerControl(collapsed=False).add_to(fmap)
+    LayerControl(collapsed=True).add_to(fmap)
 
     fmap.get_root().header.add_child(folium.Element(build_styles()))
     fmap.get_root().html.add_child(folium.Element(build_sidebar(places, routes)))
     fmap.get_root().html.add_child(folium.Element(build_legend(provinces)))
+    fmap.get_root().html.add_child(folium.Element(build_panel_script()))
 
     fmap.save(OUTPUT)
     OUTPUT.write_text(

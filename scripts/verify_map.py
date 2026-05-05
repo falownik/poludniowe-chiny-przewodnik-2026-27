@@ -77,6 +77,10 @@ def main() -> None:
         "Atrakcje",
         "Otwórz stronę miejsca",
         "popup-actions",
+        "trip-panel-toggle",
+        "legend-toggle",
+        "trip-panel-hidden",
+        "legend-hidden",
         "route-tooltip-card",
         "Alternatywa pociągiem",
         "leaflet-tooltip.route-tooltip",
@@ -97,6 +101,7 @@ def main() -> None:
 
     require("route-label" not in html, "route labels should not be rendered permanently")
     require("<th>Koszt</th>" not in html, "route cost column should not be visible in the sidebar")
+    require('"collapsed": true' in html, "layer control should start collapsed")
 
     for place in places:
         require(place["name"] in html, f"HTML missing place: {place['name']}")
