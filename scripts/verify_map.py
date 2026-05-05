@@ -74,6 +74,7 @@ def main() -> None:
         "Atrakcje",
         "Otwórz stronę miejsca",
         "popup-actions",
+        "route-label-icon",
         "max-height: min(560px, calc(100vh - 130px))",
         "max-height: min(260px, calc(100vh - 110px))",
         "places/",

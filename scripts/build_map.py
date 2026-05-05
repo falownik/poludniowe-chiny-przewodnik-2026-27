@@ -355,14 +355,27 @@ def build_styles() -> str:
       .route-popup { width: 260px; font-size: 13px; line-height: 1.35; }
       .route-popup h3 { margin: 0 0 6px; font-size: 15px; }
       .route-label {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 104px;
+        min-height: 34px;
         background: rgba(255,255,255,0.92);
         border: 1px solid #94a3b8;
-        border-radius: 999px;
-        padding: 2px 6px;
+        border-radius: 8px;
+        padding: 3px 7px;
         font-size: 11px;
+        line-height: 1.2;
         color: #172033;
         box-shadow: 0 2px 8px rgba(15,23,42,0.12);
-        white-space: nowrap;
+        text-align: center;
+        white-space: normal;
+        overflow-wrap: normal;
+      }
+      .route-label-icon {
+        background: transparent;
+        border: 0;
       }
       .legend {
         position: fixed;
@@ -559,7 +572,10 @@ def add_routes(
         folium.Marker(
             location=mid,
             icon=folium.DivIcon(
-                html=f"<div class='route-label'>{esc(route['cost_pln'])}<br>{esc(route['time'])}</div>"
+                class_name="route-label-icon",
+                icon_size=(104, 38),
+                icon_anchor=(52, 19),
+                html=f"<div class='route-label'>{esc(route['cost_pln'])}<br>{esc(route['time'])}</div>",
             ),
         ).add_to(route_group)
     route_group.add_to(fmap)
