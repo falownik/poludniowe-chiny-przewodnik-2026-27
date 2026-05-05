@@ -203,15 +203,29 @@ def route_popup(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]]) 
     """
 
 
+def route_train_alt(route: dict[str, Any]) -> str:
+    alt = route.get("train_alt")
+    if not alt:
+        return ""
+    return (
+        '<span class="route-alt">'
+        f"<b>{esc(alt.get('label', 'Alternatywa pociągiem'))}:</b> "
+        f"{esc(alt.get('time', ''))} · {esc(alt.get('cost_pln', ''))}"
+        "</span>"
+    )
+
+
 def route_tooltip(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]]) -> str:
     from_name = places_by_id[route["from"]]["name"]
     to_name = places_by_id[route["to"]]["name"]
+    train_alt = route_train_alt(route)
     return (
         '<div class="route-tooltip-card">'
         f"<strong>{esc(from_name)} &rarr; {esc(to_name)}</strong>"
         f"<span>{esc(route['mode'])}</span>"
         f"<span>{esc(route['time'])}</span>"
         f"<span class=\"route-cost\">{esc(route['cost_pln'])}</span>"
+        f"{train_alt}"
         "</div>"
     )
 
@@ -387,13 +401,13 @@ def build_styles() -> str:
       .route-popup { width: 260px; font-size: 13px; line-height: 1.35; }
       .route-popup h3 { margin: 0 0 6px; font-size: 15px; }
       .leaflet-tooltip.route-tooltip {
-        width: 250px !important;
-        max-width: 250px !important;
+        width: 300px !important;
+        max-width: 300px !important;
         white-space: normal !important;
         overflow-wrap: normal;
       }
       .route-tooltip-card {
-        width: 232px;
+        width: 282px;
         font-size: 12px;
         line-height: 1.32;
         color: #172033;
@@ -409,6 +423,11 @@ def build_styles() -> str:
         margin-top: 4px;
         font-weight: 800;
         color: #0f766e;
+      }
+      .route-tooltip-card .route-alt {
+        margin-top: 6px;
+        padding-top: 6px;
+        border-top: 1px solid #d9e1ea;
       }
       .legend {
         position: fixed;
@@ -455,10 +474,10 @@ def build_styles() -> str:
         .leaflet-tooltip.foliumtooltip th { width: 82px !important; }
         .leaflet-tooltip.foliumtooltip td { width: 176px !important; }
         .leaflet-tooltip.route-tooltip {
-          width: 230px !important;
-          max-width: 230px !important;
+          width: 250px !important;
+          max-width: 250px !important;
         }
-        .route-tooltip-card { width: 212px; }
+        .route-tooltip-card { width: 232px; }
       }
     </style>
     """
@@ -656,6 +675,10 @@ def build_map() -> None:
     fmap.get_root().html.add_child(folium.Element(build_legend(provinces)))
 
     fmap.save(OUTPUT)
+    OUTPUT.write_text(
+        "\n".join(line.rstrip() for line in OUTPUT.read_text(encoding="utf-8").splitlines()) + "\n",
+        encoding="utf-8",
+    )
     print(f"Wrote {OUTPUT}")
     print(f"Places: {len(places)}")
     print(f"Routes: {len(routes)}")

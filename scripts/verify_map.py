@@ -64,6 +64,9 @@ def main() -> None:
     require(len(routes) >= 10, "expected at least 10 transport routes")
     require(len(provinces.get("features", [])) >= 6, "expected at least 6 province/region polygons")
     require(len(attributions) >= len({place["photo_id"] for place in places}), "missing image attributions")
+    require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
+    require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
+    require(any(route.get("train_alt") for route in routes if "flight" in route["mode"].lower()), "flight routes lack train alternatives")
 
     required_phrases = [
         "Południe Chin 2026/27",
@@ -75,6 +78,7 @@ def main() -> None:
         "Otwórz stronę miejsca",
         "popup-actions",
         "route-tooltip-card",
+        "Alternatywa pociągiem",
         "leaflet-tooltip.route-tooltip",
         "leaflet-tooltip.foliumtooltip",
         "table-layout: fixed",
@@ -115,6 +119,9 @@ def main() -> None:
         require(route["to"] in place_ids, f"route has unknown to id: {route['id']}")
         require(route["cost_pln"] in html, f"HTML missing route cost: {route['id']}")
         require(route["time"] in html, f"HTML missing route time: {route['id']}")
+        if route.get("train_alt"):
+            require(route["train_alt"]["cost_pln"] in html, f"HTML missing train alternative cost: {route['id']}")
+            require(route["train_alt"]["time"] in html, f"HTML missing train alternative time: {route['id']}")
 
     for feature in provinces.get("features", []):
         props = feature.get("properties", {})

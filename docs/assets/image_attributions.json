@@ -9,6 +9,15 @@
     "file": "assets/images/chaozhou_guangji.jpg"
   },
   {
+    "id": "detian_waterfall",
+    "title": "Detian Waterfall",
+    "commons_title": "File:2011 广西 崇左 德天瀑布 - panoramio (6).jpg",
+    "artist": "张元柏",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2011_%E5%B9%BF%E8%A5%BF_%E5%B4%87%E5%B7%A6_%E5%BE%B7%E5%A4%A9%E7%80%91%E5%B8%83_-_panoramio_(6).jpg",
+    "file": "assets/images/detian_waterfall.jpg"
+  },
+  {
     "id": "guangzhou_chen_clan",
     "title": "Chen Clan Ancestral Hall, Guangzhou",
     "commons_title": "File:Chen Clan Academy, Guangzhou (5928420619).jpg",

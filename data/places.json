@@ -297,6 +297,102 @@
     ]
   },
   {
+    "id": "nanning",
+    "name": "Nanning",
+    "region": "Guangxi",
+    "kind": "transfer_base",
+    "lat": 22.817,
+    "lon": 108.366,
+    "priority": "Guangxi rail and food base",
+    "suggested_nights": "1-2 noce",
+    "avg_lodging_pln_pp": 50,
+    "lodging_range_pln_pp": "40-70 PLN/os./noc w prostym hotelu lub hostelu",
+    "budget_note": "Dobra tania baza, jeśli chcecie dołożyć południowe Guangxi bez lotu. Nie jest tak widowiskowy jak Yangshuo, ale logistycznie działa.",
+    "photo_id": "detian_waterfall",
+    "summary": "Stolica Guangxi i praktyczna baza kolejowa do Fangchenggang, Detian i południowego pogranicza. Najlepsza jako 1-2 noce, nie jako główny cel.",
+    "what_to_see": [
+      "Qingxiu Mountain",
+      "Three Streets and Two Alleys",
+      "Zhongshan Road / lokalne jedzenie nocne",
+      "Guangxi Museum of Nationalities",
+      "Opcjonalny długi wypad do Detian Waterfall"
+    ],
+    "attractions": [
+      {
+        "name": "Qingxiu Mountain",
+        "lat": 22.789,
+        "lon": 108.395,
+        "price_pln": "ok. 10-15 PLN",
+        "time": "2-4 h",
+        "note": "Najlepszy zielony punkt miasta; duży park, pagody i widoki."
+      },
+      {
+        "name": "Three Streets and Two Alleys",
+        "lat": 22.817,
+        "lon": 108.319,
+        "price_pln": "0 PLN",
+        "time": "1-2 h",
+        "note": "Najwygodniejszy wieczorny spacer w centrum."
+      },
+      {
+        "name": "Guangxi Museum of Nationalities",
+        "lat": 22.766,
+        "lon": 108.397,
+        "price_pln": "zwykle 0 PLN",
+        "time": "1,5-2 h",
+        "note": "Dobry kontekst Zhuang, Dong, Miao i południowego Guangxi."
+      }
+    ]
+  },
+  {
+    "id": "fangchenggang",
+    "name": "Fangchenggang / Dongxing",
+    "region": "Guangxi coast",
+    "kind": "optional_extension",
+    "lat": 21.686,
+    "lon": 108.354,
+    "priority": "coast and Vietnam-border add-on",
+    "suggested_nights": "1-2 noce albo day trip z Nanning",
+    "avg_lodging_pln_pp": 50,
+    "lodging_range_pln_pp": "40-75 PLN/os./noc; prościej i taniej niż Hainan",
+    "budget_note": "Dobry budżetowy zamiennik części plażowej, jeśli Hainan robi się za drogi. Nie oczekiwać resortowej infrastruktury.",
+    "photo_id": "detian_waterfall",
+    "summary": "Mniej oczywisty kawałek Guangxi: wybrzeże Beibu Gulf, portowy klimat i Dongxing przy granicy z Wietnamem. Bardziej lokalnie niż wakacyjnie.",
+    "what_to_see": [
+      "Dongxing border area",
+      "Beilun River i pogranicze z Wietnamem",
+      "Jiangshan Peninsula / Bailangtan",
+      "Seafood i proste nadmorskie kolacje",
+      "Nanning jako baza kolejowa"
+    ],
+    "attractions": [
+      {
+        "name": "Dongxing Border Gate",
+        "lat": 21.546,
+        "lon": 107.971,
+        "price_pln": "0 PLN bez przekraczania granicy",
+        "time": "1-2 h",
+        "note": "Atmosfera miasta granicznego; bez planu wietnamskiego nie kombinować z przejściem."
+      },
+      {
+        "name": "Jiangshan Peninsula / Bailangtan",
+        "lat": 21.535,
+        "lon": 108.256,
+        "price_pln": "0-20 PLN zależnie od odcinka",
+        "time": "pół dnia",
+        "note": "Najprostszy morski akcent Fangchenggang."
+      },
+      {
+        "name": "Fangchenggang waterfront",
+        "lat": 21.686,
+        "lon": 108.354,
+        "price_pln": "0 PLN",
+        "time": "1-2 h",
+        "note": "Port, promenady i kolacja z owocami morza."
+      }
+    ]
+  },
+  {
     "id": "shenzhen",
     "name": "Shenzhen",
     "region": "Guangdong",

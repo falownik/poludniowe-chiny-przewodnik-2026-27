@@ -37,6 +37,12 @@
     "time": "lot 1,5-2 h; realnie 5-6 h hotel-hotel",
     "cost_pln": "350-750 PLN",
     "cost_mid_pln": 520,
+    "train_alt": {
+      "label": "Alternatywa pociągiem",
+      "time": "Haikou ok. 11,5-14 h; Sanya ok. 15,5-16,5 h",
+      "cost_pln": "170-230 PLN hard sleeper",
+      "note": "Dłużej i mniej elastycznie niż lot, ale zwykle taniej; pociąg wjeżdża na Hainan przez przeprawę promową."
+    },
     "note": "Największy koszt transportowy. Przy drogich lotach Hainan ciąć jako pierwszy."
   },
   {
@@ -47,6 +53,12 @@
     "time": "5-8 h zależnie od lotu",
     "cost_pln": "350-800 PLN",
     "cost_mid_pln": 560,
+    "train_alt": {
+      "label": "Alternatywa pociągiem",
+      "time": "ok. 14-21 h przez Guangzhou, zależnie od startu na Hainanie",
+      "cost_pln": "210-290 PLN",
+      "note": "Opcja oszczędnościowa: sleeper z Haikou/Sanya do Guangzhou plus szybki pociąg do Zhuhai."
+    },
     "note": "Dzień transferowy. Najwygodniej lecieć do Guangzhou/Shenzhen/Zhuhai, zależnie od ceny."
   },
   {
@@ -98,6 +110,36 @@
     "cost_pln": "20-80 PLN",
     "cost_mid_pln": 45,
     "note": "Yangshuo lepsze na noclegi niż Guilin, jeśli chcecie krajobraz."
+  },
+  {
+    "id": "guilin_nanning",
+    "from": "guilin",
+    "to": "nanning",
+    "mode": "HSR",
+    "time": "2,5-3,5 h pociąg; ok. 4 h hotel-hotel",
+    "cost_pln": "75-140 PLN",
+    "cost_mid_pln": 105,
+    "note": "Najprostszy sposób, żeby dołożyć Nanning po module Guilin/Yangshuo."
+  },
+  {
+    "id": "nanning_fangchenggang",
+    "from": "nanning",
+    "to": "fangchenggang",
+    "mode": "HSR / D-train",
+    "time": "ok. 50-70 min pociągiem; 1,5-2 h hotel-hotel",
+    "cost_pln": "25-45 PLN",
+    "cost_mid_pln": 35,
+    "note": "Tani wypad na wybrzeże Guangxi i okolice granicy z Wietnamem."
+  },
+  {
+    "id": "fangchenggang_guangzhou",
+    "from": "fangchenggang",
+    "to": "guangzhou",
+    "mode": "HSR via Nanning",
+    "time": "5-6,5 h pociągiem; 6,5-8 h hotel-hotel",
+    "cost_pln": "145-240 PLN",
+    "cost_mid_pln": 190,
+    "note": "Praktyczny powrót do Guangzhou, jeśli Fangchenggang ma być końcówką Guangxi."
   },
   {
     "id": "yangshuo_shenzhen",
@@ -157,6 +199,12 @@
     "time": "4-6 h",
     "cost_pln": "180-450 PLN",
     "cost_mid_pln": 280,
+    "train_alt": {
+      "label": "Kolej zamiast lotu",
+      "time": "2,5-5 h HSR / D-train",
+      "cost_pln": "130-195 PLN second class",
+      "note": "Na tej trasie pociąg zwykle wygrywa logistyką, jeśli godziny pasują."
+    },
     "note": "Opcja, jeśli rezygnujecie z Hainanu."
   }
 ]

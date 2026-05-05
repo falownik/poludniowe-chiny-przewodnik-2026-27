@@ -840,10 +840,19 @@ def route_card(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]], p
     if prefix == "../":
         from_href = f"{route['from']}.html"
         to_href = f"{route['to']}.html"
+    alt = route.get("train_alt")
+    train_alt = (
+        f"<p class=\"route-alt\"><strong>{esc(alt.get('label', 'Alternatywa pociągiem'))}:</strong> "
+        f"{esc(alt.get('time', ''))} · {esc(alt.get('cost_pln', ''))}<br>"
+        f"<span>{esc(alt.get('note', ''))}</span></p>"
+        if alt
+        else ""
+    )
     return f"""
     <article class="route-card">
       <h3><a href="{from_href}">{esc(from_place['name'])}</a> → <a href="{to_href}">{esc(to_place['name'])}</a></h3>
       <p><strong>{esc(route['mode'])}</strong> · {esc(route['time'])} · {esc(route['cost_pln'])}</p>
+      {train_alt}
       <p>{esc(route['note'])}</p>
     </article>
     """
@@ -1301,6 +1310,17 @@ main {
 .detail-row h3, .route-card h3 {
   margin: 0 0 6px;
   font-size: 16px;
+}
+.route-card .route-alt {
+  margin: 10px 0;
+  padding: 9px 10px;
+  border-left: 4px solid var(--teal);
+  border-radius: 6px;
+  background: #eef7f5;
+  color: var(--ink);
+}
+.route-card .route-alt span {
+  color: var(--muted);
 }
 .place-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
