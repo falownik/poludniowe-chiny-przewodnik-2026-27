@@ -294,6 +294,32 @@ def build_styles() -> str:
         white-space: normal !important;
         overflow-wrap: anywhere;
       }
+      .leaflet-tooltip.foliumtooltip {
+        width: 320px !important;
+        max-width: 320px !important;
+        white-space: normal !important;
+        line-height: 1.35;
+        overflow-wrap: normal;
+      }
+      .leaflet-tooltip.foliumtooltip table {
+        width: 100% !important;
+        table-layout: fixed;
+        margin: 0 !important;
+      }
+      .leaflet-tooltip.foliumtooltip th {
+        width: 92px !important;
+        padding: 3px 8px 3px 0 !important;
+        vertical-align: top;
+        white-space: normal !important;
+      }
+      .leaflet-tooltip.foliumtooltip td {
+        width: 210px !important;
+        padding: 3px 0 !important;
+        vertical-align: top;
+        white-space: normal !important;
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
       .hover-card {
         width: min(285px, calc(100vw - 56px));
         max-height: min(260px, calc(100vh - 110px));
@@ -415,6 +441,12 @@ def build_styles() -> str:
           max-height: none;
           margin: 8px;
         }
+        .leaflet-tooltip.foliumtooltip {
+          width: 270px !important;
+          max-width: 270px !important;
+        }
+        .leaflet-tooltip.foliumtooltip th { width: 82px !important; }
+        .leaflet-tooltip.foliumtooltip td { width: 176px !important; }
       }
     </style>
     """
