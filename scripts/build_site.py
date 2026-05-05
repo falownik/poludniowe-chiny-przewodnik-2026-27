@@ -595,7 +595,7 @@ def build_food_page(image_paths: dict[str, str]) -> str:
 
     <section class="food-grid">{rows}</section>
 
-    <section class="route-section">
+    <section class="route-section food-section">
       <h2>Potrawy, które warto umieć rozpoznać</h2>
       <div class="dish-grid">{dish_cards}</div>
     </section>
@@ -659,6 +659,10 @@ def write_site_css() -> None:
   --red: #b42318;
 }
 * { box-sizing: border-box; }
+img {
+  display: block;
+  max-width: 100%;
+}
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -829,15 +833,19 @@ main {
 .food-intro {
   border-left: 5px solid var(--amber);
 }
+.food-grid, .food-section, .food-checklist {
+  width: min(820px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
 .food-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 .food-region-card {
   display: grid;
-  grid-template-columns: minmax(170px, 0.42fr) 1fr;
-  gap: 16px;
-  align-items: stretch;
-  min-height: 220px;
+  grid-template-columns: 1fr;
+  min-height: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
@@ -845,12 +853,14 @@ main {
 }
 .food-region-card img {
   width: 100%;
-  height: 100%;
-  min-height: 220px;
+  height: auto;
+  max-height: 360px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 .food-region-card div {
-  padding: 18px 18px 18px 0;
+  max-width: 760px;
+  padding: 18px;
 }
 .food-region-card h2, .dish-card h2 {
   margin: 0 0 8px;
@@ -862,7 +872,8 @@ main {
   line-height: 1.56;
 }
 .dish-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 .dish-card {
   display: grid;
@@ -912,7 +923,7 @@ main {
     grid-template-columns: 1fr;
   }
   .food-region-card div { padding: 16px; }
-  .food-region-card img { min-height: 210px; aspect-ratio: 16 / 10; }
+  .food-region-card img { min-height: 0; max-height: none; aspect-ratio: 16 / 10; }
   .hero-img { min-height: 230px; }
   .pager { flex-direction: column; }
 }
