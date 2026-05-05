@@ -13,6 +13,20 @@ PROVINCES = ROOT / "data" / "provinces.geojson"
 ATTRIBUTIONS = DOCS / "assets" / "image_attributions.json"
 SITE_CSS = DOCS / "assets" / "site.css"
 PLACES_DIR = DOCS / "places"
+FOOD_PAGE = DOCS / "food.html"
+REQUIRED_FOOD_IMAGES = [
+    "dim_sum_har_gow.jpg",
+    "char_siu.jpg",
+    "roast_goose.jpg",
+    "wonton_noodles.jpg",
+    "guilin_rice_noodles.jpg",
+    "hainan_chicken_rice.jpg",
+    "hongkong_egg_waffle.jpg",
+    "milk_tea.jpg",
+    "pineapple_bun.jpg",
+    "macau_egg_tart.jpg",
+    "dahongpao_tea.jpg",
+]
 
 
 def load_json(path: Path):
@@ -96,6 +110,14 @@ def main() -> None:
         page_html = page.read_text(encoding="utf-8")
         require("Południe Chin 2026/27" in page_html, f"static page missing site title: {page_name}")
         require("assets/site.css" in page_html or "../assets/site.css" in page_html, f"static page missing CSS: {page_name}")
+
+    food_html = FOOD_PAGE.read_text(encoding="utf-8")
+    require("food-region-card" in food_html, "food page missing regional food cards")
+    require("dish-grid" in food_html, "food page missing dish gallery")
+    require("Potrawy" in food_html, "food page missing dish section")
+    for image_name in REQUIRED_FOOD_IMAGES:
+        require((DOCS / "assets" / "images" / image_name).exists(), f"missing food image file: {image_name}")
+        require(image_name in food_html, f"food page does not reference image: {image_name}")
 
     print("OK: map artifact covers places, lodging prices, attractions, route costs, images, and summaries.")
     print(f"Places: {len(places)}")

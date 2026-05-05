@@ -106,5 +106,95 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:1_aerial_yangshuo_panorama_2017.jpg",
     "file": "assets/images/yangshuo_yulong.jpg"
+  },
+  {
+    "id": "dahongpao_tea",
+    "title": "Da Hong Pao 大红袍",
+    "commons_title": "File:20121030 Da Hong Pao.jpg",
+    "artist": "Windmemories",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20121030_Da_Hong_Pao.jpg",
+    "file": "assets/images/dahongpao_tea.jpg"
+  },
+  {
+    "id": "dim_sum_har_gow",
+    "title": "Har gow 虾饺",
+    "commons_title": "File:Dim Sum Steamed Bao.jpg",
+    "artist": "Ralbahitha",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dim_Sum_Steamed_Bao.jpg",
+    "file": "assets/images/dim_sum_har_gow.jpg"
+  },
+  {
+    "id": "guilin_rice_noodles",
+    "title": "Guilin rice noodles 桂林米粉",
+    "commons_title": "File:Cute cat take in Guilin.jpg",
+    "artist": "永愛所有小貓咪",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cute_cat_take_in_Guilin.jpg",
+    "file": "assets/images/guilin_rice_noodles.jpg"
+  },
+  {
+    "id": "hainan_chicken_rice",
+    "title": "Hainanese chicken rice 海南鸡饭",
+    "commons_title": "File:(So-called?) Hainan-style Chicken Rice in Bangkok (48881306971).jpg",
+    "artist": "Vee Satayamas from Bangkok, Thailand",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:(So-called%3F)_Hainan-style_Chicken_Rice_in_Bangkok_(48881306971).jpg",
+    "file": "assets/images/hainan_chicken_rice.jpg"
+  },
+  {
+    "id": "hongkong_egg_waffle",
+    "title": "Egg waffle 鸡蛋仔",
+    "commons_title": "File:A kind of egg waffles.jpg",
+    "artist": "CNHowey",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_kind_of_egg_waffles.jpg",
+    "file": "assets/images/hongkong_egg_waffle.jpg"
+  },
+  {
+    "id": "macau_egg_tart",
+    "title": "Makaoska egg tart 葡挞",
+    "commons_title": "File:Estabelecimento De Comidas San Nam San egg tart and drinks 17-03-2023(1).jpg",
+    "artist": "LN9267",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Estabelecimento_De_Comidas_San_Nam_San_egg_tart_and_drinks_17-03-2023(1).jpg",
+    "file": "assets/images/macau_egg_tart.jpg"
+  },
+  {
+    "id": "milk_tea",
+    "title": "Hong Kong milk tea 奶茶",
+    "commons_title": "File:Hong Kong-style Milk Tea.jpg",
+    "artist": "WiNG",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hong_Kong-style_Milk_Tea.jpg",
+    "file": "assets/images/milk_tea.jpg"
+  },
+  {
+    "id": "pineapple_bun",
+    "title": "Pineapple bun 菠萝包",
+    "commons_title": "File:A Pineapple bun in bun mei Hong Kong style restaurant.jpg",
+    "artist": "Peachyeung316",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_Pineapple_bun_in_bun_mei_Hong_Kong_style_restaurant.jpg",
+    "file": "assets/images/pineapple_bun.jpg"
+  },
+  {
+    "id": "roast_goose",
+    "title": "Pieczona gęś 烧鹅",
+    "commons_title": "File:\"JiaoXiangMei\" ShaoE(Roast goose).jpg",
+    "artist": "Suginami",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:%22JiaoXiangMei%22_ShaoE(Roast_goose).jpg",
+    "file": "assets/images/roast_goose.jpg"
+  },
+  {
+    "id": "wonton_noodles",
+    "title": "Wonton noodles 云吞面",
+    "commons_title": "File:759 Wonton Noodles.JPG",
+    "artist": "Exploringlife",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:759_Wonton_Noodles.JPG",
+    "file": "assets/images/wonton_noodles.jpg"
   }
 ]

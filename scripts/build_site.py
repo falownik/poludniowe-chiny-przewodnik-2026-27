@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -105,6 +106,121 @@ PRACTICAL_NOTES: dict[str, list[str]] = {
 }
 
 
+FOOD_DISHES: list[dict[str, str]] = [
+    {
+        "region": "Guangzhou / Guangdong",
+        "name": "Har gow",
+        "chinese": "虾饺",
+        "pinyin": "xiā jiǎo",
+        "image_id": "dim_sum_har_gow",
+        "where": "Yum cha w Guangzhou, Hongkongu i Makao.",
+        "order": "Zamawiaj gorące, najlepiej jako pierwszą porcję dim sum. Dobra wersja ma cienkie, półprzezroczyste ciasto i sprężystą krewetkę.",
+    },
+    {
+        "region": "Guangdong",
+        "name": "Char siu",
+        "chinese": "叉烧",
+        "pinyin": "chāshāo",
+        "image_id": "char_siu",
+        "where": "Siu mei shops, lokale z pieczonym mięsem, proste zestawy z ryżem.",
+        "order": "Szukaj mięsa z przypieczonym brzegiem i soczystym środkiem. Najlepsze jest lekko słodkie, ale nie powinno smakować jak cukierkowa glazura.",
+    },
+    {
+        "region": "Guangdong / Hongkong",
+        "name": "Pieczona gęś",
+        "chinese": "烧鹅",
+        "pinyin": "shāo'é",
+        "image_id": "roast_goose",
+        "where": "Hongkong, Guangzhou i lepsze lokale kantońskie.",
+        "order": "To danie na wspólny stół albo większy lunch. Skóra ma być ciemna, lśniąca i chrupiąca, a mięso tłustsze niż kaczka.",
+    },
+    {
+        "region": "Guangzhou / Hongkong",
+        "name": "Wonton noodles",
+        "chinese": "云吞面",
+        "pinyin": "yúntūn miàn",
+        "image_id": "wonton_noodles",
+        "where": "Małe lokale śniadaniowe i lunchowe w Guangdong i HK.",
+        "order": "Dobra miska ma cienki, sprężysty makaron, czysty bulion i wontony z wyraźną krewetką. To bezpieczny wybór pierwszego dnia.",
+    },
+    {
+        "region": "Guilin / Guangxi",
+        "name": "Guilin rice noodles",
+        "chinese": "桂林米粉",
+        "pinyin": "Guìlín mǐfěn",
+        "image_id": "guilin_rice_noodles",
+        "where": "Guilin rano, blisko dworca, targu albo osiedlowych ulic.",
+        "order": "Nie szukaj najładniejszej sali. Szukaj szybkiej rotacji, misek na ladzie i lokalnych klientów jedzących przed pracą.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Hainanese chicken rice",
+        "chinese": "海南鸡饭",
+        "pinyin": "Hǎinán jī fàn",
+        "image_id": "hainan_chicken_rice",
+        "where": "Haikou, Sanya, Wenchang chicken restaurants.",
+        "order": "W lokalnej wersji ważniejszy jest kurczak niż idealnie wygładzona singapurska estetyka. Bierz sos imbirowy, chili i ryż z bulionu.",
+    },
+    {
+        "region": "Hongkong",
+        "name": "Egg waffle",
+        "chinese": "鸡蛋仔",
+        "pinyin": "jīdànzǎi",
+        "image_id": "hongkong_egg_waffle",
+        "where": "Mong Kok, Tsim Sha Tsui, Causeway Bay i uliczne stoiska.",
+        "order": "Jedz od razu po wydaniu. Dobra wersja jest chrupiąca na zewnątrz, miękka w środku i nie wymaga dużej liczby dodatków.",
+    },
+    {
+        "region": "Hongkong",
+        "name": "Milk tea",
+        "chinese": "奶茶",
+        "pinyin": "nǎichá",
+        "image_id": "milk_tea",
+        "where": "Cha chaan teng, zwłaszcza przy śniadaniu albo szybkim lunchu.",
+        "order": "Zamów gorącą albo na lodzie. To gorzka, mocna herbata z mlekiem, nie deserowy bubble tea.",
+    },
+    {
+        "region": "Hongkong",
+        "name": "Pineapple bun",
+        "chinese": "菠萝包",
+        "pinyin": "bōluó bāo",
+        "image_id": "pineapple_bun",
+        "where": "Piekarnie i cha chaan teng.",
+        "order": "Nazwa nie oznacza ananasa. Chodzi o kruchą, słodką skórkę. Wersja z masłem jest cięższa, ale klasyczna.",
+    },
+    {
+        "region": "Makao",
+        "name": "Makaoska egg tart",
+        "chinese": "葡挞",
+        "pinyin": "pútà",
+        "image_id": "macau_egg_tart",
+        "where": "Taipa, Coloane, okolice starego miasta.",
+        "order": "Najlepsza jest ciepła, z listkowym ciastem i lekko skarmelizowaną górą. Nie kupuj jednej na cztery osoby.",
+    },
+    {
+        "region": "Fujian",
+        "name": "Da Hong Pao",
+        "chinese": "大红袍",
+        "pinyin": "dàhóngpáo",
+        "image_id": "dahongpao_tea",
+        "where": "Xiamen, sklepy herbaciane, Wuyi Shan jako osobny moduł.",
+        "order": "Nie kupuj drogiej herbaty bez degustacji. Pytaj o kilka parzeń i zapisz cenę za gram, nie tylko za opakowanie.",
+    },
+    {
+        "region": "Fujian / Xiamen",
+        "name": "Satay noodles",
+        "chinese": "沙茶面",
+        "pinyin": "shāchá miàn",
+        "image_id": "xiamen_gulangyu",
+        "where": "Xiamen, proste lokale w Siming i okolicach Zhongshan Road.",
+        "order": "To danie do zjedzenia w Xiamen przed albo po Gulangyu. Sos shacha jest orzechowo-morski, więc osoby z alergiami powinny uważać.",
+    },
+]
+
+
+FOOD_IMAGE_IDS = {dish["image_id"] for dish in FOOD_DISHES if dish.get("image_id")}
+
+
 def esc(value: Any) -> str:
     return build_map.esc(value)
 
@@ -123,6 +239,50 @@ def image_paths_from_attributions() -> dict[str, str]:
     if not path.exists():
         return {}
     return {item["id"]: item["file"] for item in load_json(path)}
+
+
+def copy_extra_images(image_ids: set[str]) -> None:
+    if not image_ids:
+        return
+
+    manifest = build_map.read_image_manifest()
+    build_map.IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    attribution_path = ASSET_DIR / "image_attributions.json"
+    attributions = load_json(attribution_path) if attribution_path.exists() else []
+    known_ids = {item["id"] for item in attributions}
+
+    for image_id in sorted(image_ids):
+        if image_id in known_ids:
+            continue
+        item = manifest.get(image_id)
+        if not item:
+            continue
+        source = build_map.GUIDE_ROOT / item["file"]
+        if not source.exists():
+            continue
+        target = build_map.IMAGE_DIR / source.name
+        shutil.copy2(source, target)
+        attributions.append(
+            {
+                "id": image_id,
+                "title": item.get("title", ""),
+                "commons_title": item.get("commons_title", ""),
+                "artist": item.get("artist", ""),
+                "license": item.get("license", ""),
+                "source": item.get("source", ""),
+                "file": f"assets/images/{target.name}",
+            }
+        )
+        known_ids.add(image_id)
+
+    attribution_path.write_text(json.dumps(attributions, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def image_tag(image_id: str, image_paths: dict[str, str], alt: str, prefix: str = "") -> str:
+    path = image_paths.get(image_id)
+    if not path:
+        return ""
+    return f"<img src=\"{prefix}{esc(path)}\" alt=\"{esc(alt)}\">"
 
 
 def nav(prefix: str, current: str) -> str:
@@ -348,41 +508,102 @@ def build_itinerary_page(
     return page_shell("Trasa", "itinerary", body)
 
 
-def build_food_page() -> str:
-    regions = [
-        (
-            "Guangdong: Guangzhou, Foshan, Shenzhen",
-            "Najważniejszy jest rytm jedzenia: rano dim sum i herbata, w południe wonton noodles albo roast meat rice, wieczorem ryba na parze, warzywa i claypot rice. W Shunde/Foshan warto myśleć o deserach mlecznych, rybach i spokojniejszej kuchni kantońskiej.",
-        ),
-        (
-            "Chaoshan: Chaozhou i Shantou",
-            "To osobny świat: gęś w marynacie lushui, wołowy hot pot bez syczuańskiego ognia, congee, oyster omelette i herbata gongfu. Najlepiej dać temu regionowi dwie noce, bo jedzenie jest główną atrakcją, nie dodatkiem.",
-        ),
-        (
-            "Guangxi: Guilin, Yangshuo, Longji",
-            "Guilin rice noodles są śniadaniem obowiązkowym. Yangshuo daje beer fish i proste posiłki po dniu rowerowym, a Longji działa guesthouse'owo: ciepła kolacja, ryż, warzywa i lokalny kurczak po zejściu z tarasów.",
-        ),
-        (
-            "Hainan",
-            "Hainan to Wenchang chicken, coconut chicken hot pot, qingbuliang, kawa z wyspy i owoce morza. Przy seafood zawsze ustal cenę za wagę i sposób przygotowania przed gotowaniem.",
-        ),
-        (
-            "Fujian i Xiamen",
-            "Xiamen jest morsko-herbaciany: satay noodles, oyster omelette, peanut soup, oolong i ewentualny wypad do tulou Hakka. To dobra alternatywa dla Hainanu, jeśli chcecie mniej plaż, więcej architektury i herbaty.",
-        ),
-        (
-            "Hongkong i Makao",
-            "Hongkong najlepiej działa przez cha chaan teng, milk tea, wonton noodles, Star Ferry i Kowloon. Makao przez egg tarty, pork chop bun, minchi, African chicken i kontrast między starym centrum a Cotai.",
-        ),
+def build_food_page(image_paths: dict[str, str]) -> str:
+    region_cards = [
+        {
+            "title": "Guangdong: yum cha, pieczone mięsa i proste klasyki",
+            "image_id": "dim_sum_har_gow",
+            "text": "Najważniejszy jest rytm jedzenia. Rano dim sum i herbata, w południe wonton noodles albo roast meat rice, wieczorem ryba na parze, warzywa i claypot rice. W Shunde/Foshan warto myśleć o deserach mlecznych, rybach i spokojniejszej kuchni kantońskiej.",
+            "must": "Har gow, siu mai, char siu, roast goose, wonton noodles, double-skin milk.",
+        },
+        {
+            "title": "Chaoshan: Chaozhou i Shantou jako moduł foodie",
+            "image_id": "chaozhou_guangji",
+            "text": "Chaoshan to osobny świat: gęś w marynacie lushui, wołowy hot pot bez syczuańskiego ognia, congee, oyster omelette i herbata gongfu. Najlepiej dać temu regionowi dwie noce, bo jedzenie jest główną atrakcją, nie dodatkiem.",
+            "must": "Lushui goose, Chaoshan beef hot pot, oyster omelette, Chaozhou congee, gongfu tea.",
+        },
+        {
+            "title": "Guangxi: śniadania makaronowe i jedzenie po dniu w krajobrazie",
+            "image_id": "guilin_rice_noodles",
+            "text": "Guilin rice noodles są śniadaniem obowiązkowym. Yangshuo daje beer fish i proste posiłki po dniu rowerowym, a Longji działa guesthouse'owo: ciepła kolacja, ryż, warzywa i lokalny kurczak po zejściu z tarasów.",
+            "must": "Guilin rice noodles, beer fish, bamboo rice, lokalne warzywa, oil tea.",
+        },
+        {
+            "title": "Hainan: kurczak, kokos, kawa i seafood",
+            "image_id": "hainan_chicken_rice",
+            "text": "Hainan to Wenchang chicken, coconut chicken hot pot, qingbuliang, kawa z wyspy i owoce morza. Przy seafood zawsze ustal cenę za wagę i sposób przygotowania przed gotowaniem.",
+            "must": "Hainanese chicken rice, coconut chicken hot pot, qingbuliang, Xinglong coffee.",
+        },
+        {
+            "title": "Fujian i Xiamen: shacha, oolong i morska kuchnia",
+            "image_id": "dahongpao_tea",
+            "text": "Xiamen jest morsko-herbaciany: satay noodles, oyster omelette, peanut soup, oolong i ewentualny wypad do tulou Hakka. To dobra alternatywa dla Hainanu, jeśli chcecie mniej plaż, więcej architektury i herbaty.",
+            "must": "Satay noodles, oyster omelette, peanut soup, Da Hong Pao, Tieguanyin.",
+        },
+        {
+            "title": "Hongkong i Makao: szybkie śniadania, przekąski i fusion",
+            "image_id": "macau_egg_tart",
+            "text": "Hongkong najlepiej działa przez cha chaan teng, milk tea, wonton noodles, Star Ferry i Kowloon. Makao przez egg tarty, pork chop bun, minchi, African chicken i kontrast między starym centrum a Cotai.",
+            "must": "Milk tea, pineapple bun, egg waffle, Portuguese egg tart, pork chop bun, minchi.",
+        },
     ]
-    rows = "".join(f"<article class=\"text-block\"><h2>{esc(title)}</h2><p>{esc(text)}</p></article>" for title, text in regions)
+    rows = "".join(
+        f"""
+        <article class="food-region-card">
+          {image_tag(item["image_id"], image_paths, item["title"])}
+          <div>
+            <h2>{esc(item["title"])}</h2>
+            <p>{esc(item["text"])}</p>
+            <p><strong>Must eat:</strong> {esc(item["must"])}</p>
+          </div>
+        </article>
+        """
+        for item in region_cards
+    )
+    dish_cards = "".join(
+        f"""
+        <article class="dish-card">
+          {image_tag(dish["image_id"], image_paths, dish["name"])}
+          <div>
+            <p class="eyebrow">{esc(dish["region"])}</p>
+            <h2>{esc(dish["name"])}</h2>
+            <p class="dish-name">{esc(dish["chinese"])} · {esc(dish["pinyin"])}</p>
+            <p><strong>Gdzie:</strong> {esc(dish["where"])}</p>
+            <p>{esc(dish["order"])}</p>
+          </div>
+        </article>
+        """
+        for dish in FOOD_DISHES
+    )
+    checklist = [
+        "W Guangzhou pierwszy pełny poranek przeznacz na yum cha, nie na atrakcję biletowaną.",
+        "W Chaoshan zaplanuj co najmniej jeden posiłek jako główny punkt dnia: gęś albo wołowy hot pot.",
+        "W Guilin jedz ryżowe makarony rano; wieczorem lepiej nie szukać fine diningu, tylko prostego lokalnego jedzenia.",
+        "W Yangshuo nie siedź wyłącznie na West Street. Najlepszy posiłek po rowerze często jest przy guesthousie lub wiosce.",
+        "Na Hainanie przy seafood zawsze pytaj o cenę za jin, czyli 500 g, i koszt przygotowania.",
+        "W Hongkongu day trip nie udźwignie wszystkiego. Wybierz jedną kawiarnię cha chaan teng, jedną przekąskę i jeden konkretny obiad.",
+        "W Makao nie traktuj egg tartu jako dodatku. To realny punkt programu, najlepiej w Taipa albo Coloane.",
+        "W Xiamen zostaw czas na herbatę. Kupowanie oolongów bez degustacji jest proszeniem się o przepłacenie.",
+    ]
+    checklist_items = "".join(f"<li>{esc(item)}</li>" for item in checklist)
     body = f"""
-    <section class="page-intro">
+    <section class="page-intro food-intro">
       <p class="eyebrow">Jedzenie</p>
       <h1>Kulinarny przewodnik po aktualnej trasie</h1>
-      <p>Jedzenie jest tu częścią logistyki. Najlepszy plan dnia często zaczyna się od konkretnego śniadania i kończy jednym mocnym regionalnym posiłkiem, zamiast odhaczania przypadkowych restauracji.</p>
+      <p>Jedzenie jest tu częścią logistyki. Najlepszy plan dnia często zaczyna się od konkretnego śniadania i kończy jednym mocnym regionalnym posiłkiem, zamiast odhaczania przypadkowych restauracji. Ta strona ma działać jak wizualna lista kontrolna: co rozpoznać, co zamówić i gdzie nie przepalić budżetu.</p>
     </section>
-    <section class="text-stack">{rows}</section>
+
+    <section class="food-grid">{rows}</section>
+
+    <section class="route-section">
+      <h2>Potrawy, które warto umieć rozpoznać</h2>
+      <div class="dish-grid">{dish_cards}</div>
+    </section>
+
+    <section class="text-block food-checklist">
+      <h2>Jak tym sterować w podróży</h2>
+      <ul>{checklist_items}</ul>
+    </section>
     """
     return page_shell("Jedzenie", "food", body)
 
@@ -560,7 +781,7 @@ main {
   color: var(--muted);
   line-height: 1.58;
 }
-.detail-list, .route-grid, .place-grid, .text-stack {
+.detail-list, .route-grid, .place-grid, .text-stack, .food-grid, .dish-grid {
   display: grid;
   gap: 12px;
 }
@@ -605,6 +826,68 @@ main {
 .route-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+.food-intro {
+  border-left: 5px solid var(--amber);
+}
+.food-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.food-region-card {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.42fr) 1fr;
+  gap: 16px;
+  align-items: stretch;
+  min-height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+.food-region-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+.food-region-card div {
+  padding: 18px 18px 18px 0;
+}
+.food-region-card h2, .dish-card h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.18;
+}
+.food-region-card p, .dish-card p, .food-checklist li {
+  color: var(--muted);
+  line-height: 1.56;
+}
+.dish-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.dish-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+.dish-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.dish-card div {
+  padding: 15px;
+}
+.dish-name {
+  margin-top: -2px;
+  font-weight: 750;
+}
+.food-checklist ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
 .pager {
   display: flex;
   justify-content: space-between;
@@ -625,9 +908,11 @@ main {
 @media (max-width: 900px) {
   .site-header { align-items: flex-start; flex-direction: column; padding: 12px 16px; }
   main { width: min(100% - 20px, 1120px); padding-top: 14px; }
-  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid {
+  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .food-grid, .dish-grid, .food-region-card {
     grid-template-columns: 1fr;
   }
+  .food-region-card div { padding: 16px; }
+  .food-region-card img { min-height: 210px; aspect-ratio: 16 / 10; }
   .hero-img { min-height: 230px; }
   .pager { flex-direction: column; }
 }
@@ -638,6 +923,7 @@ main {
 
 def build_site() -> None:
     build_map.build_map()
+    copy_extra_images(FOOD_IMAGE_IDS)
 
     places = load_json(build_map.DATA_DIR / "places.json")
     routes = load_json(build_map.DATA_DIR / "routes.json")
@@ -649,7 +935,7 @@ def build_site() -> None:
     for place in places:
         write(PLACES_DIR / f"{place['id']}.html", build_place_page(place, places, routes, places_by_id, image_paths))
     write(DOCS_DIR / "itinerary.html", build_itinerary_page(places, routes, places_by_id, image_paths))
-    write(DOCS_DIR / "food.html", build_food_page())
+    write(DOCS_DIR / "food.html", build_food_page(image_paths))
     write(DOCS_DIR / "practical.html", build_practical_page())
     write(DOCS_DIR / ".nojekyll", "")
 
