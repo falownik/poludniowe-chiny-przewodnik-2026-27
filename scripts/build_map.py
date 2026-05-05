@@ -170,7 +170,7 @@ def place_popup(place: dict[str, Any], image_path: str | None) -> str:
       <ul>{bullets}</ul>
       <h3>Atrakcje</h3>
       {attractions}
-      <p><a class="popup-link" href="{page_href}" target="_self" onclick="window.location.href=this.getAttribute('href'); return false;">Otwórz stronę miejsca</a></p>
+      <p class="popup-actions"><a class="popup-link" href="{page_href}" target="_self" onclick="window.location.href=this.getAttribute('href'); return false;">Otwórz stronę miejsca</a></p>
     </div>
     """
 
@@ -289,21 +289,60 @@ def build_styles() -> str:
       #trip-panel table { width: 100%; border-collapse: collapse; font-size: 11px; }
       #trip-panel th, #trip-panel td { border-top: 1px solid #e2e8f0; padding: 4px 3px; vertical-align: top; }
       #trip-panel th { text-align: left; color: #475569; }
-      .hover-card { width: 285px; font-size: 12px; line-height: 1.32; color: #172033; }
-      .hover-card img { width: 100%; max-height: 150px; object-fit: cover; border-radius: 6px; margin-bottom: 6px; }
+      .leaflet-tooltip {
+        max-width: min(320px, calc(100vw - 32px)) !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+      }
+      .hover-card {
+        width: min(285px, calc(100vw - 56px));
+        max-height: min(260px, calc(100vh - 110px));
+        overflow: auto;
+        font-size: 12px;
+        line-height: 1.32;
+        color: #172033;
+        overflow-wrap: anywhere;
+      }
+      .hover-card img { width: 100%; max-height: 92px; object-fit: cover; border-radius: 6px; margin-bottom: 6px; }
       .hover-card h3 { margin: 2px 0 5px; font-size: 15px; }
       .hover-card p { margin: 4px 0; }
-      .popup-card { width: 330px; font-size: 13px; line-height: 1.38; }
+      .leaflet-popup-content {
+        width: min(340px, calc(100vw - 72px)) !important;
+        max-width: min(340px, calc(100vw - 72px)) !important;
+        margin: 10px 12px;
+      }
+      .leaflet-popup-content-wrapper {
+        max-width: calc(100vw - 32px);
+      }
+      .popup-card {
+        width: 100%;
+        max-height: min(560px, calc(100vh - 130px));
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 4px;
+        font-size: 13px;
+        line-height: 1.38;
+        overflow-wrap: anywhere;
+      }
       .popup-card h2 { margin: 7px 0 6px; font-size: 19px; }
       .popup-card h3 { margin: 9px 0 4px; font-size: 14px; }
-      .popup-img { width: 100%; max-height: 170px; object-fit: cover; border-radius: 6px; }
+      .popup-img { width: 100%; max-height: 130px; object-fit: cover; border-radius: 6px; }
       .tag-row { display: flex; gap: 5px; flex-wrap: wrap; margin: 4px 0 8px; }
       .tag-row span { background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 999px; font-size: 11px; }
       .popup-card ul { margin: 4px 0 6px; padding-left: 18px; }
       .popup-list li { margin-bottom: 5px; }
+      .popup-actions {
+        position: sticky;
+        bottom: 0;
+        margin: 8px -4px 0;
+        padding: 8px 4px 2px;
+        background: linear-gradient(rgba(255,255,255,0.72), #fff 42%);
+      }
       .popup-link {
         display: inline-flex;
+        justify-content: center;
         align-items: center;
+        width: 100%;
         min-height: 30px;
         margin-top: 4px;
         padding: 0 10px;
@@ -468,7 +507,7 @@ def add_place_markers(
             location=[place["lat"], place["lon"]],
             icon=folium.Icon(color=place_color(place["kind"]), icon="info-sign"),
             popup=folium.Popup(place_popup(place, image_path), max_width=380),
-            tooltip=folium.Tooltip(place_tooltip(place, image_path), sticky=True, max_width=320),
+            tooltip=folium.Tooltip(place_tooltip(place, image_path), sticky=False, direction="top", max_width=320),
         )
         marker.add_to(groups.get(place["kind"], groups["base"]))
 
