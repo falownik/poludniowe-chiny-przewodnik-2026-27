@@ -80,6 +80,8 @@ def main() -> None:
         "route-tooltip-card",
         "Alternatywa pociągiem",
         "leaflet-tooltip.route-tooltip",
+        "width: max-content",
+        "overflow-wrap: break-word",
         "leaflet-tooltip.foliumtooltip",
         "table-layout: fixed",
         "width: 320px !important",

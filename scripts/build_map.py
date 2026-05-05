@@ -310,9 +310,12 @@ def build_styles() -> str:
       #trip-panel th, #trip-panel td { border-top: 1px solid #e2e8f0; padding: 4px 3px; vertical-align: top; }
       #trip-panel th { text-align: left; color: #475569; }
       .leaflet-tooltip {
+        width: max-content;
+        min-width: min(180px, calc(100vw - 32px));
         max-width: min(320px, calc(100vw - 32px)) !important;
         white-space: normal !important;
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
+        word-break: normal;
       }
       .leaflet-tooltip.foliumtooltip {
         width: 320px !important;
