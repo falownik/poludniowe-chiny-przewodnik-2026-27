@@ -16,15 +16,29 @@ PLACES_DIR = DOCS / "places"
 FOOD_PAGE = DOCS / "food.html"
 REQUIRED_FOOD_IMAGES = [
     "dim_sum_har_gow.jpg",
+    "siu_mai.jpg",
     "char_siu.jpg",
     "roast_goose.jpg",
     "wonton_noodles.jpg",
+    "cheung_fun.jpg",
+    "lo_mai_gai.jpg",
+    "turnip_cake.jpg",
+    "char_siu_bao.jpg",
+    "claypot_rice.jpg",
+    "beef_chow_fun.jpg",
     "guilin_rice_noodles.jpg",
+    "yangshuo_beer_fish.jpg",
+    "chaozhou_braised_goose.jpg",
+    "chaoshan_beef_hotpot.jpg",
+    "xiamen_shacha_noodles.jpg",
     "hainan_chicken_rice.jpg",
+    "wenchang_chicken.jpg",
     "hongkong_egg_waffle.jpg",
     "milk_tea.jpg",
     "pineapple_bun.jpg",
     "macau_egg_tart.jpg",
+    "macau_pork_chop_bun.jpg",
+    "macanese_minchi.jpg",
     "dahongpao_tea.jpg",
 ]
 
@@ -114,10 +128,16 @@ def main() -> None:
     food_html = FOOD_PAGE.read_text(encoding="utf-8")
     require("food-region-card" in food_html, "food page missing regional food cards")
     require("dish-grid" in food_html, "food page missing dish gallery")
-    require("Potrawy" in food_html, "food page missing dish section")
+    require("potraw" in food_html, "food page missing dish section")
+    require(food_html.count('class="dish-card"') >= 50, "food page should list at least 50 dishes")
     for image_name in REQUIRED_FOOD_IMAGES:
         require((DOCS / "assets" / "images" / image_name).exists(), f"missing food image file: {image_name}")
         require(image_name in food_html, f"food page does not reference image: {image_name}")
+    attributions_by_id = {item["id"]: item for item in attributions}
+    require("Har gow" in attributions_by_id["dim_sum_har_gow"]["commons_title"], "har gow image source looks incorrect")
+    require("Roast_Pork" in attributions_by_id["char_siu"]["source"], "char siu image source looks incorrect")
+    require("Guilin_mifan" in attributions_by_id["guilin_rice_noodles"]["source"], "Guilin noodles image source looks incorrect")
+    require("Seafood_Shacha_Noodle" in attributions_by_id["xiamen_shacha_noodles"]["source"], "Xiamen shacha noodles image source looks incorrect")
 
     print("OK: map artifact covers places, lodging prices, attractions, route costs, images, and summaries.")
     print(f"Places: {len(places)}")

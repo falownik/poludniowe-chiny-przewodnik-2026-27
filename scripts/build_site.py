@@ -108,13 +108,22 @@ PRACTICAL_NOTES: dict[str, list[str]] = {
 
 FOOD_DISHES: list[dict[str, str]] = [
     {
-        "region": "Guangzhou / Guangdong",
+        "region": "Guangzhou / dim sum",
         "name": "Har gow",
         "chinese": "虾饺",
         "pinyin": "xiā jiǎo",
         "image_id": "dim_sum_har_gow",
-        "where": "Yum cha w Guangzhou, Hongkongu i Makao.",
-        "order": "Zamawiaj gorące, najlepiej jako pierwszą porcję dim sum. Dobra wersja ma cienkie, półprzezroczyste ciasto i sprężystą krewetkę.",
+        "where": "Yum cha w Guangzhou, Shunde, Hongkongu i Makao.",
+        "order": "Klasyczna krewetkowa pierożka na parze. Dobra wersja ma cienkie, półprzezroczyste ciasto i sprężystą krewetkę, bez ciężkiego zapachu mąki.",
+    },
+    {
+        "region": "Guangzhou / dim sum",
+        "name": "Siu mai",
+        "chinese": "烧卖",
+        "pinyin": "shāomài",
+        "image_id": "siu_mai",
+        "where": "Poranny yum cha, zwykle w koszyczku po 3-4 sztuki.",
+        "order": "Wieprzowo-krewetkowe dim sum z otwartą górą. Zamów razem z har gow, żeby porównać dwa podstawowe style kantońskich pierożków.",
     },
     {
         "region": "Guangdong",
@@ -123,7 +132,7 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "chāshāo",
         "image_id": "char_siu",
         "where": "Siu mei shops, lokale z pieczonym mięsem, proste zestawy z ryżem.",
-        "order": "Szukaj mięsa z przypieczonym brzegiem i soczystym środkiem. Najlepsze jest lekko słodkie, ale nie powinno smakować jak cukierkowa glazura.",
+        "order": "Kantońska pieczona wieprzowina w słodko-słonej glazurze. Szukaj przypieczonego brzegu, soczystego środka i lokalu, który kroi mięso na zamówienie.",
     },
     {
         "region": "Guangdong / Hongkong",
@@ -132,7 +141,7 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "shāo'é",
         "image_id": "roast_goose",
         "where": "Hongkong, Guangzhou i lepsze lokale kantońskie.",
-        "order": "To danie na wspólny stół albo większy lunch. Skóra ma być ciemna, lśniąca i chrupiąca, a mięso tłustsze niż kaczka.",
+        "order": "Danie na wspólny stół albo większy lunch. Skóra ma być ciemna, lśniąca i chrupiąca, a mięso tłustsze niż kaczka.",
     },
     {
         "region": "Guangzhou / Hongkong",
@@ -141,7 +150,133 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "yúntūn miàn",
         "image_id": "wonton_noodles",
         "where": "Małe lokale śniadaniowe i lunchowe w Guangdong i HK.",
-        "order": "Dobra miska ma cienki, sprężysty makaron, czysty bulion i wontony z wyraźną krewetką. To bezpieczny wybór pierwszego dnia.",
+        "order": "Cienki, sprężysty makaron, klarowny bulion i wontony z krewetką. To jeden z najbezpieczniejszych pierwszych posiłków po przylocie.",
+    },
+    {
+        "region": "Guangdong / dim sum",
+        "name": "Cheung fun",
+        "chinese": "肠粉",
+        "pinyin": "chángfěn",
+        "image_id": "cheung_fun",
+        "where": "Dim sum, śniadaniownie i uliczne lokale w Guangdong.",
+        "order": "Jedwabiste ryżowe rolki z sosem sojowym, czasem z krewetką, wołowiną albo char siu. Zwróć uwagę na teksturę: ma być śliska, ale nie gumowa.",
+    },
+    {
+        "region": "Guangdong / dim sum",
+        "name": "Lo mai gai",
+        "chinese": "糯米鸡",
+        "pinyin": "nuòmǐ jī",
+        "image_id": "lo_mai_gai",
+        "where": "Yum cha i piekarnie dim sum, często rano.",
+        "order": "Kleisty ryż z kurczakiem i dodatkami, zawinięty w liść lotosu. Bardzo sycące, więc lepiej zamówić jedną porcję do podziału.",
+    },
+    {
+        "region": "Guangdong / dim sum",
+        "name": "Turnip cake",
+        "chinese": "萝卜糕",
+        "pinyin": "luóbo gāo",
+        "image_id": "turnip_cake",
+        "where": "Dim sum, szczególnie zimą i w okolicach Chińskiego Nowego Roku.",
+        "order": "Smażone plastry ciasta z białej rzodkwi i ryżowej mąki. Dobra wersja ma chrupiącą powierzchnię i miękki środek z wyczuwalnymi suszonymi dodatkami.",
+    },
+    {
+        "region": "Guangdong / piekarnie",
+        "name": "Char siu bao",
+        "chinese": "叉烧包",
+        "pinyin": "chāshāo bāo",
+        "image_id": "char_siu_bao",
+        "where": "Dim sum na parze albo piekarnie z wersją pieczoną.",
+        "order": "Bułka z nadzieniem z char siu. Wersja parowana jest miękka i biała, pieczona bardziej słodka i deserowa.",
+    },
+    {
+        "region": "Guangdong",
+        "name": "Claypot rice",
+        "chinese": "煲仔饭",
+        "pinyin": "bāozǎi fàn",
+        "image_id": "claypot_rice",
+        "where": "Wieczorne lokale w Guangzhou, Hongkongu i Shenzhen.",
+        "order": "Ryż zapiekany w glinianym garnku z kiełbasą, kurczakiem, żeberkami albo boczkiem. Najważniejsza jest chrupiąca warstwa ryżu przy dnie.",
+    },
+    {
+        "region": "Guangdong",
+        "name": "Beef chow fun",
+        "chinese": "干炒牛河",
+        "pinyin": "gān chǎo niú hé",
+        "image_id": "beef_chow_fun",
+        "where": "Lokale kantońskie, food courty, proste restauracje wokowe.",
+        "order": "Smażone szerokie wstęgi ryżowe z wołowiną. To test pracy woka: danie ma być lekko dymne, nie zalane olejem.",
+    },
+    {
+        "region": "Guangdong",
+        "name": "White cut chicken",
+        "chinese": "白切鸡",
+        "pinyin": "báiqiē jī",
+        "image_id": "white_cut_chicken",
+        "where": "Restauracje kantońskie i lokale z drobiem.",
+        "order": "Delikatnie gotowany kurczak podawany chłodno lub letnio z sosem imbirowo-szczypiorkowym. Smak jest subtelny, więc jakość mięsa robi wszystko.",
+    },
+    {
+        "region": "Guangdong",
+        "name": "Ryba na parze po kantońsku",
+        "chinese": "清蒸鱼",
+        "pinyin": "qīngzhēng yú",
+        "image_id": "steamed_fish",
+        "where": "Kolacje kantońskie, zwłaszcza gdy jesteście grupą.",
+        "order": "Ryba gotowana na parze z imbirem, szczypiorem i sosem sojowym. Ustal cenę za wagę przed zamówieniem, szczególnie przy żywych rybach.",
+    },
+    {
+        "region": "Shunde / Foshan",
+        "name": "Double-skin milk",
+        "chinese": "双皮奶",
+        "pinyin": "shuāngpí nǎi",
+        "image_id": "double_skin_milk",
+        "where": "Shunde, Foshan, klasyczne lokale deserowe.",
+        "order": "Mleczny deser o gładkiej strukturze i delikatnej skórce. Jedz ciepły zimą, zimny latem; wersje z mango są łatwiejsze dla początkujących.",
+    },
+    {
+        "region": "Guangdong / desery",
+        "name": "Ginger milk curd",
+        "chinese": "姜撞奶",
+        "pinyin": "jiāng zhuàng nǎi",
+        "image_id": "ginger_milk_curd",
+        "where": "Shunde, Guangzhou, Zhongshan i lokale deserowe Lingnan.",
+        "order": "Mleko ścinane świeżym sokiem z imbiru. Powinno być lekkie, ostro-imbirowe i ledwo zwarte, nie jak twardy pudding.",
+    },
+    {
+        "region": "Shunde / Foshan",
+        "name": "Chrupiąca skóra ryby",
+        "chinese": "鱼皮",
+        "pinyin": "yúpí",
+        "image_id": "",
+        "where": "Shunde, szczególnie w lokalach specjalizujących się w rybach.",
+        "order": "Skóra ryby podawana na zimno, często z sosem, kolendrą i sezamem. To danie tekstury: sprężyste, świeże, lekko chrupiące.",
+    },
+    {
+        "region": "Shunde / Foshan",
+        "name": "Smażone mleko",
+        "chinese": "炸牛奶",
+        "pinyin": "zhá niúnǎi",
+        "image_id": "",
+        "where": "Shunde, restauracje rodzinne i lokale deserowe.",
+        "order": "Krem mleczny w chrupiącej panierce. Brzmi jak ciekawostka, ale w Shunde jest jednym z najłatwiejszych deserów do polubienia.",
+    },
+    {
+        "region": "Guangzhou",
+        "name": "Boat congee",
+        "chinese": "艇仔粥",
+        "pinyin": "tǐngzǎi zhōu",
+        "image_id": "",
+        "where": "Guangzhou, okolice Liwan i tradycyjne lokale z congee.",
+        "order": "Ryżowa zupa z mieszanką dodatków: rybą, orzeszkami, paskami ciasta, czasem mięsem. Dobra na śniadanie albo lekki wieczór.",
+    },
+    {
+        "region": "Guangdong",
+        "name": "Siu yuk",
+        "chinese": "烧肉",
+        "pinyin": "shāoròu",
+        "image_id": "",
+        "where": "Stoiska siu mei obok char siu i pieczonej gęsi.",
+        "order": "Chrupiący boczek po kantońsku. Zamawiaj małą porcję z ryżem albo jako dodatek do wspólnego stołu.",
     },
     {
         "region": "Guilin / Guangxi",
@@ -150,7 +285,214 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "Guìlín mǐfěn",
         "image_id": "guilin_rice_noodles",
         "where": "Guilin rano, blisko dworca, targu albo osiedlowych ulic.",
-        "order": "Nie szukaj najładniejszej sali. Szukaj szybkiej rotacji, misek na ladzie i lokalnych klientów jedzących przed pracą.",
+        "order": "Podstawa Guangxi. Najpierw mieszasz makaron z sosem i dodatkami, dopiero później dolewasz bulion. Szukaj szybkiej rotacji, nie najładniejszej sali.",
+    },
+    {
+        "region": "Yangshuo / Guangxi",
+        "name": "Beer fish",
+        "chinese": "啤酒鱼",
+        "pinyin": "píjiǔ yú",
+        "image_id": "yangshuo_beer_fish",
+        "where": "Yangshuo i okolice rzeki Li.",
+        "order": "Ryba duszona z piwem, pomidorami i przyprawami. Ustal gatunek ryby i cenę za wagę, bo to danie bywa turystycznie przepłacane.",
+    },
+    {
+        "region": "Longji / Guangxi",
+        "name": "Bamboo rice",
+        "chinese": "竹筒饭",
+        "pinyin": "zhútǒng fàn",
+        "image_id": "",
+        "where": "Longji i wioski mniejszości Zhuang/Yao.",
+        "order": "Ryż gotowany w bambusie, często z fasolą, kukurydzą albo mięsem. Najlepszy jako prosty posiłek po zejściu z tarasów.",
+    },
+    {
+        "region": "Guangxi",
+        "name": "Lipu taro with pork",
+        "chinese": "荔浦芋扣肉",
+        "pinyin": "Lìpǔ yù kòuròu",
+        "image_id": "",
+        "where": "Guilin, Yangshuo i restauracje regionalne Guangxi.",
+        "order": "Warstwy taro z Lipu i duszonej wieprzowiny. Danie cięższe, dobre na wspólną kolację, szczególnie w chłodniejszy wieczór.",
+    },
+    {
+        "region": "Guangxi",
+        "name": "Oil tea",
+        "chinese": "油茶",
+        "pinyin": "yóuchá",
+        "image_id": "",
+        "where": "Północne Guangxi, Longji, okolice mniejszości Dong/Yao.",
+        "order": "Słono-gorzki napój/zupa z herbaty, oleju, orzeszków i chrupkich dodatków. Nie każdemu smakuje, ale świetnie pokazuje lokalny kontekst.",
+    },
+    {
+        "region": "Guangxi",
+        "name": "Luosifen",
+        "chinese": "螺蛳粉",
+        "pinyin": "luósīfěn",
+        "image_id": "",
+        "where": "Liuzhou, Nanning, ale dostępne też w większych miastach Guangxi.",
+        "order": "Makaron ryżowy w intensywnym bulionie ze ślimaków rzecznych i kiszonym bambusem. Zapach jest mocny, smak kwaśno-pikantny.",
+    },
+    {
+        "region": "Guangxi",
+        "name": "Rice tofu",
+        "chinese": "米豆腐",
+        "pinyin": "mǐ dòufu",
+        "image_id": "",
+        "where": "Targi, małe lokale, okolice Guilin i miasteczek Guangxi.",
+        "order": "Delikatne kostki z masy ryżowej, zwykle z chili, octem i ziołami. Dobre jako lekki lunch albo przekąska.",
+    },
+    {
+        "region": "Longji / Guangxi",
+        "name": "Kurczak z Longji",
+        "chinese": "龙脊土鸡",
+        "pinyin": "Lóngjǐ tǔjī",
+        "image_id": "",
+        "where": "Guesthouse'y w Longji i okoliczne wioski.",
+        "order": "Najczęściej prosty kurczak z zupą, warzywami i ryżem. Ważniejsze od techniki jest to, czy jesz go po całym dniu chodzenia po tarasach.",
+    },
+    {
+        "region": "Chaoshan",
+        "name": "Gęś duszona w marynacie lushui",
+        "chinese": "卤水鹅",
+        "pinyin": "lǔshuǐ é",
+        "image_id": "chaozhou_braised_goose",
+        "where": "Chaozhou i Shantou, lokale specjalizujące się w gęsi.",
+        "order": "Gęś gotowana w aromatycznej marynacie sojowej. Zamów różne części do spróbowania; sos i tłuszcz są tu tak samo ważne jak mięso.",
+    },
+    {
+        "region": "Chaoshan",
+        "name": "Chaozhou congee",
+        "chinese": "潮州粥",
+        "pinyin": "Cháozhōu zhōu",
+        "image_id": "chaozhou_congee",
+        "where": "Chaozhou, Shantou, wieczorne lokale z owocami morza i congee.",
+        "order": "Luźniejsza, ziarnista wersja congee. Dobrze działa z ostrygami, rybą, mielonym mięsem albo prostymi piklami.",
+    },
+    {
+        "region": "Chaoshan",
+        "name": "Chaoshan beef hot pot",
+        "chinese": "潮汕牛肉火锅",
+        "pinyin": "Cháoshàn niúròu huǒguō",
+        "image_id": "chaoshan_beef_hotpot",
+        "where": "Shantou, Chaozhou, Shenzhen i Guangzhou w lokalach Chaoshan.",
+        "order": "Nie jest ostre jak Sichuan. Chodzi o świeżą wołowinę krojoną według części i krótkie gotowanie w lekkim bulionie.",
+    },
+    {
+        "region": "Chaoshan",
+        "name": "Chaoshan beef balls",
+        "chinese": "潮汕牛肉丸",
+        "pinyin": "Cháoshàn niúròu wán",
+        "image_id": "",
+        "where": "Shantou, Chaozhou, lokale hotpotowe i makaronowe.",
+        "order": "Sprężyste kulki wołowe, ręcznie ubijane. Szukaj tekstury, która lekko odbija pod zębami, nie miękkiej przemysłowej papki.",
+    },
+    {
+        "region": "Chaoshan / Fujian",
+        "name": "Oyster omelette",
+        "chinese": "蚝烙",
+        "pinyin": "háo lào",
+        "image_id": "",
+        "where": "Chaoshan, Xiamen, nocne lokale i restauracje z owocami morza.",
+        "order": "Ostrygi w jajku i skrobi, z chrupiącymi brzegami. W Chaoshan bywa bardziej sprężyste, w Fujianie często bliżej ulicznego comfort foodu.",
+    },
+    {
+        "region": "Chaoshan",
+        "name": "Fish rice",
+        "chinese": "鱼饭",
+        "pinyin": "yúfàn",
+        "image_id": "",
+        "where": "Chaozhou i Shantou, stoiska z rybami i restauracje Chaoshan.",
+        "order": "Nazwa myli: to zwykle ryba gotowana i studzona, jedzona z sosem. Danie pokazuje obsesję Chaoshan na punkcie świeżości ryby.",
+    },
+    {
+        "region": "Chaoshan",
+        "name": "Gongfu tea",
+        "chinese": "工夫茶",
+        "pinyin": "gōngfu chá",
+        "image_id": "",
+        "where": "Chaozhou, Shantou, domy herbaty, sklepy i rodzinne lokale.",
+        "order": "Bardzo mocna herbata parzona w małych naczyniach. Nie traktuj jej jak dekoracji: to jeden z fundamentów kultury Chaoshan.",
+    },
+    {
+        "region": "Chaoshan",
+        "name": "Chaozhou kueh",
+        "chinese": "粿",
+        "pinyin": "guǒ",
+        "image_id": "",
+        "where": "Targi i małe sklepy w Chaozhou/Shantou.",
+        "order": "Rodzina ryżowych przekąsek z różnymi nadzieniami, często słonych. Dobre do próbowania małymi porcjami zamiast pełnego posiłku.",
+    },
+    {
+        "region": "Xiamen / Fujian",
+        "name": "Shacha noodles",
+        "chinese": "沙茶面",
+        "pinyin": "shāchá miàn",
+        "image_id": "xiamen_shacha_noodles",
+        "where": "Xiamen, proste lokale w Siming i przy Zhongshan Road.",
+        "order": "Makaron w bulionie z pastą shacha: orzechowo-morski, lekko pikantny, często z krewetkami, tofu, podrobami albo wieprzowiną.",
+    },
+    {
+        "region": "Xiamen / Fujian",
+        "name": "Peanut soup",
+        "chinese": "花生汤",
+        "pinyin": "huāshēng tāng",
+        "image_id": "",
+        "where": "Xiamen, klasyczne lokale śniadaniowe i deserowe.",
+        "order": "Słodka, miękka zupa z orzeszków ziemnych. Dobrze działa jako spokojne śniadanie z pieczywem albo po ostrzejszym posiłku.",
+    },
+    {
+        "region": "Fujian",
+        "name": "Fuzhou fish balls",
+        "chinese": "福州鱼丸",
+        "pinyin": "Fúzhōu yúwán",
+        "image_id": "fujian_fish_balls",
+        "where": "Fuzhou, Xiamen i lokale z kuchnią Fujian.",
+        "order": "Kulki rybne, często z mięsnym nadzieniem w środku. Lepsze lokale mają wyraźnie sprężystą, rybną strukturę.",
+    },
+    {
+        "region": "Fujian",
+        "name": "Lychee pork",
+        "chinese": "荔枝肉",
+        "pinyin": "lìzhī ròu",
+        "image_id": "fujian_lychee_pork",
+        "where": "Fuzhou i restauracje kuchni Fujian.",
+        "order": "Słodko-kwaśna wieprzowina nacinana tak, by przypominała owoc liczi. Dobre danie do wspólnego stołu, szczególnie dla osób niejedzących ostro.",
+    },
+    {
+        "region": "Fujian",
+        "name": "Buddha jumps over the wall",
+        "chinese": "佛跳墙",
+        "pinyin": "fó tiào qiáng",
+        "image_id": "buddha_jumps_wall",
+        "where": "Fuzhou, droższe restauracje Fujian; rzadziej sensowne przy budżetowej trasie.",
+        "order": "Bogata zupa-bankiet z wieloma luksusowymi składnikami. Warto znać, ale nie trzeba jej koniecznie zamawiać przy limicie budżetu.",
+    },
+    {
+        "region": "Hakka / Fujian",
+        "name": "Hakka stuffed tofu",
+        "chinese": "酿豆腐",
+        "pinyin": "niàng dòufu",
+        "image_id": "hakka_stuffed_tofu",
+        "where": "Tulou, Fujian, Guangdong Hakka, restauracje rodzinne.",
+        "order": "Tofu nadziewane mielonym mięsem lub pastą rybną, duszone w sosie. Jedno z najlepszych dań przy noclegu w okolicach tulou.",
+    },
+    {
+        "region": "Hakka / Fujian",
+        "name": "Lei cha rice",
+        "chinese": "擂茶饭",
+        "pinyin": "léichá fàn",
+        "image_id": "hakka_lei_cha",
+        "where": "Kuchnia Hakka w Fujian, Guangdong i diasporze.",
+        "order": "Ryż z warzywami, orzeszkami i ziołową herbacianą zawiesiną. Smak jest zielony, ziołowy i nietypowy, ale bardzo charakterystyczny.",
+    },
+    {
+        "region": "Fujian / herbata",
+        "name": "Da Hong Pao",
+        "chinese": "大红袍",
+        "pinyin": "dàhóngpáo",
+        "image_id": "dahongpao_tea",
+        "where": "Xiamen, sklepy herbaciane, Wuyi Shan jako osobny moduł.",
+        "order": "Oolong skalny z Wuyi. Nie kupuj drogiej herbaty bez degustacji; pytaj o cenę za gram i kilka parzeń.",
     },
     {
         "region": "Hainan",
@@ -159,7 +501,70 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "Hǎinán jī fàn",
         "image_id": "hainan_chicken_rice",
         "where": "Haikou, Sanya, Wenchang chicken restaurants.",
-        "order": "W lokalnej wersji ważniejszy jest kurczak niż idealnie wygładzona singapurska estetyka. Bierz sos imbirowy, chili i ryż z bulionu.",
+        "order": "Ryż gotowany na bulionie z kurczaka, delikatne mięso i sosy: imbir, chili, czosnek. Na Hainanie mniej chodzi o singapurską estetykę, bardziej o jakość kurczaka.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Wenchang chicken",
+        "chinese": "文昌鸡",
+        "pinyin": "Wénchāng jī",
+        "image_id": "wenchang_chicken",
+        "where": "Wenchang, Haikou, Sanya i restauracje z kuchnią Hainan.",
+        "order": "Najważniejszy kurczak wyspy. Zamawiaj z sosami i ryżem; mięso powinno być jędrne, a skóra lekko żelatynowa.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Coconut chicken hot pot",
+        "chinese": "椰子鸡火锅",
+        "pinyin": "yēzi jī huǒguō",
+        "image_id": "",
+        "where": "Sanya, Haikou, Shenzhen i lokale specjalizujące się w Hainanie.",
+        "order": "Kurczak gotowany w wodzie kokosowej. Bulion jest słodkawy i lekki; dobre danie grupowe po plaży albo długim przejeździe.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Qingbuliang",
+        "chinese": "清补凉",
+        "pinyin": "qīngbǔliáng",
+        "image_id": "",
+        "where": "Hainan, stoiska deserowe, wieczorne ulice w Haikou i Sanya.",
+        "order": "Chłodny deser z mlekiem kokosowym, fasolkami, galaretkami, owocami i lodem. Najlepszy po gorącym dniu.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Jiaji duck",
+        "chinese": "嘉积鸭",
+        "pinyin": "Jiājī yā",
+        "image_id": "",
+        "where": "Hainan, restauracje regionalne.",
+        "order": "Jedna z klasycznych potraw wyspy. Mięso jest ciemniejsze i bardziej zwarte niż kurczak; zwykle zamawia się je do wspólnego stołu.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Hele crab",
+        "chinese": "和乐蟹",
+        "pinyin": "Hélè xiè",
+        "image_id": "",
+        "where": "Hainan, szczególnie lokale seafoodowe.",
+        "order": "Krab z Hainanu. Przy seafood zawsze ustal cenę za jin, czyli 500 g, oraz sposób przygotowania przed gotowaniem.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Hainan rice noodles",
+        "chinese": "海南粉",
+        "pinyin": "Hǎinán fěn",
+        "image_id": "",
+        "where": "Haikou i lokalne śniadaniownie.",
+        "order": "Mieszane makarony ryżowe z sosem, orzeszkami, mięsem i kwaśnymi dodatkami. Dobry kontrapunkt do kurczaka z ryżem.",
+    },
+    {
+        "region": "Hainan",
+        "name": "Xinglong coffee",
+        "chinese": "兴隆咖啡",
+        "pinyin": "Xīnglóng kāfēi",
+        "image_id": "",
+        "where": "Hainan, zwłaszcza okolice Wanning/Xinglong i kawiarnie w Haikou.",
+        "order": "Kawa związana z historią powrotów chińskiej diaspory z Azji Południowo-Wschodniej. Spróbuj także jako mocną kawę z mlekiem skondensowanym.",
     },
     {
         "region": "Hongkong",
@@ -177,7 +582,7 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "nǎichá",
         "image_id": "milk_tea",
         "where": "Cha chaan teng, zwłaszcza przy śniadaniu albo szybkim lunchu.",
-        "order": "Zamów gorącą albo na lodzie. To gorzka, mocna herbata z mlekiem, nie deserowy bubble tea.",
+        "order": "Gorzka, mocna herbata z mlekiem, nie deserowy bubble tea. Zamów gorącą albo na lodzie do pineapple bun.",
     },
     {
         "region": "Hongkong",
@@ -186,7 +591,43 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "bōluó bāo",
         "image_id": "pineapple_bun",
         "where": "Piekarnie i cha chaan teng.",
-        "order": "Nazwa nie oznacza ananasa. Chodzi o kruchą, słodką skórkę. Wersja z masłem jest cięższa, ale klasyczna.",
+        "order": "Nazwa nie oznacza ananasa. Chodzi o kruchą, słodką skórkę. Wersja z grubym plastrem masła to klasyk śniadaniowy.",
+    },
+    {
+        "region": "Hongkong",
+        "name": "Cart noodles",
+        "chinese": "车仔面",
+        "pinyin": "chēzǎi miàn",
+        "image_id": "",
+        "where": "Kowloon, Mong Kok, lokalne bary makaronowe.",
+        "order": "Wybierasz makaron, bulion i dodatki: rybne kulki, wołowinę, rzodkiew, tofu, warzywa. Dobre, gdy każdy chce zjeść coś innego.",
+    },
+    {
+        "region": "Hongkong",
+        "name": "Curry fish balls",
+        "chinese": "咖喱鱼蛋",
+        "pinyin": "gālí yúdàn",
+        "image_id": "",
+        "where": "Uliczne stoiska w Kowloonie i na wyspie Hongkong.",
+        "order": "Kulki rybne w sosie curry, jedzone z patyczka. To szybka przekąska, nie pełny posiłek.",
+    },
+    {
+        "region": "Hongkong",
+        "name": "Stinky tofu",
+        "chinese": "臭豆腐",
+        "pinyin": "chòu dòufu",
+        "image_id": "",
+        "where": "Street food w Hongkongu, Makao i południowych miastach Chin.",
+        "order": "Fermentowane tofu o mocnym zapachu i łagodniejszym smaku niż sugeruje nazwa. Najlepiej próbować małą porcję na świeżo smażoną.",
+    },
+    {
+        "region": "Hongkong",
+        "name": "Roast goose rice",
+        "chinese": "烧鹅饭",
+        "pinyin": "shāo'é fàn",
+        "image_id": "",
+        "where": "Kowloon, Central, Wan Chai, lokale siu mei.",
+        "order": "Budżetowy sposób na pieczoną gęś bez zamawiania całego półmiska. Poproś o sos śliwkowy i warzywa, jeśli są dostępne.",
     },
     {
         "region": "Makao",
@@ -198,22 +639,49 @@ FOOD_DISHES: list[dict[str, str]] = [
         "order": "Najlepsza jest ciepła, z listkowym ciastem i lekko skarmelizowaną górą. Nie kupuj jednej na cztery osoby.",
     },
     {
-        "region": "Fujian",
-        "name": "Da Hong Pao",
-        "chinese": "大红袍",
-        "pinyin": "dàhóngpáo",
-        "image_id": "dahongpao_tea",
-        "where": "Xiamen, sklepy herbaciane, Wuyi Shan jako osobny moduł.",
-        "order": "Nie kupuj drogiej herbaty bez degustacji. Pytaj o kilka parzeń i zapisz cenę za gram, nie tylko za opakowanie.",
+        "region": "Makao",
+        "name": "Pork chop bun",
+        "chinese": "猪扒包",
+        "pinyin": "zhūpá bāo",
+        "image_id": "macau_pork_chop_bun",
+        "where": "Taipa, Coloane i klasyczne bary makaoskie.",
+        "order": "Prosta bułka z kotletem wieprzowym. Najlepsza wersja jest gorąca, chrupiąca i bez nadmiaru sosu.",
     },
     {
-        "region": "Fujian / Xiamen",
-        "name": "Satay noodles",
-        "chinese": "沙茶面",
-        "pinyin": "shāchá miàn",
-        "image_id": "xiamen_gulangyu",
-        "where": "Xiamen, proste lokale w Siming i okolicach Zhongshan Road.",
-        "order": "To danie do zjedzenia w Xiamen przed albo po Gulangyu. Sos shacha jest orzechowo-morski, więc osoby z alergiami powinny uważać.",
+        "region": "Makao",
+        "name": "African chicken",
+        "chinese": "非洲鸡",
+        "pinyin": "Fēizhōu jī",
+        "image_id": "macanese_african_chicken",
+        "where": "Restauracje kuchni makaoskiej, zwykle nie przy najtańszych stoiskach.",
+        "order": "Kurczak w sosie z przyprawami, kokosem i wpływami portugalsko-afrykańskimi. Bardziej danie restauracyjne niż przekąska.",
+    },
+    {
+        "region": "Makao",
+        "name": "Minchi",
+        "chinese": "免治",
+        "pinyin": "miǎnzhì",
+        "image_id": "macanese_minchi",
+        "where": "Domowa kuchnia makaoska i restauracje z lokalnym menu.",
+        "order": "Mielone mięso z ziemniakami, sosem sojowym i często jajkiem. Wygląda prosto, ale dobrze pokazuje kuchnię codzienną Makao.",
+    },
+    {
+        "region": "Makao",
+        "name": "Serradura",
+        "chinese": "木糠布甸",
+        "pinyin": "mùkāng bùdiàn",
+        "image_id": "",
+        "where": "Kawiarnie i restauracje makaoskie.",
+        "order": "Deser z kremu i kruszonych ciastek, dosłownie 'trociny'. Dobry lekki finał po cięższym obiedzie.",
+    },
+    {
+        "region": "Makao",
+        "name": "Almond cookies",
+        "chinese": "杏仁饼",
+        "pinyin": "xìngrén bǐng",
+        "image_id": "",
+        "where": "Piekarnie i sklepy z pamiątkami w Makao.",
+        "order": "Kruche ciasteczka migdałowe. Warto kupić małe opakowanie, ale wcześniej spróbować, bo bywają bardzo suche.",
     },
 ]
 
@@ -231,6 +699,8 @@ def load_json(path: Path) -> Any:
 
 def write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    if content:
+        content = "\n".join(line.rstrip() for line in content.splitlines()) + ("\n" if content.endswith("\n") else "")
     path.write_text(content, encoding="utf-8")
 
 
@@ -241,17 +711,43 @@ def image_paths_from_attributions() -> dict[str, str]:
     return {item["id"]: item["file"] for item in load_json(path)}
 
 
+def food_image_sources() -> dict[str, dict[str, str]]:
+    path = build_map.DATA_DIR / "food_image_sources.json"
+    if not path.exists():
+        return {}
+    return {item["id"]: item for item in load_json(path)}
+
+
 def copy_extra_images(image_ids: set[str]) -> None:
     if not image_ids:
         return
 
     manifest = build_map.read_image_manifest()
+    food_sources = food_image_sources()
     build_map.IMAGE_DIR.mkdir(parents=True, exist_ok=True)
     attribution_path = ASSET_DIR / "image_attributions.json"
     attributions = load_json(attribution_path) if attribution_path.exists() else []
     known_ids = {item["id"] for item in attributions}
 
     for image_id in sorted(image_ids):
+        food_source = food_sources.get(image_id)
+        if food_source:
+            target = DOCS_DIR / food_source["file"]
+            if target.exists():
+                attributions = [item for item in attributions if item["id"] != image_id]
+                attributions.append(
+                    {
+                        "id": image_id,
+                        "title": food_source.get("title", ""),
+                        "commons_title": food_source.get("commons_title", ""),
+                        "artist": food_source.get("artist", ""),
+                        "license": food_source.get("license", ""),
+                        "source": food_source.get("source", ""),
+                        "file": food_source["file"],
+                    }
+                )
+                known_ids.add(image_id)
+                continue
         if image_id in known_ids:
             continue
         item = manifest.get(image_id)
@@ -509,6 +1005,8 @@ def build_itinerary_page(
 
 
 def build_food_page(image_paths: dict[str, str]) -> str:
+    dish_count = len(FOOD_DISHES)
+    image_count = sum(1 for dish in FOOD_DISHES if dish.get("image_id"))
     region_cards = [
         {
             "title": "Guangdong: yum cha, pieczone mięsa i proste klasyki",
@@ -518,7 +1016,7 @@ def build_food_page(image_paths: dict[str, str]) -> str:
         },
         {
             "title": "Chaoshan: Chaozhou i Shantou jako moduł foodie",
-            "image_id": "chaozhou_guangji",
+            "image_id": "chaozhou_braised_goose",
             "text": "Chaoshan to osobny świat: gęś w marynacie lushui, wołowy hot pot bez syczuańskiego ognia, congee, oyster omelette i herbata gongfu. Najlepiej dać temu regionowi dwie noce, bo jedzenie jest główną atrakcją, nie dodatkiem.",
             "must": "Lushui goose, Chaoshan beef hot pot, oyster omelette, Chaozhou congee, gongfu tea.",
         },
@@ -591,12 +1089,17 @@ def build_food_page(image_paths: dict[str, str]) -> str:
       <p class="eyebrow">Jedzenie</p>
       <h1>Kulinarny przewodnik po aktualnej trasie</h1>
       <p>Jedzenie jest tu częścią logistyki. Najlepszy plan dnia często zaczyna się od konkretnego śniadania i kończy jednym mocnym regionalnym posiłkiem, zamiast odhaczania przypadkowych restauracji. Ta strona ma działać jak wizualna lista kontrolna: co rozpoznać, co zamówić i gdzie nie przepalić budżetu.</p>
+      <div class="fact-strip">
+        <span>{dish_count} potraw i napojów</span>
+        <span>{image_count} kart ze zdjęciem</span>
+        <span>Guangdong, Guangxi, Chaoshan, Fujian, Hainan, Hongkong i Makao</span>
+      </div>
     </section>
 
     <section class="food-grid">{rows}</section>
 
     <section class="route-section food-section">
-      <h2>Potrawy, które warto umieć rozpoznać</h2>
+      <h2>{dish_count} potraw, które warto umieć rozpoznać</h2>
       <div class="dish-grid">{dish_cards}</div>
     </section>
 
