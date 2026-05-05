@@ -1,0 +1,110 @@
+[
+  {
+    "id": "chaozhou_guangji",
+    "title": "Guangji Bridge, Chaozhou",
+    "commons_title": "File:Chaozhou Guangji Bridge (Guangdong).jpeg",
+    "artist": "See below",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chaozhou_Guangji_Bridge_(Guangdong).jpeg",
+    "file": "assets/images/chaozhou_guangji.jpg"
+  },
+  {
+    "id": "char_siu",
+    "title": "Char siu 叉烧",
+    "commons_title": "File:Cha Siu Bao.jpg",
+    "artist": "paul goyette",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Cha_Siu_Bao.jpg",
+    "file": "assets/images/char_siu.jpg"
+  },
+  {
+    "id": "guangzhou_chen_clan",
+    "title": "Chen Clan Ancestral Hall, Guangzhou",
+    "commons_title": "File:Chen Clan Academy, Guangzhou (5928420619).jpg",
+    "artist": "Eduardo M. C.",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chen_Clan_Academy,_Guangzhou_(5928420619).jpg",
+    "file": "assets/images/guangzhou_chen_clan.jpg"
+  },
+  {
+    "id": "guilin_li_river",
+    "title": "Rzeka Li, Guilin/Yangshuo",
+    "commons_title": "File:1 li jiang guilin yangshuo 2011.jpg",
+    "artist": "chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1_li_jiang_guilin_yangshuo_2011.jpg",
+    "file": "assets/images/guilin_li_river.jpg"
+  },
+  {
+    "id": "hongkong_victoria_harbour",
+    "title": "Victoria Harbour",
+    "commons_title": "File:Duck ling ship hong kong.jpg",
+    "artist": "Arne Müseler",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Duck_ling_ship_hong_kong.jpg",
+    "file": "assets/images/hongkong_victoria_harbour.jpg"
+  },
+  {
+    "id": "longji_terraces",
+    "title": "Longji Rice Terraces",
+    "commons_title": "File:Longji Rice Terraces 001.jpg",
+    "artist": "Rutger van der Maar",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Longji_Rice_Terraces_001.jpg",
+    "file": "assets/images/longji_terraces.jpg"
+  },
+  {
+    "id": "macau_senado",
+    "title": "Senado Square",
+    "commons_title": "File:'Senado Square' during Christmas festivities..jpg",
+    "artist": "Rudolph.A.furtado",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:%27Senado_Square%27_during_Christmas_festivities..jpg",
+    "file": "assets/images/macau_senado.jpg"
+  },
+  {
+    "id": "macau_st_paul",
+    "title": "Ruiny św. Pawła, Makao",
+    "commons_title": "File:Macau - ruins of St. Paul's cathedral (5804466435).jpg",
+    "artist": "Joybot",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Macau_-_ruins_of_St._Paul%27s_cathedral_(5804466435).jpg",
+    "file": "assets/images/macau_st_paul.jpg"
+  },
+  {
+    "id": "sanya_yalong_bay",
+    "title": "Yalong Bay, Sanya",
+    "commons_title": "File:HN SanYa YaLong Bay Holiday Inn Resort.jpg",
+    "artist": "No machine-readable author provided. HNPIX~commonswiki assumed (based on copyright claims).",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:HN_SanYa_YaLong_Bay_Holiday_Inn_Resort.jpg",
+    "file": "assets/images/sanya_yalong_bay.jpg"
+  },
+  {
+    "id": "shenzhen_skyline",
+    "title": "Shenzhen Futian",
+    "commons_title": "File:Civic Centre and Futian CBD, Shenzhen - 20251227, views from Lianhuashan Park.jpg",
+    "artist": "Pathfinbird",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Civic_Centre_and_Futian_CBD,_Shenzhen_-_20251227,_views_from_Lianhuashan_Park.jpg",
+    "file": "assets/images/shenzhen_skyline.jpg"
+  },
+  {
+    "id": "xiamen_gulangyu",
+    "title": "Gulangyu, Xiamen",
+    "commons_title": "File:Gulangyu Island,Xiamen City.JPG",
+    "artist": "螺钉",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gulangyu_Island,Xiamen_City.JPG",
+    "file": "assets/images/xiamen_gulangyu.jpg"
+  },
+  {
+    "id": "yangshuo_yulong",
+    "title": "Rzeka Yulong, Yangshuo",
+    "commons_title": "File:1 aerial yangshuo panorama 2017.jpg",
+    "artist": "Chensiyuan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:1_aerial_yangshuo_panorama_2017.jpg",
+    "file": "assets/images/yangshuo_yulong.jpg"
+  }
+]

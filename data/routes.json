@@ -1,0 +1,162 @@
+[
+  {
+    "id": "can_to_city",
+    "from": "guangzhou",
+    "to": "guangzhou",
+    "mode": "airport transfer",
+    "time": "45-90 min",
+    "cost_pln": "5-120 PLN",
+    "cost_mid_pln": 45,
+    "note": "Metro tanio, taxi/Didi wygodniej po przylocie 22:55.",
+    "geometry": [
+      [
+        23.3924,
+        113.2988
+      ],
+      [
+        23.1291,
+        113.2644
+      ]
+    ]
+  },
+  {
+    "id": "guangzhou_shunde",
+    "from": "guangzhou",
+    "to": "shunde_foshan",
+    "mode": "metro / rail / taxi",
+    "time": "1-2 h drzwi do drzwi",
+    "cost_pln": "15-60 PLN",
+    "cost_mid_pln": 35,
+    "note": "Najtańszy kulinarny day trip z Guangzhou."
+  },
+  {
+    "id": "guangzhou_hainan",
+    "from": "guangzhou",
+    "to": "hainan",
+    "mode": "flight",
+    "time": "lot 1,5-2 h; realnie 5-6 h hotel-hotel",
+    "cost_pln": "350-750 PLN",
+    "cost_mid_pln": 520,
+    "note": "Największy koszt transportowy. Przy drogich lotach Hainan ciąć jako pierwszy."
+  },
+  {
+    "id": "hainan_zhuhai",
+    "from": "hainan",
+    "to": "zhuhai",
+    "mode": "flight + rail/bus",
+    "time": "5-8 h zależnie od lotu",
+    "cost_pln": "350-800 PLN",
+    "cost_mid_pln": 560,
+    "note": "Dzień transferowy. Najwygodniej lecieć do Guangzhou/Shenzhen/Zhuhai, zależnie od ceny."
+  },
+  {
+    "id": "guangzhou_zhuhai",
+    "from": "guangzhou",
+    "to": "zhuhai",
+    "mode": "intercity rail",
+    "time": "1-1,5 h pociąg; 3-4 h z granicą do Makao",
+    "cost_pln": "35-60 PLN",
+    "cost_mid_pln": 45,
+    "note": "Budżetowa brama do Makao."
+  },
+  {
+    "id": "zhuhai_macau",
+    "from": "zhuhai",
+    "to": "macau",
+    "mode": "border crossing",
+    "time": "30-90 min granica + lokalny transport",
+    "cost_pln": "0-25 PLN",
+    "cost_mid_pln": 10,
+    "note": "Spać w Zhuhai, zwiedzać Makao w dzień."
+  },
+  {
+    "id": "guangzhou_guilin",
+    "from": "guangzhou",
+    "to": "guilin",
+    "mode": "HSR",
+    "time": "2,5-3 h pociąg; 4-5 h hotel-hotel",
+    "cost_pln": "80-140 PLN",
+    "cost_mid_pln": 110,
+    "note": "Najlepszy dojazd do Guangxi."
+  },
+  {
+    "id": "guilin_longji",
+    "from": "guilin",
+    "to": "longji",
+    "mode": "bus / private car",
+    "time": "2,5-4 h",
+    "cost_pln": "50-160 PLN",
+    "cost_mid_pln": 90,
+    "note": "Warto jechać z małym bagażem."
+  },
+  {
+    "id": "guilin_yangshuo",
+    "from": "guilin",
+    "to": "yangshuo",
+    "mode": "HSR / bus / car",
+    "time": "1-2 h",
+    "cost_pln": "20-80 PLN",
+    "cost_mid_pln": 45,
+    "note": "Yangshuo lepsze na noclegi niż Guilin, jeśli chcecie krajobraz."
+  },
+  {
+    "id": "yangshuo_shenzhen",
+    "from": "yangshuo",
+    "to": "shenzhen",
+    "mode": "HSR via Guilin/Guangzhou",
+    "time": "5-7 h drzwi do drzwi",
+    "cost_pln": "150-260 PLN",
+    "cost_mid_pln": 200,
+    "note": "Długi, ale sensowny transfer do bazy na Hongkong."
+  },
+  {
+    "id": "shenzhen_hongkong",
+    "from": "shenzhen",
+    "to": "hongkong",
+    "mode": "metro border / HSR",
+    "time": "2-3,5 h day trip logistics",
+    "cost_pln": "30-120 PLN",
+    "cost_mid_pln": 65,
+    "note": "Day trip działa; Sylwester bez noclegu jest trudny."
+  },
+  {
+    "id": "hongkong_macau",
+    "from": "hongkong",
+    "to": "macau",
+    "mode": "ferry / HZMB bus",
+    "time": "2-3 h realnie",
+    "cost_pln": "70-130 PLN",
+    "cost_mid_pln": 95,
+    "note": "Przy budżecie lepiej nie łączyć noclegów HK i Makao."
+  },
+  {
+    "id": "shenzhen_chaozhou",
+    "from": "shenzhen",
+    "to": "chaozhou",
+    "mode": "HSR",
+    "time": "2-3 h pociąg; 3,5-4,5 h hotel-hotel",
+    "cost_pln": "90-160 PLN",
+    "cost_mid_pln": 120,
+    "note": "Dobry tani moduł kulinarny po Hongkongu."
+  },
+  {
+    "id": "chaozhou_guangzhou",
+    "from": "chaozhou",
+    "to": "guangzhou",
+    "mode": "HSR",
+    "time": "2-3 h pociąg; 3-4 h hotel-hotel",
+    "cost_pln": "80-160 PLN",
+    "cost_mid_pln": 120,
+    "note": "Powrót do Guangzhou z buforem przed wylotem."
+  },
+  {
+    "id": "guangzhou_xiamen",
+    "from": "guangzhou",
+    "to": "xiamen",
+    "mode": "HSR / flight",
+    "time": "4-6 h",
+    "cost_pln": "180-450 PLN",
+    "cost_mid_pln": 280,
+    "note": "Opcja, jeśli rezygnujecie z Hainanu."
+  }
+]

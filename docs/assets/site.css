@@ -1,0 +1,205 @@
+:root {
+  --ink: #172033;
+  --muted: #5b6475;
+  --line: #d9e1ea;
+  --paper: #ffffff;
+  --soft: #f6f8fb;
+  --teal: #0f766e;
+  --blue: #2563eb;
+  --amber: #b7791f;
+  --red: #b42318;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--soft);
+}
+a { color: var(--teal); }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 28px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.96);
+}
+.brand {
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+}
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+nav a, .primary-link, .pager a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: #fff;
+  text-decoration: none;
+  font-weight: 650;
+}
+nav a.active, .primary-link {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 26px 0 42px;
+}
+.page-intro, .place-hero {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 18px;
+}
+.page-intro h1, .hero-copy h1 {
+  margin: 0 0 10px;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+.page-intro p, .hero-copy p {
+  max-width: 820px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.place-hero {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.fact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.fact-strip span, .meta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f8fafc;
+  color: var(--muted);
+  font-size: 13px;
+}
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 18px;
+}
+.main-copy, .side-panel, .route-section, .text-block {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+}
+.main-copy h2, .side-panel h2, .route-section h2, .text-block h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+.main-copy p, .main-copy li, .side-panel p, .text-block p, .route-card p {
+  color: var(--muted);
+  line-height: 1.58;
+}
+.detail-list, .route-grid, .place-grid, .text-stack {
+  display: grid;
+  gap: 12px;
+}
+.detail-row, .route-card, .place-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.detail-row, .route-card { padding: 14px; }
+.detail-row h3, .route-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.place-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.place-grid.compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+.place-card a {
+  display: grid;
+  color: inherit;
+  text-decoration: none;
+}
+.place-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+.place-card div { padding: 14px; }
+.place-card h2 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+.place-card p {
+  color: var(--muted);
+  line-height: 1.45;
+}
+.route-section { margin-top: 18px; }
+.route-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 28px;
+  color: var(--muted);
+  background: #fff;
+}
+.site-footer p {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .site-header { align-items: flex-start; flex-direction: column; padding: 12px 16px; }
+  main { width: min(100% - 20px, 1120px); padding-top: 14px; }
+  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-img { min-height: 230px; }
+  .pager { flex-direction: column; }
+}
