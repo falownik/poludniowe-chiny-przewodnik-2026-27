@@ -74,7 +74,8 @@ def main() -> None:
         "Atrakcje",
         "Otwórz stronę miejsca",
         "popup-actions",
-        "route-label-icon",
+        "route-tooltip-card",
+        "leaflet-tooltip.route-tooltip",
         "leaflet-tooltip.foliumtooltip",
         "table-layout: fixed",
         "width: 320px !important",
@@ -87,6 +88,9 @@ def main() -> None:
     ]
     for phrase in required_phrases:
         require(phrase in html, f"HTML missing phrase: {phrase}")
+
+    require("route-label" not in html, "route labels should not be rendered permanently")
+    require("<th>Koszt</th>" not in html, "route cost column should not be visible in the sidebar")
 
     for place in places:
         require(place["name"] in html, f"HTML missing place: {place['name']}")

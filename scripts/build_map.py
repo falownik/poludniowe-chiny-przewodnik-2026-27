@@ -198,10 +198,22 @@ def route_popup(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]]) 
       <h3>{esc(from_name)} → {esc(to_name)}</h3>
       <p><strong>Tryb:</strong> {esc(route['mode'])}</p>
       <p><strong>Czas:</strong> {esc(route['time'])}</p>
-      <p><strong>Koszt:</strong> {esc(route['cost_pln'])}</p>
       <p>{esc(route['note'])}</p>
     </div>
     """
+
+
+def route_tooltip(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]]) -> str:
+    from_name = places_by_id[route["from"]]["name"]
+    to_name = places_by_id[route["to"]]["name"]
+    return (
+        '<div class="route-tooltip-card">'
+        f"<strong>{esc(from_name)} &rarr; {esc(to_name)}</strong>"
+        f"<span>{esc(route['mode'])}</span>"
+        f"<span>{esc(route['time'])}</span>"
+        f"<span class=\"route-cost\">{esc(route['cost_pln'])}</span>"
+        "</div>"
+    )
 
 
 def route_coords(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]]) -> list[list[float]]:
@@ -212,20 +224,13 @@ def route_coords(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]])
     return [[start["lat"], start["lon"]], [end["lat"], end["lon"]]]
 
 
-def midpoint(coords: list[list[float]]) -> list[float]:
-    mid = coords[len(coords) // 2]
-    if len(coords) == 2:
-        return [(coords[0][0] + coords[1][0]) / 2, (coords[0][1] + coords[1][1]) / 2]
-    return mid
-
-
 def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) -> str:
     place_rows = "".join(
         f"<tr><td>{esc(place['name'])}</td><td>{esc(place['avg_lodging_pln_pp'])} PLN</td><td>{esc(place['suggested_nights'])}</td></tr>"
         for place in sorted(places, key=lambda item: item["avg_lodging_pln_pp"])
     )
     route_rows = "".join(
-        f"<tr><td>{esc(route['from'])} → {esc(route['to'])}</td><td>{esc(route['time'])}</td><td>{esc(route['cost_pln'])}</td></tr>"
+        f"<tr><td>{esc(route['from'])} → {esc(route['to'])}</td><td>{esc(route['time'])}</td></tr>"
         for route in routes
         if route["from"] != route["to"]
     )
@@ -242,8 +247,9 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
         <tbody>{place_rows}</tbody>
       </table>
       <h2>Przejazdy</h2>
+      <p>Koszt przejazdu pojawia się dopiero po najechaniu na linię na mapie; panel zostawia tylko czas, żeby nie zaśmiecać widoku.</p>
       <table>
-        <thead><tr><th>Odcinek</th><th>Czas</th><th>Koszt</th></tr></thead>
+        <thead><tr><th>Odcinek</th><th>Czas</th></tr></thead>
         <tbody>{route_rows}</tbody>
       </table>
     </div>
@@ -380,28 +386,29 @@ def build_styles() -> str:
       }
       .route-popup { width: 260px; font-size: 13px; line-height: 1.35; }
       .route-popup h3 { margin: 0 0 6px; font-size: 15px; }
-      .route-label {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 104px;
-        min-height: 34px;
-        background: rgba(255,255,255,0.92);
-        border: 1px solid #94a3b8;
-        border-radius: 8px;
-        padding: 3px 7px;
-        font-size: 11px;
-        line-height: 1.2;
-        color: #172033;
-        box-shadow: 0 2px 8px rgba(15,23,42,0.12);
-        text-align: center;
-        white-space: normal;
+      .leaflet-tooltip.route-tooltip {
+        width: 250px !important;
+        max-width: 250px !important;
+        white-space: normal !important;
         overflow-wrap: normal;
       }
-      .route-label-icon {
-        background: transparent;
-        border: 0;
+      .route-tooltip-card {
+        width: 232px;
+        font-size: 12px;
+        line-height: 1.32;
+        color: #172033;
+      }
+      .route-tooltip-card strong,
+      .route-tooltip-card span {
+        display: block;
+        white-space: normal;
+        overflow-wrap: break-word;
+      }
+      .route-tooltip-card strong { margin-bottom: 3px; }
+      .route-tooltip-card .route-cost {
+        margin-top: 4px;
+        font-weight: 800;
+        color: #0f766e;
       }
       .legend {
         position: fixed;
@@ -447,6 +454,11 @@ def build_styles() -> str:
         }
         .leaflet-tooltip.foliumtooltip th { width: 82px !important; }
         .leaflet-tooltip.foliumtooltip td { width: 176px !important; }
+        .leaflet-tooltip.route-tooltip {
+          width: 230px !important;
+          max-width: 230px !important;
+        }
+        .route-tooltip-card { width: 212px; }
       }
     </style>
     """
@@ -595,20 +607,15 @@ def add_routes(
         folium.PolyLine(
             locations=coords,
             color=color,
-            weight=4,
-            opacity=0.78,
-            tooltip=f"{places_by_id[route['from']]['name']} → {places_by_id[route['to']]['name']}: {route['time']}, {route['cost_pln']}",
-            popup=folium.Popup(route_popup(route, places_by_id), max_width=300),
-        ).add_to(route_group)
-        mid = midpoint(coords)
-        folium.Marker(
-            location=mid,
-            icon=folium.DivIcon(
-                class_name="route-label-icon",
-                icon_size=(104, 38),
-                icon_anchor=(52, 19),
-                html=f"<div class='route-label'>{esc(route['cost_pln'])}<br>{esc(route['time'])}</div>",
+            weight=6,
+            opacity=0.82,
+            tooltip=folium.Tooltip(
+                route_tooltip(route, places_by_id),
+                sticky=True,
+                direction="top",
+                class_name="route-tooltip",
             ),
+            popup=folium.Popup(route_popup(route, places_by_id), max_width=300),
         ).add_to(route_group)
     route_group.add_to(fmap)
 
