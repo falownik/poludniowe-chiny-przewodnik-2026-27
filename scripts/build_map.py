@@ -60,6 +60,37 @@ def place_color(kind: str) -> str:
     }.get(kind, "blue")
 
 
+ROUTE_LAYERS: dict[str, dict[str, Any]] = {
+    "hub_hsr": {
+        "name": "Pętla: szybka kolej między hubami",
+        "short": "Pętla HSR",
+        "color": "#1d4ed8",
+        "weight": 7,
+        "opacity": 0.9,
+        "show": True,
+        "dash_array": None,
+    },
+    "local_hub": {
+        "name": "Wypady z baz i dojazdy lokalne",
+        "short": "Wypady z baz",
+        "color": "#0f766e",
+        "weight": 5,
+        "opacity": 0.82,
+        "show": True,
+        "dash_array": "8 8",
+    },
+    "optional": {
+        "name": "Opcje rezerwowe / poza aktualną pętlą",
+        "short": "Opcje rezerwowe",
+        "color": "#64748b",
+        "weight": 4,
+        "opacity": 0.45,
+        "show": False,
+        "dash_array": "3 8",
+    },
+}
+
+
 def route_color(mode: str) -> str:
     mode = mode.lower()
     if "flight" in mode:
@@ -69,6 +100,19 @@ def route_color(mode: str) -> str:
     if "border" in mode or "ferry" in mode:
         return "#7c3aed"
     return "#0f766e"
+
+
+def route_layer_key(route: dict[str, Any]) -> str:
+    layer = route.get("layer", "optional")
+    return layer if layer in ROUTE_LAYERS else "optional"
+
+
+def route_layer_meta(route: dict[str, Any]) -> dict[str, Any]:
+    return ROUTE_LAYERS[route_layer_key(route)]
+
+
+def route_layer_class(route: dict[str, Any]) -> str:
+    return f"route-layer-{route_layer_key(route).replace('_', '-')}"
 
 
 def province_style(feature: dict[str, Any]) -> dict[str, Any]:
@@ -193,9 +237,11 @@ def place_tooltip(place: dict[str, Any], image_path: str | None) -> str:
 def route_popup(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]]) -> str:
     from_name = places_by_id[route["from"]]["name"]
     to_name = places_by_id[route["to"]]["name"]
+    layer = route_layer_meta(route)
     return f"""
     <div class="route-popup">
       <h3>{esc(from_name)} → {esc(to_name)}</h3>
+      <p><strong>Warstwa:</strong> {esc(layer['short'])}</p>
       <p><strong>Tryb:</strong> {esc(route['mode'])}</p>
       <p><strong>Czas:</strong> {esc(route['time'])}</p>
       <p>{esc(route['note'])}</p>
@@ -219,9 +265,11 @@ def route_tooltip(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]]
     from_name = places_by_id[route["from"]]["name"]
     to_name = places_by_id[route["to"]]["name"]
     train_alt = route_train_alt(route)
+    layer = route_layer_meta(route)
     return (
         '<div class="route-tooltip-card">'
         f"<strong>{esc(from_name)} &rarr; {esc(to_name)}</strong>"
+        f"<span class=\"route-layer-pill {route_layer_class(route)}\">{esc(layer['short'])}</span>"
         f"<span>{esc(route['mode'])}</span>"
         f"<span>{esc(route['time'])}</span>"
         f"<span class=\"route-cost\">{esc(route['cost_pln'])}</span>"
@@ -239,15 +287,37 @@ def route_coords(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]])
 
 
 def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) -> str:
+    place_name_by_id = {place["id"]: place["name"] for place in places}
+
+    def route_name(route: dict[str, Any]) -> str:
+        from_name = place_name_by_id.get(route["from"], route["from"])
+        to_name = place_name_by_id.get(route["to"], route["to"])
+        if route["from"] == route["to"]:
+            return f"{from_name}: {route['mode']}"
+        return f"{from_name} → {to_name}"
+
+    def route_table(layer: str) -> str:
+        layer_routes = [route for route in routes if route_layer_key(route) == layer]
+        rows = "".join(
+            f"<tr><td>{esc(route_name(route))}</td><td>{esc(route['time'])}</td></tr>"
+            for route in layer_routes
+        )
+        if not rows:
+            return ""
+        meta = ROUTE_LAYERS[layer]
+        return f"""
+      <h3 class="panel-subhead">{esc(meta['short'])}</h3>
+      <table>
+        <thead><tr><th>Odcinek</th><th>Czas</th></tr></thead>
+        <tbody>{rows}</tbody>
+      </table>
+        """
+
     place_rows = "".join(
         f"<tr><td>{esc(place['name'])}</td><td>{esc(place['avg_lodging_pln_pp'])} PLN</td><td>{esc(place['suggested_nights'])}</td></tr>"
         for place in sorted(places, key=lambda item: item["avg_lodging_pln_pp"])
     )
-    route_rows = "".join(
-        f"<tr><td>{esc(route['from'])} → {esc(route['to'])}</td><td>{esc(route['time'])}</td></tr>"
-        for route in routes
-        if route["from"] != route["to"]
-    )
+    route_sections = route_table("hub_hsr") + route_table("local_hub")
     return f"""
     <button id="trip-panel-toggle" class="panel-toggle panel-toggle-left" type="button" aria-controls="trip-panel" aria-expanded="true">Ukryj panel</button>
     <div id="trip-panel">
@@ -262,11 +332,9 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
         <tbody>{place_rows}</tbody>
       </table>
       <h2>Przejazdy</h2>
-      <p>Koszt przejazdu pojawia się dopiero po najechaniu na linię na mapie; panel zostawia tylko czas, żeby nie zaśmiecać widoku.</p>
-      <table>
-        <thead><tr><th>Odcinek</th><th>Czas</th></tr></thead>
-        <tbody>{route_rows}</tbody>
-      </table>
+      <p>W panelu warstw są osobno: pętla HSR między hubami oraz lokalne wypady z baz. Koszt przejazdu pojawia się dopiero po najechaniu na linię na mapie.</p>
+      {route_sections}
+      <p>Opcje rezerwowe są w osobnej warstwie mapy i startują wyłączone.</p>
     </div>
     """
 
@@ -325,6 +393,11 @@ def build_styles() -> str:
       }
       #trip-panel h1 { font-size: 18px; margin: 0 0 8px; }
       #trip-panel h2 { font-size: 14px; margin: 14px 0 6px; }
+      #trip-panel .panel-subhead {
+        margin: 10px 0 5px;
+        font-size: 12px;
+        color: #0f172a;
+      }
       #trip-panel p { font-size: 12px; line-height: 1.35; margin: 0 0 8px; }
       .panel-links { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
       .panel-links a {
@@ -456,6 +529,26 @@ def build_styles() -> str:
         overflow-wrap: break-word;
       }
       .route-tooltip-card strong { margin-bottom: 3px; }
+      .route-tooltip-card .route-layer-pill {
+        display: inline-flex;
+        width: fit-content;
+        max-width: 100%;
+        margin: 2px 0 5px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: #eff6ff;
+        color: #1d4ed8;
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .route-tooltip-card .route-layer-local-hub {
+        background: #ecfdf5;
+        color: #0f766e;
+      }
+      .route-tooltip-card .route-layer-optional {
+        background: #f1f5f9;
+        color: #475569;
+      }
       .route-tooltip-card .route-cost {
         margin-top: 4px;
         font-weight: 800;
@@ -487,6 +580,26 @@ def build_styles() -> str:
       }
       .legend h3 { margin: 0 0 6px; font-size: 13px; }
       .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+      .line-key {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin: 4px 0;
+      }
+      .line-swatch {
+        flex: 0 0 28px;
+        height: 0;
+        border-top: 4px solid #1d4ed8;
+        border-radius: 999px;
+      }
+      .line-swatch.local {
+        border-top-color: #0f766e;
+        border-top-style: dashed;
+      }
+      .line-swatch.optional {
+        border-top-color: #64748b;
+        border-top-style: dotted;
+      }
       .province-box {
         display: inline-block;
         width: 13px;
@@ -566,9 +679,10 @@ def build_legend(provinces: dict[str, Any]) -> str:
       <div><span class="dot" style="background:#b42318"></span>120+ PLN / day trip</div>
       {province_section}
       <hr>
-      <div style="color:#2563eb">niebieski: kolej/HSR</div>
-      <div style="color:#d97706">pomarańczowy: lot</div>
-      <div style="color:#7c3aed">fioletowy: granica/prom</div>
+      <h3>Warstwy tras</h3>
+      <div class="line-key"><span class="line-swatch"></span><span>pętla HSR między hubami</span></div>
+      <div class="line-key"><span class="line-swatch local"></span><span>wypady z baz / dojazdy lokalne</span></div>
+      <div class="line-key"><span class="line-swatch optional"></span><span>opcje rezerwowe, domyślnie wyłączone</span></div>
     </div>
     """
 
@@ -702,24 +816,32 @@ def add_routes(
     routes: list[dict[str, Any]],
     places_by_id: dict[str, dict[str, Any]],
 ) -> None:
-    route_group = FeatureGroup(name="Przejazdy i koszt transportu", show=True)
+    route_groups = {
+        key: FeatureGroup(name=meta["name"], show=bool(meta["show"]))
+        for key, meta in ROUTE_LAYERS.items()
+    }
     for route in routes:
         coords = route_coords(route, places_by_id)
-        color = route_color(route["mode"])
-        folium.PolyLine(
-            locations=coords,
-            color=color,
-            weight=6,
-            opacity=0.82,
-            tooltip=folium.Tooltip(
+        layer_key = route_layer_key(route)
+        meta = ROUTE_LAYERS[layer_key]
+        line_kwargs: dict[str, Any] = {
+            "locations": coords,
+            "color": meta["color"],
+            "weight": meta["weight"],
+            "opacity": meta["opacity"],
+            "tooltip": folium.Tooltip(
                 route_tooltip(route, places_by_id),
                 sticky=True,
                 direction="top",
                 class_name="route-tooltip",
             ),
-            popup=folium.Popup(route_popup(route, places_by_id), max_width=300),
-        ).add_to(route_group)
-    route_group.add_to(fmap)
+            "popup": folium.Popup(route_popup(route, places_by_id), max_width=300),
+        }
+        if meta.get("dash_array"):
+            line_kwargs["dash_array"] = meta["dash_array"]
+        folium.PolyLine(**line_kwargs).add_to(route_groups[layer_key])
+    for route_group in route_groups.values():
+        route_group.add_to(fmap)
 
 
 def build_map() -> None:

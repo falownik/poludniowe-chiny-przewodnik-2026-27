@@ -1,6 +1,7 @@
 [
   {
     "id": "can_to_city",
+    "layer": "local_hub",
     "from": "guangzhou",
     "to": "guangzhou",
     "mode": "airport transfer",
@@ -21,6 +22,7 @@
   },
   {
     "id": "guangzhou_shunde",
+    "layer": "local_hub",
     "from": "guangzhou",
     "to": "shunde_foshan",
     "mode": "metro / rail / taxi",
@@ -31,6 +33,7 @@
   },
   {
     "id": "guangzhou_hainan",
+    "layer": "optional",
     "from": "guangzhou",
     "to": "hainan",
     "mode": "flight",
@@ -47,6 +50,7 @@
   },
   {
     "id": "hainan_zhuhai",
+    "layer": "optional",
     "from": "hainan",
     "to": "zhuhai",
     "mode": "flight + rail/bus",
@@ -63,6 +67,7 @@
   },
   {
     "id": "guangzhou_zhuhai",
+    "layer": "local_hub",
     "from": "guangzhou",
     "to": "zhuhai",
     "mode": "intercity rail",
@@ -73,6 +78,7 @@
   },
   {
     "id": "zhuhai_macau",
+    "layer": "local_hub",
     "from": "zhuhai",
     "to": "macau",
     "mode": "border crossing",
@@ -83,6 +89,7 @@
   },
   {
     "id": "guangzhou_guilin",
+    "layer": "hub_hsr",
     "from": "guangzhou",
     "to": "guilin",
     "mode": "HSR",
@@ -93,6 +100,7 @@
   },
   {
     "id": "guilin_longji",
+    "layer": "local_hub",
     "from": "guilin",
     "to": "longji",
     "mode": "bus / private car",
@@ -103,6 +111,7 @@
   },
   {
     "id": "guilin_yangshuo",
+    "layer": "local_hub",
     "from": "guilin",
     "to": "yangshuo",
     "mode": "HSR / bus / car",
@@ -113,6 +122,7 @@
   },
   {
     "id": "guilin_nanning",
+    "layer": "hub_hsr",
     "from": "guilin",
     "to": "nanning",
     "mode": "HSR",
@@ -123,6 +133,7 @@
   },
   {
     "id": "nanning_fangchenggang",
+    "layer": "optional",
     "from": "nanning",
     "to": "fangchenggang",
     "mode": "HSR / D-train",
@@ -132,7 +143,19 @@
     "note": "Tani wypad na wybrzeże Guangxi i okolice granicy z Wietnamem."
   },
   {
+    "id": "nanning_shenzhen",
+    "layer": "hub_hsr",
+    "from": "nanning",
+    "to": "shenzhen",
+    "mode": "HSR",
+    "time": "5-6,5 h hotel-hotel",
+    "cost_pln": "180-300 PLN",
+    "cost_mid_pln": 240,
+    "note": "Długi, ale prosty przejazd pętli: z Guangxi do bazy na Hongkong i dalszy skok do Chaoshan."
+  },
+  {
     "id": "fangchenggang_guangzhou",
+    "layer": "optional",
     "from": "fangchenggang",
     "to": "guangzhou",
     "mode": "HSR via Nanning",
@@ -143,6 +166,7 @@
   },
   {
     "id": "yangshuo_shenzhen",
+    "layer": "optional",
     "from": "yangshuo",
     "to": "shenzhen",
     "mode": "HSR via Guilin/Guangzhou",
@@ -153,6 +177,7 @@
   },
   {
     "id": "shenzhen_hongkong",
+    "layer": "local_hub",
     "from": "shenzhen",
     "to": "hongkong",
     "mode": "metro border / HSR",
@@ -163,6 +188,7 @@
   },
   {
     "id": "hongkong_macau",
+    "layer": "optional",
     "from": "hongkong",
     "to": "macau",
     "mode": "ferry / HZMB bus",
@@ -173,6 +199,7 @@
   },
   {
     "id": "shenzhen_chaozhou",
+    "layer": "hub_hsr",
     "from": "shenzhen",
     "to": "chaozhou",
     "mode": "HSR",
@@ -183,6 +210,7 @@
   },
   {
     "id": "chaozhou_guangzhou",
+    "layer": "hub_hsr",
     "from": "chaozhou",
     "to": "guangzhou",
     "mode": "HSR",
@@ -193,6 +221,7 @@
   },
   {
     "id": "guangzhou_xiamen",
+    "layer": "optional",
     "from": "guangzhou",
     "to": "xiamen",
     "mode": "HSR / flight",

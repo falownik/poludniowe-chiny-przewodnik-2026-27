@@ -67,6 +67,10 @@ def main() -> None:
     require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
     require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
     require(any(route.get("train_alt") for route in routes if "flight" in route["mode"].lower()), "flight routes lack train alternatives")
+    route_layers = {route.get("layer") for route in routes}
+    require({"hub_hsr", "local_hub", "optional"}.issubset(route_layers), "route layer split is incomplete")
+    require(all(route.get("layer") in {"hub_hsr", "local_hub", "optional"} for route in routes), "route has invalid layer")
+    require(any(route["id"] == "nanning_shenzhen" for route in routes), "Nanning-Shenzhen hub route is missing")
 
     required_phrases = [
         "Południe Chin 2026/27",
@@ -82,6 +86,11 @@ def main() -> None:
         "trip-panel-hidden",
         "legend-hidden",
         "route-tooltip-card",
+        "route-layer-hub-hsr",
+        "route-layer-local-hub",
+        "Pętla HSR",
+        "Wypady z baz",
+        "opcje rezerwowe, domyślnie wyłączone",
         "Alternatywa pociągiem",
         "leaflet-tooltip.route-tooltip",
         "width: max-content",
