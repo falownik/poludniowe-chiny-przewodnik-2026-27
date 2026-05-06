@@ -25,10 +25,6 @@ FOOD_NOTES: dict[str, list[str]] = {
         "Shunde traktuj jak kulinarny day trip: mleczne desery, ryby, hotpot, smażone mleko i spokojniejsza kuchnia kantońska.",
         "Foshan daje kontekst Lingnan, ale największy sens ma wtedy, gdy połączysz go z konkretnym posiłkiem w Shunde.",
     ],
-    "hainan": [
-        "Na Hainanie jedz Wenchang chicken, coconut chicken hot pot, qingbuliang i owoce morza z jasno podaną ceną za wagę.",
-        "Haikou jest lepsze na lokalne przekąski i kawę, Sanya na plażę i odpoczynek. Nie traktuj całej wyspy jak jednego kurortu.",
-    ],
     "zhuhai": [
         "Zhuhai jest bazą, nie kulinarnym finałem. Najpraktyczniej jeść prosto przy Gongbei i przeznaczyć budżet jedzeniowy na Makao.",
         "Jeśli zostajesz wieczorem, szukaj owoców morza i kantońskich lokali w okolicach granicy albo przy nadmorskim spacerze.",
@@ -36,10 +32,6 @@ FOOD_NOTES: dict[str, list[str]] = {
     "macau": [
         "Makao to egg tarty, pork chop bun, minchi, African chicken i portugalsko-kantońska kuchnia w wąskich ulicach starego miasta.",
         "Najlepiej zjeść coś małego przy Senado/St. Paul's, potem zrobić Taipa Village albo Coloane jako osobny blok jedzeniowy.",
-    ],
-    "longji": [
-        "W Longji jedzenie jest proste: ryż, bambusowy ryż, warzywa, lokalny kurczak, zupy i dania z guesthouse'u.",
-        "Nie planuj tu fine diningu. Warto zjeść kolację w noclegu, bo po zmroku chodzenie po schodach i szukanie lokali jest słabe logistycznie.",
     ],
     "yangshuo": [
         "Yangshuo ma beer fish, ryżowe makarony, lokalne stir-fry i kawiarnie dla turystów. Najlepsze posiłki są często poza West Street.",
@@ -50,7 +42,7 @@ FOOD_NOTES: dict[str, list[str]] = {
         "Guilin dobrze działa jako przesiadka: prosty obiad, spacer po jeziorach i następnego dnia wyjazd w krajobraz.",
     ],
     "shenzhen": [
-        "Shenzhen nie ma jednej klasycznej kuchni miasta, ale ma świetny przekrój migracyjnych Chin: kantońskie, Chaoshan, Hunan, Sichuan i food courty.",
+        "Shenzhen nie ma jednej klasycznej kuchni miasta, ale ma świetny przekrój migracyjnych Chin: kantońskie, Chaoshan, ostre lokale z interioru i dobre food courty.",
         "Przy krótkim pobycie jedz praktycznie: Huaqiangbei/Futian na szybki lunch, wieczorem Nanshan albo Shekou, jeśli chcesz dłuższy spacer.",
     ],
     "hongkong": [
@@ -61,10 +53,6 @@ FOOD_NOTES: dict[str, list[str]] = {
         "Chaoshan jest jednym z najmocniejszych modułów jedzeniowych: gęś w marynacie, wołowy hot pot, congee, oyster omelette i herbata gongfu.",
         "Nie próbuj jeść wszystkiego jednego wieczoru. Lepsze są dwa wolniejsze posiłki i jedna herbata niż chaotyczna lista lokali.",
     ],
-    "xiamen": [
-        "Xiamen to satay noodles, oyster omelette, peanut soup, owoce morza, herbata i dobry wstęp do świata Hakka/tulou.",
-        "Jeśli robisz tulou, zostaw jeden spokojny posiłek na Xiamen po powrocie. Długie wycieczki do tulou potrafią zjeść cały dzień.",
-    ],
 }
 
 
@@ -72,10 +60,6 @@ PRACTICAL_NOTES: dict[str, list[str]] = {
     "guangzhou": [
         "Najlepsza kotwica przylotu i wylotu. Ostatnią noc przed lotem trzymaj w Guangzhou, nie w Hongkongu, Makao ani Yangshuo.",
         "Po przylocie o późnej porze najprościej jechać do hotelu w mieście albo spać przy lotnisku. Nie planuj nocnego transferu do innego regionu.",
-    ],
-    "hainan": [
-        "Hainan jest ciepły, ale transport i noclegi potrafią podbić budżet. Trzymaj moduł krótko, jeśli limit 8k ma zostać realny.",
-        "Najtańsze decyzje zapadają przy wyborze bazy: Dadonghai, Sanya city, Haikou lub Wanning są zwykle rozsądniejsze niż topowe resorty.",
     ],
     "zhuhai": [
         "To praktyczna baza do Makao. Śpij blisko Gongbei/Hengqin, jeśli zależy ci na tanim day tripie i prostym powrocie.",
@@ -93,15 +77,8 @@ PRACTICAL_NOTES: dict[str, list[str]] = {
         "To najlepszy rural/natura moduł przy budżecie około 50 PLN/os./noc. Daj mu kilka nocy, bo zyskuje po zwolnieniu tempa.",
         "Najlepsza baza zależy od stylu: centrum dla logistyki, Yulong River dla krajobrazu i ciszy.",
     ],
-    "longji": [
-        "Bierz mały bagaż. Schody i wilgoć są realne, a zimą ogrzewanie w guesthouse'ach trzeba sprawdzić przed rezerwacją.",
-        "Longji ma sens z noclegiem albo bardzo świadomym day tripem. Najlepsze światło jest rano.",
-    ],
     "guilin": [
         "Guilin jest bramą, niekoniecznie główną bazą. Użyj go do HSR, Li River i transferu do Yangshuo/Nanning, a dłużej śpij w Yangshuo.",
-    ],
-    "xiamen": [
-        "Xiamen jest opcją zamiast Hainanu albo dodatkowym modułem, jeśli chcecie herbatę, wybrzeże i tulou. Nie dokładaj go bez cięcia czegoś innego.",
     ],
 }
 
@@ -297,13 +274,13 @@ FOOD_DISHES: list[dict[str, str]] = [
         "order": "Ryba duszona z piwem, pomidorami i przyprawami. Ustal gatunek ryby i cenę za wagę, bo to danie bywa turystycznie przepłacane.",
     },
     {
-        "region": "Longji / Guangxi",
+        "region": "Guangxi",
         "name": "Bamboo rice",
         "chinese": "竹筒饭",
         "pinyin": "zhútǒng fàn",
         "image_id": "",
-        "where": "Longji i wioski mniejszości Zhuang/Yao.",
-        "order": "Ryż gotowany w bambusie, często z fasolą, kukurydzą albo mięsem. Najlepszy jako prosty posiłek po zejściu z tarasów.",
+        "where": "Yangshuo, okolice Guilin i proste lokale Guangxi.",
+        "order": "Ryż gotowany w bambusie, często z fasolą, kukurydzą albo mięsem. Najlepszy jako prosty posiłek po dniu w krasowym krajobrazie.",
     },
     {
         "region": "Guangxi",
@@ -320,7 +297,7 @@ FOOD_DISHES: list[dict[str, str]] = [
         "chinese": "油茶",
         "pinyin": "yóuchá",
         "image_id": "",
-        "where": "Północne Guangxi, Longji, okolice mniejszości Dong/Yao.",
+        "where": "Guilin, Yangshuo i lokale z kuchnią północnego Guangxi.",
         "order": "Słono-gorzki napój/zupa z herbaty, oleju, orzeszków i chrupkich dodatków. Nie każdemu smakuje, ale świetnie pokazuje lokalny kontekst.",
     },
     {
@@ -342,13 +319,13 @@ FOOD_DISHES: list[dict[str, str]] = [
         "order": "Delikatne kostki z masy ryżowej, zwykle z chili, octem i ziołami. Dobre jako lekki lunch albo przekąska.",
     },
     {
-        "region": "Longji / Guangxi",
-        "name": "Kurczak z Longji",
-        "chinese": "龙脊土鸡",
-        "pinyin": "Lóngjǐ tǔjī",
+        "region": "Guangxi",
+        "name": "Lokalny kurczak z Guangxi",
+        "chinese": "广西土鸡",
+        "pinyin": "Guǎngxī tǔjī",
         "image_id": "",
-        "where": "Guesthouse'y w Longji i okoliczne wioski.",
-        "order": "Najczęściej prosty kurczak z zupą, warzywami i ryżem. Ważniejsze od techniki jest to, czy jesz go po całym dniu chodzenia po tarasach.",
+        "where": "Yangshuo, Guilin i rodzinne restauracje Guangxi.",
+        "order": "Najczęściej prosty kurczak z zupą, warzywami i ryżem. Dobre danie na spokojną kolację po dniu na rowerze albo po przejeździe.",
     },
     {
         "region": "Chaoshan",
@@ -375,7 +352,7 @@ FOOD_DISHES: list[dict[str, str]] = [
         "pinyin": "Cháoshàn niúròu huǒguō",
         "image_id": "chaoshan_beef_hotpot",
         "where": "Shantou, Chaozhou, Shenzhen i Guangzhou w lokalach Chaoshan.",
-        "order": "Nie jest ostre jak Sichuan. Chodzi o świeżą wołowinę krojoną według części i krótkie gotowanie w lekkim bulionie.",
+        "order": "Nie chodzi tu o chili, tylko o świeżą wołowinę krojoną według części i krótkie gotowanie w lekkim bulionie.",
     },
     {
         "region": "Chaoshan",
@@ -387,13 +364,13 @@ FOOD_DISHES: list[dict[str, str]] = [
         "order": "Sprężyste kulki wołowe, ręcznie ubijane. Szukaj tekstury, która lekko odbija pod zębami, nie miękkiej przemysłowej papki.",
     },
     {
-        "region": "Chaoshan / Fujian",
+        "region": "Chaoshan",
         "name": "Oyster omelette",
         "chinese": "蚝烙",
         "pinyin": "háo lào",
         "image_id": "",
-        "where": "Chaoshan, Xiamen, nocne lokale i restauracje z owocami morza.",
-        "order": "Ostrygi w jajku i skrobi, z chrupiącymi brzegami. W Chaoshan bywa bardziej sprężyste, w Fujianie często bliżej ulicznego comfort foodu.",
+        "where": "Chaozhou, Shantou i lokale z owocami morza w Chaoshan.",
+        "order": "Ostrygi w jajku i skrobi, z chrupiącymi brzegami. W Chaoshan liczy się sprężysta tekstura, świeżość ostryg i szybkie smażenie.",
     },
     {
         "region": "Chaoshan",
@@ -468,21 +445,21 @@ FOOD_DISHES: list[dict[str, str]] = [
         "order": "Bogata zupa-bankiet z wieloma luksusowymi składnikami. Warto znać, ale nie trzeba jej koniecznie zamawiać przy limicie budżetu.",
     },
     {
-        "region": "Hakka / Fujian",
+        "region": "Guangdong Hakka",
         "name": "Hakka stuffed tofu",
         "chinese": "酿豆腐",
         "pinyin": "niàng dòufu",
         "image_id": "hakka_stuffed_tofu",
-        "where": "Tulou, Fujian, Guangdong Hakka, restauracje rodzinne.",
-        "order": "Tofu nadziewane mielonym mięsem lub pastą rybną, duszone w sosie. Jedno z najlepszych dań przy noclegu w okolicach tulou.",
+        "where": "Restauracje Hakka w Guangzhou, Shenzhen i Guangdong.",
+        "order": "Tofu nadziewane mielonym mięsem lub pastą rybną, duszone w sosie. Dobry wybór, jeśli chcecie odpocząć od makaronów i dim sum.",
     },
     {
-        "region": "Hakka / Fujian",
+        "region": "Guangdong Hakka",
         "name": "Lei cha rice",
         "chinese": "擂茶饭",
         "pinyin": "léichá fàn",
         "image_id": "hakka_lei_cha",
-        "where": "Kuchnia Hakka w Fujian, Guangdong i diasporze.",
+        "where": "Lokale Hakka w Guangdong, szczególnie w większych miastach i food courtach.",
         "order": "Ryż z warzywami, orzeszkami i ziołową herbacianą zawiesiną. Smak jest zielony, ziołowy i nietypowy, ale bardzo charakterystyczny.",
     },
     {
@@ -686,7 +663,27 @@ FOOD_DISHES: list[dict[str, str]] = [
 ]
 
 
-FOOD_IMAGE_IDS = {dish["image_id"] for dish in FOOD_DISHES if dish.get("image_id")}
+OUT_OF_PLAN_FOOD_TERMS = {
+    "hainan",
+    "fujian",
+    "xiamen",
+    "longji",
+    "tulou",
+    "fuzhou",
+    "wuyi",
+    "haikou",
+    "sanya",
+    "wanning",
+}
+
+
+def food_dish_is_in_scope(dish: dict[str, str]) -> bool:
+    text = " ".join(str(value).lower() for value in dish.values())
+    return not any(term in text for term in OUT_OF_PLAN_FOOD_TERMS)
+
+
+ROUTE_FOOD_DISHES = [dish for dish in FOOD_DISHES if food_dish_is_in_scope(dish)]
+FOOD_IMAGE_IDS = {dish["image_id"] for dish in ROUTE_FOOD_DISHES if dish.get("image_id")}
 
 
 def esc(value: Any) -> str:
@@ -975,7 +972,7 @@ def build_places_index(places: list[dict[str, Any]], image_paths: dict[str, str]
     <section class="page-intro">
       <p class="eyebrow">Indeks miejsc</p>
       <h1>Miejsca w aktualnym planie</h1>
-      <p>To jest wersja realna czasowo: Guangdong, Guangxi, Chaoshan oraz day tripy do Hongkongu, Makao, Detian i Fangchenggang/Dongxing. Hainan, Fujian i Longji zostały zdjęte z punktów mapy, żeby pętla nie rozrosła się ponad sensowny czas i budżet.</p>
+      <p>To jest wersja realna czasowo: Guangdong, Guangxi, Chaoshan oraz day tripy do Hongkongu, Makao, Detian i Fangchenggang/Dongxing. Każde miejsce jest albo noclegową bazą z planu, albo krótkim wypadem bez przenoszenia walizek.</p>
     </section>
     <section class="place-grid">{cards}</section>
     """
@@ -1014,8 +1011,8 @@ def build_itinerary_page(
 
 
 def build_food_page(image_paths: dict[str, str]) -> str:
-    dish_count = len(FOOD_DISHES)
-    image_count = sum(1 for dish in FOOD_DISHES if dish.get("image_id"))
+    dish_count = len(ROUTE_FOOD_DISHES)
+    image_count = sum(1 for dish in ROUTE_FOOD_DISHES if dish.get("image_id"))
     region_cards = [
         {
             "title": "Guangdong: yum cha, pieczone mięsa i proste klasyki",
@@ -1036,16 +1033,10 @@ def build_food_page(image_paths: dict[str, str]) -> str:
             "must": "Guilin rice noodles, beer fish, luosifen, lokalne warzywa, seafood z wybrzeża Guangxi.",
         },
         {
-            "title": "Hainan: kurczak, kokos, kawa i seafood",
-            "image_id": "hainan_chicken_rice",
-            "text": "Hainan to Wenchang chicken, coconut chicken hot pot, qingbuliang, kawa z wyspy i owoce morza. Przy seafood zawsze ustal cenę za wagę i sposób przygotowania przed gotowaniem.",
-            "must": "Hainanese chicken rice, coconut chicken hot pot, qingbuliang, Xinglong coffee.",
-        },
-        {
-            "title": "Fujian i Xiamen: shacha, oolong i morska kuchnia",
-            "image_id": "dahongpao_tea",
-            "text": "Xiamen jest morsko-herbaciany: satay noodles, oyster omelette, peanut soup, oolong i ewentualny wypad do tulou Hakka. To dobra alternatywa dla Hainanu, jeśli chcecie mniej plaż, więcej architektury i herbaty.",
-            "must": "Satay noodles, oyster omelette, peanut soup, Da Hong Pao, Tieguanyin.",
+            "title": "Nanning i wybrzeże Guangxi: kwaśne, morskie, lokalne",
+            "image_id": "detian_waterfall",
+            "text": "Nanning ma sens nie jako miasto do odhaczania zabytków, tylko jako praktyczna baza na luosifen, laoyou noodles, lemon duck i wypady do Detian oraz Fangchenggang/Dongxing. Nad morzem pilnuj ceny za wagę przed zamówieniem seafoodu.",
+            "must": "Laoyou noodles, lemon duck, luosifen, Beibu Gulf seafood, kwaśne przekąski.",
         },
         {
             "title": "Hongkong i Makao: szybkie śniadania, przekąski i fusion",
@@ -1080,17 +1071,17 @@ def build_food_page(image_paths: dict[str, str]) -> str:
           </div>
         </article>
         """
-        for dish in FOOD_DISHES
+        for dish in ROUTE_FOOD_DISHES
     )
     checklist = [
         "W Guangzhou pierwszy pełny poranek przeznacz na yum cha, nie na atrakcję biletowaną.",
         "W Chaoshan zaplanuj co najmniej jeden posiłek jako główny punkt dnia: gęś albo wołowy hot pot.",
         "W Guilin jedz ryżowe makarony rano; wieczorem lepiej nie szukać fine diningu, tylko prostego lokalnego jedzenia.",
         "W Yangshuo nie siedź wyłącznie na West Street. Najlepszy posiłek po rowerze często jest przy guesthousie lub wiosce.",
-        "Na Hainanie przy seafood zawsze pytaj o cenę za jin, czyli 500 g, i koszt przygotowania.",
+        "W Nanning zostaw jeden wieczór na jedzenie: laoyou noodles, luosifen albo lemon duck są lepsze niż przypadkowy food court.",
+        "W Fangchenggang/Dongxing przy seafood zawsze pytaj o cenę za jin, czyli 500 g, i koszt przygotowania.",
         "W Hongkongu day trip nie udźwignie wszystkiego. Wybierz jedną kawiarnię cha chaan teng, jedną przekąskę i jeden konkretny obiad.",
         "W Makao nie traktuj egg tartu jako dodatku. To realny punkt programu, najlepiej w Taipa albo Coloane.",
-        "W Xiamen zostaw czas na herbatę. Kupowanie oolongów bez degustacji jest proszeniem się o przepłacenie.",
     ]
     checklist_items = "".join(f"<li>{esc(item)}</li>" for item in checklist)
     body = f"""
@@ -1101,7 +1092,7 @@ def build_food_page(image_paths: dict[str, str]) -> str:
       <div class="fact-strip">
         <span>{dish_count} potraw i napojów</span>
         <span>{image_count} kart ze zdjęciem</span>
-        <span>Guangdong, Guangxi, Chaoshan, Hongkong i Makao oraz zapasowe inspiracje z Fujianu i Hainanu</span>
+        <span>Guangdong, Guangxi, Chaoshan, Hongkong i Makao</span>
       </div>
     </section>
 
@@ -1124,7 +1115,7 @@ def build_practical_page() -> str:
     blocks = [
         (
             "Budżet",
-            "Założenie 8k PLN najlepiej trzymać przez ograniczenie Hongkongu i Makao do day tripów, spanie głównie w Chinach kontynentalnych i unikanie dokładania Hainanu/Fujianu jako osobnych modułów. Noclegi średnio około 50 PLN/os./noc są realne w Guangxi, Chaoshan i części Guangdong.",
+            "Założenie 8k PLN najlepiej trzymać przez ograniczenie Hongkongu i Makao do day tripów, spanie głównie w Chinach kontynentalnych i nierozszerzanie pętli o osobne loty oraz dalekie moduły. Noclegi średnio około 50 PLN/os./noc są realne w Guangxi, Chaoshan i części Guangdong.",
         ),
         (
             "Noclegi",

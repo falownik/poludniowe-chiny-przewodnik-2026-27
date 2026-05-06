@@ -90,15 +90,6 @@
     "file": "assets/images/beef_chow_fun.jpg"
   },
   {
-    "id": "buddha_jumps_wall",
-    "title": "Buddha jumps over the wall at Jingrong (20161203135907)",
-    "commons_title": "File:Buddha jumps over the wall at Jingrong (20161203135907).jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:N509FZ\" title=\"User:N509FZ\">N509FZ</a>",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Buddha_jumps_over_the_wall_at_Jingrong_(20161203135907).jpg",
-    "file": "assets/images/buddha_jumps_wall.jpg"
-  },
-  {
     "id": "chaoshan_beef_hotpot",
     "title": "Chaoshan Beef Hot Pot at Baheli Haiji, ZGC1 (20221003132726)",
     "commons_title": "File:Chaoshan Beef Hot Pot at Baheli Haiji, ZGC1 (20221003132726).jpg",
@@ -162,15 +153,6 @@
     "file": "assets/images/claypot_rice.jpg"
   },
   {
-    "id": "dahongpao_tea",
-    "title": "20121030 Da Hong Pao",
-    "commons_title": "File:20121030 Da Hong Pao.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Windmemories\" title=\"User:Windmemories\">Windmemories</a>",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:20121030_Da_Hong_Pao.jpg",
-    "file": "assets/images/dahongpao_tea.jpg"
-  },
-  {
     "id": "dim_sum_har_gow",
     "title": "HK TKO 寶琳 Po Lam MCP 新都城中心 Metro City Plaza mall One shop 海港酒家 Victoria Harbour Seafood Restaurant 點心 dim sum white Shrimp dumpling 蝦餃 Har gow January 2024 R12S 01",
     "commons_title": "File:HK TKO 寶琳 Po Lam MCP 新都城中心 Metro City Plaza mall One shop 海港酒家 Victoria Harbour Seafood Restaurant 點心 dim sum white Shrimp dumpling 蝦餃 Har gow January 2024 R12S 01.jpg",
@@ -189,24 +171,6 @@
     "file": "assets/images/double_skin_milk.jpg"
   },
   {
-    "id": "fujian_fish_balls",
-    "title": "Fishball closeup",
-    "commons_title": "File:Fishball closeup.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Benjwong\" title=\"User:Benjwong\">Benjwong</a>",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Fishball_closeup.jpg",
-    "file": "assets/images/fujian_fish_balls.jpg"
-  },
-  {
-    "id": "fujian_lychee_pork",
-    "title": "Litchi Pork",
-    "commons_title": "File:Litchi Pork.jpg",
-    "artist": "Royal Shi",
-    "license": "CC BY-SA 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Litchi_Pork.jpg",
-    "file": "assets/images/fujian_lychee_pork.jpg"
-  },
-  {
     "id": "ginger_milk_curd",
     "title": "Ginger Milk Pudding",
     "commons_title": "File:Ginger Milk Pudding.jpg",
@@ -223,15 +187,6 @@
     "license": "CC0",
     "source": "https://commons.wikimedia.org/wiki/File:Guilin_mifan.jpg",
     "file": "assets/images/guilin_rice_noodles.jpg"
-  },
-  {
-    "id": "hainan_chicken_rice",
-    "title": "Hainanese Chicken Rice",
-    "commons_title": "File:Hainanese Chicken Rice.jpg",
-    "artist": "No machine-readable author provided. <a href=\"//commons.wikimedia.org/wiki/User:Terence\" class=\"mw-redirect\" title=\"User:Terence\">Terence</a> assumed (based on copyright claims).",
-    "license": "CC BY 2.5",
-    "source": "https://commons.wikimedia.org/wiki/File:Hainanese_Chicken_Rice.jpg",
-    "file": "assets/images/hainan_chicken_rice.jpg"
   },
   {
     "id": "hakka_lei_cha",
@@ -360,15 +315,6 @@
     "file": "assets/images/turnip_cake.jpg"
   },
   {
-    "id": "wenchang_chicken",
-    "title": "Wenchang Chicken 1",
-    "commons_title": "File:Wenchang Chicken 1.JPG",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Anna_Frodesiak\" title=\"User:Anna Frodesiak\">Anna Frodesiak</a>",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:Wenchang_Chicken_1.JPG",
-    "file": "assets/images/wenchang_chicken.jpg"
-  },
-  {
     "id": "white_cut_chicken",
     "title": "BeiQieJi-WhiteCutChicken",
     "commons_title": "File:BeiQieJi-WhiteCutChicken.jpg",
@@ -385,15 +331,6 @@
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Wanton_noodles.jpg",
     "file": "assets/images/wonton_noodles.jpg"
-  },
-  {
-    "id": "xiamen_shacha_noodles",
-    "title": "20230131 Seafood Shacha Noodle",
-    "commons_title": "File:20230131 Seafood Shacha Noodle.jpg",
-    "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Windmemories\" title=\"User:Windmemories\">Windmemories</a>",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:20230131_Seafood_Shacha_Noodle.jpg",
-    "file": "assets/images/xiamen_shacha_noodles.jpg"
   },
   {
     "id": "yangshuo_beer_fish",

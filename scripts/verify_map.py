@@ -30,16 +30,15 @@ REQUIRED_FOOD_IMAGES = [
     "yangshuo_beer_fish.jpg",
     "chaozhou_braised_goose.jpg",
     "chaoshan_beef_hotpot.jpg",
-    "xiamen_shacha_noodles.jpg",
-    "hainan_chicken_rice.jpg",
-    "wenchang_chicken.jpg",
+    "hakka_stuffed_tofu.jpg",
+    "hakka_lei_cha.jpg",
     "hongkong_egg_waffle.jpg",
     "milk_tea.jpg",
     "pineapple_bun.jpg",
     "macau_egg_tart.jpg",
     "macau_pork_chop_bun.jpg",
+    "macanese_african_chicken.jpg",
     "macanese_minchi.jpg",
-    "dahongpao_tea.jpg",
 ]
 
 
@@ -67,7 +66,7 @@ def main() -> None:
     require(HTML.exists(), "docs/index.html is missing")
     require(len(places) >= 10, "expected at least 10 mapped places")
     require(len(routes) >= 10, "expected at least 10 transport routes")
-    require(len(provinces.get("features", [])) >= 6, "expected at least 6 province/region polygons")
+    require(len(provinces.get("features", [])) >= 4, "expected at least 4 province/region polygons")
     require(len(attributions) >= len({place["photo_id"] for place in places}), "missing image attributions")
     require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
     require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
@@ -177,7 +176,7 @@ def main() -> None:
         require(props.get("color") in html, f"HTML missing province color: {props.get('name')}")
         require(html_contains_json_text(html, props.get("description", "")), f"HTML missing province description: {props.get('name')}")
 
-    for removed_name in ["Kunming / Yunnan", "Yunnan", "Guizhou", "Syczuan"]:
+    for removed_name in ["Kunming / Yunnan", "Yunnan", "Guizhou", "Syczuan", "Hainan", "Fujian", "Xiamen", "Longji"]:
         require(removed_name not in html, f"HTML still contains removed region: {removed_name}")
 
     for stale_name in ["hainan.html", "xiamen.html", "longji.html"]:
@@ -199,6 +198,8 @@ def main() -> None:
     require("dish-grid" in food_html, "food page missing dish gallery")
     require("potraw" in food_html, "food page missing dish section")
     require(food_html.count('class="dish-card"') >= 50, "food page should list at least 50 dishes")
+    for removed_food_term in ["Hainan", "Fujian", "Xiamen", "Longji", "Sichuan", "tulou", "Fuzhou", "Wuyi", "Haikou", "Sanya", "Wanning"]:
+        require(removed_food_term not in food_html, f"food page still contains out-of-plan term: {removed_food_term}")
     for image_name in REQUIRED_FOOD_IMAGES:
         require((DOCS / "assets" / "images" / image_name).exists(), f"missing food image file: {image_name}")
         require(image_name in food_html, f"food page does not reference image: {image_name}")
@@ -206,7 +207,6 @@ def main() -> None:
     require("Har gow" in attributions_by_id["dim_sum_har_gow"]["commons_title"], "har gow image source looks incorrect")
     require("Roast_Pork" in attributions_by_id["char_siu"]["source"], "char siu image source looks incorrect")
     require("Guilin_mifan" in attributions_by_id["guilin_rice_noodles"]["source"], "Guilin noodles image source looks incorrect")
-    require("Seafood_Shacha_Noodle" in attributions_by_id["xiamen_shacha_noodles"]["source"], "Xiamen shacha noodles image source looks incorrect")
 
     print("OK: map artifact covers places, lodging prices, attractions, route costs, images, and summaries.")
     print(f"Places: {len(places)}")
