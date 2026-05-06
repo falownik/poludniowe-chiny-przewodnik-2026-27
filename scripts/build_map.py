@@ -117,23 +117,25 @@ def route_layer_class(route: dict[str, Any]) -> str:
 
 def province_style(feature: dict[str, Any]) -> dict[str, Any]:
     color = feature.get("properties", {}).get("color", "#64748b")
+    muted = bool(feature.get("properties", {}).get("muted"))
     return {
         "fillColor": color,
         "color": color,
-        "weight": 1.2,
-        "opacity": 0.72,
-        "fillOpacity": 0.17,
+        "weight": 0.8 if muted else 1.2,
+        "opacity": 0.38 if muted else 0.72,
+        "fillOpacity": 0.035 if muted else 0.17,
     }
 
 
 def province_highlight(feature: dict[str, Any]) -> dict[str, Any]:
     color = feature.get("properties", {}).get("color", "#334155")
+    muted = bool(feature.get("properties", {}).get("muted"))
     return {
         "fillColor": color,
         "color": color,
-        "weight": 2.4,
-        "opacity": 0.95,
-        "fillOpacity": 0.29,
+        "weight": 1.4 if muted else 2.4,
+        "opacity": 0.55 if muted else 0.95,
+        "fillOpacity": 0.08 if muted else 0.29,
     }
 
 
@@ -609,6 +611,12 @@ def build_styles() -> str:
         border: 1px solid rgba(15,23,42,0.28);
         vertical-align: -1px;
       }
+      .province-muted {
+        color: #64748b;
+      }
+      .province-muted .province-box {
+        opacity: 0.42;
+      }
       .legend-note {
         max-width: 230px;
         margin-top: 6px;
@@ -655,8 +663,10 @@ def build_styles() -> str:
 
 def build_legend(provinces: dict[str, Any]) -> str:
     province_rows = "".join(
-        f"<div><span class=\"province-box\" style=\"background:{esc(feature['properties'].get('color', '#64748b'))}\"></span>"
-        f"{esc(feature['properties'].get('name', 'Region'))}</div>"
+        f"<div class=\"{'province-muted' if feature['properties'].get('muted') else ''}\">"
+        f"<span class=\"province-box\" style=\"background:{esc(feature['properties'].get('color', '#64748b'))}\"></span>"
+        f"{esc(feature['properties'].get('name', 'Region'))}"
+        f"{' (opcjonalnie)' if feature['properties'].get('muted') else ''}</div>"
         for feature in provinces.get("features", [])
     )
     province_section = (
