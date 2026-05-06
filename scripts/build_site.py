@@ -98,7 +98,7 @@ PRACTICAL_NOTES: dict[str, list[str]] = {
         "Longji ma sens z noclegiem albo bardzo świadomym day tripem. Najlepsze światło jest rano.",
     ],
     "guilin": [
-        "Guilin jest bramą, niekoniecznie główną bazą. Użyj go do HSR, Li River i Longji, a dłużej śpij w Yangshuo.",
+        "Guilin jest bramą, niekoniecznie główną bazą. Użyj go do HSR, Li River i transferu do Yangshuo/Nanning, a dłużej śpij w Yangshuo.",
     ],
     "xiamen": [
         "Xiamen jest opcją zamiast Hainanu albo dodatkowym modułem, jeśli chcecie herbatę, wybrzeże i tulou. Nie dokładaj go bez cięcia czegoś innego.",
@@ -975,7 +975,7 @@ def build_places_index(places: list[dict[str, Any]], image_paths: dict[str, str]
     <section class="page-intro">
       <p class="eyebrow">Indeks miejsc</p>
       <h1>Miejsca w aktualnym planie</h1>
-      <p>To jest wersja realna czasowo: Guangdong, Guangxi, Hainan, Fujian oraz day tripy do Hongkongu i Makao. Każda karta prowadzi do osobnej strony z logistyką, jedzeniem, atrakcjami i połączeniami.</p>
+      <p>To jest wersja realna czasowo: Guangdong, Guangxi, Chaoshan oraz day tripy do Hongkongu, Makao, Detian i Fangchenggang/Dongxing. Hainan, Fujian i Longji zostały zdjęte z punktów mapy, żeby pętla nie rozrosła się ponad sensowny czas i budżet.</p>
     </section>
     <section class="place-grid">{cards}</section>
     """
@@ -996,7 +996,7 @@ def build_itinerary_page(
     <section class="page-intro">
       <p class="eyebrow">Trasa robocza</p>
       <h1>Układ podróży i przejazdy</h1>
-      <p>Mapa nie jest sztywnym planem dzień po dniu. To zestaw modułów, które można składać pod osoby jadące na 2 i 3 tygodnie: start w Guangzhou, rural Guangxi, ciepły Hainan, day tripy HK/Makao i opcjonalny Fujian/Chaoshan.</p>
+      <p>Mapa nie jest sztywnym planem dzień po dniu. To zestaw modułów, które można składać pod osoby jadące na 2 i 3 tygodnie: start w Guangzhou, kilka nocy w Yangshuo, Nanning jako baza na Detian i Fangchenggang/Dongxing, day tripy HK/Makao oraz finał jedzeniowy w Chaoshan.</p>
       <div class="fact-strip">
         <span>{len(places)} miejsc</span>
         <span>{len(routes)} odcinków</span>
@@ -1032,8 +1032,8 @@ def build_food_page(image_paths: dict[str, str]) -> str:
         {
             "title": "Guangxi: śniadania makaronowe i jedzenie po dniu w krajobrazie",
             "image_id": "guilin_rice_noodles",
-            "text": "Guilin rice noodles są śniadaniem obowiązkowym. Yangshuo daje beer fish i proste posiłki po dniu rowerowym, a Longji działa guesthouse'owo: ciepła kolacja, ryż, warzywa i lokalny kurczak po zejściu z tarasów.",
-            "must": "Guilin rice noodles, beer fish, bamboo rice, lokalne warzywa, oil tea.",
+            "text": "Guilin rice noodles są śniadaniem obowiązkowym. Yangshuo daje beer fish i proste posiłki po dniu rowerowym, a Nanning jest praktyczną bazą na Detian i Fangchenggang/Dongxing, z dobrym zapleczem makaronów, seafoodu i kuchni Guangxi.",
+            "must": "Guilin rice noodles, beer fish, luosifen, lokalne warzywa, seafood z wybrzeża Guangxi.",
         },
         {
             "title": "Hainan: kurczak, kokos, kawa i seafood",
@@ -1101,7 +1101,7 @@ def build_food_page(image_paths: dict[str, str]) -> str:
       <div class="fact-strip">
         <span>{dish_count} potraw i napojów</span>
         <span>{image_count} kart ze zdjęciem</span>
-        <span>Guangdong, Guangxi, Chaoshan, Fujian, Hainan, Hongkong i Makao</span>
+        <span>Guangdong, Guangxi, Chaoshan, Hongkong i Makao oraz zapasowe inspiracje z Fujianu i Hainanu</span>
       </div>
     </section>
 
@@ -1124,11 +1124,11 @@ def build_practical_page() -> str:
     blocks = [
         (
             "Budżet",
-            "Założenie 8k PLN wymaga trzymania Hongkongu i Makao jako day tripów oraz pilnowania Hainanu. Noclegi średnio około 50 PLN/os./noc są realne w Guangxi, Chaoshan i części Guangdong, trudniejsze w Hainanie, Hongkongu i Makao.",
+            "Założenie 8k PLN najlepiej trzymać przez ograniczenie Hongkongu i Makao do day tripów, spanie głównie w Chinach kontynentalnych i unikanie dokładania Hainanu/Fujianu jako osobnych modułów. Noclegi średnio około 50 PLN/os./noc są realne w Guangxi, Chaoshan i części Guangdong.",
         ),
         (
             "Noclegi",
-            "W Chinach kontynentalnych wybieraj obiekty, które przyjmują cudzoziemców i potrafią zameldować paszport. W zimie sprawdzaj ogrzewanie lub klimatyzację z trybem grzania, szczególnie w Longji, Yangshuo i Fujianie.",
+            "W Chinach kontynentalnych wybieraj obiekty, które przyjmują cudzoziemców i potrafią zameldować paszport. W zimie sprawdzaj ogrzewanie lub klimatyzację z trybem grzania, szczególnie w Yangshuo i prostszych hotelach Guangxi.",
         ),
         (
             "Granice",
@@ -1136,7 +1136,7 @@ def build_practical_page() -> str:
         ),
         (
             "Transport",
-            "Najmocniejszym kręgosłupem trasy jest kolej dużych prędkości w Guangdong i Guangxi. Hainan zwykle podbija koszt przez loty albo długi transfer, więc warto porównywać go z wariantem Fujian/Chaoshan.",
+            "Najmocniejszym kręgosłupem trasy jest kolej dużych prędkości w Guangdong, Guangxi i Chaoshan. Detian oraz Fangchenggang/Dongxing traktuj jako wypady z Nanning, nie jako osobne bazy z walizkami.",
         ),
         (
             "Aplikacje",
@@ -1465,6 +1465,11 @@ def build_site() -> None:
     image_paths = image_paths_from_attributions()
 
     write_site_css()
+    current_place_pages = {f"{place['id']}.html" for place in places}
+    PLACES_DIR.mkdir(parents=True, exist_ok=True)
+    for stale_page in PLACES_DIR.glob("*.html"):
+        if stale_page.name != "index.html" and stale_page.name not in current_place_pages:
+            stale_page.unlink()
     write(PLACES_DIR / "index.html", build_places_index(places, image_paths))
     for place in places:
         write(PLACES_DIR / f"{place['id']}.html", build_place_page(place, places, routes, places_by_id, image_paths))

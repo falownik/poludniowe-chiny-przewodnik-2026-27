@@ -45,15 +45,6 @@
     "file": "assets/images/hongkong_victoria_harbour.jpg"
   },
   {
-    "id": "longji_terraces",
-    "title": "Longji Rice Terraces",
-    "commons_title": "File:Longji Rice Terraces 001.jpg",
-    "artist": "Rutger van der Maar",
-    "license": "CC BY 2.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Longji_Rice_Terraces_001.jpg",
-    "file": "assets/images/longji_terraces.jpg"
-  },
-  {
     "id": "macau_senado",
     "title": "Senado Square",
     "commons_title": "File:'Senado Square' during Christmas festivities..jpg",
@@ -72,15 +63,6 @@
     "file": "assets/images/macau_st_paul.jpg"
   },
   {
-    "id": "sanya_yalong_bay",
-    "title": "Yalong Bay, Sanya",
-    "commons_title": "File:HN SanYa YaLong Bay Holiday Inn Resort.jpg",
-    "artist": "No machine-readable author provided. HNPIX~commonswiki assumed (based on copyright claims).",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:HN_SanYa_YaLong_Bay_Holiday_Inn_Resort.jpg",
-    "file": "assets/images/sanya_yalong_bay.jpg"
-  },
-  {
     "id": "shenzhen_skyline",
     "title": "Shenzhen Futian",
     "commons_title": "File:Civic Centre and Futian CBD, Shenzhen - 20251227, views from Lianhuashan Park.jpg",
@@ -88,15 +70,6 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:Civic_Centre_and_Futian_CBD,_Shenzhen_-_20251227,_views_from_Lianhuashan_Park.jpg",
     "file": "assets/images/shenzhen_skyline.jpg"
-  },
-  {
-    "id": "xiamen_gulangyu",
-    "title": "Gulangyu, Xiamen",
-    "commons_title": "File:Gulangyu Island,Xiamen City.JPG",
-    "artist": "螺钉",
-    "license": "CC BY-SA 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Gulangyu_Island,Xiamen_City.JPG",
-    "file": "assets/images/xiamen_gulangyu.jpg"
   },
   {
     "id": "yangshuo_yulong",

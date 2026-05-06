@@ -52,6 +52,11 @@ def require(condition: bool, message: str) -> None:
         raise SystemExit(f"FAIL: {message}")
 
 
+def html_contains_json_text(html: str, value: str) -> bool:
+    escaped_json_value = json.dumps(value, ensure_ascii=True)[1:-1]
+    return value in html or escaped_json_value in html
+
+
 def main() -> None:
     places = load_json(PLACES)
     routes = load_json(ROUTES)
@@ -66,11 +71,24 @@ def main() -> None:
     require(len(attributions) >= len({place["photo_id"] for place in places}), "missing image attributions")
     require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
     require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
-    require(any(route.get("train_alt") for route in routes if "flight" in route["mode"].lower()), "flight routes lack train alternatives")
+    require(any(place["id"] == "detian" for place in places), "Detian is missing from places")
+    require(all(place["id"] not in {"hainan", "xiamen", "longji"} for place in places), "removed Hainan/Xiamen/Longji places should not be mapped")
+    flight_routes = [route for route in routes if "flight" in route["mode"].lower()]
+    if flight_routes:
+        require(any(route.get("train_alt") for route in flight_routes), "flight routes lack train alternatives")
     route_layers = {route.get("layer") for route in routes}
     require({"hub_hsr", "local_hub", "optional"}.issubset(route_layers), "route layer split is incomplete")
     require(all(route.get("layer") in {"hub_hsr", "local_hub", "optional"} for route in routes), "route has invalid layer")
     require(any(route["id"] == "nanning_shenzhen" for route in routes), "Nanning-Shenzhen hub route is missing")
+    require(any(route["id"] == "nanning_detian" for route in routes), "Nanning-Detian route is missing")
+    require(
+        any(route["id"] == "nanning_fangchenggang" and route.get("layer") == "local_hub" for route in routes),
+        "Fangchenggang day-trip route should be local_hub",
+    )
+    require(
+        all(route["from"] not in {"hainan", "xiamen", "longji"} and route["to"] not in {"hainan", "xiamen", "longji"} for route in routes),
+        "routes should not reference removed Hainan/Xiamen/Longji places",
+    )
 
     required_phrases = [
         "Południe Chin 2026/27",
@@ -91,7 +109,8 @@ def main() -> None:
         "Pętla HSR",
         "Wypady z baz",
         "opcje rezerwowe, domyślnie wyłączone",
-        "Alternatywa pociągiem",
+        "Detian Waterfall / Mingshi",
+        "Fangchenggang / Dongxing",
         "leaflet-tooltip.route-tooltip",
         "width: max-content",
         "overflow-wrap: break-word",
@@ -111,6 +130,10 @@ def main() -> None:
     require("route-label" not in html, "route labels should not be rendered permanently")
     require("<th>Koszt</th>" not in html, "route cost column should not be visible in the sidebar")
     require('"collapsed": true' in html, "layer control should start collapsed")
+    require("places/hainan.html" not in html, "map should not link removed Hainan page")
+    require("places/xiamen.html" not in html, "map should not link removed Xiamen page")
+    require("places/longji.html" not in html, "map should not link removed Longji page")
+    require("Longji Rice Terraces" not in html, "map should not contain removed Longji point")
 
     for place in places:
         require(place["name"] in html, f"HTML missing place: {place['name']}")
@@ -141,12 +164,15 @@ def main() -> None:
 
     for feature in provinces.get("features", []):
         props = feature.get("properties", {})
-        require(props.get("name") in html, f"HTML missing province name: {props.get('name')}")
+        require(html_contains_json_text(html, props.get("name", "")), f"HTML missing province name: {props.get('name')}")
         require(props.get("color") in html, f"HTML missing province color: {props.get('name')}")
-        require(props.get("description") in html, f"HTML missing province description: {props.get('name')}")
+        require(html_contains_json_text(html, props.get("description", "")), f"HTML missing province description: {props.get('name')}")
 
     for removed_name in ["Kunming / Yunnan", "Yunnan", "Guizhou", "Syczuan"]:
         require(removed_name not in html, f"HTML still contains removed region: {removed_name}")
+
+    for stale_name in ["hainan.html", "xiamen.html", "longji.html"]:
+        require(not (PLACES_DIR / stale_name).exists(), f"stale removed place page should be deleted: {stale_name}")
 
     image_files = list((DOCS / "assets" / "images").glob("*"))
     require(len(image_files) >= len({place["photo_id"] for place in places}), "not enough copied images")

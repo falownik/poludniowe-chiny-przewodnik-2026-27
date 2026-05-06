@@ -78,45 +78,6 @@
     ]
   },
   {
-    "id": "hainan",
-    "name": "Hainan: Haikou / Wanning / Sanya",
-    "region": "Hainan",
-    "kind": "main_route",
-    "lat": 18.75,
-    "lon": 109.55,
-    "priority": "warm-weather module",
-    "suggested_nights": "3-4 noce",
-    "avg_lodging_pln_pp": 75,
-    "lodging_range_pln_pp": "60-110 PLN/os./noc budżetowo; resorty dużo droższe",
-    "budget_note": "Przy limicie 50 PLN/os./noc Hainan jest ryzykowny. Trzymać krótko i unikać Yalong/Haitang Bay.",
-    "photo_id": "sanya_yalong_bay",
-    "summary": "Ciepły, tropikalny moduł wyjazdu. Dobry na odpoczynek, ale w grudniu/styczniu szybko podbija budżet.",
-    "what_to_see": [
-      "Haikou Qilou Old Street",
-      "Wanning / Riyue Bay / Shimei Bay",
-      "Sanya Bay albo Dadonghai zamiast najdroższych resortów",
-      "Nanshan Guanyin, jeśli chcecie monumentalny punkt pielgrzymkowy"
-    ],
-    "attractions": [
-      {
-        "name": "Nanshan Guanyin",
-        "lat": 18.299,
-        "lon": 109.207,
-        "price_pln": "ok. 65 PLN+",
-        "time": "3-5 h",
-        "note": "Monumentalne i komercyjne, ale robi wrażenie."
-      },
-      {
-        "name": "Yalong Bay",
-        "lat": 18.226,
-        "lon": 109.638,
-        "price_pln": "0 PLN plaża / drogie resorty",
-        "time": "pół dnia",
-        "note": "Ładna, ale budżetowo ostrożnie."
-      }
-    ]
-  },
-  {
     "id": "zhuhai",
     "name": "Zhuhai",
     "region": "Guangdong",
@@ -195,37 +156,6 @@
     ]
   },
   {
-    "id": "longji",
-    "name": "Longji Rice Terraces",
-    "region": "Guangxi",
-    "kind": "rural",
-    "lat": 25.766,
-    "lon": 110.123,
-    "priority": "rural winter landscape",
-    "suggested_nights": "1 noc",
-    "avg_lodging_pln_pp": 45,
-    "lodging_range_pln_pp": "35-65 PLN/os./noc w prostych guesthouse'ach",
-    "budget_note": "Dobry rural akcent, ale zimą bez zielonego ryżu. Brać mały bagaż.",
-    "photo_id": "longji_terraces",
-    "summary": "Wiejski, tarasowy krajobraz Guangxi. Zimą bardziej geometria, mgła i drewniane domy niż zielone pola.",
-    "what_to_see": [
-      "Ping'an albo Dazhai",
-      "Tarasy o świcie",
-      "Drewniane wioski Zhuang/Yao",
-      "Spacery po schodach i punktach widokowych"
-    ],
-    "attractions": [
-      {
-        "name": "Ping'an Village",
-        "lat": 25.78,
-        "lon": 110.114,
-        "price_pln": "ok. 45 PLN scenic area",
-        "time": "1 dzień / 1 noc",
-        "note": "Najłatwiejsza klasyczna baza."
-      }
-    ]
-  },
-  {
     "id": "yangshuo",
     "name": "Yangshuo / Yulong River",
     "region": "Guangxi",
@@ -272,18 +202,18 @@
     "kind": "transfer_base",
     "lat": 25.2736,
     "lon": 110.29,
-    "priority": "rail base for Yangshuo/Longji",
+    "priority": "rail base for Yangshuo/Nanning",
     "suggested_nights": "0-1 noc",
     "avg_lodging_pln_pp": 50,
     "lodging_range_pln_pp": "40-70 PLN/os./noc",
     "budget_note": "Dobre jako przesiadka, ale na noclegi lepszy klimat ma Yangshuo.",
     "photo_id": "guilin_li_river",
-    "summary": "Miasto-brama do rzeki Li, Yangshuo i Longji. Dobre na spokojny start po HSR.",
+    "summary": "Miasto-brama do rzeki Li, Yangshuo i dalszej pętli Guangxi. Dobre na spokojny start po HSR.",
     "what_to_see": [
       "Two Rivers Four Lakes",
       "Guilin rice noodles",
       "Reed Flute Cave przy deszczu",
-      "Transfer do Yangshuo lub Longji"
+      "Transfer do Yangshuo lub Nanning"
     ],
     "attractions": [
       {
@@ -309,13 +239,14 @@
     "lodging_range_pln_pp": "40-70 PLN/os./noc w prostym hotelu lub hostelu",
     "budget_note": "Dobra tania baza, jeśli chcecie dołożyć południowe Guangxi bez lotu. Nie jest tak widowiskowy jak Yangshuo, ale logistycznie działa.",
     "photo_id": "detian_waterfall",
-    "summary": "Stolica Guangxi i praktyczna baza kolejowa do Fangchenggang, Detian i południowego pogranicza. Najlepsza jako 1-2 noce, nie jako główny cel.",
+    "summary": "Stolica Guangxi i praktyczna baza kolejowa do lokalnych wypadów: Detian, Fangchenggang/Dongxing i południowego pogranicza. Najlepsza jako 1-2 noce, nie jako główny cel.",
     "what_to_see": [
       "Qingxiu Mountain",
       "Three Streets and Two Alleys",
       "Zhongshan Road / lokalne jedzenie nocne",
       "Guangxi Museum of Nationalities",
-      "Opcjonalny długi wypad do Detian Waterfall"
+      "Day trip do Detian Waterfall",
+      "Day trip do Fangchenggang/Dongxing"
     ],
     "attractions": [
       {
@@ -348,22 +279,22 @@
     "id": "fangchenggang",
     "name": "Fangchenggang / Dongxing",
     "region": "Guangxi coast",
-    "kind": "optional_extension",
+    "kind": "daytrip",
     "lat": 21.686,
     "lon": 108.354,
-    "priority": "coast and Vietnam-border add-on",
-    "suggested_nights": "1-2 noce albo day trip z Nanning",
-    "avg_lodging_pln_pp": 50,
-    "lodging_range_pln_pp": "40-75 PLN/os./noc; prościej i taniej niż Hainan",
-    "budget_note": "Dobry budżetowy zamiennik części plażowej, jeśli Hainan robi się za drogi. Nie oczekiwać resortowej infrastruktury.",
+    "priority": "coast and Vietnam-border day trip",
+    "suggested_nights": "0 nocy / day trip z Nanning",
+    "avg_lodging_pln_pp": 0,
+    "lodging_range_pln_pp": "0 PLN/os./noc w planie day trip; nocleg tylko, jeśli świadomie chcecie zwolnić tempo",
+    "budget_note": "Budżetowy morski akcent Guangxi bez dokładania lotów. Sensowny tylko jako konkretny wypad z Nanning, nie jako osobna baza z walizkami.",
     "photo_id": "detian_waterfall",
-    "summary": "Mniej oczywisty kawałek Guangxi: wybrzeże Beibu Gulf, portowy klimat i Dongxing przy granicy z Wietnamem. Bardziej lokalnie niż wakacyjnie.",
+    "summary": "Day trip z Nanning na wybrzeże Beibu Gulf i do Dongxing przy granicy z Wietnamem. Bardziej lokalnie i portowo niż pocztówkowo.",
     "what_to_see": [
       "Dongxing border area",
       "Beilun River i pogranicze z Wietnamem",
       "Jiangshan Peninsula / Bailangtan",
       "Seafood i proste nadmorskie kolacje",
-      "Nanning jako baza kolejowa"
+      "Powrót na noc do Nanning"
     ],
     "attractions": [
       {
@@ -389,6 +320,45 @@
         "price_pln": "0 PLN",
         "time": "1-2 h",
         "note": "Port, promenady i kolacja z owocami morza."
+      }
+    ]
+  },
+  {
+    "id": "detian",
+    "name": "Detian Waterfall / Mingshi",
+    "region": "Guangxi / Chongzuo",
+    "kind": "daytrip",
+    "lat": 22.854,
+    "lon": 106.722,
+    "priority": "long day trip from Nanning",
+    "suggested_nights": "0 nocy / bardzo długi day trip",
+    "avg_lodging_pln_pp": 0,
+    "lodging_range_pln_pp": "0 PLN/os./noc w wariancie day trip; wolniejsza wersja wymagałaby noclegu w Chongzuo/Mingshi",
+    "budget_note": "Koszt robi głównie transport, nie nocleg. Zostawić tylko wtedy, gdy grupa chce mocny krajobraz graniczny i akceptuje długi dzień.",
+    "photo_id": "detian_waterfall",
+    "summary": "Wodospad na granicy Chin i Wietnamu oraz krasowe okolice Mingshi. To najładniejszy, ale też najdłuższy wypad z Nanning.",
+    "what_to_see": [
+      "Detian Waterfall przy granicy z Wietnamem",
+      "Krasowy krajobraz Chongzuo",
+      "Mingshi countryside, jeśli logistycznie da się połączyć",
+      "Widoki i zdjęcia zamiast miejskiego zwiedzania"
+    ],
+    "attractions": [
+      {
+        "name": "Detian Waterfall",
+        "lat": 22.854,
+        "lon": 106.722,
+        "price_pln": "ok. 40-80 PLN scenic area / zależnie od pakietu",
+        "time": "3-4 h na miejscu",
+        "note": "Najmocniejszy krajobrazowy punkt z Nanning, ale wymaga długiego dojazdu."
+      },
+      {
+        "name": "Mingshi countryside",
+        "lat": 22.765,
+        "lon": 106.934,
+        "price_pln": "0-80 PLN zależnie od formy zwiedzania",
+        "time": "1-3 h, jeśli dzień nie jest przeładowany",
+        "note": "Krasowe pagórki i rzeka; dobre tylko przy dobrze ułożonym transporcie."
       }
     ]
   },
@@ -517,45 +487,6 @@
         "price_pln": "0 PLN",
         "time": "1-2 h",
         "note": "Jedzenie i stara oś miasta."
-      }
-    ]
-  },
-  {
-    "id": "xiamen",
-    "name": "Xiamen / Fujian tulou",
-    "region": "Fujian",
-    "kind": "optional_extension",
-    "lat": 24.4798,
-    "lon": 118.0894,
-    "priority": "optional if Hainan removed",
-    "suggested_nights": "3-4 noce",
-    "avg_lodging_pln_pp": 65,
-    "lodging_range_pln_pp": "50-90 PLN/os./noc w budżecie",
-    "budget_note": "Ciekawa alternatywa dla Hainanu, jeśli chcecie herbatę, morze i tulou zamiast plaż.",
-    "photo_id": "xiamen_gulangyu",
-    "summary": "Wybrzeże Fujianu, Gulangyu, Nanputuo, herbaty i możliwy wyjazd do tulou Hakka.",
-    "what_to_see": [
-      "Gulangyu",
-      "Nanputuo Temple",
-      "Zhongshan Road",
-      "Tulou Tianluokeng / Nanjing"
-    ],
-    "attractions": [
-      {
-        "name": "Gulangyu",
-        "lat": 24.447,
-        "lon": 118.062,
-        "price_pln": "prom + część atrakcji płatna",
-        "time": "pół dnia",
-        "note": "Trzeba pilnować terminala promowego."
-      },
-      {
-        "name": "Fujian tulou",
-        "lat": 24.584,
-        "lon": 117.048,
-        "price_pln": "ok. 50 PLN pakiet",
-        "time": "1-2 dni",
-        "note": "Najlepiej z noclegiem w okolicy."
       }
     ]
   }
