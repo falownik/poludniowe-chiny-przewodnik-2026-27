@@ -91,6 +91,142 @@ ROUTE_LAYERS: dict[str, dict[str, Any]] = {
 }
 
 
+TRIP_DAYS: list[dict[str, Any]] = [
+    {
+        "date": "16.12",
+        "title": "Warszawa",
+        "detail": "Wylot i dzień techniczny.",
+        "place_ids": [],
+    },
+    {
+        "date": "17.12",
+        "title": "Guangzhou",
+        "detail": "Przylot, pierwszy nocleg i spokojne wejście w trasę.",
+        "place_ids": ["guangzhou"],
+    },
+    {
+        "date": "18.12",
+        "title": "Guangzhou / Foshan",
+        "detail": "Kanton + kulinarny wypad do Foshan/Shunde.",
+        "place_ids": ["guangzhou", "shunde_foshan"],
+    },
+    {
+        "date": "19.12",
+        "title": "Przejazd do Yangshuo",
+        "detail": "Guangzhou -> Guilin -> Yangshuo.",
+        "place_ids": ["guangzhou", "guilin", "yangshuo"],
+    },
+    {
+        "date": "20.12",
+        "title": "Yangshuo",
+        "detail": "Rzeka Yulong, rower/skuter i krasowy krajobraz.",
+        "place_ids": ["yangshuo"],
+    },
+    {
+        "date": "21.12",
+        "title": "Yangshuo",
+        "detail": "Moon Hill, wioski i wolniejsze tempo.",
+        "place_ids": ["yangshuo"],
+    },
+    {
+        "date": "22.12",
+        "title": "Yangshuo",
+        "detail": "Xingping / Li River albo dzień zapasowy na pogodę.",
+        "place_ids": ["yangshuo", "guilin"],
+    },
+    {
+        "date": "23.12",
+        "title": "Yangshuo",
+        "detail": "Ostatni pełny dzień natury przed przejazdem na południe Guangxi.",
+        "place_ids": ["yangshuo"],
+    },
+    {
+        "date": "24.12",
+        "title": "Nanning",
+        "detail": "Yangshuo -> Guilin -> Nanning.",
+        "place_ids": ["yangshuo", "guilin", "nanning"],
+    },
+    {
+        "date": "25.12",
+        "title": "Nanning",
+        "detail": "Qingxiu Mountain, centrum i jedzenie Guangxi.",
+        "place_ids": ["nanning"],
+    },
+    {
+        "date": "26.12",
+        "title": "Detian",
+        "detail": "Długi day trip do Detian Waterfall / Mingshi.",
+        "place_ids": ["nanning", "detian"],
+    },
+    {
+        "date": "27.12",
+        "title": "Fangchenggang / Dongxing",
+        "detail": "Day trip na wybrzeże i pogranicze z Wietnamem.",
+        "place_ids": ["nanning", "fangchenggang"],
+    },
+    {
+        "date": "28.12",
+        "title": "Shenzhen",
+        "detail": "Nanning -> Shenzhen szybką koleją.",
+        "place_ids": ["nanning", "shenzhen"],
+    },
+    {
+        "date": "29.12",
+        "title": "Shenzhen",
+        "detail": "Futian, Huaqiangbei, Shenzhen Bay Park.",
+        "place_ids": ["shenzhen"],
+    },
+    {
+        "date": "30.12",
+        "title": "Hongkong z Shenzhen",
+        "detail": "Day trip: port, Kowloon, Star Ferry i jedzenie.",
+        "place_ids": ["shenzhen", "hongkong"],
+    },
+    {
+        "date": "31.12",
+        "title": "Chaozhou",
+        "detail": "Shenzhen -> Chaozhou; Sylwester w Chaoshan.",
+        "place_ids": ["shenzhen", "chaozhou"],
+    },
+    {
+        "date": "1.1",
+        "title": "Chaozhou",
+        "detail": "Guangji Bridge, Paifang Street, herbata gongfu.",
+        "place_ids": ["chaozhou"],
+    },
+    {
+        "date": "2.1",
+        "title": "Chaozhou / Shantou",
+        "detail": "Moduł foodie: gęś, hotpot wołowy, congee.",
+        "place_ids": ["chaozhou"],
+    },
+    {
+        "date": "3.1",
+        "title": "Guangzhou",
+        "detail": "Chaozhou -> Guangzhou, bufor przed końcówką.",
+        "place_ids": ["chaozhou", "guangzhou"],
+    },
+    {
+        "date": "4.1",
+        "title": "Makao z Guangzhou",
+        "detail": "Day trip przez Zhuhai: stare centrum, Taipa, egg tarty.",
+        "place_ids": ["guangzhou", "zhuhai", "macau"],
+    },
+    {
+        "date": "5.1",
+        "title": "Guangzhou",
+        "detail": "Ostatni pełny dzień: Liwan, zakupy, kolacja.",
+        "place_ids": ["guangzhou"],
+    },
+    {
+        "date": "6.1",
+        "title": "Powrót",
+        "detail": "Guangzhou jako bezpieczna baza pod lot.",
+        "place_ids": ["guangzhou"],
+    },
+]
+
+
 def route_color(mode: str) -> str:
     mode = mode.lower()
     if "flight" in mode:
@@ -341,6 +477,35 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
     """
 
 
+def build_itinerary_panel(places: list[dict[str, Any]]) -> str:
+    known_places = {place["id"] for place in places}
+    rows = []
+    for day in TRIP_DAYS:
+        place_ids = [place_id for place_id in day["place_ids"] if place_id in known_places]
+        place_attr = " ".join(place_ids)
+        disabled = " disabled" if not place_ids else ""
+        rows.append(
+            f"""
+      <button class="itinerary-day" type="button" data-place-ids="{esc(place_attr)}"{disabled}>
+        <span class="itinerary-date">{esc(day['date'])}</span>
+        <span class="itinerary-copy">
+          <strong>{esc(day['title'])}</strong>
+          <span>{esc(day['detail'])}</span>
+        </span>
+      </button>
+            """
+        )
+    return f"""
+    <button id="plan-panel-toggle" class="panel-toggle panel-toggle-plan" type="button" aria-controls="plan-panel" aria-expanded="true">Ukryj plan</button>
+    <aside id="plan-panel">
+      <h2>Poprawiony plan</h2>
+      <div class="itinerary-days">
+        {''.join(rows)}
+      </div>
+    </aside>
+    """
+
+
 def build_styles() -> str:
     return """
     <style>
@@ -393,6 +558,10 @@ def build_styles() -> str:
         right: 12px;
         bottom: 28px;
       }
+      .panel-toggle-plan {
+        top: 12px;
+        right: 58px;
+      }
       #trip-panel h1 { font-size: 18px; margin: 0 0 8px; }
       #trip-panel h2 { font-size: 14px; margin: 14px 0 6px; }
       #trip-panel .panel-subhead {
@@ -418,6 +587,95 @@ def build_styles() -> str:
       #trip-panel table { width: 100%; border-collapse: collapse; font-size: 11px; }
       #trip-panel th, #trip-panel td { border-top: 1px solid #e2e8f0; padding: 4px 3px; vertical-align: top; }
       #trip-panel th { text-align: left; color: #475569; }
+      #plan-panel {
+        position: fixed;
+        z-index: 9998;
+        top: 54px;
+        right: 12px;
+        width: 344px;
+        max-height: calc(100vh - 88px);
+        overflow: auto;
+        background: rgba(255,255,255,0.95);
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 10px 28px rgba(15,23,42,0.15);
+        border-radius: 8px;
+        padding: 12px;
+        color: #172033;
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+      body.plan-panel-hidden #plan-panel {
+        transform: translateX(calc(100% + 32px));
+        opacity: 0;
+        pointer-events: none;
+      }
+      #plan-panel h2 {
+        margin: 0 0 9px;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+      .itinerary-days {
+        display: grid;
+        gap: 6px;
+      }
+      .itinerary-day {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 8px;
+        width: 100%;
+        min-height: 54px;
+        padding: 8px;
+        border: 1px solid #d9e1ea;
+        border-radius: 7px;
+        background: #fff;
+        color: #172033;
+        text-align: left;
+        cursor: pointer;
+      }
+      .itinerary-day:hover,
+      .itinerary-day:focus-visible {
+        border-color: #f97316;
+        background: #fff7ed;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(249,115,22,0.18);
+      }
+      .itinerary-day:disabled {
+        cursor: default;
+        opacity: 0.58;
+      }
+      .itinerary-day:disabled:hover {
+        border-color: #d9e1ea;
+        background: #fff;
+        box-shadow: none;
+      }
+      .itinerary-date {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 30px;
+        border-radius: 6px;
+        background: #eef2ff;
+        color: #3730a3;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1;
+      }
+      .itinerary-copy {
+        min-width: 0;
+        display: grid;
+        gap: 2px;
+      }
+      .itinerary-copy strong {
+        font-size: 12px;
+        line-height: 1.2;
+      }
+      .itinerary-copy span {
+        color: #5b6475;
+        font-size: 11px;
+        line-height: 1.28;
+      }
+      .itinerary-marker-active {
+        filter: drop-shadow(0 0 8px #f97316) drop-shadow(0 0 3px #111827);
+      }
       .leaflet-tooltip {
         width: max-content;
         min-width: min(180px, calc(100vw - 32px));
@@ -580,6 +838,9 @@ def build_styles() -> str:
         opacity: 0;
         pointer-events: none;
       }
+      body:not(.legend-hidden) .legend {
+        right: 368px;
+      }
       .legend h3 { margin: 0 0 6px; font-size: 13px; }
       .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
       .line-key {
@@ -640,10 +901,23 @@ def build_styles() -> str:
           right: 8px;
           bottom: 8px;
         }
+        .panel-toggle-plan {
+          top: 8px;
+          right: 8px;
+        }
+        #plan-panel {
+          position: static;
+          width: auto;
+          max-height: 42vh;
+          margin: 8px;
+        }
         .legend {
           right: 8px;
           bottom: 52px;
           max-width: min(260px, calc(100vw - 16px));
+        }
+        body:not(.legend-hidden) .legend {
+          right: 8px;
         }
         .leaflet-tooltip.foliumtooltip {
           width: 270px !important;
@@ -680,7 +954,7 @@ def build_legend(provinces: dict[str, Any]) -> str:
         else ""
     )
     return f"""
-    <button id="legend-toggle" class="panel-toggle panel-toggle-right" type="button" aria-controls="map-legend" aria-expanded="true">Ukryj legendę</button>
+    <button id="legend-toggle" class="panel-toggle panel-toggle-right" type="button" aria-controls="map-legend" aria-expanded="false">Pokaż legendę</button>
     <div id="map-legend" class="legend">
       <h3>Nocleg / osoba / noc</h3>
       <div><span class="dot" style="background:#16803c"></span>do 50 PLN</div>
@@ -697,10 +971,16 @@ def build_legend(provinces: dict[str, Any]) -> str:
     """
 
 
-def build_panel_script() -> str:
-    return """
+def build_panel_script(
+    place_marker_names: dict[str, str],
+    place_circle_names: dict[str, str],
+    place_circle_styles: dict[str, dict[str, Any]],
+) -> str:
+    script = """
     <script>
       (function () {
+        document.body.classList.add("legend-hidden");
+
         function bindPanelToggle(buttonId, hiddenClass, openText, closedText) {
           const button = document.getElementById(buttonId);
           if (!button) return;
@@ -715,11 +995,103 @@ def build_panel_script() -> str:
           });
           sync();
         }
+
+        const markerNames = __MARKER_NAMES__;
+        const circleNames = __CIRCLE_NAMES__;
+        const circleStyles = __CIRCLE_STYLES__;
+        let activePlaceIds = [];
+
+        function markerFor(placeId) {
+          const name = markerNames[placeId];
+          return name ? window[name] : null;
+        }
+
+        function circleFor(placeId) {
+          const name = circleNames[placeId];
+          return name ? window[name] : null;
+        }
+
+        function clearItineraryHighlight() {
+          activePlaceIds.forEach(function (placeId) {
+            const marker = markerFor(placeId);
+            if (marker) {
+              const markerElement = marker.getElement && marker.getElement();
+              if (markerElement) markerElement.classList.remove("itinerary-marker-active");
+              if (marker.setZIndexOffset) marker.setZIndexOffset(0);
+            }
+            const circle = circleFor(placeId);
+            if (circle && circle.setStyle && circleStyles[placeId]) {
+              circle.setStyle(circleStyles[placeId]);
+            }
+          });
+          activePlaceIds = [];
+        }
+
+        function activateItineraryDay(placeIds) {
+          clearItineraryHighlight();
+          activePlaceIds = placeIds.filter(Boolean);
+          const markers = activePlaceIds.map(markerFor).filter(Boolean);
+          const map = markers.length ? markers[0]._map : null;
+          const latLngs = markers
+            .map(function (marker) { return marker.getLatLng && marker.getLatLng(); })
+            .filter(Boolean);
+          if (map && latLngs.length) {
+            const bounds = L.latLngBounds(latLngs);
+            map.fitBounds(bounds.pad(0.25), {
+              animate: false,
+              maxZoom: 8,
+              paddingTopLeft: [388, 72],
+              paddingBottomRight: [368, 72]
+            });
+          }
+
+          function applyHighlightStyles() {
+            activePlaceIds.forEach(function (placeId) {
+              const marker = markerFor(placeId);
+              if (marker) {
+                const markerElement = marker.getElement && marker.getElement();
+                if (markerElement) markerElement.classList.add("itinerary-marker-active");
+                if (marker.setZIndexOffset) marker.setZIndexOffset(1000);
+              }
+              const circle = circleFor(placeId);
+              if (circle && circle.setStyle) {
+                circle.setStyle({
+                  color: "#f97316",
+                  fillColor: "#fdba74",
+                  fillOpacity: 0.55,
+                  weight: 5
+                });
+                if (circle.bringToFront) circle.bringToFront();
+              }
+            });
+          }
+          applyHighlightStyles();
+          window.setTimeout(applyHighlightStyles, 80);
+        }
+
+        function bindItineraryHover() {
+          document.querySelectorAll(".itinerary-day[data-place-ids]").forEach(function (item) {
+            const placeIds = (item.dataset.placeIds || "").split(" ").filter(Boolean);
+            if (!placeIds.length) return;
+            item.addEventListener("mouseenter", function () { activateItineraryDay(placeIds); });
+            item.addEventListener("mouseleave", clearItineraryHighlight);
+            item.addEventListener("focus", function () { activateItineraryDay(placeIds); });
+            item.addEventListener("blur", clearItineraryHighlight);
+          });
+        }
+
         bindPanelToggle("trip-panel-toggle", "trip-panel-hidden", "Ukryj panel", "Pokaż panel");
         bindPanelToggle("legend-toggle", "legend-hidden", "Ukryj legendę", "Pokaż legendę");
+        bindPanelToggle("plan-panel-toggle", "plan-panel-hidden", "Ukryj plan", "Pokaż plan");
+        window.addEventListener("load", bindItineraryHover);
       })();
     </script>
     """
+    return (
+        script.replace("__MARKER_NAMES__", json.dumps(place_marker_names, ensure_ascii=False))
+        .replace("__CIRCLE_NAMES__", json.dumps(place_circle_names, ensure_ascii=False))
+        .replace("__CIRCLE_STYLES__", json.dumps(place_circle_styles, ensure_ascii=False))
+    )
 
 
 def add_province_layer(fmap: folium.Map, provinces: dict[str, Any]) -> None:
@@ -759,7 +1131,7 @@ def add_place_markers(
     fmap: folium.Map,
     places: list[dict[str, Any]],
     image_paths: dict[str, str],
-) -> None:
+) -> tuple[dict[str, str], dict[str, str], dict[str, dict[str, Any]]]:
     groups = {
         "base": FeatureGroup(name="Bazy i kotwice trasy", show=True),
         "main_route": FeatureGroup(name="Główne moduły trasy", show=True),
@@ -767,24 +1139,37 @@ def add_place_markers(
         "daytrip": FeatureGroup(name="Day tripy bez noclegu", show=True),
         "rural": FeatureGroup(name="Rural / natura", show=True),
         "food_extension": FeatureGroup(name="Moduły jedzeniowe", show=True),
-        "transfer_base": FeatureGroup(name="Bazy transferowe", show=False),
+        "transfer_base": FeatureGroup(name="Bazy transferowe", show=True),
         "optional_extension": FeatureGroup(name="Opcjonalne rozszerzenia", show=False),
     }
     attraction_group = FeatureGroup(name="Atrakcje punktowe", show=True)
+    place_marker_names: dict[str, str] = {}
+    place_circle_names: dict[str, str] = {}
+    place_circle_styles: dict[str, dict[str, Any]] = {}
 
     for place in places:
         image_path = image_paths.get(place.get("photo_id", ""))
         lodging = int(place["avg_lodging_pln_pp"])
-        folium.CircleMarker(
+        circle_color = money_color(lodging)
+        circle_style = {
+            "color": circle_color,
+            "fillColor": circle_color,
+            "fillOpacity": 0.22,
+            "weight": 2,
+        }
+        circle = folium.CircleMarker(
             location=[place["lat"], place["lon"]],
             radius=max(8, min(26, lodging / 5)),
-            color=money_color(lodging),
+            color=circle_color,
             fill=True,
-            fill_color=money_color(lodging),
+            fill_color=circle_color,
             fill_opacity=0.22,
             weight=2,
             tooltip=f"{place['name']}: ok. {lodging} PLN/os./noc",
-        ).add_to(groups.get(place["kind"], groups["base"]))
+        )
+        place_circle_names[place["id"]] = circle.get_name()
+        place_circle_styles[place["id"]] = circle_style
+        circle.add_to(groups.get(place["kind"], groups["base"]))
 
         marker = folium.Marker(
             location=[place["lat"], place["lon"]],
@@ -792,6 +1177,7 @@ def add_place_markers(
             popup=folium.Popup(place_popup(place, image_path), max_width=380),
             tooltip=folium.Tooltip(place_tooltip(place, image_path), sticky=False, direction="top", max_width=320),
         )
+        place_marker_names[place["id"]] = marker.get_name()
         marker.add_to(groups.get(place["kind"], groups["base"]))
 
         for attraction in place.get("attractions", []):
@@ -819,6 +1205,7 @@ def add_place_markers(
     for group in groups.values():
         group.add_to(fmap)
     attraction_group.add_to(fmap)
+    return place_marker_names, place_circle_names, place_circle_styles
 
 
 def add_routes(
@@ -879,7 +1266,12 @@ def build_map() -> None:
 
     add_province_layer(fmap, provinces)
     add_routes(fmap, routes, places_by_id)
-    add_place_markers(fmap, places, image_paths)
+    place_marker_names, place_circle_names, place_circle_styles = add_place_markers(fmap, places, image_paths)
+    fmap.fit_bounds(
+        [[min(place["lat"] for place in places), min(place["lon"] for place in places)],
+         [max(place["lat"] for place in places), max(place["lon"] for place in places)]],
+        padding=(60, 60),
+    )
 
     MiniMap(toggle_display=True, minimized=True).add_to(fmap)
     Fullscreen(position="topleft").add_to(fmap)
@@ -887,8 +1279,11 @@ def build_map() -> None:
 
     fmap.get_root().header.add_child(folium.Element(build_styles()))
     fmap.get_root().html.add_child(folium.Element(build_sidebar(places, routes)))
+    fmap.get_root().html.add_child(folium.Element(build_itinerary_panel(places)))
     fmap.get_root().html.add_child(folium.Element(build_legend(provinces)))
-    fmap.get_root().html.add_child(folium.Element(build_panel_script()))
+    fmap.get_root().html.add_child(
+        folium.Element(build_panel_script(place_marker_names, place_circle_names, place_circle_styles))
+    )
 
     fmap.save(OUTPUT)
     OUTPUT.write_text(
