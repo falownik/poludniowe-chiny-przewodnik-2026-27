@@ -457,7 +457,7 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
     )
     route_sections = route_table("hub_hsr") + route_table("local_hub")
     return f"""
-    <button id="trip-panel-toggle" class="panel-toggle panel-toggle-left" type="button" aria-controls="trip-panel" aria-expanded="true">Ukryj panel</button>
+    <button id="trip-panel-toggle" class="panel-toggle panel-toggle-left" type="button" aria-controls="trip-panel" aria-expanded="false">Pokaż panel</button>
     <div id="trip-panel">
       <h1>Południe Chin 2026/27</h1>
       <p>Mapa planistyczna: noclegi, atrakcje, day tripy, transport i budżet. Najedź na marker, żeby zobaczyć zdjęcie i skrót; kliknij, żeby otworzyć szczegóły.</p>
@@ -979,6 +979,7 @@ def build_panel_script(
     script = """
     <script>
       (function () {
+        document.body.classList.add("trip-panel-hidden");
         document.body.classList.add("legend-hidden");
 
         function bindPanelToggle(buttonId, hiddenClass, openText, closedText) {
@@ -1286,10 +1287,12 @@ def build_map() -> None:
     )
 
     fmap.save(OUTPUT)
-    OUTPUT.write_text(
-        "\n".join(line.rstrip() for line in OUTPUT.read_text(encoding="utf-8").splitlines()) + "\n",
-        encoding="utf-8",
+    html = OUTPUT.read_text(encoding="utf-8").replace(
+        "<body>",
+        '<body class="trip-panel-hidden legend-hidden">',
+        1,
     )
+    OUTPUT.write_text("\n".join(line.rstrip() for line in html.splitlines()) + "\n", encoding="utf-8")
     print(f"Wrote {OUTPUT}")
     print(f"Places: {len(places)}")
     print(f"Routes: {len(routes)}")

@@ -110,6 +110,8 @@ def main() -> None:
         "legend-toggle",
         "trip-panel-hidden",
         "legend-hidden",
+        '<body class="trip-panel-hidden legend-hidden">',
+        'document.body.classList.add("trip-panel-hidden")',
         'document.body.classList.add("legend-hidden")',
         "route-tooltip-card",
         "route-layer-hub-hsr",
