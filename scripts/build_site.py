@@ -1072,6 +1072,66 @@ def build_research_page(nearby_places: list[dict[str, Any]], image_paths: dict[s
       <p><strong>Do sprawdzenia bliżej wyjazdu:</strong> realne ceny kierowców dla Kaiping, Detian/Mingshi i Nan'ao; godziny ostatnich pociągów; świąteczne tłumy 31.12-1.1; AQI i widoczność dzień przed punktami widokowymi; aktualne zasady przejść granicznych przy Hongkongu, Makao i Dongxing.</p>
     </section>
 
+    <section class="text-block research-decision">
+      <h2>Macierz decyzji: co wybrać, kiedy pojawi się wolny czas</h2>
+      <div class="decision-grid">
+        <article class="decision-card">
+          <h3>Macie pół dnia</h3>
+          <ul>
+            <li>Guangzhou: Qinghui Garden/Shunde albo Baomo Garden, jeśli chcecie spokojniejszy rytm.</li>
+            <li>Nanning: Qingxiu Mountain zamiast dalekiego transferu.</li>
+            <li>Shenzhen: Nantou Ancient City, Lianhuashan Park albo OCT Loft.</li>
+            <li>Chaoshan: Kaiyuan Temple + Paifang Street albo Shantou Small Park z kolacją.</li>
+          </ul>
+        </article>
+        <article class="decision-card">
+          <h3>Macie pełny dzień bez zmiany hotelu</h3>
+          <ul>
+            <li>Yangshuo: Xingping + Xianggong, jeśli widoczność jest dobra.</li>
+            <li>Guangzhou: Kaiping albo Zhaoqing, ale tylko przy wczesnym starcie.</li>
+            <li>Nanning: Detian jako ciężki day trip albo Dongxing/Fangchenggang jako morsko-graniczny dzień.</li>
+            <li>Shenzhen: Dapeng Fortress, jeśli nie robicie tego samego dnia Hongkongu.</li>
+          </ul>
+        </article>
+        <article class="decision-card">
+          <h3>Akceptujecie jedną noc poza bazą</h3>
+          <ul>
+            <li>Mingshi + Detian stają się dużo lepsze niż sam day trip z Nanning.</li>
+            <li>Nan'ao Island przestaje być gonieniem po wyspie i daje zachód/wschód słońca.</li>
+            <li>Zhaoqing pozwala zrobić Seven Star Crags i Dinghu bez presji.</li>
+            <li>Dapeng/Jiaochangwei działa wtedy bardziej jak nadmorski oddech niż wyścig z metra.</li>
+          </ul>
+        </article>
+        <article class="decision-card">
+          <h3>Pada albo jest mgła</h3>
+          <ul>
+            <li>Yangshuo/Guilin: Silver Cave albo Reed Flute Cave zamiast punktów widokowych.</li>
+            <li>Shenzhen: Nantou, OCT Loft, Gankeng albo długi food/mall break.</li>
+            <li>Guangzhou/Shunde: dzień jedzeniowy ma większy sens niż ogród w deszczu.</li>
+            <li>Chaoshan: herbata gongfu i jedzenie są odporniejsze na pogodę niż Nan'ao.</li>
+          </ul>
+        </article>
+        <article class="decision-card">
+          <h3>Jest czyste niebo</h3>
+          <ul>
+            <li>Yangshuo: Xianggong i Xingping powinny dostać pierwszeństwo.</li>
+            <li>Shenzhen: Lianhuashan albo Wutong zamiast płatnej wieży.</li>
+            <li>Shantou: Queshi i Nan'ao mają wtedy dużo lepszy sens.</li>
+            <li>Zhaoqing: Seven Star Crags robi się mocniejszym kandydatem niż kolejne muzeum w Guangzhou.</li>
+          </ul>
+        </article>
+        <article class="decision-card">
+          <h3>Grupa jest zmęczona</h3>
+          <ul>
+            <li>Nie dokładać Chongzuo/Mingshi bez noclegu i kierowcy.</li>
+            <li>Zamienić daleki wyjazd na Qingxiu Mountain, Nantou, Shunde albo Chaozhou old town.</li>
+            <li>Zostawić jeden dzień bez twardych biletów, szczególnie po Nanning -> Shenzhen i przed Chaozhou.</li>
+            <li>Priorytetem robi się dobre jedzenie blisko hotelu, nie kolejna atrakcja na siłę.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
     {''.join(sections)}
     """
     return page_shell("Research hubów", "research", body)
@@ -1516,6 +1576,31 @@ main {
   color: var(--teal);
   font-weight: 700;
 }
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.decision-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+}
+.decision-card h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+.decision-card ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+.decision-card li {
+  color: var(--muted);
+  line-height: 1.48;
+  margin-bottom: 5px;
+}
 .food-intro {
   border-left: 5px solid var(--amber);
 }
@@ -1605,7 +1690,7 @@ main {
 @media (max-width: 900px) {
   .site-header { align-items: flex-start; flex-direction: column; padding: 12px 16px; }
   main { width: min(100% - 20px, 1120px); padding-top: 14px; }
-  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .research-grid, .food-grid, .dish-grid, .food-region-card, .research-card {
+  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .research-grid, .decision-grid, .food-grid, .dish-grid, .food-region-card, .research-card {
     grid-template-columns: 1fr;
   }
   .research-card > div { padding: 15px; }
