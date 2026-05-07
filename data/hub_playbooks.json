@@ -1,0 +1,166 @@
+[
+  {
+    "hub": "Guangzhou",
+    "role": "Kotwica przylotu/wylotu i baza do Pearl River Delta. Najlepsza do krótkich, tanich wypadów bez walizek.",
+    "best_additions": [
+      "Shunde/Qinghui Garden, jeśli chcecie dzień jedzeniowy z małą logistyką.",
+      "Kaiping Diaolou, jeśli chcecie najciekawszy całodniowy wypad kulturowy z Guangdong.",
+      "Zhaoqing Seven Star Crags, jeśli chcecie krajobraz bez skracania Yangshuo."
+    ],
+    "skip_or_delay": [
+      "Nie łączyć Kaiping z Makao/Zhuhai w jeden dzień.",
+      "Dinghu + Seven Star Crags w jeden dzień tylko przy noclegu w Zhaoqing albo prywatnym aucie.",
+      "Canton Tower płatnie dopiero po sprawdzeniu AQI i widoczności."
+    ],
+    "transport_rule": "Stacja docelowa liczy się bardziej niż nominalny czas pociągu. Guangzhou South ma najwięcej HSR, ale dojazd z centrum potrafi zjeść godzinę; przy Shunde/Zhuhai/Zhaoqing porównujcie czas drzwi-do-drzwi.",
+    "budget_rule": "Najlepszy value: Shunde + jedzenie. Najdroższe w relacji do efektu: wieże widokowe i prywatne auto solo. Kaiping robi się opłacalne przy 3-4 osobach w aucie.",
+    "weather_rule": "Przy czystym niebie wybierać Zhaoqing/Kaiping; przy deszczu Shunde, muzea, Liwan i jedzenie.",
+    "source_links": [
+      {
+        "label": "UNESCO Kaiping Diaolou",
+        "url": "https://whc.unesco.org/en/list/1112"
+      },
+      {
+        "label": "Guangzhou-Zhaoqing HSR time/fare",
+        "url": "https://www.chinaairlinetravel.com/trains/guangzhou-to-zhaoqing/"
+      },
+      {
+        "label": "Zhaoqing attraction guide",
+        "url": "https://www.highspeed.mtr.com.hk/res/pdf/Attraction-Guide-Zhaoqing_en.pdf"
+      }
+    ]
+  },
+  {
+    "hub": "Guilin / Yangshuo",
+    "role": "Główna baza rural/nature. Największy zwrot z czasu daje wolniejsze tempo: Yulong, Xingping, Xianggong i dni zależne od pogody.",
+    "best_additions": [
+      "Yulong River raft jako jeden płatny klasyk, najlepiej rano.",
+      "Xingping + Xianggong przy dobrej widoczności.",
+      "Silver Cave/Reed Flute Cave tylko jako plan B przy deszczu albo transferze przez Guilin."
+    ],
+    "skip_or_delay": [
+      "Nie robić Xianggong jako obowiązkowego sunrise bez ustalonego kierowcy i prognozy widoczności.",
+      "Nie zabierać dużych plecaków/walizek na raft.",
+      "Nie zamieniać wszystkich dni Yangshuo na jaskinie; to ma być moduł krajobrazowy."
+    ],
+    "transport_rule": "Yangshuo Railway Station leży bliżej Xingping niż Yangshuo town. Jeśli jedziecie do Xingping, wykorzystać bus z okolic stacji; jeśli śpicie w Yangshuo, liczyć około godzinę transferu do Xingping prywatnie lub lokalnie.",
+    "budget_rule": "Najlepszy zestaw za rozsądne pieniądze: raft Yulong + Xianggong/Xingping. Ruyi Peak i Impression Liu Sanjie zostawić jako premium, nie podstawę.",
+    "weather_rule": "Czyste niebo: Xianggong/Xingping. Mgła lekka: nadal spróbować, jeśli ma się bufor. Deszcz: Silver Cave/Reed Flute albo food/rest day.",
+    "source_links": [
+      {
+        "label": "Yulong raft pricing 2026",
+        "url": "https://yangshuomountainretreat.com/blog/en/bamboo-rafting-yangshuo-the-complete-guide-2026/"
+      },
+      {
+        "label": "Yangshuo-Xingping logistics 2026",
+        "url": "https://www.asiaodysseytravel.com/guangxi/yangshuo-to-xingping.html"
+      },
+      {
+        "label": "Reed Flute Cave price/hours",
+        "url": "https://visitguilin.org/things-to-do/caves/reed-flute-cave/"
+      }
+    ]
+  },
+  {
+    "hub": "Nanning",
+    "role": "Baza logistyczna południowego Guangxi, nie miasto do odhaczania zabytków. Jej wartość zależy od tego, czy robicie Detian/Mingshi, Dongxing albo spokojny reset.",
+    "best_additions": [
+      "Qingxiu Mountain jako tani i mało ryzykowny dzień miejski.",
+      "Mingshi + Detian z jedną nocą, jeśli grupa akceptuje przeniesienie bagażu.",
+      "Dongxing/Fangchenggang jako pogranicze i morski kontrast, nie klasyczna plaża."
+    ],
+    "skip_or_delay": [
+      "Nie robić Mingshi + Detian + powrót do Nanning jako ciasnego dnia, jeśli grupa jest zmęczona.",
+      "Nie traktować Chongzuo city jako głównej atrakcji.",
+      "Nie zakładać spontanicznego przekroczenia granicy w Dongxing bez osobnego sprawdzenia zasad."
+    ],
+    "transport_rule": "Pociąg Nanning-Chongzuo South potrafi zejść do około 50-70 min, ale wodospad i Mingshi nadal wymagają długiego ostatniego odcinka. To ostatni odcinek decyduje, czy potrzebny jest kierowca.",
+    "budget_rule": "Qingxiu jest tanie; Detian/Mingshi kosztuje przez transport. Przy 2 osobach prywatny kierowca jest drogi, przy 4 osobach robi się znacznie bardziej racjonalny.",
+    "weather_rule": "Po deszczu wodospady mogą wyglądać lepiej, ale dojazdy są cięższe. Przy słabej pogodzie zostać w Nanning/Qingxiu albo zrobić food day.",
+    "community_pulse": "Sygnał z forów jest mieszany, ale praktyczny: Nanning rzadko wygrywa jako samodzielny city-break. Broni się tanim jedzeniem, zielonym dniem w Qingxiu i tym, że jest wygodną bazą do Detian/Mingshi albo Dongxing/Fangchenggang. Jeśli grupa chce przede wszystkim krajobrazu Guangxi, Yangshuo ma wyższy priorytet.",
+    "source_links": [
+      {
+        "label": "Nanning-Chongzuo South HSR",
+        "url": "https://www.gaotie.net/route/nanning-chongzuonan/"
+      },
+      {
+        "label": "Detian logistics and ticket notes",
+        "url": "https://www.visitourchina.com/nanning/attraction/detian-waterfall.html"
+      },
+      {
+        "label": "Mingshi Scenic Area ticket/logistics",
+        "url": "https://www.trip.com/travel-guide/attraction/daxin/mingshi-scenic-area-84842/"
+      },
+      {
+        "label": "Reddit: Nanning value discussion",
+        "url": "https://www.reddit.com/r/chinalife/comments/1ootg7o/"
+      },
+      {
+        "label": "Reddit: Guangxi / Guilin / Yangshuo context",
+        "url": "https://www.reddit.com/r/travelchina/comments/1iga88h/where_to_go_in_guangxi_province_guilinyangshuo/"
+      }
+    ]
+  },
+  {
+    "hub": "Shenzhen",
+    "role": "Miejski hub transferowy i baza pod Hongkong, ale może dać świetny dzień bez płatnych wież: Nantou, Lianhuashan, OCT, Gankeng albo Dapeng.",
+    "best_additions": [
+      "Nantou Ancient City jako najłatwiejszy półdzień z historią w mieście.",
+      "Lianhuashan Park przy czystym niebie zamiast płatnego tarasu.",
+      "Dapeng Fortress tylko jako pełny dzień albo noc, nie jako dodatek po Hongkongu."
+    ],
+    "skip_or_delay": [
+      "Nie łączyć Dapeng z Hongkongiem w jeden dzień.",
+      "Nie płacić za Ping An tylko dlatego, że jest w planie; najpierw sprawdzić widoczność.",
+      "Wutong Mountain tylko dla osób gotowych na realny hiking."
+    ],
+    "transport_rule": "Metro działa świetnie dla Nantou, OCT i Lianhuashan. Dapeng i wschodnie wybrzeże są inną kategorią: wymagają długiego busa/taxi i bufora.",
+    "budget_rule": "Najlepszy value: Lianhuashan za 0 PLN, Nantou za koszt metra i kawy. Największy pożeracz czasu/kosztu: Dapeng z centrum.",
+    "weather_rule": "Czyste niebo: Lianhuashan/Wutong. Deszcz: Nantou/OCT/Gankeng. Smog: zrezygnować z wież i punktów skyline.",
+    "source_links": [
+      {
+        "label": "Nantou Ancient City metro Line 12",
+        "url": "https://www.metroman.cn/en/cities/shenzhen/stations/nantou-ancient-city"
+      },
+      {
+        "label": "Dapeng official district travel guide",
+        "url": "https://www.dpxq.gov.cn/english/travel/"
+      },
+      {
+        "label": "Lianhua Hill Park, Shenzhen government",
+        "url": "https://www.sz.gov.cn/en_szgov/news/infocus/park/csgy/content/post_11190503.html"
+      }
+    ]
+  },
+  {
+    "hub": "Shantou / Chaozhou",
+    "role": "Najmocniejszy moduł foodie i kulturowy w Guangdong. Logika jest inna niż w Yangshuo: mniej 'atrakcji', więcej jedzenia, herbaty, starych ulic i wolnego tempa.",
+    "best_additions": [
+      "Chaozhou old town: Kaiyuan Temple, Paifang Street, Guangji Bridge, herbata gongfu.",
+      "Shantou Small Park + kolacja jako najlepszy miejski day trip.",
+      "Nan'ao Island jako pełny dzień, jeśli pogoda i transport są pewne."
+    ],
+    "skip_or_delay": [
+      "Nie robić Phoenix Mountain bez kierowcy i kontaktu herbacianego.",
+      "Nie kupować drogiego Dancong po jednej szybkiej degustacji.",
+      "Nie traktować Shantou jako gorszego Chaozhou; to osobny portowy i kulinarny kontekst."
+    ],
+    "transport_rule": "Chaoshan Railway Station jest regionalnym węzłem między Chaozhou, Shantou i Jieyang. Sprawdzać, czy bilet jest do Shantou, Chaoshan czy Chaozhou, bo ostatni odcinek zmienia dzień.",
+    "budget_rule": "Najlepszy value jest w jedzeniu, nie w biletach. Budżet atrakcji zostawić niski, a większą rezerwę dać na wołowy hotpot, gęś, congee i herbatę.",
+    "weather_rule": "Deszcz: Chaozhou old town, herbata, Shantou food walk. Czyste niebo: Nan'ao/Queshi. Chłód i wiatr: Nan'ao tylko jako spacer, nie plaża.",
+    "source_links": [
+      {
+        "label": "Chaozhou guide and station transfer",
+        "url": "https://www.etripchina.com/china-guide/chaozhou-travel-guide.htm"
+      },
+      {
+        "label": "Shantou HSR station guide",
+        "url": "https://www.travelchinaguide.com/china-trains/shantou-railway-station.htm"
+      },
+      {
+        "label": "Chaozhou Dancong gastronomy context",
+        "url": "https://www.czcityofgastronomy.com/detail_en/883"
+      }
+    ]
+  }
+]

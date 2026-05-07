@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html as html_lib
+import csv
 import json
 from pathlib import Path
 
@@ -12,8 +13,14 @@ PLACES = ROOT / "data" / "places.json"
 ROUTES = ROOT / "data" / "routes.json"
 PROVINCES = ROOT / "data" / "provinces.geojson"
 NEARBY = ROOT / "data" / "nearby_places.json"
+HUB_PLAYBOOKS = ROOT / "data" / "hub_playbooks.json"
+PREDEPARTURE_CHECKS = ROOT / "data" / "predeparture_checks.json"
+FORMALITY_SCENARIOS = ROOT / "data" / "formality_scenarios.json"
+ATTRACTION_BUDGET = ROOT / "data" / "attraction_budget_pln.json"
 ATTRIBUTIONS = DOCS / "assets" / "image_attributions.json"
 SITE_CSS = DOCS / "assets" / "site.css"
+ROUTE_COST_CSV = DOCS / "assets" / "route_costs.csv"
+ITINERARY_CSV = DOCS / "assets" / "itinerary.csv"
 PLACES_DIR = DOCS / "places"
 FOOD_PAGE = DOCS / "food.html"
 RESEARCH_PAGE = DOCS / "research.html"
@@ -68,6 +75,10 @@ def main() -> None:
     routes = load_json(ROUTES)
     provinces = load_json(PROVINCES)
     nearby_places = load_json(NEARBY)
+    hub_playbooks = load_json(HUB_PLAYBOOKS)
+    predeparture_checks = load_json(PREDEPARTURE_CHECKS)
+    formality_scenarios = load_json(FORMALITY_SCENARIOS)
+    attraction_budget = load_json(ATTRACTION_BUDGET)
     attributions = load_json(ATTRIBUTIONS)
     html = HTML.read_text(encoding="utf-8")
 
@@ -76,13 +87,35 @@ def main() -> None:
     require(len(routes) >= 10, "expected at least 10 transport routes")
     require(len(provinces.get("features", [])) >= 4, "expected at least 4 province/region polygons")
     require(len(nearby_places) >= 30, "expected at least 30 researched nearby places")
+    chosen_hubs = {"Guangzhou", "Guilin / Yangshuo", "Nanning", "Shenzhen", "Shantou / Chaozhou"}
     require(
-        {"Guangzhou", "Guilin / Yangshuo", "Nanning", "Shenzhen", "Shantou / Chaozhou"}.issubset(
-            {item["hub"] for item in nearby_places}
-        ),
+        chosen_hubs.issubset({item["hub"] for item in nearby_places}),
         "nearby research does not cover all chosen hubs",
     )
+    require(len(hub_playbooks) == len(chosen_hubs), "hub playbooks should cover exactly the chosen hubs")
+    require(chosen_hubs == {item.get("hub") for item in hub_playbooks}, "hub playbooks do not match chosen hubs")
+    for playbook in hub_playbooks:
+        for key in ["role", "best_additions", "skip_or_delay", "transport_rule", "budget_rule", "weather_rule", "source_links"]:
+            require(playbook.get(key), f"hub playbook lacks {key}: {playbook.get('hub')}")
+        require(len(playbook["best_additions"]) >= 3, f"hub playbook needs at least three additions: {playbook['hub']}")
+        require(len(playbook["skip_or_delay"]) >= 3, f"hub playbook needs at least three skip rules: {playbook['hub']}")
+        require(len(playbook["source_links"]) >= 3, f"hub playbook needs at least three source links: {playbook['hub']}")
     require({"A", "B", "C"}.issubset({item["rank"] for item in nearby_places}), "nearby research lacks A/B/C ranks")
+    require(len(predeparture_checks) >= 4, "expected practical predeparture checks")
+    for check in predeparture_checks:
+        for key in ["title", "when_to_check", "summary", "action_items", "source_links"]:
+            require(check.get(key), f"predeparture check lacks {key}: {check.get('title')}")
+        require(len(check["action_items"]) >= 3, f"predeparture check needs at least three action items: {check['title']}")
+        require(check["source_links"], f"predeparture check needs source links: {check['title']}")
+    require(len(formality_scenarios) >= 4, "expected formality scenarios")
+    for scenario in formality_scenarios:
+        for key in ["title", "status", "summary", "decision"]:
+            require(scenario.get(key), f"formality scenario lacks {key}: {scenario.get('title')}")
+    require(len(attraction_budget) >= 4, "expected attraction budget cards")
+    for budget in attraction_budget:
+        for key in ["title", "budget_pln_pp", "summary", "items"]:
+            require(budget.get(key), f"attraction budget lacks {key}: {budget.get('title')}")
+        require(len(budget["items"]) >= 4, f"attraction budget needs at least four items: {budget['title']}")
     require(len(attributions) >= len({place["photo_id"] for place in places}), "missing image attributions")
     require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
     require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
@@ -213,6 +246,16 @@ def main() -> None:
     require(len(image_files) >= len({place["photo_id"] for place in places}), "not enough copied images")
 
     require(SITE_CSS.exists(), "site CSS is missing")
+    require(ROUTE_COST_CSV.exists(), "route cost CSV is missing")
+    route_cost_rows = list(csv.DictReader(ROUTE_COST_CSV.read_text(encoding="utf-8-sig").splitlines()))
+    require(len(route_cost_rows) == len(routes), "route cost CSV row count does not match routes")
+    require({"route_id", "warstwa", "z", "do", "koszt_pln", "srodek_kosztu_pln"}.issubset(route_cost_rows[0].keys()), "route cost CSV lacks required columns")
+    require(any(row["route_id"] == "nanning_shenzhen" for row in route_cost_rows), "route cost CSV missing Nanning-Shenzhen")
+    require(ITINERARY_CSV.exists(), "itinerary CSV is missing")
+    itinerary_rows = list(csv.DictReader(ITINERARY_CSV.read_text(encoding="utf-8-sig").splitlines()))
+    require(len(itinerary_rows) >= 20, "itinerary CSV should cover the full trip")
+    require({"data", "miejsce", "nocleg", "plan_dnia", "przejazdy", "place_ids"}.issubset(itinerary_rows[0].keys()), "itinerary CSV lacks required columns")
+    require(any(row["data"] == "31.12" and "Chaozhou" in row["nocleg"] for row in itinerary_rows), "itinerary CSV should keep New Year's Eve in Chaozhou")
     for page_name in ["places/index.html", "itinerary.html", "research.html", "food.html", "practical.html"]:
         page = DOCS / page_name
         require(page.exists(), f"missing static guide page: {page_name}")
@@ -220,12 +263,46 @@ def main() -> None:
         require("Południe Chin 2026/27" in page_html, f"static page missing site title: {page_name}")
         require("assets/site.css" in page_html or "../assets/site.css" in page_html, f"static page missing CSS: {page_name}")
 
+    practical_html = (DOCS / "practical.html").read_text(encoding="utf-8")
+    require("assets/route_costs.csv" in practical_html, "practical page missing route cost CSV link")
+    require("assets/itinerary.csv" in practical_html, "practical page missing itinerary CSV link")
+    require("Kontrole przed wyjazdem" in practical_html, "practical page missing predeparture check section")
+    require(practical_html.count('class="check-card"') == len(predeparture_checks), "practical page missing predeparture check cards")
+    require("Plan awaryjny dla stycznia 2027" in practical_html, "practical page missing formality scenario section")
+    require(practical_html.count('class="scenario-card"') == len(formality_scenarios), "practical page missing formality scenario cards")
+    require("Atrakcje w limicie 500 PLN/os." in practical_html, "practical page missing attraction budget section")
+    require(practical_html.count('class="budget-card"') == len(attraction_budget), "practical page missing attraction budget cards")
+    require("31 grudnia 2026" in practical_html, "practical page should call out visa-free 2026 deadline")
+    require("styczeń 2027" in practical_html, "practical page should call out January 2027 risk")
+    for check in predeparture_checks:
+        require(html_contains_text(practical_html, check["title"]), f"practical page missing check title: {check['title']}")
+        require(html_contains_text(practical_html, check["summary"]), f"practical page missing check summary: {check['title']}")
+        for link in check["source_links"]:
+            require(link["url"] in practical_html, f"practical page missing check source URL: {check['title']}")
+    for scenario in formality_scenarios:
+        require(html_contains_text(practical_html, scenario["title"]), f"practical page missing scenario title: {scenario['title']}")
+        require(html_contains_text(practical_html, scenario["decision"]), f"practical page missing scenario decision: {scenario['title']}")
+    for budget in attraction_budget:
+        require(html_contains_text(practical_html, budget["title"]), f"practical page missing attraction budget title: {budget['title']}")
+        require(html_contains_text(practical_html, budget["summary"]), f"practical page missing attraction budget summary: {budget['title']}")
+
     research_html = RESEARCH_PAGE.read_text(encoding="utf-8")
     require("Research miejsc wokół hubów" in research_html, "research page missing title")
     require("research-grid" in research_html, "research page missing card grid")
     require(research_html.count('class="research-card') >= len(nearby_places), "research page missing researched cards")
+    require("Playbooki hubów: transport, budżet, pogoda" in research_html, "research page missing hub playbook section")
+    require(research_html.count('class="playbook-card"') == len(hub_playbooks), "research page missing hub playbook cards")
     for hub in ["Guangzhou", "Guilin / Yangshuo", "Nanning", "Shenzhen", "Shantou / Chaozhou"]:
         require(hub in research_html, f"research page missing hub: {hub}")
+    for playbook in hub_playbooks:
+        require(html_contains_text(research_html, playbook["role"]), f"research page missing playbook role: {playbook['hub']}")
+        require(html_contains_text(research_html, playbook["transport_rule"]), f"research page missing playbook transport rule: {playbook['hub']}")
+        require(html_contains_text(research_html, playbook["budget_rule"]), f"research page missing playbook budget rule: {playbook['hub']}")
+        require(html_contains_text(research_html, playbook["weather_rule"]), f"research page missing playbook weather rule: {playbook['hub']}")
+        if playbook.get("community_pulse"):
+            require(html_contains_text(research_html, playbook["community_pulse"]), f"research page missing community pulse: {playbook['hub']}")
+        for link in playbook["source_links"]:
+            require(link["url"] in research_html, f"research page missing playbook source URL: {playbook['hub']}")
     for label in ["A · mocno polecane", "B · dobre przy zapasie", "C · tylko dla konkretnego celu"]:
         require(label in research_html, f"research page missing rank label: {label}")
     attributions_by_id = {item["id"]: item for item in attributions}

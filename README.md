@@ -8,16 +8,18 @@ clicking a place opens a dedicated guide page for that stop.
 
 ## What The Site Shows
 
-- Southern China route hubs and optional extensions.
+- Current South China route hubs and optional extensions after trimming Hainan,
+  Fujian, Yunnan, Guizhou, and Sichuan from this version.
 - Average budget lodging price per person per night in PLN.
 - Key attractions for each region.
 - Travel time and indicative transport cost between places.
-- Color-coded province/region layer for Guangdong, Guangxi, Hainan, Fujian,
-  Hong Kong, and Macau.
+- Color-coded province/region layer for Guangdong, Guangxi, Hong Kong, and Macau.
 - Hover cards with photos, region descriptions, lodging notes, and priorities.
 - Separate map layers for route hubs, optional extensions, day trips, attraction markers, and transport lines.
 - Dedicated pages for every mapped place in `docs/places/`.
-- Additional guide pages: `itinerary.html`, `food.html`, and `practical.html`.
+- Additional guide pages: `itinerary.html`, `research.html`, `food.html`, and `practical.html`.
+- Excel-friendly UTF-8 CSV exports in `docs/assets/route_costs.csv` and
+  `docs/assets/itinerary.csv`.
 
 ## Build
 
@@ -63,8 +65,18 @@ publish directory to `docs`.
 
 ## Data
 
-The planning data is in `data/places.json`, `data/routes.json`, and
+The core planning data is in `data/places.json`, `data/routes.json`, and
 `data/provinces.geojson`.
+
+Decision-support data lives in:
+
+- `data/nearby_places.json` for the optional research map layer.
+- `data/hub_playbooks.json` for hub-by-hub rules on transport, budget, weather,
+  and what to skip.
+- `data/predeparture_checks.json` for formal/logistical checks before travel.
+- `data/formality_scenarios.json` for the January 2027 visa-free contingency.
+- `data/attraction_budget_pln.json` for the 500 PLN/person attraction-budget
+  decision section.
 
 All costs are indicative planning ranges in PLN, not live fares. Recheck hotels,
 train prices, flights, border crossings, ferry schedules, and attraction opening

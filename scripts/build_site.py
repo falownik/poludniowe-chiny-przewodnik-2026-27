@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import csv
+import io
 import json
 import shutil
 from pathlib import Path
@@ -13,6 +15,32 @@ DOCS_DIR = build_map.DOCS_DIR
 ASSET_DIR = build_map.ASSET_DIR
 PLACES_DIR = DOCS_DIR / "places"
 SITE_CSS = ASSET_DIR / "site.css"
+
+
+ITINERARY_NIGHTS: dict[str, str] = {
+    "16.12": "samolot / Warszawa",
+    "17.12": "Guangzhou",
+    "18.12": "Guangzhou",
+    "19.12": "Yangshuo",
+    "20.12": "Yangshuo",
+    "21.12": "Yangshuo",
+    "22.12": "Yangshuo",
+    "23.12": "Yangshuo",
+    "24.12": "Nanning",
+    "25.12": "Nanning",
+    "26.12": "Nanning",
+    "27.12": "Nanning",
+    "28.12": "Shenzhen",
+    "29.12": "Shenzhen",
+    "30.12": "Shenzhen",
+    "31.12": "Chaozhou",
+    "1.1": "Chaozhou",
+    "2.1": "Chaozhou",
+    "3.1": "Guangzhou",
+    "4.1": "Guangzhou",
+    "5.1": "Guangzhou",
+    "6.1": "brak / powrót",
+}
 
 
 FOOD_NOTES: dict[str, list[str]] = {
@@ -701,6 +729,79 @@ def write(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def write_route_cost_csv(routes: list[dict[str, Any]], places_by_id: dict[str, dict[str, Any]]) -> None:
+    buffer = io.StringIO(newline="")
+    writer = csv.writer(buffer)
+    writer.writerow(
+        [
+            "route_id",
+            "warstwa",
+            "z",
+            "do",
+            "tryb",
+            "czas",
+            "koszt_pln",
+            "srodek_kosztu_pln",
+            "notatka",
+            "alternatywa_czas",
+            "alternatywa_koszt_pln",
+            "alternatywa_notatka",
+        ]
+    )
+    for route in routes:
+        alt = route.get("train_alt") or {}
+        writer.writerow(
+            [
+                route.get("id", ""),
+                route.get("layer", ""),
+                places_by_id[route["from"]]["name"],
+                places_by_id[route["to"]]["name"],
+                route.get("mode", ""),
+                route.get("time", ""),
+                route.get("cost_pln", ""),
+                route.get("cost_mid_pln", ""),
+                route.get("note", ""),
+                alt.get("time", ""),
+                alt.get("cost_pln", ""),
+                alt.get("note", ""),
+            ]
+        )
+    target = ASSET_DIR / "route_costs.csv"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with target.open("w", encoding="utf-8-sig", newline="") as output:
+        output.write(buffer.getvalue())
+
+
+def itinerary_transfer(day: dict[str, Any]) -> str:
+    detail = str(day.get("detail", ""))
+    if "->" in detail:
+        return detail
+    if "Day trip" in detail or "day trip" in detail:
+        return detail
+    return ""
+
+
+def write_itinerary_csv() -> None:
+    buffer = io.StringIO(newline="")
+    writer = csv.writer(buffer)
+    writer.writerow(["data", "miejsce", "nocleg", "plan_dnia", "przejazdy", "place_ids"])
+    for day in build_map.TRIP_DAYS:
+        writer.writerow(
+            [
+                day.get("date", ""),
+                day.get("title", ""),
+                ITINERARY_NIGHTS.get(day.get("date", ""), ""),
+                day.get("detail", ""),
+                itinerary_transfer(day),
+                ";".join(day.get("place_ids", [])),
+            ]
+        )
+    target = ASSET_DIR / "itinerary.csv"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with target.open("w", encoding="utf-8-sig", newline="") as output:
+        output.write(buffer.getvalue())
+
+
 def image_paths_from_attributions() -> dict[str, str]:
     path = ASSET_DIR / "image_attributions.json"
     if not path.exists():
@@ -1016,7 +1117,45 @@ def nearby_research_card(item: dict[str, Any], image_paths: dict[str, str]) -> s
     """
 
 
-def build_research_page(nearby_places: list[dict[str, Any]], image_paths: dict[str, str]) -> str:
+def hub_playbook_card(item: dict[str, Any]) -> str:
+    additions = "".join(f"<li>{esc(value)}</li>" for value in item.get("best_additions", []))
+    skips = "".join(f"<li>{esc(value)}</li>" for value in item.get("skip_or_delay", []))
+    sources = "".join(
+        f"<a href=\"{esc(link.get('url', ''))}\" target=\"_blank\" rel=\"noopener\">{esc(link.get('label', 'źródło'))}</a>"
+        for link in item.get("source_links", [])
+        if link.get("url")
+    )
+    community_pulse = (
+        f"<p class=\"community-pulse\"><strong>Sygnał z forów:</strong> {esc(item['community_pulse'])}</p>"
+        if item.get("community_pulse")
+        else ""
+    )
+    return f"""
+    <article class="playbook-card">
+      <p class="eyebrow">{esc(item['hub'])}</p>
+      <p class="playbook-role">{esc(item['role'])}</p>
+      <div class="playbook-columns">
+        <div>
+          <h3>Najlepsze dopięcia</h3>
+          <ul>{additions}</ul>
+        </div>
+        <div>
+          <h3>Odłożyć albo pominąć</h3>
+          <ul>{skips}</ul>
+        </div>
+      </div>
+      <div class="playbook-rules">
+        <p><strong>Transport:</strong> {esc(item['transport_rule'])}</p>
+        <p><strong>Budżet:</strong> {esc(item['budget_rule'])}</p>
+        <p><strong>Pogoda:</strong> {esc(item['weather_rule'])}</p>
+      </div>
+      {community_pulse}
+      <p class="source-links">{sources}</p>
+    </article>
+    """
+
+
+def build_research_page(nearby_places: list[dict[str, Any]], image_paths: dict[str, str], hub_playbooks: list[dict[str, Any]]) -> str:
     hubs = ["Guangzhou", "Guilin / Yangshuo", "Nanning", "Shenzhen", "Shantou / Chaozhou"]
     rank_order = {"A": 0, "B": 1, "C": 2}
     top_cards = "".join(
@@ -1040,6 +1179,11 @@ def build_research_page(nearby_places: list[dict[str, Any]], image_paths: dict[s
             """
         )
 
+    playbook_cards = "".join(
+        hub_playbook_card(item)
+        for item in sorted(hub_playbooks, key=lambda item: hubs.index(item["hub"]) if item.get("hub") in hubs else 999)
+    )
+
     body = f"""
     <section class="page-intro research-intro">
       <p class="eyebrow">Oddzielna warstwa mapy</p>
@@ -1056,6 +1200,12 @@ def build_research_page(nearby_places: list[dict[str, Any]], image_paths: dict[s
       <h2>Jak czytać rekomendacje</h2>
       <p><strong>A</strong> oznacza miejsca, które realnie warto rozważyć w aktualnym planie. <strong>B</strong> to dobre opcje przy zapasie czasu albo konkretnej pogodzie. <strong>C</strong> to miejsca sensowne tylko przy bardzo konkretnym zainteresowaniu: jaskinie, trudniejszy hiking, dalsze dojazdy albo mniej spektakularne lokalne spacery.</p>
       <p>Najważniejsze założenie: nie dokładamy nowych baz bez powodu. Jeśli miejsce wymaga noclegu albo prywatnego kierowcy, karta mówi to wprost.</p>
+    </section>
+
+    <section class="route-section hub-playbooks">
+      <h2>Playbooki hubów: transport, budżet, pogoda</h2>
+      <p class="section-lead">To jest praktyczny filtr decyzyjny do użycia już w trakcie podróży. Zamiast dopisywać atrakcje do planu mechanicznie, każdy hub ma własną regułę: kiedy warto dopłacić, kiedy odpuścić, a kiedy zamienić daleki wyjazd na jedzenie albo spacer blisko hotelu.</p>
+      <div class="playbook-grid">{playbook_cards}</div>
     </section>
 
     <section class="route-section research-top">
@@ -1269,7 +1419,52 @@ def build_food_page(image_paths: dict[str, str]) -> str:
     return page_shell("Jedzenie", "food", body)
 
 
-def build_practical_page() -> str:
+def predeparture_check_card(item: dict[str, Any]) -> str:
+    actions = "".join(f"<li>{esc(value)}</li>" for value in item.get("action_items", []))
+    sources = "".join(
+        f"<a href=\"{esc(link.get('url', ''))}\" target=\"_blank\" rel=\"noopener\">{esc(link.get('label', 'źródło'))}</a>"
+        for link in item.get("source_links", [])
+        if link.get("url")
+    )
+    return f"""
+    <article class="check-card">
+      <p class="eyebrow">{esc(item.get('when_to_check', 'sprawdzić przed wyjazdem'))}</p>
+      <h2>{esc(item['title'])}</h2>
+      <p>{esc(item['summary'])}</p>
+      <ul>{actions}</ul>
+      <p class="source-links">{sources}</p>
+    </article>
+    """
+
+
+def formality_scenario_card(item: dict[str, Any]) -> str:
+    return f"""
+    <article class="scenario-card">
+      <p class="eyebrow">{esc(item['status'])}</p>
+      <h3>{esc(item['title'])}</h3>
+      <p>{esc(item['summary'])}</p>
+      <p><strong>Decyzja:</strong> {esc(item['decision'])}</p>
+    </article>
+    """
+
+
+def attraction_budget_card(item: dict[str, Any]) -> str:
+    items = "".join(f"<li>{esc(value)}</li>" for value in item.get("items", []))
+    return f"""
+    <article class="budget-card">
+      <p class="eyebrow">{esc(item['budget_pln_pp'])}</p>
+      <h3>{esc(item['title'])}</h3>
+      <p>{esc(item['summary'])}</p>
+      <ul>{items}</ul>
+    </article>
+    """
+
+
+def build_practical_page(
+    predeparture_checks: list[dict[str, Any]],
+    formality_scenarios: list[dict[str, Any]],
+    attraction_budget: list[dict[str, Any]],
+) -> str:
     blocks = [
         (
             "Budżet",
@@ -1293,13 +1488,32 @@ def build_practical_page() -> str:
         ),
     ]
     rows = "".join(f"<article class=\"text-block\"><h2>{esc(title)}</h2><p>{esc(text)}</p></article>" for title, text in blocks)
+    check_cards = "".join(predeparture_check_card(item) for item in predeparture_checks)
+    scenario_cards = "".join(formality_scenario_card(item) for item in formality_scenarios)
+    attraction_budget_cards = "".join(attraction_budget_card(item) for item in attraction_budget)
     body = f"""
     <section class="page-intro">
       <p class="eyebrow">Praktyka</p>
       <h1>Logistyka pod wasz budżet i czas</h1>
       <p>Ta wersja przewodnika jest pragmatyczna: mniej regionów, mniej przepalonych transferów, więcej czasu w miejscach, które realnie pasują do 2-3 tygodni.</p>
+      <p class="download-links"><a class="primary-link" href="assets/route_costs.csv">CSV kosztów przejazdów</a><a class="primary-link" href="assets/itinerary.csv">CSV planu dzień po dniu</a></p>
     </section>
     <section class="text-stack">{rows}</section>
+    <section class="route-section">
+      <h2>Kontrole przed wyjazdem: rzeczy, których nie wolno zgadywać</h2>
+      <p class="section-lead">To są punkty do ponownego sprawdzenia bliżej grudnia, bo mogą zmienić koszt albo legalność całego planu. Najważniejszy jest styczeń 2027: wyjście do Hongkongu lub Makao po 31 grudnia oznacza ponowny wjazd do Chin kontynentalnych, więc nie można opierać tego wyłącznie na obecnym komunikacie bezwizowym.</p>
+      <div class="check-grid">{check_cards}</div>
+    </section>
+    <section class="route-section">
+      <h2>Plan awaryjny dla stycznia 2027</h2>
+      <p class="section-lead">To nie jest problem na lot do Chin, tylko na ewentualne ponowne wejście do Chin kontynentalnych po wyjściu do Hongkongu lub Makao. Dlatego decyzję o styczniowym Makao trzeba podjąć dopiero po sprawdzeniu jednego z poniższych scenariuszy.</p>
+      <div class="scenario-grid">{scenario_cards}</div>
+    </section>
+    <section class="route-section">
+      <h2>Atrakcje w limicie 500 PLN/os.</h2>
+      <p class="section-lead">Ten limit jest realny, jeśli płatne atrakcje wybieracie selektywnie. Największy koszt robią nie drobne bilety, tylko dalekie dojazdy, prywatni kierowcy i płatne punkty widokowe przy złej widoczności.</p>
+      <div class="budget-grid">{attraction_budget_cards}</div>
+    </section>
     """
     return page_shell("Logistyka", "practical", body)
 
@@ -1365,6 +1579,12 @@ nav a.active, .primary-link {
   background: var(--teal);
   color: #fff;
   border-color: var(--teal);
+}
+.download-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
 }
 main {
   width: min(1120px, calc(100% - 32px));
@@ -1446,7 +1666,7 @@ main {
   color: var(--muted);
   line-height: 1.58;
 }
-.detail-list, .route-grid, .place-grid, .text-stack, .food-grid, .dish-grid, .research-grid {
+.detail-list, .route-grid, .place-grid, .text-stack, .food-grid, .dish-grid, .research-grid, .playbook-grid, .check-grid, .scenario-grid, .budget-grid {
   display: grid;
   gap: 12px;
 }
@@ -1576,6 +1796,132 @@ main {
   color: var(--teal);
   font-weight: 700;
 }
+.section-lead {
+  max-width: 880px;
+  color: var(--muted);
+  line-height: 1.58;
+}
+.playbook-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+.playbook-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+.playbook-role {
+  max-width: 900px;
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.48;
+}
+.playbook-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.playbook-card h3 {
+  margin: 0 0 7px;
+  font-size: 15px;
+}
+.playbook-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.playbook-card li, .playbook-rules p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+.playbook-rules {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.playbook-rules p {
+  margin: 0 0 8px;
+}
+.community-pulse {
+  margin: 12px 0 10px;
+  padding: 11px 12px;
+  border-left: 4px solid var(--amber);
+  border-radius: 6px;
+  background: #fff8ed;
+  color: var(--muted);
+  line-height: 1.52;
+}
+.check-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.check-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+.check-card h2 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  line-height: 1.2;
+}
+.check-card p, .check-card li {
+  color: var(--muted);
+  line-height: 1.54;
+}
+.check-card ul {
+  margin: 10px 0 12px;
+  padding-left: 19px;
+}
+.scenario-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.scenario-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+.scenario-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.22;
+}
+.scenario-card p {
+  color: var(--muted);
+  line-height: 1.54;
+}
+.budget-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.budget-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+.budget-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.22;
+}
+.budget-card p, .budget-card li {
+  color: var(--muted);
+  line-height: 1.54;
+}
+.budget-card ul {
+  margin: 10px 0 0;
+  padding-left: 19px;
+}
 .decision-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1690,7 +2036,7 @@ main {
 @media (max-width: 900px) {
   .site-header { align-items: flex-start; flex-direction: column; padding: 12px 16px; }
   main { width: min(100% - 20px, 1120px); padding-top: 14px; }
-  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .research-grid, .decision-grid, .food-grid, .dish-grid, .food-region-card, .research-card {
+  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .research-grid, .decision-grid, .food-grid, .dish-grid, .food-region-card, .research-card, .playbook-columns, .check-grid, .scenario-grid, .budget-grid {
     grid-template-columns: 1fr;
   }
   .research-card > div { padding: 15px; }
@@ -1712,10 +2058,20 @@ def build_site() -> None:
     places = load_json(build_map.DATA_DIR / "places.json")
     routes = load_json(build_map.DATA_DIR / "routes.json")
     nearby_places = load_json(build_map.NEARBY_PLACES) if build_map.NEARBY_PLACES.exists() else []
+    hub_playbook_path = build_map.DATA_DIR / "hub_playbooks.json"
+    hub_playbooks = load_json(hub_playbook_path) if hub_playbook_path.exists() else []
+    predeparture_path = build_map.DATA_DIR / "predeparture_checks.json"
+    predeparture_checks = load_json(predeparture_path) if predeparture_path.exists() else []
+    formality_scenario_path = build_map.DATA_DIR / "formality_scenarios.json"
+    formality_scenarios = load_json(formality_scenario_path) if formality_scenario_path.exists() else []
+    attraction_budget_path = build_map.DATA_DIR / "attraction_budget_pln.json"
+    attraction_budget = load_json(attraction_budget_path) if attraction_budget_path.exists() else []
     places_by_id = {place["id"]: place for place in places}
     image_paths = image_paths_from_attributions()
 
     write_site_css()
+    write_route_cost_csv(routes, places_by_id)
+    write_itinerary_csv()
     current_place_pages = {f"{place['id']}.html" for place in places}
     PLACES_DIR.mkdir(parents=True, exist_ok=True)
     for stale_page in PLACES_DIR.glob("*.html"):
@@ -1725,9 +2081,9 @@ def build_site() -> None:
     for place in places:
         write(PLACES_DIR / f"{place['id']}.html", build_place_page(place, places, routes, places_by_id, image_paths))
     write(DOCS_DIR / "itinerary.html", build_itinerary_page(places, routes, places_by_id, image_paths))
-    write(DOCS_DIR / "research.html", build_research_page(nearby_places, image_paths))
+    write(DOCS_DIR / "research.html", build_research_page(nearby_places, image_paths, hub_playbooks))
     write(DOCS_DIR / "food.html", build_food_page(image_paths))
-    write(DOCS_DIR / "practical.html", build_practical_page())
+    write(DOCS_DIR / "practical.html", build_practical_page(predeparture_checks, formality_scenarios, attraction_budget))
     write(DOCS_DIR / ".nojekyll", "")
 
     print(f"Place pages: {len(places)}")

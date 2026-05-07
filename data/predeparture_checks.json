@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Ruch bezwizowy dla Polski i data 31.12.2026",
+    "when_to_check": "90 i 45 dni przed wylotem",
+    "summary": "Według komunikatów Ambasady Chin w Polsce polskie paszporty zwykłe są objęte ruchem bezwizowym do 30 dni, ale obecnie wskazany termin obowiązywania to 31 grudnia 2026. To wymaga osobnej kontroli, bo wasza podróż kończy się w styczniu 2027.",
+    "action_items": [
+      "Sprawdzić, czy program został przedłużony na 2027 rok, zanim kupicie bezzwrotne elementy po 31.12.",
+      "Jeśli program nie zostanie przedłużony, nie planować re-entry do Chin kontynentalnych z Hongkongu lub Makao w styczniu bez wizy.",
+      "Mieć przy sobie bilety lotnicze, rezerwacje hoteli i plan pobytu; ambasada wskazuje je jako dokumenty pomocnicze przy kontroli celu wjazdu."
+    ],
+    "source_links": [
+      {
+        "label": "Ambasada Chin w Polsce: przedluzenie polityki bezwizowej",
+        "url": "https://pl.china-embassy.gov.cn/pol/lqfw/202511/t20251104_11747021.htm"
+      },
+      {
+        "label": "Ambasada Chin w Polsce: FAQ ruchu bezwizowego",
+        "url": "https://pl.china-embassy.gov.cn/pol/lqfw/202511/t20251115_11753759.htm"
+      }
+    ]
+  },
+  {
+    "title": "Hongkong i Makao jako wyjscie z Chin kontynentalnych",
+    "when_to_check": "45 i 14 dni przed day tripem",
+    "summary": "Hongkong i Makao są osobnymi obszarami imigracyjnymi. Day trip działa logistycznie, ale po stronie formalnej oznacza wyjazd z Chin kontynentalnych i ponowny wjazd. W styczniu 2027 trzeba traktować to jako ryzyko, dopóki nie ma potwierdzonego przedłużenia ruchu bezwizowego albo wizy.",
+    "action_items": [
+      "Makao po 31.12 przesunąć na grudzień albo robić tylko wtedy, gdy zasady wjazdu na 2027 są potwierdzone.",
+      "Przy day tripie trzymać paszport, potwierdzenie hotelu w Chinach kontynentalnych i dalszy bilet powrotny.",
+      "Nie układać tego dnia z ciasnym powrotem na ostatni pociąg lub lot."
+    ],
+    "source_links": [
+      {
+        "label": "Ambasada Chin w Polsce: FAQ, wielokrotny wjazd i dokumenty",
+        "url": "https://pl.china-embassy.gov.cn/pol/lqfw/202511/t20251115_11753759.htm"
+      }
+    ]
+  },
+  {
+    "title": "240-godzinny tranzyt bezwizowy nie jest prostym zamiennikiem wizy",
+    "when_to_check": "przed kazda proba uzycia tranzytu zamiast normalnego wjazdu",
+    "summary": "Polityka 240 h dotyczy podróży tranzytowej do trzeciego kraju lub regionu przez określone porty i obszary. Przy zwykłej turystycznej pętli po Chinach kontynentalnych nie należy jej traktować jako awaryjnego rozwiązania bez sprawdzenia dokładnego routingu.",
+    "action_items": [
+      "Nie zakładać, że 240 h rozwiąże problem styczniowego powrotu z Makao do Guangzhou.",
+      "Jeśli ktoś chce używać Hongkongu lub Makao jako regionu trzeciego, sprawdzić aktualne porty, dozwolone obszary i bilet do dalszego kraju przed zakupem.",
+      "Dla tej trasy najczystsze rozwiązanie to potwierdzony ruch bezwizowy na 2027 albo zwykła wiza turystyczna."
+    ],
+    "source_links": [
+      {
+        "label": "State Council/NIA: 240-hour visa-free transit",
+        "url": "https://english.www.gov.cn/news/202412/17/content_WS6760ead6c6d0868f4e8ee0c1.html"
+      },
+      {
+        "label": "State Council: ports expanded in 2025",
+        "url": "https://english.www.gov.cn/news/202511/04/content_WS69094ae0c6d00ca5f9a07472.html"
+      }
+    ]
+  },
+  {
+    "title": "Kolej 12306: paszport, nazwiska i zwroty",
+    "when_to_check": "30 dni przed pierwszym pociągiem",
+    "summary": "Najważniejsza operacyjnie rzecz to zgodność danych paszportowych z biletem. Oficjalna strona 12306 pozwala rejestrować konta na paszporty zagraniczne, a zwroty i zmiany mają konkretne okna czasowe oraz opłaty.",
+    "action_items": [
+      "Założyć konto 12306 albo przygotować Trip.com, zanim zacznie się grudniowy zakup biletów.",
+      "Wpisywać imiona i nazwiska dokładnie jak w paszporcie; błąd w danych może zablokować wejście na peron.",
+      "Dla krytycznych przejazdów kupować bilety z buforem, a nie ostatni możliwy pociąg dnia."
+    ],
+    "source_links": [
+      {
+        "label": "12306: rejestracja z paszportem zagranicznym",
+        "url": "https://www.12306.cn/en/register.html"
+      },
+      {
+        "label": "12306: zasady zmian i zwrotow",
+        "url": "https://www.12306.cn/en/faq.html?item=2"
+      }
+    ]
+  }
+]

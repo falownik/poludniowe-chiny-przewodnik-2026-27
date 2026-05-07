@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Scenariusz A: ruch bezwizowy jest potwierdzony na 2027",
+    "status": "wariant najprostszy",
+    "summary": "Możecie zostawić Makao lub Hongkong w styczniu, o ile pobyt mieści się w limicie 30 dni i cel podróży jest turystyczny. Nadal trzeba traktować Hongkong i Makao jako osobne kontrole graniczne, nie jak przejazd metrem między dzielnicami.",
+    "decision": "Plan zostaje bez większych zmian; trzymajcie tylko bufor na granice i dokumenty potwierdzające dalszy powrót."
+  },
+  {
+    "title": "Scenariusz B: brak przedluzenia na 2027 i brak wizy",
+    "status": "wariant ryzykowny dla styczniowego Makao/HK",
+    "summary": "Nie należy wtedy planować wyjścia z Chin kontynentalnych do Hongkongu lub Makao po 31.12, bo powrót do Guangzhou/Shenzhen byłby ponownym wjazdem do mainlandu. Najprostsza korekta to przesunąć Makao/HK przed koniec grudnia albo zrobić 4.01 dzień w Guangzhou.",
+    "decision": "Nie robić styczniowego day tripu granicznego bez wizy lub oficjalnego potwierdzenia zasad na 2027."
+  },
+  {
+    "title": "Scenariusz C: macie zwykłą wizę turystyczną",
+    "status": "wariant najbardziej odporny",
+    "summary": "Wiza turystyczna z odpowiednią liczbą wjazdów usuwa największy problem styczniowego re-entry. Nadal trzeba pilnować dat ważności, liczby wjazdów i tego, czy Hongkong/Makao nie zużyją dodatkowego wjazdu do Chin kontynentalnych przy powrocie.",
+    "decision": "Można zostawić plan bardziej elastyczny, ale przed zakupem sprawdzić liczbę wjazdów i daty ważności wizy."
+  },
+  {
+    "title": "Scenariusz D: próba użycia tranzytu 240 h jako obejścia",
+    "status": "nie traktować jako bazowego planu",
+    "summary": "Tranzyt 240 h ma własną logikę portów, obszarów i biletu do kraju lub regionu trzeciego. Może działać w określonych routingach, ale nie jest prostym zamiennikiem turystycznego wjazdu przy pętli po Chinach kontynentalnych.",
+    "decision": "Używać tylko po osobnym sprawdzeniu konkretnego routingu; nie budować na tym głównego planu."
+  }
+]

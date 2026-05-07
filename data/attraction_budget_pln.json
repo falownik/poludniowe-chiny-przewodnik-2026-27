@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Koszyk bazowy: dużo treści, mało biletów",
+    "budget_pln_pp": "180-300 PLN/os.",
+    "summary": "To jest wariant, w którym większość podróży robią spacery, jedzenie, stare miasta i darmowe punkty widokowe. Zostaje rezerwa na jedną mocniejszą atrakcję krajobrazową albo droższy transport lokalny.",
+    "items": [
+      "Guangzhou: Chen Clan, Shamian, Liwan, Pearl River z zewnątrz.",
+      "Yangshuo: Yulong spacer/rower, Moon Hill, Xingping/Xianggong zależnie od pogody.",
+      "Nanning: Qingxiu Mountain i centrum zamiast dokładania drogich dalekich wyjazdów.",
+      "Chaoshan: Kaiyuan Temple, Paifang Street, Shantou Small Park, herbata i food walk."
+    ]
+  },
+  {
+    "title": "Koszyk rekomendowany przy limicie 500 PLN/os.",
+    "budget_pln_pp": "350-500 PLN/os.",
+    "summary": "Ten wariant daje najlepszy stosunek efektu do ceny: jeden mocniejszy dzień w Yangshuo, jeden płatny zielony punkt w Nanning, kilka tanich klasyków miejskich i rezerwę na spontaniczne wejścia.",
+    "items": [
+      "Yulong raft albo Xianggong/Xingping jako główny płatny wybór w Guangxi.",
+      "Qingxiu Mountain jako tani dzień w Nanning, jeśli zostajecie w mieście.",
+      "Chen Clan lub Foshan Zumiao jako tani kontekst Lingnan.",
+      "Guangji Bridge/Kaiyuan/Paifang zależnie od aktualnych cen i tego, czy wolicie most czy jedzenie.",
+      "Zapas 100-150 PLN/os. na pogodowe zmiany: jaskinia, taras, dodatkowy lokalny transport."
+    ]
+  },
+  {
+    "title": "Drogie opcje, które trzeba wybrać świadomie",
+    "budget_pln_pp": "120-350 PLN/os. za jeden mocny dzień",
+    "summary": "Te miejsca mogą być świetne, ale zjadają budżet głównie transportem. Nie powinny wejść wszystkie naraz, bo wtedy 500 PLN/os. przestaje być budżetem atrakcji, a staje się budżetem dojazdów.",
+    "items": [
+      "Detian/Mingshi: mocny krajobraz, ale długi transfer i często sensowniejszy z kierowcą lub nocą.",
+      "Kaiping Diaolou: bardzo wartościowe kulturowo, ale pełny dzień i rozproszone punkty.",
+      "Nan'ao Island: świetny kontrast do Chaoshan, lecz najlepiej działa przy aucie i dobrej pogodzie.",
+      "Dapeng Fortress: dobry wariant z Shenzhen, ale nie wtedy, gdy Shenzhen ma być tylko bazą pod Hongkong."
+    ]
+  },
+  {
+    "title": "Pierwsze do cięcia, jeśli budżet pęka",
+    "budget_pln_pp": "oszczędność 100-300 PLN/os.",
+    "summary": "Najłatwiej oszczędza się nie na tanich świątyniach, tylko na płatnych tarasach, pokazach, prywatnych transferach solo i atrakcjach robionych przy słabej pogodzie.",
+    "items": [
+      "Nie płacić za wieże widokowe przy smogu lub mgle.",
+      "Nie dokładać jaskiń w Yangshuo, jeśli pogoda jest dobra na krajobraz.",
+      "Nie robić Detian jako zmęczonego day tripu tylko dlatego, że jest na mapie.",
+      "Nie spać w Hongkongu lub Makao, jeśli celem jest utrzymanie budżetu 8k."
+    ]
+  }
+]

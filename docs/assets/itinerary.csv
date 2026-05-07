@@ -1,0 +1,23 @@
+﻿data,miejsce,nocleg,plan_dnia,przejazdy,place_ids
+16.12,Warszawa,samolot / Warszawa,Wylot i dzień techniczny.,,
+17.12,Guangzhou,Guangzhou,"Przylot, pierwszy nocleg i spokojne wejście w trasę.",,guangzhou
+18.12,Guangzhou / Foshan,Guangzhou,Kanton + kulinarny wypad do Foshan/Shunde.,,guangzhou;shunde_foshan
+19.12,Przejazd do Yangshuo,Yangshuo,Guangzhou -> Guilin -> Yangshuo.,Guangzhou -> Guilin -> Yangshuo.,guangzhou;guilin;yangshuo
+20.12,Yangshuo,Yangshuo,"Rzeka Yulong, rower/skuter i krasowy krajobraz.",,yangshuo
+21.12,Yangshuo,Yangshuo,"Moon Hill, wioski i wolniejsze tempo.",,yangshuo
+22.12,Yangshuo,Yangshuo,Xingping / Li River albo dzień zapasowy na pogodę.,,yangshuo;guilin
+23.12,Yangshuo,Yangshuo,Ostatni pełny dzień natury przed przejazdem na południe Guangxi.,,yangshuo
+24.12,Nanning,Nanning,Yangshuo -> Guilin -> Nanning.,Yangshuo -> Guilin -> Nanning.,yangshuo;guilin;nanning
+25.12,Nanning,Nanning,"Qingxiu Mountain, centrum i jedzenie Guangxi.",,nanning
+26.12,Detian,Nanning,Długi day trip do Detian Waterfall / Mingshi.,Długi day trip do Detian Waterfall / Mingshi.,nanning;detian
+27.12,Fangchenggang / Dongxing,Nanning,Day trip na wybrzeże i pogranicze z Wietnamem.,Day trip na wybrzeże i pogranicze z Wietnamem.,nanning;fangchenggang
+28.12,Shenzhen,Shenzhen,Nanning -> Shenzhen szybką koleją.,Nanning -> Shenzhen szybką koleją.,nanning;shenzhen
+29.12,Shenzhen,Shenzhen,"Futian, Huaqiangbei, Shenzhen Bay Park.",,shenzhen
+30.12,Hongkong z Shenzhen,Shenzhen,"Day trip: port, Kowloon, Star Ferry i jedzenie.","Day trip: port, Kowloon, Star Ferry i jedzenie.",shenzhen;hongkong
+31.12,Chaozhou,Chaozhou,Shenzhen -> Chaozhou; Sylwester w Chaoshan.,Shenzhen -> Chaozhou; Sylwester w Chaoshan.,shenzhen;chaozhou
+1.1,Chaozhou,Chaozhou,"Guangji Bridge, Paifang Street, herbata gongfu.",,chaozhou
+2.1,Chaozhou / Shantou,Chaozhou,"Moduł foodie: gęś, hotpot wołowy, congee.",,chaozhou
+3.1,Guangzhou,Guangzhou,"Chaozhou -> Guangzhou, bufor przed końcówką.","Chaozhou -> Guangzhou, bufor przed końcówką.",chaozhou;guangzhou
+4.1,Makao z Guangzhou,Guangzhou,"Day trip przez Zhuhai: stare centrum, Taipa, egg tarty.","Day trip przez Zhuhai: stare centrum, Taipa, egg tarty.",guangzhou;zhuhai;macau
+5.1,Guangzhou,Guangzhou,"Ostatni pełny dzień: Liwan, zakupy, kolacja.",,guangzhou
+6.1,Powrót,brak / powrót,Guangzhou jako bezpieczna baza pod lot.,,guangzhou

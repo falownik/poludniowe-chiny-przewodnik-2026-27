@@ -31,12 +31,20 @@ zmiana wizualna musi byc sprawdzona w przegladarce, a nie tylko w HTML-u.
 - Yunnan, Guizhou i Sichuan zostaly wyrzucone z mapy, bo nie ma na nie czasu w tej
   wersji wyjazdu.
 - Hongkong i Makao sa ograniczone do day tripow, zeby nie rozbijac budzetu noclegami.
-- Priorytetowe regiony mapy: Guangdong, Guangxi, Hainan, Fujian, Hongkong i Makao.
+- Priorytetowe regiony mapy po odchudzeniu planu: Guangdong, Guangxi, Hongkong i
+  Makao. Hainan, Fujian, Yunnan, Guizhou i Sichuan nie powinny wracac na mape
+  bez osobnej decyzji, bo rozbijaja czas i budzet.
 - Nanning i Fangchenggang zostaly dodane jako wazne punkty Guangxi.
-- Hainan zostaje jako sensowna opcja cieplejszego odpoczynku, ale trzeba pilnowac,
-  zeby nie zjadl zbyt duzo czasu osobom lecacym tylko na 2 tygodnie.
 - Noclegi planujemy ostroznie: srednio okolo 50 PLN za osobe za noc, z wyjatkami tam,
   gdzie lokalizacja mocno oszczedza czas.
+- Nanning nie jest mocnym celem samym w sobie. Broni sie jako baza logistyczna:
+  Qingxiu/food day przy slabej pogodzie, Detian/Mingshi lub Fangchenggang/Dongxing
+  przy dobrej logistyce. Jesli grupa chce natury i "rural", Yangshuo ma wyzszy
+  priorytet.
+- Styczniowe wyjscie do Hongkongu lub Makao jest formalnie wazniejsze niz wyglada:
+  po 31.12.2026 moze oznaczac ponowny wjazd do Chin kontynentalnych juz w 2027.
+  Przed utrwaleniem planu trzeba sprawdzic przedluzenie ruchu bezwizowego albo
+  miec wize turystyczna z odpowiednia liczba wjazdow.
 
 ## Techniczne zasady pracy
 
@@ -51,6 +59,10 @@ zmiana wizualna musi byc sprawdzona w przegladarce, a nie tylko w HTML-u.
 
 - `scripts/verify_map.py` powinien rosnac razem z mapa. Kazdy naprawiony regres
   warto zamienic w prosty warunek walidacyjny.
+- Dane decyzyjne trzymaj w `data/`, nie jako recznie dopisany HTML. Obecnie:
+  `nearby_places.json` zasila warstwe researchu, `hub_playbooks.json` zasila
+  playbooki hubow, `predeparture_checks.json` i `formality_scenarios.json`
+  zasilaja formalnosci w stronie logistycznej.
 - Po zmianach wizualnych obowiazkowo sprawdzic Playwrightem co najmniej:
   desktop `1365x768`, mobile `390x844`, hover na regionie, hover na trasie,
   klik w marker, schowanie panelu i legendy.
