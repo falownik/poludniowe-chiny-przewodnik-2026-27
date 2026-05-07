@@ -1,5 +1,14 @@
 [
   {
+    "id": "baomo_garden",
+    "title": "Baomo Garden, Guangzhou",
+    "commons_title": "File:Baomo Garden.jpg",
+    "artist": "Jason22",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Baomo_Garden.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Baomo_Garden.jpg/960px-Baomo_Garden.jpg"
+  },
+  {
     "id": "chaozhou_guangji",
     "title": "Guangji Bridge, Chaozhou",
     "commons_title": "File:Chaozhou Guangji Bridge (Guangdong).jpeg",
@@ -9,6 +18,15 @@
     "file": "assets/images/chaozhou_guangji.jpg"
   },
   {
+    "id": "dapeng_fortress",
+    "title": "Dapeng Fortress, Shenzhen",
+    "commons_title": "File:Dapeng Fortress, Shenzhen (2).jpg",
+    "artist": "Dinkun Chen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dapeng_Fortress,_Shenzhen_(2).jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Dapeng_Fortress%2C_Shenzhen_%282%29.jpg/960px-Dapeng_Fortress%2C_Shenzhen_%282%29.jpg"
+  },
+  {
     "id": "detian_waterfall",
     "title": "Detian Waterfall",
     "commons_title": "File:2011 广西 崇左 德天瀑布 - panoramio (6).jpg",
@@ -16,6 +34,33 @@
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:2011_%E5%B9%BF%E8%A5%BF_%E5%B4%87%E5%B7%A6_%E5%BE%B7%E5%A4%A9%E7%80%91%E5%B8%83_-_panoramio_(6).jpg",
     "file": "assets/images/detian_waterfall.jpg"
+  },
+  {
+    "id": "dinghu_mountain",
+    "title": "Dinghu Mountain, Zhaoqing",
+    "commons_title": "File:Panoramic Dinghu.jpg",
+    "artist": "Briantsoi",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Panoramic_Dinghu.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Panoramic_Dinghu.jpg/960px-Panoramic_Dinghu.jpg"
+  },
+  {
+    "id": "fuli_ancient_town",
+    "title": "Fuli Ancient Town, Yangshuo",
+    "commons_title": "File:Fuli (China) 01.JPG",
+    "artist": "Christophe95",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fuli_(China)_01.JPG",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Fuli_%28China%29_01.JPG/960px-Fuli_%28China%29_01.JPG"
+  },
+  {
+    "id": "gankeng_hakka",
+    "title": "Gankeng Hakka Town, Shenzhen",
+    "commons_title": "File:Gankeng Historic Hakka Town (Shenzhen) 02.jpg",
+    "artist": "Ubahnverleih",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gankeng_Historic_Hakka_Town_(Shenzhen)_02.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Gankeng_Historic_Hakka_Town_%28Shenzhen%29_02.jpg/960px-Gankeng_Historic_Hakka_Town_%28Shenzhen%29_02.jpg"
   },
   {
     "id": "guangzhou_chen_clan",
@@ -45,6 +90,33 @@
     "file": "assets/images/hongkong_victoria_harbour.jpg"
   },
   {
+    "id": "kaiping_diaolou",
+    "title": "Kaiping Diaolou, Zili Village",
+    "commons_title": "File:Kaiping Diaolou Castles in Zili Village - 20181028-2.jpg",
+    "artist": "Fayhoo",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kaiping_Diaolou_Castles_in_Zili_Village_-_20181028-2.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Kaiping_Diaolou_Castles_in_Zili_Village_-_20181028-2.jpg/960px-Kaiping_Diaolou_Castles_in_Zili_Village_-_20181028-2.jpg"
+  },
+  {
+    "id": "kaiyuan_temple_chaozhou",
+    "title": "Kaiyuan Temple, Chaozhou",
+    "commons_title": "File:20230206 Kaiyuan Temple, Chaozhou 02.jpg",
+    "artist": "Windmemories",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20230206_Kaiyuan_Temple,_Chaozhou_02.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/20230206_Kaiyuan_Temple%2C_Chaozhou_02.jpg/960px-20230206_Kaiyuan_Temple%2C_Chaozhou_02.jpg"
+  },
+  {
+    "id": "longhu_ancient_village",
+    "title": "Longhu Village, Chaozhou",
+    "commons_title": "File:Longhu Village 12.jpg",
+    "artist": "Wikimedia Commons contributor",
+    "license": "Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Longhu_Village_12.jpg",
+    "file": "https://commons.wikimedia.org/wiki/Special:FilePath/Longhu_Village_12.jpg?width=900"
+  },
+  {
     "id": "macau_senado",
     "title": "Senado Square",
     "commons_title": "File:'Senado Square' during Christmas festivities..jpg",
@@ -63,6 +135,87 @@
     "file": "assets/images/macau_st_paul.jpg"
   },
   {
+    "id": "nanao_island",
+    "title": "Sancong Cliff Lighthouse, Nan'ao Island",
+    "commons_title": "File:南澳島三囱崖燈塔 Sancong Cliff Lighthouse, Nan'ao Island.jpg",
+    "artist": "Dust Chan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E6%BE%B3%E5%B3%B6%E4%B8%89%E5%9B%B1%E5%B4%96%E7%87%88%E5%A1%94_Sancong_Cliff_Lighthouse,_Nan%27ao_Island.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/%E5%8D%97%E6%BE%B3%E5%B3%B6%E4%B8%89%E5%9B%B1%E5%B4%96%E7%87%88%E5%A1%94_Sancong_Cliff_Lighthouse%2C_Nan%27ao_Island.jpg/960px-%E5%8D%97%E6%BE%B3%E5%B3%B6%E4%B8%89%E5%9B%B1%E5%B4%96%E7%87%88%E5%A1%94_Sancong_Cliff_Lighthouse%2C_Nan%27ao_Island.jpg"
+  },
+  {
+    "id": "nantou_ancient_town",
+    "title": "Nantou Ancient City south gate",
+    "commons_title": "File:南头古城南门.jpg",
+    "artist": "Wikimedia Commons contributor",
+    "license": "Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%A4%B4%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8.jpg",
+    "file": "https://commons.wikimedia.org/wiki/Special:FilePath/%E5%8D%97%E5%A4%B4%E5%8F%A4%E5%9F%8E%E5%8D%97%E9%97%A8.jpg?width=900"
+  },
+  {
+    "id": "oct_loft",
+    "title": "OCT Loft, Shenzhen",
+    "commons_title": "File:OCT LOFT, SHENZHEN (41).jpg",
+    "artist": "Dinkun Chen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:OCT_LOFT,_SHENZHEN_(41).jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/OCT_LOFT%2C_SHENZHEN_%2841%29.jpg/960px-OCT_LOFT%2C_SHENZHEN_%2841%29.jpg"
+  },
+  {
+    "id": "phoenix_mountain_chaozhou",
+    "title": "Phoenix Mountain, Chaozhou",
+    "commons_title": "File:Phoenix Mountain, Teo Ann 2011 10.jpg",
+    "artist": "Wikimedia Commons contributor",
+    "license": "Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Phoenix_Mountain,_Teo_Ann_2011_10.jpg",
+    "file": "https://commons.wikimedia.org/wiki/Special:FilePath/Phoenix_Mountain%2C_Teo_Ann_2011_10.jpg?width=900"
+  },
+  {
+    "id": "qinghui_garden",
+    "title": "Qinghui Garden, Shunde",
+    "commons_title": "File:Foshan Shunde Qinghui Yuan 2024-05-11 16.06.40.jpg",
+    "artist": "Windmemories",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg/960px-Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg"
+  },
+  {
+    "id": "qingxiu_mountain",
+    "title": "Qingxiu Mountain, Nanning",
+    "commons_title": "File:Jilinge Restaurant in Mt Qingxiu Nanning.jpg",
+    "artist": "Derek Ramsey",
+    "license": "GFDL 1.2",
+    "source": "https://commons.wikimedia.org/wiki/File:Jilinge_Restaurant_in_Mt_Qingxiu_Nanning.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Jilinge_Restaurant_in_Mt_Qingxiu_Nanning.jpg/960px-Jilinge_Restaurant_in_Mt_Qingxiu_Nanning.jpg"
+  },
+  {
+    "id": "queshi_scenic_area",
+    "title": "Queshi Bridge and Shantou harbour",
+    "commons_title": "File:Queshi Bridge, Shantou City (82712).jpg",
+    "artist": "Kbseah",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Queshi_Bridge,_Shantou_City_(82712).jpg",
+    "file": "https://commons.wikimedia.org/wiki/Special:FilePath/Queshi_Bridge%2C_Shantou_City_%2882712%29.jpg?width=900"
+  },
+  {
+    "id": "reed_flute_cave",
+    "title": "Reed Flute Cave, Guilin",
+    "commons_title": "File:Reed Flute Cave 89013-Guilin (44934930442).jpg",
+    "artist": "xiquinhosilva",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Reed_Flute_Cave_89013-Guilin_(44934930442).jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Reed_Flute_Cave_89013-Guilin_%2844934930442%29.jpg/960px-Reed_Flute_Cave_89013-Guilin_%2844934930442%29.jpg"
+  },
+  {
+    "id": "shantou_old_town",
+    "title": "Shantou stare centrum",
+    "commons_title": "File:20230206 Crossing of Zhiping Road and Shangping Road.jpg",
+    "artist": "Windmemories",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20230206_Crossing_of_Zhiping_Road_and_Shangping_Road.jpg",
+    "file": "assets/images/shantou_old_town.jpg"
+  },
+  {
     "id": "shenzhen_skyline",
     "title": "Shenzhen Futian",
     "commons_title": "File:Civic Centre and Futian CBD, Shenzhen - 20251227, views from Lianhuashan Park.jpg",
@@ -72,6 +225,24 @@
     "file": "assets/images/shenzhen_skyline.jpg"
   },
   {
+    "id": "silver_cave",
+    "title": "Silver Cave, Guilin",
+    "commons_title": "File:Silver Cave 銀子岩 - panoramio.jpg",
+    "artist": "panoramio user",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Silver_Cave_%E9%8A%80%E5%AD%90%E5%B2%A9_-_panoramio.jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Silver_Cave_%E9%8A%80%E5%AD%90%E5%B2%A9_-_panoramio.jpg/960px-Silver_Cave_%E9%8A%80%E5%AD%90%E5%B2%A9_-_panoramio.jpg"
+  },
+  {
+    "id": "wutong_mountain",
+    "title": "Wutong Mountain, Shenzhen",
+    "commons_title": "File:WUTONG MOUNTAIN, SHENZHEN (23).jpg",
+    "artist": "Dinkun Chen",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:WUTONG_MOUNTAIN,_SHENZHEN_(23).jpg",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/WUTONG_MOUNTAIN%2C_SHENZHEN_%2823%29.jpg/960px-WUTONG_MOUNTAIN%2C_SHENZHEN_%2823%29.jpg"
+  },
+  {
     "id": "yangshuo_yulong",
     "title": "Rzeka Yulong, Yangshuo",
     "commons_title": "File:1 aerial yangshuo panorama 2017.jpg",
@@ -79,6 +250,15 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:1_aerial_yangshuo_panorama_2017.jpg",
     "file": "assets/images/yangshuo_yulong.jpg"
+  },
+  {
+    "id": "zhaoqing_seven_star_crags",
+    "title": "Seven Star Crags, Zhaoqing",
+    "commons_title": "File:GD Guangdong Zhaoqing City Seven Star Crags Park water pool July-2012.JPG",
+    "artist": "Wpcpey",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:GD_Guangdong_Zhaoqing_City_%E5%BB%A3%E6%9D%B1_%E8%82%87%E6%85%B6_Zhaoqing_%E4%B8%83%E6%98%9F%E5%B2%A9_Seven_Star_Crags_Park_water_pool_July-2012.JPG",
+    "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/GD_Guangdong_Zhaoqing_City_%E5%BB%A3%E6%9D%B1_%E8%82%87%E6%85%B6_Zhaoqing_%E4%B8%83%E6%98%9F%E5%B2%A9_Seven_Star_Crags_Park_water_pool_July-2012.JPG/960px-GD_Guangdong_Zhaoqing_City_%E5%BB%A3%E6%9D%B1_%E8%82%87%E6%85%B6_Zhaoqing_%E4%B8%83%E6%98%9F%E5%B2%A9_Seven_Star_Crags_Park_water_pool_July-2012.JPG"
   },
   {
     "id": "beef_chow_fun",

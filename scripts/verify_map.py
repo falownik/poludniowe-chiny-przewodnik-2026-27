@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html as html_lib
 import json
 from pathlib import Path
 
@@ -10,10 +11,12 @@ HTML = DOCS / "index.html"
 PLACES = ROOT / "data" / "places.json"
 ROUTES = ROOT / "data" / "routes.json"
 PROVINCES = ROOT / "data" / "provinces.geojson"
+NEARBY = ROOT / "data" / "nearby_places.json"
 ATTRIBUTIONS = DOCS / "assets" / "image_attributions.json"
 SITE_CSS = DOCS / "assets" / "site.css"
 PLACES_DIR = DOCS / "places"
 FOOD_PAGE = DOCS / "food.html"
+RESEARCH_PAGE = DOCS / "research.html"
 REQUIRED_FOOD_IMAGES = [
     "dim_sum_har_gow.jpg",
     "siu_mai.jpg",
@@ -56,10 +59,15 @@ def html_contains_json_text(html: str, value: str) -> bool:
     return value in html or escaped_json_value in html
 
 
+def html_contains_text(html: str, value: str) -> bool:
+    return html_contains_json_text(html, value) or html_lib.escape(value, quote=True) in html
+
+
 def main() -> None:
     places = load_json(PLACES)
     routes = load_json(ROUTES)
     provinces = load_json(PROVINCES)
+    nearby_places = load_json(NEARBY)
     attributions = load_json(ATTRIBUTIONS)
     html = HTML.read_text(encoding="utf-8")
 
@@ -67,6 +75,14 @@ def main() -> None:
     require(len(places) >= 10, "expected at least 10 mapped places")
     require(len(routes) >= 10, "expected at least 10 transport routes")
     require(len(provinces.get("features", [])) >= 4, "expected at least 4 province/region polygons")
+    require(len(nearby_places) >= 30, "expected at least 30 researched nearby places")
+    require(
+        {"Guangzhou", "Guilin / Yangshuo", "Nanning", "Shenzhen", "Shantou / Chaozhou"}.issubset(
+            {item["hub"] for item in nearby_places}
+        ),
+        "nearby research does not cover all chosen hubs",
+    )
+    require({"A", "B", "C"}.issubset({item["rank"] for item in nearby_places}), "nearby research lacks A/B/C ranks")
     require(len(attributions) >= len({place["photo_id"] for place in places}), "missing image attributions")
     require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
     require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
@@ -99,6 +115,7 @@ def main() -> None:
         "Otwórz stronę miejsca",
         "popup-actions",
         "trip-panel-toggle",
+        "Research hubów",
         "plan-panel-toggle",
         "plan-panel",
         "itinerary-day",
@@ -116,6 +133,8 @@ def main() -> None:
         "route-tooltip-card",
         "route-layer-hub-hsr",
         "route-layer-local-hub",
+        "Research: miejsca wokół hubów",
+        "research.html",
         "Pętla HSR",
         "Wypady z baz",
         "opcje rezerwowe, domyślnie wyłączone",
@@ -135,7 +154,7 @@ def main() -> None:
         "leaflet",
     ]
     for phrase in required_phrases:
-        require(phrase in html, f"HTML missing phrase: {phrase}")
+        require(html_contains_json_text(html, phrase), f"HTML missing phrase: {phrase}")
 
     require("route-label" not in html, "route labels should not be rendered permanently")
     require("<th>Koszt</th>" not in html, "route cost column should not be visible in the sidebar")
@@ -172,6 +191,12 @@ def main() -> None:
             require(route["train_alt"]["cost_pln"] in html, f"HTML missing train alternative cost: {route['id']}")
             require(route["train_alt"]["time"] in html, f"HTML missing train alternative time: {route['id']}")
 
+    for item in nearby_places:
+        require(html_contains_text(html, item["name"]), f"map HTML missing nearby research point: {item['name']}")
+        require(html_contains_text(html, item.get("summary", "")), f"map HTML missing nearby summary: {item['name']}")
+        require(item.get("image_id"), f"nearby research point lacks image_id: {item['name']}")
+        require(item.get("sources"), f"nearby research point lacks sources: {item['name']}")
+
     for feature in provinces.get("features", []):
         props = feature.get("properties", {})
         require(html_contains_json_text(html, props.get("name", "")), f"HTML missing province name: {props.get('name')}")
@@ -188,12 +213,24 @@ def main() -> None:
     require(len(image_files) >= len({place["photo_id"] for place in places}), "not enough copied images")
 
     require(SITE_CSS.exists(), "site CSS is missing")
-    for page_name in ["places/index.html", "itinerary.html", "food.html", "practical.html"]:
+    for page_name in ["places/index.html", "itinerary.html", "research.html", "food.html", "practical.html"]:
         page = DOCS / page_name
         require(page.exists(), f"missing static guide page: {page_name}")
         page_html = page.read_text(encoding="utf-8")
         require("Południe Chin 2026/27" in page_html, f"static page missing site title: {page_name}")
         require("assets/site.css" in page_html or "../assets/site.css" in page_html, f"static page missing CSS: {page_name}")
+
+    research_html = RESEARCH_PAGE.read_text(encoding="utf-8")
+    require("Research miejsc wokół hubów" in research_html, "research page missing title")
+    require("research-grid" in research_html, "research page missing card grid")
+    require(research_html.count('class="research-card') >= len(nearby_places), "research page missing researched cards")
+    for hub in ["Guangzhou", "Guilin / Yangshuo", "Nanning", "Shenzhen", "Shantou / Chaozhou"]:
+        require(hub in research_html, f"research page missing hub: {hub}")
+    for label in ["A · mocno polecane", "B · dobre przy zapasie", "C · tylko dla konkretnego celu"]:
+        require(label in research_html, f"research page missing rank label: {label}")
+    attributions_by_id = {item["id"]: item for item in attributions}
+    for image_id in {item["image_id"] for item in nearby_places if item.get("image_id")}:
+        require(image_id in attributions_by_id, f"nearby image lacks attribution: {image_id}")
 
     food_html = FOOD_PAGE.read_text(encoding="utf-8")
     require("food-region-card" in food_html, "food page missing regional food cards")
@@ -214,6 +251,7 @@ def main() -> None:
     print(f"Places: {len(places)}")
     print(f"Routes: {len(routes)}")
     print(f"Provinces: {len(provinces.get('features', []))}")
+    print(f"Nearby research points: {len(nearby_places)}")
     print(f"Images: {len(image_files)}")
     print(f"Place pages: {len(list(PLACES_DIR.glob('*.html'))) - 1}")
 

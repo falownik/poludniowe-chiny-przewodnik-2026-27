@@ -783,6 +783,7 @@ def nav(prefix: str, current: str) -> str:
         ("map", "Mapa", f"{prefix}index.html"),
         ("places", "Miejsca", f"{prefix}places/"),
         ("itinerary", "Trasa", f"{prefix}itinerary.html"),
+        ("research", "Research hubów", f"{prefix}research.html"),
         ("food", "Jedzenie", f"{prefix}food.html"),
         ("practical", "Logistyka", f"{prefix}practical.html"),
     ]
@@ -977,6 +978,103 @@ def build_places_index(places: list[dict[str, Any]], image_paths: dict[str, str]
     <section class="place-grid">{cards}</section>
     """
     return page_shell("Miejsca", "places", body, prefix=prefix)
+
+
+def nearby_rank_label(rank: str) -> str:
+    return {
+        "A": "A · mocno polecane",
+        "B": "B · dobre przy zapasie",
+        "C": "C · tylko dla konkretnego celu",
+    }.get(rank, rank)
+
+
+def nearby_research_card(item: dict[str, Any], image_paths: dict[str, str]) -> str:
+    image = image_tag(item.get("image_id", ""), image_paths, item["name"])
+    sources = "".join(
+        f"<a href=\"{esc(url)}\" target=\"_blank\" rel=\"noopener\">źródło</a>"
+        for url in item.get("sources", [])[:3]
+    )
+    return f"""
+    <article class="research-card rank-{esc(item.get('rank', 'C')).lower()}">
+      {image}
+      <div>
+        <p class="eyebrow">{esc(item['hub'])} · {esc(item['type'])}</p>
+        <h2>{esc(item['name'])}</h2>
+        <p class="research-rank">{esc(nearby_rank_label(item.get('rank', 'C')))}</p>
+        <p>{esc(item['summary'])}</p>
+        <p><strong>Dlaczego warto:</strong> {esc(item['why'])}</p>
+        <p><strong>Logistyka:</strong> {esc(item['logistics'])}</p>
+        <div class="research-facts">
+          <span>{esc(item['time_needed'])}</span>
+          <span>{esc(item['estimated_cost_pln_pp'])}</span>
+          <span>{esc(item['winter_note'])}</span>
+        </div>
+        <p><strong>Uwaga:</strong> {esc(item['watch_out'])}</p>
+        <p class="source-links">{sources}</p>
+      </div>
+    </article>
+    """
+
+
+def build_research_page(nearby_places: list[dict[str, Any]], image_paths: dict[str, str]) -> str:
+    hubs = ["Guangzhou", "Guilin / Yangshuo", "Nanning", "Shenzhen", "Shantou / Chaozhou"]
+    rank_order = {"A": 0, "B": 1, "C": 2}
+    top_cards = "".join(
+        nearby_research_card(item, image_paths)
+        for item in sorted(nearby_places, key=lambda item: (rank_order.get(item.get("rank", "C"), 9), item["hub"], item["name"]))
+        if item.get("rank") == "A"
+    )
+    sections = []
+    for hub in hubs:
+        hub_items = sorted(
+            [item for item in nearby_places if item.get("hub") == hub],
+            key=lambda item: (rank_order.get(item.get("rank", "C"), 9), item["name"]),
+        )
+        cards = "".join(nearby_research_card(item, image_paths) for item in hub_items)
+        sections.append(
+            f"""
+    <section class="route-section research-hub-section">
+      <h2>{esc(hub)}</h2>
+      <div class="research-grid">{cards}</div>
+    </section>
+            """
+        )
+
+    body = f"""
+    <section class="page-intro research-intro">
+      <p class="eyebrow">Oddzielna warstwa mapy</p>
+      <h1>Research miejsc wokół hubów</h1>
+      <p>To jest selekcja miejsc wokół pięciu baz planu: Guangzhou, Guilin/Yangshuo, Nanning, Shenzhen oraz Shantou/Chaozhou. Warstwa na mapie startuje wyłączona, żeby nie mieszać głównej pętli noclegowej z dodatkowymi pomysłami.</p>
+      <div class="fact-strip">
+        <span>{len(nearby_places)} sprawdzone punkty</span>
+        <span>A/B/C według wartości dla tej trasy</span>
+        <span>Zdjęcia i źródła przy kartach</span>
+      </div>
+    </section>
+
+    <section class="text-block">
+      <h2>Jak czytać rekomendacje</h2>
+      <p><strong>A</strong> oznacza miejsca, które realnie warto rozważyć w aktualnym planie. <strong>B</strong> to dobre opcje przy zapasie czasu albo konkretnej pogodzie. <strong>C</strong> to miejsca sensowne tylko przy bardzo konkretnym zainteresowaniu: jaskinie, trudniejszy hiking, dalsze dojazdy albo mniej spektakularne lokalne spacery.</p>
+      <p>Najważniejsze założenie: nie dokładamy nowych baz bez powodu. Jeśli miejsce wymaga noclegu albo prywatnego kierowcy, karta mówi to wprost.</p>
+    </section>
+
+    <section class="route-section research-top">
+      <h2>Najlepsze kandydaty do dopięcia planu</h2>
+      <div class="research-grid">{top_cards}</div>
+    </section>
+
+    <section class="text-block research-horizontal">
+      <h2>Wnioski horyzontalne dla południa Chin zimą</h2>
+      <p><strong>Najdroższy zasób to nie bilet, tylko dzień.</strong> Kaiping, Mingshi/Detian, Nan'ao i Dapeng wyglądają blisko na mapie, ale wymagają ostatniego odcinka autem. Przy 2-4 osobach prywatny kierowca często jest lepszym value niż trzy przesiadki i utrata energii.</p>
+      <p><strong>Punkty widokowe planujcie przez pogodę, nie przez kalendarz.</strong> Xianggong, Wutong, Queshi, Nan'ao i Seven Star Crags mają sens przy dobrej widoczności. Gdy jest mgła albo deszcz, lepiej przesunąć dzień na jaskinię, stare miasto, herbatę, food walk albo park miejski.</p>
+      <p><strong>Rural bez walizek jest lepszy niż rural za wszelką cenę.</strong> Yangshuo daje najlepszy stosunek natury do logistyki. Mingshi jest piękne, ale dopiero z jedną nocą albo kierowcą. Jeśli grupa jest zmęczona, Qingxiu Mountain, Shunde albo Nantou są rozsądniejszym wyborem niż dokładanie kolejnego dalekiego transferu.</p>
+      <p><strong>Food-first działa szczególnie w Guangdong i Chaoshan.</strong> Shunde, Shantou i Chaozhou warto planować wokół posiłków: jedno konkretne śniadanie, jeden mocny lunch albo kolacja i dopiero między nimi spacer. Wtedy nawet mniej spektakularne miejsca mają sens.</p>
+      <p><strong>Do sprawdzenia bliżej wyjazdu:</strong> realne ceny kierowców dla Kaiping, Detian/Mingshi i Nan'ao; godziny ostatnich pociągów; świąteczne tłumy 31.12-1.1; AQI i widoczność dzień przed punktami widokowymi; aktualne zasady przejść granicznych przy Hongkongu, Makao i Dongxing.</p>
+    </section>
+
+    {''.join(sections)}
+    """
+    return page_shell("Research hubów", "research", body)
 
 
 def build_itinerary_page(
@@ -1288,7 +1386,7 @@ main {
   color: var(--muted);
   line-height: 1.58;
 }
-.detail-list, .route-grid, .place-grid, .text-stack, .food-grid, .dish-grid {
+.detail-list, .route-grid, .place-grid, .text-stack, .food-grid, .dish-grid, .research-grid {
   display: grid;
   gap: 12px;
 }
@@ -1343,6 +1441,80 @@ main {
 .route-section { margin-top: 18px; }
 .route-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.research-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.research-card {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+.research-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+.research-card > div {
+  padding: 15px 15px 15px 0;
+}
+.research-card h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.research-card p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+.research-rank {
+  display: inline-flex;
+  margin: 0 0 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  color: #166534 !important;
+  font-weight: 800;
+  font-size: 12px;
+}
+.rank-b .research-rank {
+  background: #fff7ed;
+  color: #9a3412 !important;
+}
+.rank-c .research-rank {
+  background: #f1f5f9;
+  color: #475569 !important;
+}
+.research-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+.research-facts span {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f8fafc;
+  color: var(--muted);
+  font-size: 12px;
+}
+.source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.source-links a {
+  color: var(--teal);
+  font-weight: 700;
 }
 .food-intro {
   border-left: 5px solid var(--amber);
@@ -1433,9 +1605,11 @@ main {
 @media (max-width: 900px) {
   .site-header { align-items: flex-start; flex-direction: column; padding: 12px 16px; }
   main { width: min(100% - 20px, 1120px); padding-top: 14px; }
-  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .food-grid, .dish-grid, .food-region-card {
+  .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .research-grid, .food-grid, .dish-grid, .food-region-card, .research-card {
     grid-template-columns: 1fr;
   }
+  .research-card > div { padding: 15px; }
+  .research-card img { height: auto; min-height: 0; aspect-ratio: 16 / 10; }
   .food-region-card div { padding: 16px; }
   .food-region-card img { min-height: 0; max-height: none; aspect-ratio: 16 / 10; }
   .hero-img { min-height: 230px; }
@@ -1452,6 +1626,7 @@ def build_site() -> None:
 
     places = load_json(build_map.DATA_DIR / "places.json")
     routes = load_json(build_map.DATA_DIR / "routes.json")
+    nearby_places = load_json(build_map.NEARBY_PLACES) if build_map.NEARBY_PLACES.exists() else []
     places_by_id = {place["id"]: place for place in places}
     image_paths = image_paths_from_attributions()
 
@@ -1465,12 +1640,14 @@ def build_site() -> None:
     for place in places:
         write(PLACES_DIR / f"{place['id']}.html", build_place_page(place, places, routes, places_by_id, image_paths))
     write(DOCS_DIR / "itinerary.html", build_itinerary_page(places, routes, places_by_id, image_paths))
+    write(DOCS_DIR / "research.html", build_research_page(nearby_places, image_paths))
     write(DOCS_DIR / "food.html", build_food_page(image_paths))
     write(DOCS_DIR / "practical.html", build_practical_page())
     write(DOCS_DIR / ".nojekyll", "")
 
     print(f"Place pages: {len(places)}")
-    print("Static guide pages: places/index.html, itinerary.html, food.html, practical.html")
+    print(f"Nearby research points: {len(nearby_places)}")
+    print("Static guide pages: places/index.html, itinerary.html, research.html, food.html, practical.html")
 
 
 if __name__ == "__main__":

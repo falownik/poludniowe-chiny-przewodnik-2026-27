@@ -19,6 +19,8 @@ ASSET_DIR = DOCS_DIR / "assets"
 IMAGE_DIR = ASSET_DIR / "images"
 OUTPUT = DOCS_DIR / "index.html"
 PROVINCES = DATA_DIR / "provinces.geojson"
+NEARBY_PLACES = DATA_DIR / "nearby_places.json"
+NEARBY_IMAGE_SOURCES = DATA_DIR / "nearby_image_sources.json"
 
 GUIDE_ROOT = PARENT_ROOT / "reports" / "southern_china_full_guide_2026_27"
 GUIDE_ASSETS = GUIDE_ROOT / "assets"
@@ -282,33 +284,61 @@ def read_image_manifest() -> dict[str, dict[str, Any]]:
     return {item["id"]: item for item in manifest}
 
 
-def copy_images(places: list[dict[str, Any]], manifest: dict[str, dict[str, Any]]) -> dict[str, str]:
+def read_nearby_image_sources() -> dict[str, dict[str, Any]]:
+    if not NEARBY_IMAGE_SOURCES.exists():
+        return {}
+    return {item["id"]: item for item in load_json(NEARBY_IMAGE_SOURCES)}
+
+
+def copy_images(
+    places: list[dict[str, Any]],
+    manifest: dict[str, dict[str, Any]],
+    extra_image_ids: set[str] | None = None,
+    external_sources: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, str]:
     IMAGE_DIR.mkdir(parents=True, exist_ok=True)
     used_ids = {place["photo_id"] for place in places if place.get("photo_id")}
+    used_ids.update(extra_image_ids or set())
+    external_sources = external_sources or {}
     copied: dict[str, str] = {}
     attributions: list[dict[str, str]] = []
 
     for image_id in sorted(used_ids):
         item = manifest.get(image_id)
-        if not item:
+        if item:
+            source = GUIDE_ROOT / item["file"]
+            if not source.exists():
+                continue
+            target = IMAGE_DIR / source.name
+            shutil.copy2(source, target)
+            copied[image_id] = f"assets/images/{target.name}"
+            attributions.append(
+                {
+                    "id": image_id,
+                    "title": item.get("title", ""),
+                    "commons_title": item.get("commons_title", ""),
+                    "artist": item.get("artist", ""),
+                    "license": item.get("license", ""),
+                    "source": item.get("source", ""),
+                    "file": copied[image_id],
+                }
+            )
             continue
-        source = GUIDE_ROOT / item["file"]
-        if not source.exists():
-            continue
-        target = IMAGE_DIR / source.name
-        shutil.copy2(source, target)
-        copied[image_id] = f"assets/images/{target.name}"
-        attributions.append(
-            {
-                "id": image_id,
-                "title": item.get("title", ""),
-                "commons_title": item.get("commons_title", ""),
-                "artist": item.get("artist", ""),
-                "license": item.get("license", ""),
-                "source": item.get("source", ""),
-                "file": copied[image_id],
-            }
-        )
+
+        external = external_sources.get(image_id)
+        if external and external.get("file"):
+            copied[image_id] = external["file"]
+            attributions.append(
+                {
+                    "id": image_id,
+                    "title": external.get("title", ""),
+                    "commons_title": external.get("commons_title", ""),
+                    "artist": external.get("artist", ""),
+                    "license": external.get("license", ""),
+                    "source": external.get("source", ""),
+                    "file": external["file"],
+                }
+            )
 
     (ASSET_DIR / "image_attributions.json").write_text(
         json.dumps(attributions, ensure_ascii=False, indent=2),
@@ -368,6 +398,55 @@ def place_tooltip(place: dict[str, Any], image_path: str | None) -> str:
       <p><strong>Nocleg:</strong> ok. {esc(place['avg_lodging_pln_pp'])} PLN/os./noc</p>
       <p><strong>Najważniejsze:</strong> {esc(top)}</p>
       <p>Kliknij marker, żeby przejść do strony miejsca.</p>
+    </div>
+    """
+
+
+def nearby_rank_color(rank: str) -> str:
+    return {
+        "A": "#16a34a",
+        "B": "#d97706",
+        "C": "#64748b",
+    }.get(rank, "#64748b")
+
+
+def nearby_popup(item: dict[str, Any], image_path: str | None) -> str:
+    image = f"<img class='popup-img' src='{esc(image_path)}' alt='{esc(item['name'])}'>" if image_path else ""
+    sources = "".join(
+        f"<li><a href='{esc(url)}' target='_blank' rel='noopener'>źródło</a></li>"
+        for url in item.get("sources", [])[:3]
+    )
+    return f"""
+    <div class="popup-card research-popup">
+      {image}
+      <h2>{esc(item['name'])}</h2>
+      <div class="tag-row">
+        <span>hub: {esc(item['hub'])}</span>
+        <span>ocena {esc(item['rank'])}</span>
+      </div>
+      <p>{esc(item['summary'])}</p>
+      <p><strong>Dlaczego:</strong> {esc(item['why'])}</p>
+      <p><strong>Logistyka:</strong> {esc(item['logistics'])}</p>
+      <p><strong>Czas:</strong> {esc(item['time_needed'])}</p>
+      <p><strong>Koszt:</strong> {esc(item['estimated_cost_pln_pp'])}</p>
+      <p><strong>Zima:</strong> {esc(item['winter_note'])}</p>
+      <p><strong>Uwaga:</strong> {esc(item['watch_out'])}</p>
+      <p class="popup-actions"><a class="popup-link" href="research.html" target="_self" onclick="window.location.href=this.getAttribute('href'); return false;">Otwórz research hubów</a></p>
+      <ul class="source-list">{sources}</ul>
+    </div>
+    """
+
+
+def nearby_tooltip(item: dict[str, Any], image_path: str | None) -> str:
+    image = f"<img src='{esc(image_path)}' alt='{esc(item['name'])}'>" if image_path else ""
+    return f"""
+    <div class="hover-card research-hover">
+      {image}
+      <h3>{esc(item['name'])}</h3>
+      <p><strong>{esc(item['hub'])} · ocena {esc(item['rank'])}</strong></p>
+      <p>{esc(item['summary'])}</p>
+      <p><strong>Czas:</strong> {esc(item['time_needed'])}</p>
+      <p><strong>Koszt:</strong> {esc(item['estimated_cost_pln_pp'])}</p>
     </div>
     """
 
@@ -461,7 +540,7 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
     <div id="trip-panel">
       <h1>Południe Chin 2026/27</h1>
       <p>Mapa planistyczna: noclegi, atrakcje, day tripy, transport i budżet. Najedź na marker, żeby zobaczyć zdjęcie i skrót; kliknij, żeby otworzyć szczegóły.</p>
-      <p class="panel-links"><a href="places/">Miejsca</a><a href="itinerary.html">Trasa</a><a href="food.html">Jedzenie</a><a href="practical.html">Logistyka</a></p>
+      <p class="panel-links"><a href="places/">Miejsca</a><a href="itinerary.html">Trasa</a><a href="research.html">Research hubów</a><a href="food.html">Jedzenie</a><a href="practical.html">Logistyka</a></p>
       <p>Kolorowe obszary pokazują prowincje i regiony administracyjne objęte planem. Warstwę można włączać i wyłączać w panelu mapy.</p>
       <h2>Budżet noclegów</h2>
       <p>Cel użytkownika: średnio około <strong>50 PLN/os./noc</strong>. Zielone markery są najbliżej celu; czerwone traktuj jako day trip albo wyjątek.</p>
@@ -747,6 +826,13 @@ def build_styles() -> str:
       .tag-row span { background: #eef2ff; color: #3730a3; padding: 2px 6px; border-radius: 999px; font-size: 11px; }
       .popup-card ul { margin: 4px 0 6px; padding-left: 18px; }
       .popup-list li { margin-bottom: 5px; }
+      .research-popup .source-list {
+        margin-top: 8px;
+        padding-top: 7px;
+        border-top: 1px solid #e2e8f0;
+        font-size: 11px;
+      }
+      .research-hover strong { color: #0f172a; }
       .popup-actions {
         position: sticky;
         bottom: 0;
@@ -967,6 +1053,11 @@ def build_legend(provinces: dict[str, Any]) -> str:
       <div class="line-key"><span class="line-swatch"></span><span>pętla HSR między hubami</span></div>
       <div class="line-key"><span class="line-swatch local"></span><span>wypady z baz / dojazdy lokalne</span></div>
       <div class="line-key"><span class="line-swatch optional"></span><span>opcje rezerwowe, domyślnie wyłączone</span></div>
+      <hr>
+      <h3>Research hubów</h3>
+      <div><span class="dot" style="background:#16a34a"></span>A: mocno polecane</div>
+      <div><span class="dot" style="background:#d97706"></span>B: dobre przy zapasie</div>
+      <div><span class="dot" style="background:#64748b"></span>C: tylko dla konkretnego celu</div>
     </div>
     """
 
@@ -1209,6 +1300,44 @@ def add_place_markers(
     return place_marker_names, place_circle_names, place_circle_styles
 
 
+def add_nearby_research_layer(
+    fmap: folium.Map,
+    nearby_places: list[dict[str, Any]],
+    image_paths: dict[str, str],
+) -> None:
+    if not nearby_places:
+        return
+    group = FeatureGroup(name="Research: miejsca wokół hubów", show=False)
+    hub_colors = {
+        "Guangzhou": "#7c3aed",
+        "Guilin / Yangshuo": "#16a34a",
+        "Nanning": "#0891b2",
+        "Shenzhen": "#2563eb",
+        "Shantou / Chaozhou": "#d97706",
+    }
+    for item in nearby_places:
+        rank_color = nearby_rank_color(item.get("rank", "C"))
+        hub_color = hub_colors.get(item.get("hub", ""), rank_color)
+        image_path = image_paths.get(item.get("image_id", ""))
+        folium.CircleMarker(
+            location=[item["lat"], item["lon"]],
+            radius={"A": 8, "B": 6, "C": 5}.get(item.get("rank"), 5),
+            color=rank_color,
+            fill=True,
+            fill_color=hub_color,
+            fill_opacity=0.88,
+            weight=2,
+            popup=folium.Popup(nearby_popup(item, image_path), max_width=390),
+            tooltip=folium.Tooltip(
+                nearby_tooltip(item, image_path),
+                sticky=False,
+                direction="top",
+                max_width=320,
+            ),
+        ).add_to(group)
+    group.add_to(fmap)
+
+
 def add_routes(
     fmap: folium.Map,
     routes: list[dict[str, Any]],
@@ -1245,6 +1374,7 @@ def add_routes(
 def build_map() -> None:
     places = load_json(DATA_DIR / "places.json")
     routes = load_json(DATA_DIR / "routes.json")
+    nearby_places = load_json(NEARBY_PLACES) if NEARBY_PLACES.exists() else []
     provinces = load_json(PROVINCES) if PROVINCES.exists() else {"type": "FeatureCollection", "features": []}
     places_by_id = {place["id"]: place for place in places}
 
@@ -1252,7 +1382,8 @@ def build_map() -> None:
     ASSET_DIR.mkdir(parents=True, exist_ok=True)
 
     manifest = read_image_manifest()
-    image_paths = copy_images(places, manifest)
+    nearby_image_ids = {item["image_id"] for item in nearby_places if item.get("image_id")}
+    image_paths = copy_images(places, manifest, nearby_image_ids, read_nearby_image_sources())
 
     fmap = folium.Map(
         location=[23.35, 113.0],
@@ -1268,6 +1399,7 @@ def build_map() -> None:
     add_province_layer(fmap, provinces)
     add_routes(fmap, routes, places_by_id)
     place_marker_names, place_circle_names, place_circle_styles = add_place_markers(fmap, places, image_paths)
+    add_nearby_research_layer(fmap, nearby_places, image_paths)
     fmap.fit_bounds(
         [[min(place["lat"] for place in places), min(place["lon"] for place in places)],
          [max(place["lat"] for place in places), max(place["lon"] for place in places)]],
