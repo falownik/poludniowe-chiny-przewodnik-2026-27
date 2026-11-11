@@ -1,0 +1,615 @@
+{
+  "source_sheet": "Arkusz „China 2.0”, zakładka „Rozkład jazdy v2”: kolumna B „Miejsce” i kolumna C „Miejsce (opcja 2)”",
+  "days": [
+    {
+      "date": "16.12",
+      "b": "Warszawa",
+      "c": "Warszawa",
+      "b_ids": [],
+      "c_ids": []
+    },
+    {
+      "date": "17.12",
+      "b": "Guangzhou",
+      "c": "Guangzhou",
+      "b_ids": [
+        "guangzhou"
+      ],
+      "c_ids": [
+        "guangzhou"
+      ]
+    },
+    {
+      "date": "18.12",
+      "b": "Chaozhou",
+      "c": "Chaozhou",
+      "b_ids": [
+        "chaozhou"
+      ],
+      "c_ids": [
+        "chaozhou"
+      ]
+    },
+    {
+      "date": "19.12",
+      "b": "Chaozhou/Shantou",
+      "c": "Chaozhou/Shantou",
+      "b_ids": [
+        "chaozhou",
+        "shantou"
+      ],
+      "c_ids": [
+        "chaozhou",
+        "shantou"
+      ]
+    },
+    {
+      "date": "20.12",
+      "b": "Tulou -> Xiamen",
+      "c": "Tulou (nocleg)",
+      "b_ids": [
+        "tulou",
+        "xiamen"
+      ],
+      "c_ids": [
+        "tulou"
+      ]
+    },
+    {
+      "date": "21.12",
+      "b": "Xiamen",
+      "c": "Xiamen",
+      "b_ids": [
+        "xiamen"
+      ],
+      "c_ids": [
+        "xiamen"
+      ]
+    },
+    {
+      "date": "22.12",
+      "b": "Guangzhou",
+      "c": "Xiamen/Guangzhou",
+      "b_ids": [
+        "guangzhou"
+      ],
+      "c_ids": [
+        "xiamen",
+        "guangzhou"
+      ]
+    },
+    {
+      "date": "23.12",
+      "b": "Guangzhou/Shenzen",
+      "c": "Guangzhou/Shenzen",
+      "b_ids": [
+        "guangzhou",
+        "shenzhen"
+      ],
+      "c_ids": [
+        "guangzhou",
+        "shenzhen"
+      ]
+    },
+    {
+      "date": "24.12",
+      "b": "Shenzen",
+      "c": "Shenzen/Dapeng",
+      "b_ids": [
+        "shenzhen"
+      ],
+      "c_ids": [
+        "shenzhen",
+        "dapeng"
+      ]
+    },
+    {
+      "date": "25.12",
+      "b": "Shenzen/Makau",
+      "c": "Shenzen/Makau",
+      "b_ids": [
+        "macau"
+      ],
+      "c_ids": [
+        "macau"
+      ]
+    },
+    {
+      "date": "26.12",
+      "b": "Shenzen/Hong Kong",
+      "c": "Lantau/Hong Kong",
+      "b_ids": [
+        "hongkong"
+      ],
+      "c_ids": [
+        "lantau",
+        "hongkong"
+      ]
+    },
+    {
+      "date": "27.12",
+      "b": "Yangshuo",
+      "c": "Nanning",
+      "b_ids": [
+        "yangshuo"
+      ],
+      "c_ids": [
+        "nanning"
+      ]
+    },
+    {
+      "date": "28.12",
+      "b": "Yangshuo",
+      "c": "Detian/Mingshi",
+      "b_ids": [
+        "yangshuo"
+      ],
+      "c_ids": [
+        "detian",
+        "mingshi"
+      ]
+    },
+    {
+      "date": "29.12",
+      "b": "Yangshuo",
+      "c": "Mingshi/Yangshuo",
+      "b_ids": [
+        "yangshuo",
+        "xingping"
+      ],
+      "c_ids": [
+        "mingshi",
+        "yangshuo"
+      ]
+    },
+    {
+      "date": "30.12",
+      "b": "Yangshuo",
+      "c": "Yangshuo",
+      "b_ids": [
+        "yangshuo"
+      ],
+      "c_ids": [
+        "yangshuo"
+      ]
+    },
+    {
+      "date": "31.12",
+      "b": "Yangshuo",
+      "c": "Yangshuo (Sylwester)",
+      "b_ids": [
+        "yangshuo"
+      ],
+      "c_ids": [
+        "yangshuo"
+      ]
+    },
+    {
+      "date": "1.1",
+      "b": "Nanning",
+      "c": "Xingping",
+      "b_ids": [
+        "nanning"
+      ],
+      "c_ids": [
+        "xingping"
+      ]
+    },
+    {
+      "date": "2.1",
+      "b": "Nanning/Detian",
+      "c": "Xingping/Yangshuo",
+      "b_ids": [
+        "nanning",
+        "detian"
+      ],
+      "c_ids": [
+        "xingping",
+        "yangshuo"
+      ]
+    },
+    {
+      "date": "3.1",
+      "b": "Nanning",
+      "c": "Guangzhou",
+      "b_ids": [
+        "nanning"
+      ],
+      "c_ids": [
+        "guangzhou"
+      ]
+    },
+    {
+      "date": "4.1",
+      "b": "Guangzhou",
+      "c": "Guangzhou",
+      "b_ids": [
+        "guangzhou"
+      ],
+      "c_ids": [
+        "guangzhou"
+      ]
+    },
+    {
+      "date": "5.1",
+      "b": "Guangzhou/Foshan",
+      "c": "Guangzhou/Foshan",
+      "b_ids": [
+        "guangzhou",
+        "foshan"
+      ],
+      "c_ids": [
+        "guangzhou",
+        "foshan"
+      ]
+    },
+    {
+      "date": "6.1",
+      "b": "Powrót / Guangzhou",
+      "c": "Powrót / Guangzhou",
+      "b_ids": [
+        "guangzhou"
+      ],
+      "c_ids": [
+        "guangzhou"
+      ]
+    },
+    {
+      "date": "7.1",
+      "b": "Shenzen",
+      "c": "Shenzen",
+      "b_ids": [
+        "shenzhen"
+      ],
+      "c_ids": [
+        "shenzhen"
+      ]
+    },
+    {
+      "date": "8.1",
+      "b": "Hong Kong",
+      "c": "Hong Kong",
+      "b_ids": [
+        "hongkong"
+      ],
+      "c_ids": [
+        "hongkong"
+      ]
+    },
+    {
+      "date": "9.1",
+      "b": "Szanghaj",
+      "c": "Szanghaj",
+      "b_ids": [
+        "shanghai"
+      ],
+      "c_ids": [
+        "shanghai"
+      ]
+    },
+    {
+      "date": "10.1",
+      "b": "Szanghaj",
+      "c": "Szanghaj",
+      "b_ids": [
+        "shanghai"
+      ],
+      "c_ids": [
+        "shanghai"
+      ]
+    },
+    {
+      "date": "11.1",
+      "b": "Powrót ekipy",
+      "c": "Powrót ekipy",
+      "b_ids": [],
+      "c_ids": []
+    }
+  ],
+  "places": [
+    {
+      "id": "guangzhou",
+      "name": "Guangzhou",
+      "kind": "miasto",
+      "summary": "Wielka metropolia i baza wypadowa. Najciekawsze są starsze dzielnice: wyspa Shamian z kolonialnymi willami, Liwan / Yongqingfang z kamienicami Xiguan i herbaciarnie dim sum. Wieczorem iluminacja Canton Tower nad Rzeką Perłową.",
+      "photos": [
+        {
+          "commons_title": "File:Canton Tower 20241027.jpg",
+          "caption": "Canton Tower nad Rzeką Perłową"
+        },
+        {
+          "commons_title": "File:Shamian Island 19.jpg",
+          "caption": "Wyspa Shamian – dawna dzielnica koncesji"
+        },
+        {
+          "commons_title": "File:Yongqingfang 1.jpg",
+          "caption": "Yongqingfang w dzielnicy Liwan"
+        }
+      ]
+    },
+    {
+      "id": "chaozhou",
+      "name": "Chaozhou",
+      "kind": "stare miasto",
+      "summary": "Kameralne, dobrze zachowane stare miasto z ulicą bram pamiątkowych (Paifang Street), świątynią Kaiyuan i mostem Guangji na pontonach. Spacerowe, niskie, bardzo „chińskie” – plus herbata gongfu i kuchnia Chaoshan.",
+      "photos": [
+        {
+          "commons_title": "File:Chaozhou Guangji Bridge 20191211.jpg",
+          "caption": "Most Guangji na rzece Han"
+        },
+        {
+          "commons_title": "File:Paifangjie.jpg",
+          "caption": "Paifang Street – ulica bram pamiątkowych"
+        },
+        {
+          "commons_title": "File:20230206 Kaiyuan Temple, Chaozhou 01.jpg",
+          "caption": "Świątynia Kaiyuan"
+        }
+      ]
+    },
+    {
+      "id": "shantou",
+      "name": "Shantou",
+      "kind": "miasto",
+      "summary": "Portowe miasto 25 minut od Chaozhou. Stare centrum (Xiaogongyuan) to podupadłe kamienice z arkadami z początku XX wieku. Jedziemy głównie na wieczorny wołowy hot pot Chaoshan.",
+      "photos": [
+        {
+          "commons_title": "File:Shantou Old Town Nightime (37481223501).jpg",
+          "caption": "Stare miasto Shantou nocą"
+        },
+        {
+          "commons_title": "File:20230206 Dexing Road, Shantou.jpg",
+          "caption": "Kamienice z arkadami przy Dexing Road"
+        }
+      ]
+    },
+    {
+      "id": "tulou",
+      "name": "Tulou (Nanjing / Yongding, Fujian)",
+      "kind": "wieś / widoki",
+      "summary": "Okrągłe gliniane domy Hakka (UNESCO) w górach Fujianu. Tianluokeng to słynny zespół „cztery dania i zupa”, Yunshuiyao to wioska nad rzeką z banianami i kołami wodnymi. W v2 przejeżdżamy z kierowcą w ciągu dnia. W opcji 2 śpimy na miejscu i mamy wieczór oraz świt bez wycieczek; w grudniu noce ok. 5–7°C.",
+      "photos": [
+        {
+          "commons_title": "File:Tianluokeng Tulou cluster 20140829.JPG",
+          "caption": "Zespół Tianluokeng"
+        },
+        {
+          "commons_title": "File:云水谣晨雾 - Morning Fog in Yunshuiyao Village - 2013.11 - panoramio.jpg",
+          "caption": "Poranna mgła w Yunshuiyao (listopad)"
+        },
+        {
+          "commons_title": "File:云水谣水车 - Waterwheel in Yunshuiyao Village - 2013.11 - panoramio.jpg",
+          "caption": "Koło wodne w Yunshuiyao"
+        }
+      ]
+    },
+    {
+      "id": "xiamen",
+      "name": "Xiamen i Gulangyu",
+      "kind": "miasto + wyspa",
+      "summary": "Nadmorskie, zielone miasto. Gulangyu to wyspa bez samochodów, z kolonialnymi willami i wąskimi uliczkami; najlepiej rano, przed tłumami. W mieście świątynia Nanputuo pod wzgórzem i dzielnica Shapowei.",
+      "photos": [
+        {
+          "commons_title": "File:Woman crossing a bridge on Gulangyu Island, Xiamen, China - 鼓浪屿, 厦门，中国 (16114158191).jpg",
+          "caption": "Uliczki i mostki na Gulangyu"
+        },
+        {
+          "commons_title": "File:Nanputuo Temple, Xiamen.jpg",
+          "caption": "Świątynia Nanputuo"
+        }
+      ]
+    },
+    {
+      "id": "shenzhen",
+      "name": "Shenzhen",
+      "kind": "miasto",
+      "summary": "Nowoczesne megamiasto: wieżowce Futian, elektroniczny bazar Huaqiangbei i promenada nad zatoką Shenzhen. To baza na Makau i Hongkong. W v2 24.12 to dzień w mieście, w opcji 2 ten dzień idzie na Dapeng.",
+      "photos": [
+        {
+          "commons_title": "File:Skyline of Futian District in 2018.5.jpg",
+          "caption": "Panorama Shenzhen od strony zatoki"
+        },
+        {
+          "commons_title": "File:Huaqiangbei July 2024 (1).jpg",
+          "caption": "Huaqiangbei – bazar elektroniki"
+        },
+        {
+          "commons_title": "File:20201112 The skyline at Shenzhen Bay.jpg",
+          "caption": "Zatoka Shenzhen"
+        }
+      ]
+    },
+    {
+      "id": "dapeng",
+      "name": "Półwysep Dapeng (Shenzhen)",
+      "kind": "natura / wybrzeże",
+      "summary": "Zielony, górzysty półwysep na wschód od Shenzhen, ok. 1,5 h od centrum. Szlak wybrzeżem Dongchong → Xichong prowadzi przez skały i zatoczki, kończy się na plaży Xichong. Po drodze stary fort Dapeng i wioski. W grudniu ok. 20°C, może wiać.",
+      "photos": [
+        {
+          "commons_title": "File:Sunset on Xichong.JPG",
+          "caption": "Zachód słońca na plaży Xichong"
+        },
+        {
+          "commons_title": "File:Dapeng Fortress, Shenzhen.jpg",
+          "caption": "Twierdza Dapeng (dynastia Ming)"
+        },
+        {
+          "commons_title": "File:YANGMEI KENG, DAPENG SUBDISTRICT, SHENZHEN (12).jpg",
+          "caption": "Wybrzeże przy Yangmeikeng, Dapeng"
+        }
+      ]
+    },
+    {
+      "id": "macau",
+      "name": "Makau",
+      "kind": "miasto",
+      "summary": "Wycieczka promem z Shekou na jeden dzień. Portugalskie stare centrum z ruinami katedry św. Pawła i placem Senado, spokojniejsza wioska Taipa i egg tarty. Jest w obu wariantach.",
+      "photos": [
+        {
+          "commons_title": "File:Macau - Ruins of Saint Paul's (Ank Kumar) 01.jpg",
+          "caption": "Ruiny katedry św. Pawła"
+        },
+        {
+          "commons_title": "File:氹仔村 - Taipa Village - 2016.06 - panoramio.jpg",
+          "caption": "Wioska Taipa"
+        }
+      ]
+    },
+    {
+      "id": "hongkong",
+      "name": "Hongkong (Kowloon, Victoria Harbour)",
+      "kind": "miasto",
+      "summary": "Klasyczny Hongkong: Star Ferry przez Victoria Harbour, Kowloon, panorama wyspy. W v2 26.12 to cały dzień w mieście; w opcji 2 dzień idzie na Lantau, a do miasta zostaje ekipie 8.1.",
+      "photos": [
+        {
+          "commons_title": "File:2024-12-27 A Star Ferry crosses Victoria Harbour 1.jpg",
+          "caption": "Star Ferry na Victoria Harbour (grudzień 2024)"
+        },
+        {
+          "commons_title": "File:Victoria Harbour Hong Kong and Star Ferry.JPG",
+          "caption": "Victoria Harbour i panorama wyspy HK"
+        }
+      ]
+    },
+    {
+      "id": "lantau",
+      "name": "Lantau (Hongkong)",
+      "kind": "natura / wieś",
+      "summary": "Największa, górzysta wyspa Hongkongu, tuż obok lotniska HKG. Kolejka Ngong Ping 360 do Big Buddhy (Tian Tan) i klasztoru Po Lin, potem wioska rybacka Tai O z domami na palach. Po południu wygodny odbiór ekipy z lotniska o 19:00.",
+      "photos": [
+        {
+          "commons_title": "File:Tian Tan Buddha 2023081302.jpg",
+          "caption": "Tian Tan Buddha (Big Buddha), Ngong Ping"
+        },
+        {
+          "commons_title": "File:Tai O fisherman's village.jpg",
+          "caption": "Wioska rybacka Tai O"
+        }
+      ]
+    },
+    {
+      "id": "yangshuo",
+      "name": "Yangshuo i rzeka Yulong",
+      "kind": "natura / wieś",
+      "summary": "Krasowe wzgórza, pola i wioski. Najlepiej zwiedzać na rowerze albo skuterze wzdłuż rzeki Yulong, w okolicy jest też Moon Hill (wzgórze z łukiem skalnym). W v2 to 5 nocy (27–31.12), w opcji 2 trzy noce (29–31.12) plus Xingping. Pod koniec grudnia jest ok. 12–14°C w dzień i wilgotno.",
+      "photos": [
+        {
+          "commons_title": "File:Yangshuo Yulong River.JPG",
+          "caption": "Rzeka Yulong"
+        },
+        {
+          "commons_title": "File:1 yangshuo moon hill view 2011.jpg",
+          "caption": "Widok z Moon Hill"
+        },
+        {
+          "commons_title": "File:1 aerial yangshuo panorama 2017.jpg",
+          "caption": "Panorama krasu wokół Yangshuo"
+        }
+      ]
+    },
+    {
+      "id": "xingping",
+      "name": "Xingping i rzeka Li",
+      "kind": "natura / wieś",
+      "summary": "Stara wioska nad rzeką Li z widokiem z banknotu 20 juanów, ok. 40 min od Yangshuo. Rejs bambusową tratwą albo szlak wzdłuż rzeki. W v2 to wycieczka z Yangshuo, w opcji 2 osobny pobyt 1–2.1.",
+      "photos": [
+        {
+          "commons_title": "File:Li River at Xingping 1.jpg",
+          "caption": "Rzeka Li przy Xingping"
+        },
+        {
+          "commons_title": "File:Xingping 77.JPG",
+          "caption": "Xingping"
+        },
+        {
+          "commons_title": "File:Li River and mountains in Yangshuo County, Guilin2.jpg",
+          "caption": "Rzeka Li i wzgórza krasowe"
+        }
+      ]
+    },
+    {
+      "id": "nanning",
+      "name": "Nanning",
+      "kind": "miasto",
+      "summary": "Zielona stolica Guangxi, ale bez wielkich atrakcji. Sens ma głównie jako baza na Detian i wieczór z lokalnym jedzeniem (laoyou noodles, luosifen). W v2 to 3 noce (1–3.1), w opcji 2 jedna noc na start (27.12).",
+      "photos": [
+        {
+          "commons_title": "File:Nanning seen from Qingxiu Mountain.jpg",
+          "caption": "Nanning z góry Qingxiu"
+        },
+        {
+          "commons_title": "File:Nanning Confucian Temple and Mount Qingxiu Shan, June 2023.jpg",
+          "caption": "Świątynia Konfucjusza i park Qingxiu"
+        }
+      ]
+    },
+    {
+      "id": "detian",
+      "name": "Wodospad Detian",
+      "kind": "natura",
+      "summary": "Szeroki, kaskadowy wodospad na granicy z Wietnamem (po wietnamskiej stronie Ban Gioc), ok. 3 h z Nanning. Do wodospadu podpływa się tratwami. Zimą jest mniej wody, ale też mniej ludzi. Na terenie przygranicznym potrzebny paszport.",
+      "photos": [
+        {
+          "commons_title": "File:Detian Falls, China Viet Border (49304427072).jpg",
+          "caption": "Wodospad Detian na granicy chińsko-wietnamskiej"
+        },
+        {
+          "commons_title": "File:Detian Falls Tour Boats.jpg",
+          "caption": "Tratwy pod wodospadem"
+        }
+      ]
+    },
+    {
+      "id": "mingshi",
+      "name": "Mingshi Tianyuan",
+      "kind": "natura / wieś",
+      "summary": "Krasowa dolina koło Detian: rzeka, pola, wioski Zhuang i bambusowe tratwy. Krajobraz podobny do Yangshuo, ale znacznie spokojniejszy i cieplejszy (ok. 17–18°C). Jest tylko w opcji 2 (28–29.12).",
+      "photos": [
+        {
+          "commons_title": "File:明仕田園, 廣西省 - panoramio (3).jpg",
+          "caption": "Dolina Mingshi"
+        },
+        {
+          "commons_title": "File:明仕田園, 廣西省 - panoramio.jpg",
+          "caption": "Mingshi Tianyuan"
+        },
+        {
+          "commons_title": "File:明仕田園, 廣西省 - panoramio (2).jpg",
+          "caption": "Rzeka i wzgórza w Mingshi"
+        }
+      ]
+    },
+    {
+      "id": "foshan",
+      "name": "Foshan / Shunde",
+      "kind": "miasto",
+      "summary": "Sąsiad Guangzhou: świątynia Zumiao (kolebka kung-fu i opery kantońskiej) oraz ogród Qinghui w Shunde, mieście jedzenia. To spokojny ostatni dzień przed wylotem, jest w obu wariantach.",
+      "photos": [
+        {
+          "commons_title": "File:Foshan Ancestral Temple 2.jpg",
+          "caption": "Świątynia przodków Zumiao, Foshan"
+        },
+        {
+          "commons_title": "File:Foshan Shunde Qinghui Yuan 2024-05-11 16.06.40.jpg",
+          "caption": "Ogród Qinghui, Shunde"
+        }
+      ]
+    },
+    {
+      "id": "shanghai",
+      "name": "Szanghaj (tylko ekipa)",
+      "kind": "miasto",
+      "summary": "Końcówka dla ekipy (9–11.1): Bund, Pudong, stare uliczki. W styczniu jest zimno, ok. 8°C w dzień i ok. 2°C w nocy.",
+      "photos": [
+        {
+          "commons_title": "File:The Bund, Shanghai at night.jpg",
+          "caption": "Bund nocą"
+        },
+        {
+          "commons_title": "File:Sunset at the Bund, Shanghai 2019.jpg",
+          "caption": "Zachód słońca nad Bundem i Pudong"
+        }
+      ]
+    }
+  ]
+}

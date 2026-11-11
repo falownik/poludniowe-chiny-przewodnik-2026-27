@@ -895,6 +895,8 @@ def image_tag(image_id: str, image_paths: dict[str, str], alt: str, prefix: str 
 def nav(prefix: str, current: str) -> str:
     items = [
         ("map", "Mapa", f"{prefix}index.html"),
+        ("planc", "Wersja C", f"{prefix}wersja-c.html"),
+        ("photos", "Zdjęcia: B vs C", f"{prefix}zdjecia.html"),
         ("places", "Miejsca", f"{prefix}places/"),
         ("itinerary", "Trasa", f"{prefix}itinerary.html"),
         ("research", "Research hubów", f"{prefix}research.html"),
@@ -1447,6 +1449,297 @@ def build_food_page(image_paths: dict[str, str]) -> str:
     </section>
     """
     return page_shell("Jedzenie", "food", body)
+
+
+def clean_thumb_url(url: str) -> str:
+    return url.split("?", 1)[0]
+
+
+def place_day_ranges(days: list[dict[str, Any]], key: str) -> dict[str, list[str]]:
+    """Map place id -> list of dates on which it appears in variant column `key`."""
+    result: dict[str, list[str]] = {}
+    for day in days:
+        for place_id in day[f"{key}_ids"]:
+            result.setdefault(place_id, []).append(day["date"])
+    return result
+
+
+def build_photos_page() -> str:
+    config_path = build_map.DATA_DIR / "variant_photos.json"
+    sources_path = build_map.DATA_DIR / "variant_photo_sources.json"
+    config = load_json(config_path)
+    sources = load_json(sources_path) if sources_path.exists() else {}
+    days = config["days"]
+    places = config["places"]
+    names = {place["id"]: place["name"] for place in places}
+    in_b = place_day_ranges(days, "b")
+    in_c = place_day_ranges(days, "c")
+
+    def place_links(label: str, ids: list[str]) -> str:
+        if not ids:
+            return esc(label)
+        links = " · ".join(f"<a href=\"#{esc(pid)}\">{esc(names.get(pid, pid))}</a>" for pid in ids)
+        return f"<span class=\"cell-label\">{esc(label)}</span><span class=\"cell-links\">{links}</span>"
+
+    table_rows = "".join(
+        f"""
+        <tr class="{'diff' if day['b'] != day['c'] else ''}">
+          <td>{esc(day['date'])}</td>
+          <td>{place_links(day['b'], day['b_ids'])}</td>
+          <td>{place_links(day['c'], day['c_ids'])}</td>
+        </tr>
+        """
+        for day in days
+    )
+
+    def variant_badges(place_id: str) -> str:
+        b_days, c_days = in_b.get(place_id, []), in_c.get(place_id, [])
+        badges = []
+        if b_days and c_days:
+            badges.append("<span class=\"vbadge both\">w obu wariantach</span>")
+        elif c_days:
+            badges.append("<span class=\"vbadge only-c\">tylko opcja 2 (C)</span>")
+        elif b_days:
+            badges.append("<span class=\"vbadge only-b\">tylko v2 (B)</span>")
+        b_text = ", ".join(b_days) if b_days else "brak"
+        c_text = ", ".join(c_days) if c_days else "brak"
+        badges.append(f"<span class=\"vdays\"><strong>B:</strong> {esc(b_text)}</span>")
+        badges.append(f"<span class=\"vdays\"><strong>C:</strong> {esc(c_text)}</span>")
+        return "".join(badges)
+
+    def figure(photo: dict[str, str], place_name: str) -> str:
+        meta = sources.get(photo["commons_title"])
+        if not meta:
+            return ""
+        license_text = esc(meta["license"])
+        if meta.get("license_url"):
+            license_text = f"<a href=\"{esc(meta['license_url'])}\" rel=\"license noopener\" target=\"_blank\">{license_text}</a>"
+        return f"""
+        <figure class="photo-card">
+          <a href="{esc(meta['source'])}" target="_blank" rel="noopener">
+            <img src="{esc(meta.get('file') or clean_thumb_url(meta['thumb']))}" alt="{esc(place_name)}: {esc(photo['caption'])}" loading="lazy">
+          </a>
+          <figcaption>
+            <span class="photo-caption">{esc(photo['caption'])}</span>
+            <span class="photo-credit">Fot. {esc(meta['artist'])}, {license_text} ·
+              <a href="{esc(meta['source'])}" target="_blank" rel="noopener">źródło: Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+        """
+
+    sections = "".join(
+        f"""
+        <section class="photo-place" id="{esc(place['id'])}">
+          <div class="photo-place-head">
+            <p class="eyebrow">{esc(place['kind'])}</p>
+            <h2>{esc(place['name'])}</h2>
+            <div class="vbadges">{variant_badges(place['id'])}</div>
+            <p>{esc(place['summary'])}</p>
+          </div>
+          <div class="photo-grid">{''.join(figure(photo, place['name']) for photo in place['photos'])}</div>
+        </section>
+        """
+        for place in places
+    )
+    toc = "".join(f"<a href=\"#{esc(place['id'])}\">{esc(place['name'])}</a>" for place in places)
+    diff_count = sum(1 for day in days if day["b"] != day["c"])
+    photo_count = sum(1 for place in places for photo in place["photos"] if photo["commons_title"] in sources)
+
+    body = f"""
+    <section class="page-intro">
+      <p class="eyebrow">Zdjęcia</p>
+      <h1>Co jest w każdym miejscu: wariant B vs C</h1>
+      <p>Porównanie dwóch kolumn z arkusza „Rozkład jazdy v2”: <strong>B = „Miejsce”</strong> (plan v2) i <strong>C = „Miejsce (opcja 2)”</strong>, czyli wariant z większą ilością natury. Każde miejsce ma kilka zdjęć z Wikimedia Commons z podpisem, autorem, licencją i linkiem do źródła. Kliknij zdjęcie, żeby otworzyć stronę źródłową.</p>
+      <div class="fact-strip">
+        <span>{len(places)} miejsc</span>
+        <span>{photo_count} zdjęć ze źródłami</span>
+        <span>{diff_count} dni różni się między B i C</span>
+      </div>
+    </section>
+
+    <section class="route-section">
+      <h2>Dzień po dniu</h2>
+      <p class="section-lead">Wiersze podświetlone na żółto to dni, w których warianty się różnią. Kliknij nazwę miejsca, żeby przejść do zdjęć.</p>
+      <div class="table-wrap">
+        <table class="day-table variant-table">
+          <thead><tr><th>Data</th><th>B: Miejsce (wersja B)</th><th>C: Miejsce (wersja C, więcej wsi)</th></tr></thead>
+          <tbody>{table_rows}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <nav class="photo-toc" aria-label="Miejsca">{toc}</nav>
+
+    {sections}
+
+    <section class="text-block">
+      <h2>Źródła i licencje</h2>
+      <p>Wszystkie zdjęcia pochodzą z <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (kopie w rozmiarze 960 px trzymamy w repo, żeby strona ładowała się niezawodnie). Autor i licencja (CC BY, CC BY-SA, CC0 lub domena publiczna) są podane pod każdym zdjęciem, a link prowadzi do strony pliku z pełnym opisem. Zdjęcia robiono w różnych porach roku, więc zimą (grudzień–styczeń) zieleń i woda mogą wyglądać skromniej, a niebo częściej jest szare.</p>
+    </section>
+    """
+    return page_shell("Zdjęcia: B vs C", "photos", body)
+
+
+def build_plan_c_page() -> str:
+    plan = load_json(build_map.DATA_DIR / "plan_c.json")
+    photo_config = load_json(build_map.DATA_DIR / "variant_photos.json")
+    sources_path = build_map.DATA_DIR / "variant_photo_sources.json"
+    sources = load_json(sources_path) if sources_path.exists() else {}
+    places = {place["id"]: place for place in photo_config["places"]}
+
+    def thumb(place_id: str) -> str:
+        place = places.get(place_id)
+        if not place:
+            return ""
+        meta = sources.get(place["photos"][0]["commons_title"])
+        if not meta or not meta.get("file"):
+            return ""
+        return (
+            f"<a class=\"day-thumb\" href=\"zdjecia.html#{esc(place_id)}\" title=\"Więcej zdjęć: {esc(place['name'])}\">"
+            f"<img src=\"{esc(meta['file'])}\" alt=\"{esc(place['name'])}\" loading=\"lazy\">"
+            f"<span>{esc(place['name'])}</span></a>"
+        )
+
+    day_cards = "".join(
+        f"""
+        <article class="cday">
+          <div class="cday-meta">
+            <span class="cday-date">{esc(day['date'])}</span>
+            <span class="cday-who">{esc(day['who'])}</span>
+          </div>
+          <div class="cday-body">
+            <h3>{esc(day['place'])}</h3>
+            <p>{esc(day['plan'])}</p>
+            {f'<p class="cday-night">Nocleg: {esc(day["night"])}</p>' if day['night'] else ''}
+          </div>
+          <div class="cday-thumbs">{''.join(thumb(pid) for pid in day['ids'])}</div>
+        </article>
+        """
+        for day in plan["days"]
+    )
+
+    def bullets(items: list[str]) -> str:
+        return "<ul>" + "".join(f"<li>{item}</li>" for item in items) + "</ul>"
+
+    who = bullets([
+        "<strong>My dwoje:</strong> wylot z Warszawy 16.12, przylot do Kantonu (Guangzhou, CAN) 17.12 o 22:55 przez Monachium i Szanghaj.",
+        "<strong>Kamil:</strong> wylot 21.12, przylot do Kantonu 22.12 o 22:55. Odbieramy go z lotniska.",
+        "<strong>Ekipa:</strong> wylot 25.12, przylot do Hongkongu (HKG) 26.12 o 19:00. Odbieramy Was z lotniska i tego samego wieczoru jedziemy razem do Shenzhen.",
+        "<strong>My + Kamil:</strong> wylot z Kantonu 6.01 o 08:00.",
+        "<strong>Ekipa:</strong> zostaje do 11.01 i wylatuje z Szanghaju.",
+    ])
+    stages = [
+        ("17–22.12", "My dwoje na wschodnim wybrzeżu", "Chaozhou i Shantou to najlepsze jedzenie południa (gęś, wołowy hot pot, herbata gongfu). Potem noc w tulou, okrągłych glinianych domach Hakka z listy UNESCO, a na koniec Xiamen i wyspa Gulangyu.", ["chaozhou", "tulou", "xiamen"]),
+        ("23–26.12", "Z Kamilem, baza w Shenzhen", "24.12 szlak wzdłuż morza na półwyspie Dapeng, Wigilia wieczorem w mieście. 25.12 Makau promem. 26.12 wyspa Lantau w Hongkongu z Wielkim Buddą i wioską Tai O, a o 19:00 odbiór ekipy z lotniska obok.", ["dapeng", "macau", "lantau"]),
+        ("27.12–3.01", "Wszyscy razem w Guangxi", "Nanning, wodospad Detian na granicy z Wietnamem i krasowa dolina Mingshi. Potem Yangshuo z rowerami nad rzeką Yulong, Xingping i rzeka Li. Sylwester w miasteczku Yangshuo, a 1–2.01 spokojnie w Xingping albo na tarasach Longji.", ["detian", "mingshi", "yangshuo", "xingping"]),
+        ("4–5.01", "Kanton i Foshan", "Dim sum, stare miasto Liwan, Shamian i Foshan. 5.01 nocleg przy lotnisku.", ["guangzhou", "foshan"]),
+        ("6–11.01", "Ekipa sama", "Kanton → Shenzhen → Hongkong → lot do Szanghaju → 11.01 wylot do Polski.", ["hongkong", "shanghai"]),
+    ]
+    stage_cards = "".join(
+        f"""
+        <article class="cstage">
+          <p class="eyebrow">{esc(dates)}</p>
+          <h3>{esc(title)}</h3>
+          <p>{esc(text)}</p>
+          <div class="cstage-thumbs">{''.join(thumb(pid) for pid in ids)}</div>
+        </article>
+        """
+        for dates, title, text, ids in stages
+    )
+    why = bullets([
+        "Więcej natury niż w wersji B: tulou, Dapeng, Lantau, Detian, Mingshi, Yangshuo i Xingping zamiast kilku dni w miastach.",
+        "Detian wypada w poniedziałek 28.12, przed chińskim długim weekendem 1–3.01, więc nie będzie tłumów.",
+        "Sylwester w Yangshuo, bo na wsi wszystko zamykają ok. 21–22, a w miasteczku restauracje i bary działają długo po północy.",
+        "Hongkong i Makau robimy przed 31.12, co ma znaczenie dla ruchu bezwizowego (patrz „Formalności”).",
+    ])
+    weather = bullets([
+        "<strong>Kanton, Shenzhen, Hongkong, Xiamen:</strong> ok. 18–21° w dzień, 10–14° w nocy.",
+        "<strong>Nanning, Detian, Mingshi:</strong> ok. 17–18° w dzień, 9–10° w nocy.",
+        "<strong>Yangshuo, Xingping:</strong> 12–14° w dzień, 5–7° w nocy, czasem mży i jest mgliście.",
+        "<strong>Tulou:</strong> ok. 15° w dzień, 5–7° w nocy.",
+        "<strong>Szanghaj (ekipa 9–11.01):</strong> ok. 8° w dzień, ok. 2° w nocy.",
+        "Na południu Chin <strong>nie ma centralnego ogrzewania</strong>, więc w pokojach bywa 8–10°. Przy rezerwacji szukajcie klimatyzacji z grzaniem albo koca elektrycznego. Weźcie ciepłą warstwę na wieczory i coś przeciwdeszczowego.",
+    ])
+    formalities = bullets([
+        "Paszport ważny co najmniej 6 miesięcy. Pokazuje się go przy pociągach, promach, w hotelach, przy biletach do atrakcji i w strefie przygranicznej przy Detian.",
+        "Ruch bezwizowy dla Polaków: do 30 dni, dla wjazdów do 31.12.2026. Wjeżdżacie 26/27.12, więc jesteście w porządku.",
+        "<strong>Uwaga, ekipa:</strong> wypad do Hongkongu 8.01 i powrót do Chin 9.01 to nowy wjazd, już w 2027. Trzeba sprawdzić, czy program bezwizowy przedłużono na 2027. Jeśli nie, zostaje tranzyt bezwizowy 240 h (Hongkong → Szanghaj → Polska) albo wiza.",
+        "Alipay z podpiętą kartą. Płaci się nim za wszystko i zamawia przez niego DiDi.",
+        "eSIM albo VPN, bo bez tego nie działa Google, WhatsApp ani Instagram.",
+        "Bilety na szybką kolej przez Trip.com albo 12306. Sprzedaż rusza ok. 15 dni przed datą, a bilety na 27.12 i 3.01 (długi weekend) kupujemy od razu.",
+        "Ubezpieczenie podróżne.",
+    ])
+    costs = bullets([
+        "Noclegi: ok. 50–70 zł/os./noc (Yangshuo, Nanning, Shenzhen poza świętami). Na Sylwestra w Yangshuo rezerwować wcześnie.",
+        "Przejazdy dzień po dniu są w kolumnach K–L „Rozkładu jazdy v2”. Kwoty są jeszcze policzone dla wersji B. Wersja C wyjdzie podobnie, plus wynajęty kierowca do Detian i Mingshi, którego koszt dzielimy na wszystkich (do policzenia).",
+        "Ogólny budżet jest w zakładce „Kosztorys”: na razie liczony dla 2 osób, wychodzi ok. 8,2 tys. zł/os. razem z lotem.",
+    ])
+    sheet_tabs = [
+        ("Rozkład jazdy v2", "Aktualny plan dzień po dniu, od 16.12 do 11.01. Opis kolumn jest niżej."),
+        ("Wersja C – przeczytaj", "Krótka wersja tej strony do przeczytania w arkuszu."),
+        ("komunikacja", "Transport w Chinach: DiDi oraz metro w Kantonie (ceny, bilety dobowe, Travel Card, godziny, kontrola bagażu)."),
+        ("What to eat", "Lista rzeczy do zjedzenia, na razie sam początek. Pełniejsza wersja jest w zakładce „Jedzenie” na tej stronie."),
+        ("Pro tipy", "Praktyczne rady: paszport wszędzie, Alipay, WeChat, Trip.com, mapy Amap, tania kawa w Luckin."),
+        ("Loty", "Kupione loty i rozliczenia."),
+        ("Kosztorys", "Budżet na osobę: loty, noclegi, eSIM, ubezpieczenie, transport, jedzenie, pamiątki, atrakcje."),
+        ("Do zabrania", "Lista do spakowania: termos, kąpielówki, paszport, prawo jazdy (także międzynarodowe), rękawice na skuter, ręcznik, apteczka, okulary."),
+        ("TODO", "Otwarte sprawy: skutery, ubezpieczenie, przejściówki, eSIM (Airalo)."),
+    ]
+    tab_rows = "".join(f"<tr><td><strong>{esc(name)}</strong></td><td>{esc(text)}</td></tr>" for name, text in sheet_tabs)
+    columns = [
+        ("A", "Data"),
+        ("B", "Miejsce – wersja B (pierwotny plan v2)"),
+        ("C", "Miejsce – wersja C (więcej wsi i natury)"),
+        ("D–F", "Kto jest tego dnia: my, Kamil, ekipa (✓ = z grupą, „lot” / „przylot” = dzień podróży)"),
+        ("G", "Nocleg (wersja B)"),
+        ("H", "Plan dnia – wersja B"),
+        ("I", "Plan dnia – wersja C"),
+        ("J", "Jakie przejazdy tego dnia"),
+        ("K", "Szybka kolej, zł/os."),
+        ("L", "Przejazdy lokalne, zł/os."),
+        ("M", "Uwagi"),
+    ]
+    column_rows = "".join(f"<tr><td><strong>{esc(col)}</strong></td><td>{esc(text)}</td></tr>" for col, text in columns)
+
+    body = f"""
+    <section class="page-intro">
+      <p class="eyebrow">Wersja C · przeczytajcie przed wyjazdem</p>
+      <h1>Chiny 2026/27: więcej natury, Sylwester w Yangshuo</h1>
+      <p>W tę stronę się skłaniamy: mniej dni w dużych miastach, więcej wsi, gór i wybrzeża: tulou, półwysep Dapeng, wyspa Lantau, wodospad Detian, dolina Mingshi, Yangshuo i Xingping. Poniżej: kto kiedy dolatuje, trasa w skrócie, każdy dzień ze zdjęciem, pogoda, formalności, koszty i ściągawka do naszego arkusza.</p>
+      <div class="fact-strip">
+        <span>16.12 – 11.01</span>
+        <span>Guangdong · Fujian · Hongkong · Makau · Guangxi</span>
+        <a href="zdjecia.html">Zdjęcia wszystkich miejsc →</a>
+      </div>
+    </section>
+
+    <section class="text-block"><h2>Kto, kiedy, skąd</h2>{who}</section>
+
+    <section class="route-section">
+      <h2>Trasa w skrócie</h2>
+      <div class="cstage-grid">{stage_cards}</div>
+    </section>
+
+    <section class="route-section">
+      <h2>Dzień po dniu</h2>
+      <p class="section-lead">Kliknij miniaturę, żeby zobaczyć więcej zdjęć danego miejsca ze źródłami.</p>
+      <div class="cday-list">{day_cards}</div>
+    </section>
+
+    <section class="text-block"><h2>Dlaczego tak</h2>{why}</section>
+    <section class="text-block"><h2>Pogoda (średnie, nie prognoza)</h2>{weather}</section>
+    <section class="text-block"><h2>Formalności: co załatwić przed wyjazdem</h2>{formalities}</section>
+    <section class="text-block"><h2>Ile to kosztuje</h2>{costs}</section>
+
+    <section class="text-block">
+      <h2>Co jest w naszym arkuszu Google</h2>
+      <p>Arkusz „China 2.0” to nasze wspólne centrum planowania. Zakładki:</p>
+      <div class="table-wrap"><table class="day-table plain-table"><tbody>{tab_rows}</tbody></table></div>
+      <h3>Kolumny w „Rozkładzie jazdy v2”</h3>
+      <div class="table-wrap"><table class="day-table plain-table"><tbody>{column_rows}</tbody></table></div>
+    </section>
+    """
+    return page_shell("Wersja C", "planc", body)
 
 
 def predeparture_check_card(item: dict[str, Any]) -> str:
@@ -2083,7 +2376,118 @@ main {
   margin: 0 auto;
   line-height: 1.5;
 }
+.variant-table tr.diff td { background: #fff7e0; }
+.variant-table td:nth-child(3) { color: inherit; font-weight: 400; }
+.variant-table .cell-label { display: block; font-weight: 600; }
+.variant-table .cell-links { display: block; font-size: 0.85rem; margin-top: 2px; }
+.variant-table .cell-links a { text-decoration: none; }
+.photo-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 18px 0 6px;
+}
+.photo-toc a {
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+.photo-place {
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  scroll-margin-top: 140px;
+}
+.photo-place-head h2 { margin: 0 0 8px; }
+.photo-place-head p { line-height: 1.55; max-width: 820px; }
+.vbadges { display: flex; flex-wrap: wrap; gap: 6px; }
+.vbadge, .vdays {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+.vdays { gap: 4px; background: var(--soft); color: var(--muted); }
+.vbadge.both { background: #e0f2fe; color: #075985; }
+.vbadge.only-c { background: #dcfce7; color: #166534; font-weight: 700; }
+.vbadge.only-b { background: #fee2e2; color: #991b1b; font-weight: 700; }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.photo-card { margin: 0; }
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--soft);
+}
+.photo-card figcaption { display: grid; gap: 3px; margin-top: 6px; }
+.photo-caption { font-weight: 600; font-size: 0.92rem; }
+.photo-credit { color: var(--muted); font-size: 0.78rem; line-height: 1.4; overflow-wrap: anywhere; }
+.text-block ul { padding-left: 20px; }
+.text-block li { margin: 6px 0; line-height: 1.55; }
+.plain-table td:nth-child(3) { color: inherit; font-weight: 400; }
+.plain-table td:first-child { white-space: normal; min-width: 90px; }
+.cstage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+.cstage {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.cstage h3 { margin: 0 0 6px; }
+.cstage p { line-height: 1.55; }
+.cstage-thumbs, .cday-thumbs { display: flex; flex-wrap: wrap; gap: 8px; }
+.day-thumb {
+  display: grid;
+  gap: 3px;
+  width: 112px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  text-decoration: none;
+}
+.day-thumb img {
+  width: 112px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.cday-list { display: grid; gap: 10px; }
+.cday {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 14px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.cday-meta { display: grid; gap: 4px; }
+.cday-date { font-size: 1.15rem; font-weight: 800; }
+.cday-who { color: var(--muted); font-size: 0.82rem; }
+.cday-body h3 { margin: 0 0 4px; }
+.cday-body p { margin: 0 0 4px; line-height: 1.5; }
+.cday-night { color: var(--teal); font-size: 0.88rem; font-weight: 600; }
 @media (max-width: 900px) {
+  .cday { grid-template-columns: 1fr; gap: 8px; }
+  .cday-meta { display: flex; gap: 10px; align-items: baseline; }
+  .photo-place { padding: 14px; }
   .site-header { align-items: flex-start; flex-direction: column; padding: 12px 16px; }
   main { width: min(100% - 20px, 1120px); padding-top: 14px; }
   .place-hero, .content-grid, .place-grid, .place-grid.compact, .route-grid, .research-grid, .decision-grid, .food-grid, .dish-grid, .food-region-card, .research-card, .playbook-columns, .check-grid, .scenario-grid, .budget-grid {
@@ -2133,12 +2537,14 @@ def build_site() -> None:
     write(DOCS_DIR / "itinerary.html", build_itinerary_page(places, routes, places_by_id, image_paths))
     write(DOCS_DIR / "research.html", build_research_page(nearby_places, image_paths, hub_playbooks))
     write(DOCS_DIR / "food.html", build_food_page(image_paths))
+    write(DOCS_DIR / "zdjecia.html", build_photos_page())
+    write(DOCS_DIR / "wersja-c.html", build_plan_c_page())
     write(DOCS_DIR / "practical.html", build_practical_page(predeparture_checks, formality_scenarios, attraction_budget))
     write(DOCS_DIR / ".nojekyll", "")
 
     print(f"Place pages: {len(places)}")
     print(f"Nearby research points: {len(nearby_places)}")
-    print("Static guide pages: places/index.html, itinerary.html, research.html, food.html, practical.html")
+    print("Static guide pages: wersja-c.html, zdjecia.html, places/index.html, itinerary.html, research.html, food.html, practical.html")
 
 
 if __name__ == "__main__":

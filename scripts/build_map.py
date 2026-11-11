@@ -597,7 +597,7 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
     <div id="trip-panel">
       <h1>Południe Chin 2026/27</h1>
       <p>Mapa planistyczna: noclegi, atrakcje, day tripy, transport i budżet. Najedź na marker, żeby zobaczyć zdjęcie i skrót; kliknij, żeby otworzyć szczegóły.</p>
-      <p class="panel-links"><a href="places/">Miejsca</a><a href="itinerary.html">Trasa</a><a href="research.html">Research hubów</a><a href="food.html">Jedzenie</a><a href="practical.html">Logistyka</a></p>
+      <p class="panel-links"><a href="places/">Miejsca</a><a href="wersja-c.html">Wersja C</a><a href="zdjecia.html">Zdjęcia: B vs C</a><a href="itinerary.html">Trasa</a><a href="research.html">Research hubów</a><a href="food.html">Jedzenie</a><a href="practical.html">Logistyka</a></p>
       <p>Kolorowe obszary pokazują prowincje i regiony administracyjne objęte planem. Warstwę można włączać i wyłączać w panelu mapy.</p>
       <h2>Budżet noclegów</h2>
       <p>Cel użytkownika: średnio około <strong>50 PLN/os./noc</strong>. Zielone markery są najbliżej celu; czerwone traktuj jako day trip albo wyjątek.</p>

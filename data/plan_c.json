@@ -1,0 +1,32 @@
+{
+  "updated": "2026-11-11",
+  "days": [
+    {"date": "16.12", "who": "my dwoje", "place": "Warszawa → Monachium → Szanghaj", "plan": "Wylot z Warszawy o 17:00 przez Monachium do Szanghaju (PVG).", "night": "samolot", "ids": []},
+    {"date": "17.12", "who": "my dwoje", "place": "Guangzhou", "plan": "PVG 16:50 (wjazd do Chin), lot PVG → CAN 20:10–22:55, hotel. Po przylocie nigdzie dalej nie jedziemy.", "night": "Guangzhou", "ids": ["guangzhou"]},
+    {"date": "18.12", "who": "my dwoje", "place": "Chaozhou", "plan": "Rano szybką koleją GZ → Chaozhou. Stare miasto, wieczorem podświetlony most Guangji.", "night": "Chaozhou", "ids": ["chaozhou"]},
+    {"date": "19.12", "who": "my dwoje", "place": "Chaozhou / Shantou", "plan": "Paifang Street, świątynia Kaiyuan, herbata gongfu. Wieczorem wołowy hot pot w Shantou.", "night": "Chaozhou", "ids": ["chaozhou", "shantou"]},
+    {"date": "20.12", "who": "my dwoje", "place": "Tulou (nocleg)", "plan": "Z Chaozhou do tulou z kierowcą. Nocleg w tulou (Yunshuiyao / Tianluokeng), wieczór i świt bez wycieczek.", "night": "tulou", "ids": ["tulou"]},
+    {"date": "21.12", "who": "my dwoje", "place": "Xiamen", "plan": "Rano tulou → Xiamen (2,5–3 h). Po południu Shapowei i świątynia Nanputuo.", "night": "Xiamen", "ids": ["xiamen"]},
+    {"date": "22.12", "who": "my dwoje, wieczorem Kamil", "place": "Xiamen / Guangzhou", "plan": "Rano Gulangyu, po południu Xiamen → GZ. Kamil przylatuje do CAN o 22:55.", "night": "Guangzhou", "ids": ["xiamen", "guangzhou"]},
+    {"date": "23.12", "who": "my + Kamil", "place": "Guangzhou / Shenzhen", "plan": "Rano dim sum w GZ, po południu przejazd do Shenzhen.", "night": "Shenzhen", "ids": ["guangzhou", "shenzhen"]},
+    {"date": "24.12", "who": "my + Kamil", "place": "Shenzhen / Dapeng", "plan": "Półwysep Dapeng: szlak wybrzeżem Dongchong → Xichong (4–5 h, sprawdzić czy otwarty i czy trzeba rezerwacji). Wigilia wieczorem w mieście.", "night": "Shenzhen", "ids": ["dapeng", "shenzhen"]},
+    {"date": "25.12", "who": "my + Kamil", "place": "Makau", "plan": "Promem z Shekou do Makau na cały dzień: stare centrum, Taipa, egg tarty.", "night": "Shenzhen", "ids": ["macau"]},
+    {"date": "26.12", "who": "my + Kamil, wieczorem ekipa", "place": "Lantau / Hongkong", "plan": "Lantau: Ngong Ping, Big Buddha i wioska Tai O (kolejka 360 kupiona online albo wejście pieszo). O 19:00 odbiór ekipy z HKG, które jest obok, i wszyscy jedziemy do Shenzhen.", "night": "Shenzhen", "ids": ["lantau"]},
+    {"date": "27.12", "who": "wszyscy", "place": "Nanning", "plan": "Shenzhen → Nanning szybką koleją (ok. 4 h). Wieczorem nocne jedzenie na mieście (宵夜).", "night": "Nanning", "ids": ["nanning"]},
+    {"date": "28.12", "who": "wszyscy", "place": "Detian / Mingshi", "plan": "Autem z Nanning do Detian (ok. 3 h). Jest poniedziałek, więc będzie mało ludzi. Wodospad po południu.", "night": "Detian albo Mingshi", "ids": ["detian", "mingshi"]},
+    {"date": "29.12", "who": "wszyscy", "place": "Mingshi → Yangshuo", "plan": "Rano dolina Mingshi, potem przez Nanning do Yangshuo. To długi dzień w drodze.", "night": "Yangshuo (blisko centrum)", "ids": ["mingshi", "yangshuo"]},
+    {"date": "30.12", "who": "wszyscy", "place": "Yangshuo", "plan": "Rowery wzdłuż rzeki Yulong i Moon Hill.", "night": "Yangshuo", "ids": ["yangshuo"]},
+    {"date": "31.12", "who": "wszyscy", "place": "Yangshuo (Sylwester)", "plan": "W dzień Xingping i rzeka Li. Sylwester w miasteczku Yangshuo: kolacja w bocznej uliczce, bary otwarte po 1:00, do hotelu wracamy pieszo.", "night": "Yangshuo", "ids": ["xingping", "yangshuo"]},
+    {"date": "1.1", "who": "wszyscy", "place": "Xingping", "plan": "Na spokojnie: nocleg nad rzeką w Xingping albo wypad na tarasy ryżowe Longji.", "night": "Xingping", "ids": ["xingping"]},
+    {"date": "2.1", "who": "wszyscy", "place": "Xingping / Yangshuo", "plan": "Xingping albo dzień zapasowy na pogodę.", "night": "Xingping albo Yangshuo", "ids": ["xingping", "yangshuo"]},
+    {"date": "3.1", "who": "wszyscy", "place": "Yangshuo → Guangzhou", "plan": "Bezpośrednią szybką koleją do Guangzhou. To długi weekend, bilety kupić od razu.", "night": "Guangzhou", "ids": ["guangzhou"]},
+    {"date": "4.1", "who": "wszyscy", "place": "Guangzhou", "plan": "Stare miasto Liwan, wyspa Shamian, góra Baiyun.", "night": "Guangzhou", "ids": ["guangzhou"]},
+    {"date": "5.1", "who": "wszyscy", "place": "Foshan / Shunde", "plan": "Foshan i Shunde, ostatnia wspólna kolacja.", "night": "Guangzhou przy lotnisku CAN", "ids": ["foshan"]},
+    {"date": "6.1", "who": "my + Kamil wylot; ekipa", "place": "Powrót / Guangzhou", "plan": "My + Kamil: CAN 08:00 → PEK → MUC → WAW 22:30. Ekipa zostaje w Guangzhou.", "night": "ekipa: Guangzhou", "ids": ["guangzhou"]},
+    {"date": "7.1", "who": "ekipa", "place": "Shenzhen", "plan": "Ekipa w Shenzhen.", "night": "Shenzhen", "ids": ["shenzhen"]},
+    {"date": "8.1", "who": "ekipa", "place": "Hongkong", "plan": "Ekipa w Hongkongu (to jest wyjazd z Chin).", "night": "Hongkong", "ids": ["hongkong"]},
+    {"date": "9.1", "who": "ekipa", "place": "Szanghaj", "plan": "Lot HK → Szanghaj. To nowy wjazd do Chin w 2027, patrz „Formalności”.", "night": "Szanghaj", "ids": ["shanghai"]},
+    {"date": "10.1", "who": "ekipa", "place": "Szanghaj", "plan": "Ekipa w Szanghaju.", "night": "Szanghaj", "ids": ["shanghai"]},
+    {"date": "11.1", "who": "ekipa", "place": "Powrót ekipy", "plan": "Wylot z Szanghaju do Polski.", "night": "", "ids": []}
+  ]
+}
