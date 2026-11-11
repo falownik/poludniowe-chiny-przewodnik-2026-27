@@ -1636,19 +1636,69 @@ def build_plan_c_page() -> str:
             f"<span>{esc(place['name'])}</span></a>"
         )
 
+    extra_path = build_map.DATA_DIR / "extra_photo_links.json"
+    extra_links = load_json(extra_path) if extra_path.exists() else {}
+
+    def photo_pool(place_id: str) -> list[str]:
+        """All photos of a place as ready <figure> tiles: Wikimedia first, then embedded external ones."""
+        place = places.get(place_id)
+        if not place:
+            return []
+        tiles = []
+        for photo in place["photos"]:
+            meta = sources.get(photo["commons_title"])
+            if not meta or not meta.get("file"):
+                continue
+            tiles.append(
+                f"<figure class=\"strip-tile\"><a href=\"{esc(meta['source'])}\" target=\"_blank\" rel=\"noopener\">"
+                f"<img src=\"{esc(meta['file'])}\" alt=\"{esc(place['name'])}: {esc(photo['caption'])}\" loading=\"lazy\"></a>"
+                f"<figcaption><strong>{esc(photo['caption'])}</strong> · Fot. {esc(meta['artist'])}, {esc(meta['license'])} · "
+                f"<a href=\"{esc(meta['source'])}\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a></figcaption></figure>"
+            )
+        for link in extra_links.get(place_id, []):
+            if not (link.get("embed") and link.get("image")):
+                continue
+            tiles.append(
+                f"<figure class=\"strip-tile\"><a href=\"{esc(link['url'])}\" target=\"_blank\" rel=\"noopener\">"
+                f"<img src=\"{esc(link['image'])}\" alt=\"{esc(link['title'])}\" loading=\"lazy\" onerror=\"this.closest('figure').remove()\"></a>"
+                f"<figcaption><strong>{esc(link['title'])}</strong> · "
+                f"<a href=\"{esc(link['url'])}\" target=\"_blank\" rel=\"noopener\">źródło: {esc(link['site'])}</a></figcaption></figure>"
+            )
+        return tiles
+
+    pools = {pid: photo_pool(pid) for pid in places}
+    cursors: dict[str, int] = {}
+
+    def day_strip(ids: list[str]) -> str:
+        """Next photos of the day's places; repeated places continue where the previous day stopped."""
+        per_place = 8 if len(ids) == 1 else 5
+        tiles = []
+        for pid in ids:
+            pool = pools.get(pid, [])
+            if not pool:
+                continue
+            start = cursors.get(pid, 0)
+            count = min(per_place, len(pool))
+            tiles.extend(pool[(start + i) % len(pool)] for i in range(count))
+            cursors[pid] = (start + count) % len(pool)
+        return "".join(tiles)
+
     day_cards = "".join(
         f"""
         <article class="cday">
-          <div class="cday-meta">
-            <span class="cday-date">{esc(day['date'])}</span>
-            <span class="cday-who">{esc(day['who'])}</span>
+          <div class="cday-text">
+            <div class="cday-meta">
+              <span class="cday-date">{esc(day['date'])}</span>
+              <span class="cday-who">{esc(day['who'])}</span>
+            </div>
+            <div class="cday-body">
+              <h3>{esc(day['place'])}</h3>
+              <p>{esc(day['plan'])}</p>
+              {f'<p class="cday-night">Nocleg: {esc(day["night"])}</p>' if day['night'] else ''}
+              {''.join(f'<a class="cday-more" href="zdjecia.html#{esc(pid)}">wszystkie zdjęcia: {esc(places[pid]["name"])} →</a>' for pid in day['ids'] if pid in places)}
+            </div>
           </div>
-          <div class="cday-body">
-            <h3>{esc(day['place'])}</h3>
-            <p>{esc(day['plan'])}</p>
-            {f'<p class="cday-night">Nocleg: {esc(day["night"])}</p>' if day['night'] else ''}
-          </div>
-          <div class="cday-thumbs">{''.join(thumb(pid) for pid in day['ids'])}</div>
+          <div class="cday-strip" tabindex="0" aria-label="Zdjęcia: {esc(day['place'])}">{day_strip(day['ids'])}</div>
         </article>
         """
         for day in plan["days"]
@@ -1758,7 +1808,7 @@ def build_plan_c_page() -> str:
 
     <section class="route-section">
       <h2>Dzień po dniu</h2>
-      <p class="section-lead">Kliknij miniaturę, żeby zobaczyć więcej zdjęć danego miejsca ze źródłami.</p>
+      <p class="section-lead">Zdjęcia przy każdym dniu przewijasz w bok (gest, kółko z Shift albo pasek pod zdjęciami). Kliknięcie zdjęcia otwiera jego źródło.</p>
       <div class="cday-list">{day_cards}</div>
     </section>
 
@@ -2533,23 +2583,54 @@ main {
 .cday-list { display: grid; gap: 10px; }
 .cday {
   display: grid;
-  grid-template-columns: 120px 1fr auto;
-  gap: 14px;
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+  gap: 16px;
   align-items: start;
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--paper);
 }
-.cday-meta { display: grid; gap: 4px; }
+.cday-meta { display: flex; gap: 10px; align-items: baseline; margin-bottom: 4px; }
+.cday-more { display: block; margin-top: 6px; font-size: 0.82rem; }
+.cday-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  overscroll-behavior-x: contain;
+}
+.cday-strip:empty { display: none; }
+.strip-tile {
+  flex: 0 0 auto;
+  width: min(400px, 78vw);
+  margin: 0;
+  scroll-snap-align: start;
+}
+.strip-tile img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #e8edf3;
+}
+.strip-tile figcaption {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.strip-tile figcaption strong { color: var(--ink); font-weight: 600; }
 .cday-date { font-size: 1.15rem; font-weight: 800; }
 .cday-who { color: var(--muted); font-size: 0.82rem; }
 .cday-body h3 { margin: 0 0 4px; }
 .cday-body p { margin: 0 0 4px; line-height: 1.5; }
 .cday-night { color: var(--teal); font-size: 0.88rem; font-weight: 600; }
 @media (max-width: 900px) {
-  .cday { grid-template-columns: 1fr; gap: 8px; }
-  .cday-meta { display: flex; gap: 10px; align-items: baseline; }
+  .cday { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .strip-tile img { height: 220px; }
   .photo-place { padding: 14px; }
   .site-header { align-items: flex-start; flex-direction: column; padding: 12px 16px; }
   main { width: min(100% - 20px, 1120px); padding-top: 14px; }
