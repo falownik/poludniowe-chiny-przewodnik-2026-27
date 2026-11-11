@@ -1481,16 +1481,32 @@ def build_photos_page() -> str:
         links = extra_links.get(place_id, [])
         if not links:
             return ""
+        embedded = [link for link in links if link.get("embed") and link.get("image")]
+        linked_only = [link for link in links if link not in embedded]
+        cards = "".join(
+            f"""
+            <figure class="ext-card">
+              <a href="{esc(link['url'])}" target="_blank" rel="noopener">
+                <img src="{esc(link['image'])}" alt="{esc(link['title'])}" loading="lazy" onerror="this.closest('figure').remove()">
+              </a>
+              <figcaption>{esc(link['title'])} ·
+                <a href="{esc(link['url'])}" target="_blank" rel="noopener">źródło: {esc(link['site'])}</a></figcaption>
+            </figure>
+            """
+            for link in embedded
+        )
         items = "".join(
             f"<li><a href=\"{esc(link['url'])}\" target=\"_blank\" rel=\"noopener\">{esc(link['title'])}</a>"
             f" <span class=\"more-site\">{esc(link['site'])}</span></li>"
-            for link in links
+            for link in linked_only
         )
+        list_html = f"<p>Tych nie da się osadzić, więc otwórz je na stronie źródłowej:</p><ul>{items}</ul>" if items else ""
         return f"""
-          <details class="more-photos">
-            <summary>Więcej zdjęć w innych źródłach ({len(links)} linków)</summary>
-            <p>Zdjęcia z serwisów podróżniczych, blogów i stron miast. Nie mają wolnej licencji, więc zamiast kopiować je tutaj, linkujemy do stron, na których są. Tytuły pochodzą z wyszukiwarki i mogą być niedokładne.</p>
-            <ul>{items}</ul>
+          <details class="more-photos" open>
+            <summary>Więcej zdjęć z innych źródeł ({len(links)})</summary>
+            <p>Zdjęcia z serwisów podróżniczych, blogów i stron miast. Wyświetlają się prosto z serwerów tych stron (nie kopiujemy ich), a prawa należą do autorów. Kliknij zdjęcie, żeby otworzyć stronę źródłową. Tytuły pochodzą z wyszukiwarki i mogą być niedokładne.</p>
+            <div class="ext-grid">{cards}</div>
+            {list_html}
           </details>
         """
 
@@ -2467,6 +2483,21 @@ main {
 .more-photos ul { margin: 0; padding-left: 18px; columns: 2 280px; column-gap: 24px; }
 .more-photos li { margin: 4px 0; break-inside: avoid; line-height: 1.4; }
 .more-site { color: var(--muted); font-size: 0.78rem; }
+.ext-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.ext-card { margin: 0; }
+.ext-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #e8edf3;
+}
+.ext-card figcaption { margin-top: 4px; color: var(--muted); font-size: 0.75rem; line-height: 1.35; overflow-wrap: anywhere; }
 .text-block ul { padding-left: 20px; }
 .text-block li { margin: 6px 0; line-height: 1.55; }
 .plain-table td:nth-child(3) { color: inherit; font-weight: 400; }
