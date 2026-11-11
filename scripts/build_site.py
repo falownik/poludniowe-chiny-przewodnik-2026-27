@@ -896,12 +896,13 @@ def nav(prefix: str, current: str) -> str:
     items = [
         ("map", "Mapa", f"{prefix}index.html"),
         ("planc", "Wersja C", f"{prefix}wersja-c.html"),
-        ("photos", "Zdjęcia: B vs C", f"{prefix}zdjecia.html"),
-        ("places", "Miejsca", f"{prefix}places/"),
-        ("itinerary", "Trasa", f"{prefix}itinerary.html"),
-        ("research", "Research hubów", f"{prefix}research.html"),
-        ("food", "Jedzenie", f"{prefix}food.html"),
-        ("practical", "Logistyka", f"{prefix}practical.html"),
+        # Hidden from the menu for now (pages are still built and reachable by direct link):
+        # ("photos", "Zdjęcia: B vs C", f"{prefix}zdjecia.html"),
+        # ("places", "Miejsca", f"{prefix}places/"),
+        # ("itinerary", "Trasa", f"{prefix}itinerary.html"),
+        # ("research", "Research hubów", f"{prefix}research.html"),
+        # ("food", "Jedzenie", f"{prefix}food.html"),
+        # ("practical", "Logistyka", f"{prefix}practical.html"),
     ]
     links = "".join(
         f"<a class=\"{'active' if key == current else ''}\" href=\"{href}\">{label}</a>"
