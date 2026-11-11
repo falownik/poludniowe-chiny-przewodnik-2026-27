@@ -9,6 +9,42 @@
     "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Baomo_Garden.jpg/960px-Baomo_Garden.jpg"
   },
   {
+    "id": "c_dapeng_xichong",
+    "title": "Xichong beach, Dapeng",
+    "commons_title": "File:Sunset on Xichong.JPG",
+    "artist": "Clestur",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunset_on_Xichong.JPG",
+    "file": "assets/images/variants/sunset-on-xichong-7790aa69.jpg"
+  },
+  {
+    "id": "c_lantau_buddha",
+    "title": "Tian Tan Buddha, Lantau",
+    "commons_title": "File:Tian Tan Buddha 2023081302.jpg",
+    "artist": "Huangdan2060",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tian_Tan_Buddha_2023081302.jpg",
+    "file": "assets/images/variants/tian-tan-buddha-2023081302-50a43259.jpg"
+  },
+  {
+    "id": "c_mingshi",
+    "title": "Mingshi Tianyuan",
+    "commons_title": "File:明仕田園, 廣西省 - panoramio (3).jpg",
+    "artist": "tsechanwah",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%98%8E%E4%BB%95%E7%94%B0%E5%9C%92,_%E5%BB%A3%E8%A5%BF%E7%9C%81_-_panoramio_(3).jpg",
+    "file": "assets/images/variants/panoramio-3-419539fd.jpg"
+  },
+  {
+    "id": "c_xingping",
+    "title": "Li River at Xingping",
+    "commons_title": "File:Li River at Xingping 1.jpg",
+    "artist": "Chinatravelsavvy",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Li_River_at_Xingping_1.jpg",
+    "file": "assets/images/variants/li-river-at-xingping-1-d7b7b7e0.jpg"
+  },
+  {
     "id": "chaozhou_guangji",
     "title": "Guangji Bridge, Chaozhou",
     "commons_title": "File:Chaozhou Guangji Bridge (Guangdong).jpeg",

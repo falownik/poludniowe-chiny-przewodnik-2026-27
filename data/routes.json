@@ -66,7 +66,7 @@
   },
   {
     "id": "guilin_yangshuo",
-    "layer": "local_hub",
+    "layer": "optional",
     "from": "guilin",
     "to": "yangshuo",
     "mode": "HSR / bus / car",
@@ -77,7 +77,7 @@
   },
   {
     "id": "guilin_nanning",
-    "layer": "hub_hsr",
+    "layer": "optional",
     "from": "guilin",
     "to": "nanning",
     "mode": "HSR",
@@ -88,7 +88,7 @@
   },
   {
     "id": "nanning_fangchenggang",
-    "layer": "local_hub",
+    "layer": "optional",
     "from": "nanning",
     "to": "fangchenggang",
     "mode": "HSR / D-train",
@@ -102,26 +102,26 @@
     "layer": "local_hub",
     "from": "nanning",
     "to": "detian",
-    "mode": "bus / tour / private car",
-    "time": "3,5-4,5 h w jedną stronę; 9-11 h cały day trip",
+    "mode": "private car",
+    "time": "ok. 3 h autem (28.12)",
     "cost_pln": "120-250 PLN",
     "cost_mid_pln": 185,
-    "note": "Długi wypad krajobrazowy z Nanning. Robić tylko przy dobrych godzinach transportu albo z gotową wycieczką."
+    "note": "Wersja C: kierowca dla całej ekipy, koszt dzielony."
   },
   {
     "id": "nanning_shenzhen",
-    "layer": "optional",
-    "from": "nanning",
-    "to": "shenzhen",
+    "layer": "hub_hsr",
+    "from": "shenzhen",
+    "to": "nanning",
     "mode": "HSR",
-    "time": "5-6,5 h hotel-hotel",
+    "time": "ok. 4 h szybką koleją (27.12)",
     "cost_pln": "180-300 PLN",
     "cost_mid_pln": 240,
-    "note": "Długi, ale prosty przejazd pętli: z Guangxi do bazy na Hongkong i dalszy skok do Chaoshan."
+    "note": "Wersja C: cała ekipa z Shenzhen North do Nanning na start Guangxi."
   },
   {
     "id": "yangshuo_shenzhen",
-    "layer": "hub_hsr",
+    "layer": "optional",
     "from": "yangshuo",
     "to": "shenzhen",
     "mode": "HSR via Guilin/Guangzhou",
@@ -231,7 +231,7 @@
   },
   {
     "id": "nanning_guangzhou",
-    "layer": "hub_hsr",
+    "layer": "optional",
     "from": "nanning",
     "to": "guangzhou",
     "mode": "HSR",
@@ -239,5 +239,82 @@
     "cost_pln": "110-140 PLN",
     "cost_mid_pln": 120,
     "note": "4.1: powrót do Guangzhou na dwa ostatnie dni przed wylotem 6.1."
+  },
+  {
+    "id": "detian_mingshi",
+    "layer": "local_hub",
+    "from": "detian",
+    "to": "mingshi",
+    "mode": "private car",
+    "time": "ok. 1 h autem",
+    "cost_pln": "w cenie kierowcy",
+    "cost_mid_pln": 0,
+    "note": "Wersja C: nocleg 28.12 przy Detian albo w Mingshi, rano 29.12 dolina Mingshi."
+  },
+  {
+    "id": "mingshi_nanning",
+    "layer": "local_hub",
+    "from": "mingshi",
+    "to": "nanning",
+    "mode": "private car",
+    "time": "ok. 2,5-3 h autem (29.12)",
+    "cost_pln": "w cenie kierowcy",
+    "cost_mid_pln": 0,
+    "note": "Powrót do Nanning na pociąg do Yangshuo."
+  },
+  {
+    "id": "nanning_yangshuo",
+    "layer": "hub_hsr",
+    "from": "nanning",
+    "to": "yangshuo",
+    "mode": "HSR",
+    "time": "ok. 2,5-3 h (29.12)",
+    "cost_pln": "80-100 PLN",
+    "cost_mid_pln": 90,
+    "note": "Wersja C: długi dzień 29.12, nocleg w Yangshuo blisko centrum."
+  },
+  {
+    "id": "yangshuo_xingping",
+    "layer": "local_hub",
+    "from": "yangshuo",
+    "to": "xingping",
+    "mode": "bus / DiDi",
+    "time": "ok. 40 min",
+    "cost_pln": "5-30 PLN",
+    "cost_mid_pln": 10,
+    "note": "31.12 wypad w dzień, 1–2.01 nocleg nad rzeką."
+  },
+  {
+    "id": "yangshuo_guangzhou",
+    "layer": "hub_hsr",
+    "from": "yangshuo",
+    "to": "guangzhou",
+    "mode": "HSR",
+    "time": "ok. 3 h (3.01)",
+    "cost_pln": "90-120 PLN",
+    "cost_mid_pln": 105,
+    "note": "Wersja C: bezpośredni pociąg, długi weekend, bilety kupić od razu."
+  },
+  {
+    "id": "shenzhen_dapeng",
+    "layer": "local_hub",
+    "from": "shenzhen",
+    "to": "dapeng",
+    "mode": "metro + bus / DiDi",
+    "time": "ok. 1,5 h",
+    "cost_pln": "10-60 PLN",
+    "cost_mid_pln": 20,
+    "note": "24.12 szlak Dongchong → Xichong, wieczorem powrót na Wigilię."
+  },
+  {
+    "id": "hongkong_lantau",
+    "layer": "local_hub",
+    "from": "hongkong",
+    "to": "lantau",
+    "mode": "MTR + kolejka / bus",
+    "time": "ok. 1 h",
+    "cost_pln": "20-200 PLN",
+    "cost_mid_pln": 60,
+    "note": "26.12 rano z Shenzhen przez granicę na Lantau; HKG jest obok."
   }
 ]

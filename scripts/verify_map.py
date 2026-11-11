@@ -131,15 +131,22 @@ def main() -> None:
     require(all(route.get("layer") in {"hub_hsr", "local_hub", "optional"} for route in routes), "route has invalid layer")
     require(any(route["id"] == "nanning_shenzhen" for route in routes), "Nanning-Shenzhen hub route is missing")
     require(any(route["id"] == "nanning_detian" for route in routes), "Nanning-Detian route is missing")
-    for route_id in ["xiamen_guangzhou", "guangzhou_shenzhen", "shenzhen_macau", "yangshuo_shenzhen", "nanning_guangzhou"]:
+    for place_id in ["dapeng", "lantau", "mingshi", "xingping"]:
+        require(any(place["id"] == place_id for place in places), f"variant C place missing: {place_id}")
+    for route_id in [
+        "chaozhou_tulou", "tulou_xiamen", "xiamen_guangzhou", "guangzhou_shenzhen", "shenzhen_dapeng", "shenzhen_macau",
+        "hongkong_lantau", "nanning_shenzhen", "nanning_detian", "detian_mingshi", "mingshi_nanning",
+        "nanning_yangshuo", "yangshuo_xingping", "yangshuo_guangzhou",
+    ]:
         require(
             any(route["id"] == route_id and route.get("layer") in {"hub_hsr", "local_hub"} for route in routes),
-            f"plan v2 route missing or hidden: {route_id}",
+            f"variant C route missing or hidden: {route_id}",
         )
-    require(
-        any(route["id"] == "nanning_fangchenggang" and route.get("layer") == "local_hub" for route in routes),
-        "Fangchenggang day-trip route should be local_hub",
-    )
+    for route_id in ["yangshuo_shenzhen", "nanning_guangzhou", "nanning_fangchenggang"]:
+        require(
+            all(route.get("layer") == "optional" for route in routes if route["id"] == route_id),
+            f"variant B-only route should be optional in variant C: {route_id}",
+        )
     require(
         all(route["from"] not in {"hainan", "longji"} and route["to"] not in {"hainan", "longji"} for route in routes),
         "routes should not reference removed Hainan/Longji places",
@@ -160,7 +167,7 @@ def main() -> None:
         "plan-panel",
         "itinerary-day",
         "data-place-ids",
-        "Poprawiony plan",
+        "Plan: wersja C",
         "Sylwester w Yangshuo",
         "itinerary-who",
         "itinerary-marker-active",
@@ -179,7 +186,7 @@ def main() -> None:
         "Pętla HSR",
         "Wypady z baz",
         "opcje rezerwowe, domyślnie wyłączone",
-        "Detian Waterfall / Mingshi",
+        "Wodospad Detian", "Mingshi Tianyuan", "Półwysep Dapeng", "Lantau (Hongkong)", "Xingping / rzeka Li",
         "Fangchenggang / Dongxing",
         "leaflet-tooltip.route-tooltip",
         "width: max-content",
@@ -243,7 +250,8 @@ def main() -> None:
         require(props.get("color") in html, f"HTML missing province color: {props.get('name')}")
         require(html_contains_json_text(html, props.get("description", "")), f"HTML missing province description: {props.get('name')}")
 
-    for removed_name in ["Kunming / Yunnan", "Yunnan", "Guizhou", "Syczuan", "Hainan", "Longji"]:
+    # Longji may appear in the variant C plan text as an optional 1.01 trip, so it is not checked here.
+    for removed_name in ["Kunming / Yunnan", "Yunnan", "Guizhou", "Syczuan", "Hainan"]:
         require(removed_name not in html, f"HTML still contains removed region: {removed_name}")
 
     for stale_name in ["hainan.html", "longji.html"]:

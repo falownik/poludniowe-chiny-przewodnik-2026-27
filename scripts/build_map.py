@@ -613,10 +613,26 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
     """
 
 
+PLAN_C = DATA_DIR / "plan_c.json"
+# plan_c.json uses gallery place ids; a few map markers are named differently.
+PLAN_C_TO_MAP_IDS = {"shantou": "chaozhou", "foshan": "shunde_foshan"}
+
+
+def plan_c_trip_days() -> list[dict[str, Any]]:
+    """Variant C days in the TRIP_DAYS shape used by the map's plan panel."""
+    if not PLAN_C.exists():
+        return TRIP_DAYS
+    days = []
+    for day in load_json(PLAN_C)["days"]:
+        place_ids = list(dict.fromkeys(PLAN_C_TO_MAP_IDS.get(pid, pid) for pid in day["ids"]))
+        days.append({"date": day["date"], "title": day["place"], "detail": day["plan"], "who": day["who"], "place_ids": place_ids})
+    return days
+
+
 def build_itinerary_panel(places: list[dict[str, Any]]) -> str:
     known_places = {place["id"] for place in places}
     rows = []
-    for day in TRIP_DAYS:
+    for day in plan_c_trip_days():
         place_ids = [place_id for place_id in day["place_ids"] if place_id in known_places]
         place_attr = " ".join(place_ids)
         disabled = " disabled" if not place_ids else ""
@@ -635,7 +651,7 @@ def build_itinerary_panel(places: list[dict[str, Any]]) -> str:
     return f"""
     <button id="plan-panel-toggle" class="panel-toggle panel-toggle-plan" type="button" aria-controls="plan-panel" aria-expanded="true">Ukryj plan</button>
     <aside id="plan-panel">
-      <h2>Poprawiony plan (wersja 2: My, Kamil, ekipa)</h2>
+      <h2>Plan: wersja C (więcej natury, Sylwester w Yangshuo)</h2>
       <div class="itinerary-days">
         {''.join(rows)}
       </div>
