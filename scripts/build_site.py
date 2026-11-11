@@ -1474,6 +1474,25 @@ def build_photos_page() -> str:
     names = {place["id"]: place["name"] for place in places}
     in_b = place_day_ranges(days, "b")
     in_c = place_day_ranges(days, "c")
+    extra_path = build_map.DATA_DIR / "extra_photo_links.json"
+    extra_links = load_json(extra_path) if extra_path.exists() else {}
+
+    def more_photos(place_id: str) -> str:
+        links = extra_links.get(place_id, [])
+        if not links:
+            return ""
+        items = "".join(
+            f"<li><a href=\"{esc(link['url'])}\" target=\"_blank\" rel=\"noopener\">{esc(link['title'])}</a>"
+            f" <span class=\"more-site\">{esc(link['site'])}</span></li>"
+            for link in links
+        )
+        return f"""
+          <details class="more-photos">
+            <summary>Więcej zdjęć w innych źródłach ({len(links)} linków)</summary>
+            <p>Zdjęcia z serwisów podróżniczych, blogów i stron miast. Nie mają wolnej licencji, więc zamiast kopiować je tutaj, linkujemy do stron, na których są. Tytuły pochodzą z wyszukiwarki i mogą być niedokładne.</p>
+            <ul>{items}</ul>
+          </details>
+        """
 
     def place_links(label: str, ids: list[str]) -> str:
         if not ids:
@@ -1537,6 +1556,7 @@ def build_photos_page() -> str:
             <p>{esc(place['summary'])}</p>
           </div>
           <div class="photo-grid">{''.join(figure(photo, place['name']) for photo in place['photos'])}</div>
+          {more_photos(place['id'])}
         </section>
         """
         for place in places
@@ -2435,6 +2455,18 @@ main {
 .photo-card figcaption { display: grid; gap: 3px; margin-top: 6px; }
 .photo-caption { font-weight: 600; font-size: 0.92rem; }
 .photo-credit { color: var(--muted); font-size: 0.78rem; line-height: 1.4; overflow-wrap: anywhere; }
+.more-photos {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--soft);
+}
+.more-photos summary { cursor: pointer; font-weight: 700; color: var(--teal); }
+.more-photos p { color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+.more-photos ul { margin: 0; padding-left: 18px; columns: 2 280px; column-gap: 24px; }
+.more-photos li { margin: 4px 0; break-inside: avoid; line-height: 1.4; }
+.more-site { color: var(--muted); font-size: 0.78rem; }
 .text-block ul { padding-left: 20px; }
 .text-block li { margin: 6px 0; line-height: 1.55; }
 .plain-table td:nth-child(3) { color: inherit; font-weight: 400; }

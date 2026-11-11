@@ -588,6 +588,18 @@ main {
 .photo-card figcaption { display: grid; gap: 3px; margin-top: 6px; }
 .photo-caption { font-weight: 600; font-size: 0.92rem; }
 .photo-credit { color: var(--muted); font-size: 0.78rem; line-height: 1.4; overflow-wrap: anywhere; }
+.more-photos {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--soft);
+}
+.more-photos summary { cursor: pointer; font-weight: 700; color: var(--teal); }
+.more-photos p { color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+.more-photos ul { margin: 0; padding-left: 18px; columns: 2 280px; column-gap: 24px; }
+.more-photos li { margin: 4px 0; break-inside: avoid; line-height: 1.4; }
+.more-site { color: var(--muted); font-size: 0.78rem; }
 .text-block ul { padding-left: 20px; }
 .text-block li { margin: 6px 0; line-height: 1.55; }
 .plain-table td:nth-child(3) { color: inherit; font-weight: 400; }
