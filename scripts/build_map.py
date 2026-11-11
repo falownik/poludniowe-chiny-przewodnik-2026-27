@@ -97,134 +97,191 @@ TRIP_DAYS: list[dict[str, Any]] = [
     {
         "date": "16.12",
         "title": "Warszawa",
-        "detail": "Wylot i dzień techniczny.",
+        "detail": "Wylot WAW 17:00 -> MUC -> PVG.",
+        "who": "My (2)",
         "place_ids": [],
     },
     {
         "date": "17.12",
         "title": "Guangzhou",
-        "detail": "Przylot, pierwszy nocleg i spokojne wejście w trasę.",
+        "detail": "PVG 16:50 (wjazd do Chin), PVG -> CAN 22:55, hotel w Guangzhou.",
+        "who": "My (2)",
         "place_ids": ["guangzhou"],
     },
     {
         "date": "18.12",
-        "title": "Guangzhou / Foshan",
-        "detail": "Kanton + kulinarny wypad do Foshan/Shunde.",
-        "place_ids": ["guangzhou", "shunde_foshan"],
+        "title": "Chaozhou",
+        "detail": "Guangzhou -> Chaozhou; stare miasto i wieczorem most Guangji.",
+        "who": "My (2)",
+        "place_ids": ["guangzhou", "chaozhou"],
     },
     {
         "date": "19.12",
-        "title": "Przejazd do Yangshuo",
-        "detail": "Guangzhou -> Guilin -> Yangshuo.",
-        "place_ids": ["guangzhou", "guilin", "yangshuo"],
+        "title": "Chaozhou / Shantou",
+        "detail": "Paifang Street, Kaiyuan, herbata gongfu; wieczorem hot pot wołowy w Shantou.",
+        "who": "My (2)",
+        "place_ids": ["chaozhou"],
     },
     {
         "date": "20.12",
-        "title": "Yangshuo",
-        "detail": "Rzeka Yulong, rower/skuter i krasowy krajobraz.",
-        "place_ids": ["yangshuo"],
+        "title": "Tulou -> Xiamen",
+        "detail": "Kierowca na cały dzień: Chaozhou -> tulou (Nanjing/Yongding) -> Xiamen.",
+        "who": "My (2)",
+        "place_ids": ["chaozhou", "tulou", "xiamen"],
     },
     {
         "date": "21.12",
-        "title": "Yangshuo",
-        "detail": "Moon Hill, wioski i wolniejsze tempo.",
-        "place_ids": ["yangshuo"],
+        "title": "Xiamen",
+        "detail": "Gulangyu rano, potem Shapowei i Nanputuo. Kamil wylatuje z Warszawy.",
+        "who": "My (2)",
+        "place_ids": ["xiamen"],
     },
     {
         "date": "22.12",
-        "title": "Yangshuo",
-        "detail": "Xingping / Li River albo dzień zapasowy na pogodę.",
-        "place_ids": ["yangshuo", "guilin"],
+        "title": "Guangzhou",
+        "detail": "Xiamen -> Guangzhou; wieczorem odbiór Kamila z CAN (22:55).",
+        "who": "My (2), Kamil przylatuje",
+        "place_ids": ["xiamen", "guangzhou"],
     },
     {
         "date": "23.12",
-        "title": "Yangshuo",
-        "detail": "Ostatni pełny dzień natury przed przejazdem na południe Guangxi.",
-        "place_ids": ["yangshuo"],
+        "title": "Shenzhen",
+        "detail": "Rano dim sum w Guangzhou, po południu Guangzhou -> Shenzhen.",
+        "who": "My + Kamil",
+        "place_ids": ["guangzhou", "shenzhen"],
     },
     {
         "date": "24.12",
-        "title": "Nanning",
-        "detail": "Yangshuo -> Guilin -> Nanning.",
-        "place_ids": ["yangshuo", "guilin", "nanning"],
-    },
-    {
-        "date": "25.12",
-        "title": "Nanning",
-        "detail": "Qingxiu Mountain, centrum i jedzenie Guangxi.",
-        "place_ids": ["nanning"],
-    },
-    {
-        "date": "26.12",
-        "title": "Detian",
-        "detail": "Długi day trip do Detian Waterfall / Mingshi.",
-        "place_ids": ["nanning", "detian"],
-    },
-    {
-        "date": "27.12",
-        "title": "Fangchenggang / Dongxing",
-        "detail": "Day trip na wybrzeże i pogranicze z Wietnamem.",
-        "place_ids": ["nanning", "fangchenggang"],
-    },
-    {
-        "date": "28.12",
         "title": "Shenzhen",
-        "detail": "Nanning -> Shenzhen szybką koleją.",
-        "place_ids": ["nanning", "shenzhen"],
-    },
-    {
-        "date": "29.12",
-        "title": "Shenzhen",
-        "detail": "Futian, Huaqiangbei, Shenzhen Bay Park.",
+        "detail": "Futian, Huaqiangbei, Shenzhen Bay; Wigilia (opcja: zamienić z Makao).",
+        "who": "My + Kamil",
         "place_ids": ["shenzhen"],
     },
     {
-        "date": "30.12",
-        "title": "Hongkong z Shenzhen",
-        "detail": "Day trip: port, Kowloon, Star Ferry i jedzenie.",
+        "date": "25.12",
+        "title": "Makao z Shenzhen",
+        "detail": "Day trip promem z Shekou: stare centrum, Taipa, egg tarty. Ekipa wylatuje.",
+        "who": "My + Kamil",
+        "place_ids": ["shenzhen", "macau"],
+    },
+    {
+        "date": "26.12",
+        "title": "Hongkong + ekipa",
+        "detail": "Hongkong w dzień; 19:00 odbiór ekipy z HKG, wieczorem wszyscy do Shenzhen.",
+        "who": "My + Kamil, ekipa przylatuje",
         "place_ids": ["shenzhen", "hongkong"],
     },
     {
+        "date": "27.12",
+        "title": "Yangshuo",
+        "detail": "Shenzhen North -> Guilin/Yangshuo całą grupą.",
+        "who": "Wszyscy",
+        "place_ids": ["shenzhen", "guilin", "yangshuo"],
+    },
+    {
+        "date": "28.12",
+        "title": "Yangshuo",
+        "detail": "Rzeka Yulong, rower/skuter i tratwa.",
+        "who": "Wszyscy",
+        "place_ids": ["yangshuo"],
+    },
+    {
+        "date": "29.12",
+        "title": "Yangshuo",
+        "detail": "Xingping / Li River i Laozhai Hill.",
+        "who": "Wszyscy",
+        "place_ids": ["yangshuo", "guilin"],
+    },
+    {
+        "date": "30.12",
+        "title": "Yangshuo",
+        "detail": "Moon Hill, wioski albo dzień zapasowy na pogodę.",
+        "who": "Wszyscy",
+        "place_ids": ["yangshuo"],
+    },
+    {
         "date": "31.12",
-        "title": "Chaozhou",
-        "detail": "Shenzhen -> Chaozhou; Sylwester w Chaoshan.",
-        "place_ids": ["shenzhen", "chaozhou"],
+        "title": "Yangshuo",
+        "detail": "Sylwester w Yangshuo (West Street albo cicho nad Yulong).",
+        "who": "Wszyscy",
+        "place_ids": ["yangshuo"],
     },
     {
         "date": "1.1",
-        "title": "Chaozhou",
-        "detail": "Guangji Bridge, Paifang Street, herbata gongfu.",
-        "place_ids": ["chaozhou"],
+        "title": "Nanning",
+        "detail": "Yangshuo/Guilin -> Nanning; długi weekend, bilety kupić od razu.",
+        "who": "Wszyscy",
+        "place_ids": ["yangshuo", "guilin", "nanning"],
     },
     {
         "date": "2.1",
-        "title": "Chaozhou / Shantou",
-        "detail": "Moduł foodie: gęś, hotpot wołowy, congee.",
-        "place_ids": ["chaozhou"],
+        "title": "Detian",
+        "detail": "Długi day trip do Detian Waterfall / Mingshi.",
+        "who": "Wszyscy",
+        "place_ids": ["nanning", "detian"],
     },
     {
         "date": "3.1",
-        "title": "Guangzhou",
-        "detail": "Chaozhou -> Guangzhou, bufor przed końcówką.",
-        "place_ids": ["chaozhou", "guangzhou"],
+        "title": "Fangchenggang / Nanning",
+        "detail": "Fangchenggang/Dongxing albo Qingxiu i miasto.",
+        "who": "Wszyscy",
+        "place_ids": ["nanning", "fangchenggang"],
     },
     {
         "date": "4.1",
-        "title": "Makao z Guangzhou",
-        "detail": "Day trip przez Zhuhai: stare centrum, Taipa, egg tarty.",
-        "place_ids": ["guangzhou", "zhuhai", "macau"],
+        "title": "Guangzhou",
+        "detail": "Nanning -> Guangzhou, wieczorem Liwan.",
+        "who": "Wszyscy",
+        "place_ids": ["nanning", "guangzhou"],
     },
     {
         "date": "5.1",
-        "title": "Guangzhou",
-        "detail": "Ostatni pełny dzień: Liwan, zakupy, kolacja.",
-        "place_ids": ["guangzhou"],
+        "title": "Guangzhou / Foshan",
+        "detail": "Foshan/Shunde albo Guangzhou; nocleg blisko lotniska CAN.",
+        "who": "Wszyscy",
+        "place_ids": ["guangzhou", "shunde_foshan"],
     },
     {
         "date": "6.1",
-        "title": "Powrót",
-        "detail": "Guangzhou jako bezpieczna baza pod lot.",
+        "title": "Powrót / ekipa w Guangzhou",
+        "detail": "My + Kamil: CAN 08:00 -> PEK -> MUC -> WAW 22:30. Ekipa zostaje w Guangzhou.",
+        "who": "Ekipa (my + Kamil wylatujemy)",
         "place_ids": ["guangzhou"],
+    },
+    {
+        "date": "7.1",
+        "title": "Shenzhen (ekipa)",
+        "detail": "Ekipa: Guangzhou -> Shenzhen.",
+        "who": "Ekipa",
+        "place_ids": ["guangzhou", "shenzhen"],
+    },
+    {
+        "date": "8.1",
+        "title": "Hongkong (ekipa)",
+        "detail": "Ekipa: Hongkong; wyjazd z Chin kontynentalnych.",
+        "who": "Ekipa",
+        "place_ids": ["shenzhen", "hongkong"],
+    },
+    {
+        "date": "9.1",
+        "title": "Szanghaj (ekipa)",
+        "detail": "Ekipa: lot Hongkong -> Szanghaj; wjazd w 2027 do sprawdzenia (tranzyt 240 h albo wiza).",
+        "who": "Ekipa",
+        "place_ids": [],
+    },
+    {
+        "date": "10.1",
+        "title": "Szanghaj (ekipa)",
+        "detail": "Ekipa: Szanghaj.",
+        "who": "Ekipa",
+        "place_ids": [],
+    },
+    {
+        "date": "11.1",
+        "title": "Powrót ekipy",
+        "detail": "Ekipa: wylot z Szanghaju.",
+        "who": "Ekipa",
+        "place_ids": [],
     },
 ]
 
@@ -570,6 +627,7 @@ def build_itinerary_panel(places: list[dict[str, Any]]) -> str:
         <span class="itinerary-copy">
           <strong>{esc(day['title'])}</strong>
           <span>{esc(day['detail'])}</span>
+          <em class="itinerary-who">{esc(day.get('who', ''))}</em>
         </span>
       </button>
             """
@@ -577,7 +635,7 @@ def build_itinerary_panel(places: list[dict[str, Any]]) -> str:
     return f"""
     <button id="plan-panel-toggle" class="panel-toggle panel-toggle-plan" type="button" aria-controls="plan-panel" aria-expanded="true">Ukryj plan</button>
     <aside id="plan-panel">
-      <h2>Poprawiony plan</h2>
+      <h2>Poprawiony plan (wersja 2: My, Kamil, ekipa)</h2>
       <div class="itinerary-days">
         {''.join(rows)}
       </div>
@@ -751,6 +809,13 @@ def build_styles() -> str:
         color: #5b6475;
         font-size: 11px;
         line-height: 1.28;
+      }
+      .itinerary-copy em.itinerary-who {
+        color: #9a3412;
+        font-size: 10.5px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.2;
       }
       .itinerary-marker-active {
         filter: drop-shadow(0 0 8px #f97316) drop-shadow(0 0 3px #111827);
@@ -978,6 +1043,9 @@ def build_styles() -> str:
           max-height: none;
           margin: 50px 8px 8px;
         }
+        body.trip-panel-hidden #trip-panel {
+          display: none;
+        }
         .panel-toggle-left {
           top: 8px;
           left: 8px;
@@ -996,6 +1064,9 @@ def build_styles() -> str:
           width: auto;
           max-height: 42vh;
           margin: 8px;
+        }
+        body.plan-panel-hidden #plan-panel {
+          display: none;
         }
         .legend {
           right: 8px;

@@ -1,23 +1,28 @@
-﻿data,miejsce,nocleg,plan_dnia,przejazdy,place_ids
-16.12,Warszawa,samolot / Warszawa,Wylot i dzień techniczny.,,
-17.12,Guangzhou,Guangzhou,"Przylot, pierwszy nocleg i spokojne wejście w trasę.",,guangzhou
-18.12,Guangzhou / Foshan,Guangzhou,Kanton + kulinarny wypad do Foshan/Shunde.,,guangzhou;shunde_foshan
-19.12,Przejazd do Yangshuo,Yangshuo,Guangzhou -> Guilin -> Yangshuo.,Guangzhou -> Guilin -> Yangshuo.,guangzhou;guilin;yangshuo
-20.12,Yangshuo,Yangshuo,"Rzeka Yulong, rower/skuter i krasowy krajobraz.",,yangshuo
-21.12,Yangshuo,Yangshuo,"Moon Hill, wioski i wolniejsze tempo.",,yangshuo
-22.12,Yangshuo,Yangshuo,Xingping / Li River albo dzień zapasowy na pogodę.,,yangshuo;guilin
-23.12,Yangshuo,Yangshuo,Ostatni pełny dzień natury przed przejazdem na południe Guangxi.,,yangshuo
-24.12,Nanning,Nanning,Yangshuo -> Guilin -> Nanning.,Yangshuo -> Guilin -> Nanning.,yangshuo;guilin;nanning
-25.12,Nanning,Nanning,"Qingxiu Mountain, centrum i jedzenie Guangxi.",,nanning
-26.12,Detian,Nanning,Długi day trip do Detian Waterfall / Mingshi.,Długi day trip do Detian Waterfall / Mingshi.,nanning;detian
-27.12,Fangchenggang / Dongxing,Nanning,Day trip na wybrzeże i pogranicze z Wietnamem.,Day trip na wybrzeże i pogranicze z Wietnamem.,nanning;fangchenggang
-28.12,Shenzhen,Shenzhen,Nanning -> Shenzhen szybką koleją.,Nanning -> Shenzhen szybką koleją.,nanning;shenzhen
-29.12,Shenzhen,Shenzhen,"Futian, Huaqiangbei, Shenzhen Bay Park.",,shenzhen
-30.12,Hongkong z Shenzhen,Shenzhen,"Day trip: port, Kowloon, Star Ferry i jedzenie.","Day trip: port, Kowloon, Star Ferry i jedzenie.",shenzhen;hongkong
-31.12,Chaozhou,Chaozhou,Shenzhen -> Chaozhou; Sylwester w Chaoshan.,Shenzhen -> Chaozhou; Sylwester w Chaoshan.,shenzhen;chaozhou
-1.1,Chaozhou,Chaozhou,"Guangji Bridge, Paifang Street, herbata gongfu.",,chaozhou
-2.1,Chaozhou / Shantou,Chaozhou,"Moduł foodie: gęś, hotpot wołowy, congee.",,chaozhou
-3.1,Guangzhou,Guangzhou,"Chaozhou -> Guangzhou, bufor przed końcówką.","Chaozhou -> Guangzhou, bufor przed końcówką.",chaozhou;guangzhou
-4.1,Makao z Guangzhou,Guangzhou,"Day trip przez Zhuhai: stare centrum, Taipa, egg tarty.","Day trip przez Zhuhai: stare centrum, Taipa, egg tarty.",guangzhou;zhuhai;macau
-5.1,Guangzhou,Guangzhou,"Ostatni pełny dzień: Liwan, zakupy, kolacja.",,guangzhou
-6.1,Powrót,brak / powrót,Guangzhou jako bezpieczna baza pod lot.,,guangzhou
+﻿data,miejsce,kto,nocleg,plan_dnia,przejazdy,place_ids
+16.12,Warszawa,My (2),samolot,Wylot WAW 17:00 -> MUC -> PVG.,Wylot WAW 17:00 -> MUC -> PVG.,
+17.12,Guangzhou,My (2),Guangzhou,"PVG 16:50 (wjazd do Chin), PVG -> CAN 22:55, hotel w Guangzhou.","PVG 16:50 (wjazd do Chin), PVG -> CAN 22:55, hotel w Guangzhou.",guangzhou
+18.12,Chaozhou,My (2),Chaozhou,Guangzhou -> Chaozhou; stare miasto i wieczorem most Guangji.,Guangzhou -> Chaozhou; stare miasto i wieczorem most Guangji.,guangzhou;chaozhou
+19.12,Chaozhou / Shantou,My (2),Chaozhou,"Paifang Street, Kaiyuan, herbata gongfu; wieczorem hot pot wołowy w Shantou.",,chaozhou
+20.12,Tulou -> Xiamen,My (2),Xiamen,Kierowca na cały dzień: Chaozhou -> tulou (Nanjing/Yongding) -> Xiamen.,Kierowca na cały dzień: Chaozhou -> tulou (Nanjing/Yongding) -> Xiamen.,chaozhou;tulou;xiamen
+21.12,Xiamen,My (2),Xiamen,"Gulangyu rano, potem Shapowei i Nanputuo. Kamil wylatuje z Warszawy.",,xiamen
+22.12,Guangzhou,"My (2), Kamil przylatuje",Guangzhou,Xiamen -> Guangzhou; wieczorem odbiór Kamila z CAN (22:55).,Xiamen -> Guangzhou; wieczorem odbiór Kamila z CAN (22:55).,xiamen;guangzhou
+23.12,Shenzhen,My + Kamil,Shenzhen,"Rano dim sum w Guangzhou, po południu Guangzhou -> Shenzhen.","Rano dim sum w Guangzhou, po południu Guangzhou -> Shenzhen.",guangzhou;shenzhen
+24.12,Shenzhen,My + Kamil,Shenzhen,"Futian, Huaqiangbei, Shenzhen Bay; Wigilia (opcja: zamienić z Makao).",,shenzhen
+25.12,Makao z Shenzhen,My + Kamil,Shenzhen,"Day trip promem z Shekou: stare centrum, Taipa, egg tarty. Ekipa wylatuje.","Day trip promem z Shekou: stare centrum, Taipa, egg tarty. Ekipa wylatuje.",shenzhen;macau
+26.12,Hongkong + ekipa,"My + Kamil, ekipa przylatuje",Shenzhen,"Hongkong w dzień; 19:00 odbiór ekipy z HKG, wieczorem wszyscy do Shenzhen.",,shenzhen;hongkong
+27.12,Yangshuo,Wszyscy,Yangshuo,Shenzhen North -> Guilin/Yangshuo całą grupą.,Shenzhen North -> Guilin/Yangshuo całą grupą.,shenzhen;guilin;yangshuo
+28.12,Yangshuo,Wszyscy,Yangshuo,"Rzeka Yulong, rower/skuter i tratwa.",,yangshuo
+29.12,Yangshuo,Wszyscy,Yangshuo,Xingping / Li River i Laozhai Hill.,,yangshuo;guilin
+30.12,Yangshuo,Wszyscy,Yangshuo,"Moon Hill, wioski albo dzień zapasowy na pogodę.",,yangshuo
+31.12,Yangshuo,Wszyscy,Yangshuo,Sylwester w Yangshuo (West Street albo cicho nad Yulong).,,yangshuo
+1.1,Nanning,Wszyscy,Nanning,"Yangshuo/Guilin -> Nanning; długi weekend, bilety kupić od razu.","Yangshuo/Guilin -> Nanning; długi weekend, bilety kupić od razu.",yangshuo;guilin;nanning
+2.1,Detian,Wszyscy,Nanning,Długi day trip do Detian Waterfall / Mingshi.,Długi day trip do Detian Waterfall / Mingshi.,nanning;detian
+3.1,Fangchenggang / Nanning,Wszyscy,Nanning,Fangchenggang/Dongxing albo Qingxiu i miasto.,,nanning;fangchenggang
+4.1,Guangzhou,Wszyscy,Guangzhou,"Nanning -> Guangzhou, wieczorem Liwan.","Nanning -> Guangzhou, wieczorem Liwan.",nanning;guangzhou
+5.1,Guangzhou / Foshan,Wszyscy,Guangzhou (blisko CAN),Foshan/Shunde albo Guangzhou; nocleg blisko lotniska CAN.,,guangzhou;shunde_foshan
+6.1,Powrót / ekipa w Guangzhou,Ekipa (my + Kamil wylatujemy),Guangzhou (ekipa),My + Kamil: CAN 08:00 -> PEK -> MUC -> WAW 22:30. Ekipa zostaje w Guangzhou.,My + Kamil: CAN 08:00 -> PEK -> MUC -> WAW 22:30. Ekipa zostaje w Guangzhou.,guangzhou
+7.1,Shenzhen (ekipa),Ekipa,Shenzhen,Ekipa: Guangzhou -> Shenzhen.,Ekipa: Guangzhou -> Shenzhen.,guangzhou;shenzhen
+8.1,Hongkong (ekipa),Ekipa,Hongkong,Ekipa: Hongkong; wyjazd z Chin kontynentalnych.,,shenzhen;hongkong
+9.1,Szanghaj (ekipa),Ekipa,Szanghaj,Ekipa: lot Hongkong -> Szanghaj; wjazd w 2027 do sprawdzenia (tranzyt 240 h albo wiza).,Ekipa: lot Hongkong -> Szanghaj; wjazd w 2027 do sprawdzenia (tranzyt 240 h albo wiza).,
+10.1,Szanghaj (ekipa),Ekipa,Szanghaj,Ekipa: Szanghaj.,,
+11.1,Powrót ekipy,Ekipa,brak / powrót,Ekipa: wylot z Szanghaju.,,

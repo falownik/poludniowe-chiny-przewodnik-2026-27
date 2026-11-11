@@ -18,28 +18,33 @@ SITE_CSS = ASSET_DIR / "site.css"
 
 
 ITINERARY_NIGHTS: dict[str, str] = {
-    "16.12": "samolot / Warszawa",
+    "16.12": "samolot",
     "17.12": "Guangzhou",
-    "18.12": "Guangzhou",
-    "19.12": "Yangshuo",
-    "20.12": "Yangshuo",
-    "21.12": "Yangshuo",
-    "22.12": "Yangshuo",
-    "23.12": "Yangshuo",
-    "24.12": "Nanning",
-    "25.12": "Nanning",
-    "26.12": "Nanning",
-    "27.12": "Nanning",
-    "28.12": "Shenzhen",
-    "29.12": "Shenzhen",
-    "30.12": "Shenzhen",
-    "31.12": "Chaozhou",
-    "1.1": "Chaozhou",
-    "2.1": "Chaozhou",
-    "3.1": "Guangzhou",
+    "18.12": "Chaozhou",
+    "19.12": "Chaozhou",
+    "20.12": "Xiamen",
+    "21.12": "Xiamen",
+    "22.12": "Guangzhou",
+    "23.12": "Shenzhen",
+    "24.12": "Shenzhen",
+    "25.12": "Shenzhen",
+    "26.12": "Shenzhen",
+    "27.12": "Yangshuo",
+    "28.12": "Yangshuo",
+    "29.12": "Yangshuo",
+    "30.12": "Yangshuo",
+    "31.12": "Yangshuo",
+    "1.1": "Nanning",
+    "2.1": "Nanning",
+    "3.1": "Nanning",
     "4.1": "Guangzhou",
-    "5.1": "Guangzhou",
-    "6.1": "brak / powrót",
+    "5.1": "Guangzhou (blisko CAN)",
+    "6.1": "Guangzhou (ekipa)",
+    "7.1": "Shenzhen",
+    "8.1": "Hongkong",
+    "9.1": "Szanghaj",
+    "10.1": "Szanghaj",
+    "11.1": "brak / powrót",
 }
 
 
@@ -76,6 +81,13 @@ FOOD_NOTES: dict[str, list[str]] = {
     "hongkong": [
         "Hongkong to cha chaan teng, milk tea, pineapple bun, wonton noodles, roast goose, dim sum i street snacks w Kowloonie.",
         "Przy day tripie nie rozciągaj listy. Wybierz jeden klasyk śniadaniowy, jeden portowy spacer i jeden posiłek w Kowloonie.",
+    ],
+    "xiamen": [
+        "Xiamen to kuchnia Minnan: makaron w sosie shacha (沙茶面), omlet z ostrygami (蚵仔煎), zupa z orzeszków ziemnych i owoce morza przy Zhongshan Road.",
+        "Galaretka z robaków morskich tusundong (土笋冻) to lokalny test odwagi. Na Gulangyu jedz lekko, kolację planuj w mieście.",
+    ],
+    "tulou": [
+        "W tulou jedzenie jest proste i domowe: kurczak, tofu Hakka, warzywa z pola i lokalna herbata. Lunch najlepiej w pensjonacie w samym tulou.",
     ],
     "chaozhou": [
         "Chaoshan jest jednym z najmocniejszych modułów jedzeniowych: gęś w marynacie, wołowy hot pot, congee, oyster omelette i herbata gongfu.",
@@ -784,12 +796,13 @@ def itinerary_transfer(day: dict[str, Any]) -> str:
 def write_itinerary_csv() -> None:
     buffer = io.StringIO(newline="")
     writer = csv.writer(buffer)
-    writer.writerow(["data", "miejsce", "nocleg", "plan_dnia", "przejazdy", "place_ids"])
+    writer.writerow(["data", "miejsce", "kto", "nocleg", "plan_dnia", "przejazdy", "place_ids"])
     for day in build_map.TRIP_DAYS:
         writer.writerow(
             [
                 day.get("date", ""),
                 day.get("title", ""),
+                day.get("who", ""),
                 ITINERARY_NIGHTS.get(day.get("date", ""), ""),
                 day.get("detail", ""),
                 itinerary_transfer(day),
@@ -1074,7 +1087,7 @@ def build_places_index(places: list[dict[str, Any]], image_paths: dict[str, str]
     <section class="page-intro">
       <p class="eyebrow">Indeks miejsc</p>
       <h1>Miejsca w aktualnym planie</h1>
-      <p>To jest wersja realna czasowo: Guangdong, Guangxi, Chaoshan oraz day tripy do Hongkongu, Makao, Detian i Fangchenggang/Dongxing. Każde miejsce jest albo noclegową bazą z planu, albo krótkim wypadem bez przenoszenia walizek.</p>
+      <p>Wersja 2: najpierw wschodnie wybrzeże (Chaoshan, tulou, Xiamen), potem Shenzhen z day tripami do Makao i Hongkongu, Guangxi z ekipą i finał w Guangzhou. Każde miejsce jest albo noclegową bazą z planu, albo krótkim wypadem bez przenoszenia walizek.</p>
     </section>
     <section class="place-grid">{cards}</section>
     """
@@ -1297,17 +1310,34 @@ def build_itinerary_page(
     lodging_avg = round(sum(int(place["avg_lodging_pln_pp"]) for place in places) / len(places))
     transport_mid = sum(int(route.get("cost_mid_pln", 0)) for route in routes)
     highlight_cards = "".join(place_card(place, image_paths, "") for place in places[:4])
+    day_rows = "".join(
+        "<tr>"
+        f"<td>{esc(day['date'])}</td>"
+        f"<td>{esc(day['title'])}</td>"
+        f"<td>{esc(day.get('who', ''))}</td>"
+        f"<td>{esc(ITINERARY_NIGHTS.get(day['date'], ''))}</td>"
+        f"<td>{esc(day['detail'])}</td>"
+        "</tr>"
+        for day in build_map.TRIP_DAYS
+    )
     body = f"""
     <section class="page-intro">
       <p class="eyebrow">Trasa robocza</p>
       <h1>Układ podróży i przejazdy</h1>
-      <p>Mapa nie jest sztywnym planem dzień po dniu. To zestaw modułów, które można składać pod osoby jadące na 2 i 3 tygodnie: start w Guangzhou, kilka nocy w Yangshuo, Nanning jako baza na Detian i Fangchenggang/Dongxing, day tripy HK/Makao oraz finał jedzeniowy w Chaoshan.</p>
+      <p>Wersja 2 planu: 17-22.12 my dwoje na wschodzie (Chaozhou, Shantou, tulou, Xiamen), 22.12 dołącza Kamil, 23-26.12 Shenzhen z Makao i Hongkongiem, 26.12 wieczorem dołącza ekipa, 27.12-3.01 Guangxi (Yangshuo, Sylwester, Nanning), 4-5.01 Guangzhou, 6.01 wylot. Ekipa zostaje do 11.01 i kończy w Szanghaju.</p>
       <div class="fact-strip">
         <span>{len(places)} miejsc</span>
         <span>{len(routes)} odcinków</span>
         <span>średni nocleg ok. {lodging_avg} PLN/os./noc</span>
         <span>transport orientacyjnie {transport_mid} PLN przy przejściu wszystkich odcinków</span>
       </div>
+    </section>
+    <section class="route-section">
+      <h2>Dzień po dniu: kto gdzie</h2>
+      <div class="table-wrap"><table class="day-table">
+        <thead><tr><th>Data</th><th>Miejsce</th><th>Kto</th><th>Nocleg</th><th>Plan dnia</th></tr></thead>
+        <tbody>{day_rows}</tbody>
+      </table></div>
     </section>
     <section class="place-grid compact">{highlight_cards}</section>
     <section class="route-section">
@@ -1719,6 +1749,26 @@ main {
   line-height: 1.45;
 }
 .route-section { margin-top: 18px; }
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.day-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.day-table th,
+.day-table td {
+  padding: 7px 9px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+}
+.day-table th { background: #f1f5f9; }
+.day-table td:first-child { font-weight: 700; white-space: nowrap; }
+.day-table td:nth-child(3) { color: #9a3412; font-weight: 600; }
 .route-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }

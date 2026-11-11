@@ -118,7 +118,7 @@
     "suggested_nights": "0 nocy przy budżecie 8k",
     "avg_lodging_pln_pp": 230,
     "lodging_range_pln_pp": "200-450 PLN/os./noc i więcej w święta",
-    "budget_note": "Najlepiej day trip z Zhuhai. Nocleg w Makao szybko psuje budżet.",
+    "budget_note": "Day trip promem z Shekou (Shenzhen) 25.12. Nocleg w Makao szybko psuje budżet.",
     "photo_id": "macau_st_paul",
     "summary": "Najlepsze miejsce na świąteczny klimat bez spania: Ruiny św. Pawła, Senado, Taipa, egg tarty.",
     "what_to_see": [
@@ -458,7 +458,7 @@
     "lat": 23.6618,
     "lon": 116.6226,
     "priority": "food extension",
-    "suggested_nights": "2 noce",
+    "suggested_nights": "2 noce (18-20.12)",
     "avg_lodging_pln_pp": 50,
     "lodging_range_pln_pp": "40-70 PLN/os./noc",
     "budget_note": "Bardzo dobry value: zwykle taniej niż Hongkong i Makao, a kulinarnie to jeden z najmocniejszych punktów trasy.",
@@ -487,6 +487,101 @@
         "price_pln": "0 PLN",
         "time": "1-2 h",
         "note": "Jedzenie i stara oś miasta."
+      }
+    ]
+  },
+  {
+    "id": "xiamen",
+    "name": "Xiamen",
+    "region": "Xiamen, Fujian",
+    "kind": "base",
+    "lat": 24.4798,
+    "lon": 118.0894,
+    "priority": "east coast module",
+    "suggested_nights": "2 noce (20-22.12)",
+    "avg_lodging_pln_pp": 70,
+    "lodging_range_pln_pp": "50-110 PLN/os./noc",
+    "budget_note": "Droższe niż Chaoshan, ale nadal rozsądne. Najlepiej spać przy Zhongshan Road albo Shapowei, blisko promu na Gulangyu.",
+    "photo_id": "xiamen_gulangyu",
+    "summary": "Nadmorskie miasto Minnan: wyspa Gulangyu bez samochodów, świątynia Nanputuo, Shapowei i makaron shacha. W grudniu ok. 15-20°C.",
+    "what_to_see": [
+      "Gulangyu (UNESCO) rano, zanim przypłyną tłumy",
+      "Świątynia Nanputuo",
+      "Shapowei: dawny port rybacki, kawiarnie i galerie",
+      "Huandao Road rowerem wzdłuż morza",
+      "Shacha noodles, oyster omelette, zupa z orzeszków"
+    ],
+    "attractions": [
+      {
+        "name": "Gulangyu",
+        "lat": 24.4475,
+        "lon": 118.0662,
+        "price_pln": "ok. 20-50 PLN prom",
+        "time": "pół dnia",
+        "note": "Prom z terminalu Dongdu; bilet kupić wcześniej na paszport, bo potrafi się wyprzedać."
+      },
+      {
+        "name": "Nanputuo Temple",
+        "lat": 24.4416,
+        "lon": 118.0973,
+        "price_pln": "0 PLN",
+        "time": "1 h",
+        "note": "Obok kampus Uniwersytetu Xiamen, wejście zwykle za rezerwacją."
+      },
+      {
+        "name": "Shapowei",
+        "lat": 24.4446,
+        "lon": 118.088,
+        "price_pln": "0 PLN",
+        "time": "1-2 h",
+        "note": "Dobry blok na popołudnie i kolację."
+      }
+    ]
+  },
+  {
+    "id": "tulou",
+    "name": "Tulou Fujian",
+    "region": "Nanjing / Yongding, Fujian",
+    "kind": "daytrip",
+    "lat": 24.618,
+    "lon": 117.03,
+    "priority": "day trip po drodze Chaozhou -> Xiamen",
+    "suggested_nights": "0 nocy (opcjonalnie 1 noc w tulou)",
+    "avg_lodging_pln_pp": 60,
+    "lodging_range_pln_pp": "40-90 PLN/os./noc w prostych pensjonatach",
+    "budget_note": "Największy koszt to kierowca na cały dzień (ok. 500 PLN/auto). Bilety ok. 50-60 PLN za skupisko.",
+    "photo_id": "fujian_tulou",
+    "summary": "Okrągłe i kwadratowe gliniane domy-twierdze Hakka i Minnan (UNESCO). Najlepiej z kierowcą po drodze z Chaozhou do Xiamen.",
+    "what_to_see": [
+      "Tianluokeng: „cztery dania i zupa”",
+      "Yunshuiyao i Taxia: wioski nad rzeką",
+      "Chengqi Lou: „król tulou”",
+      "Zhencheng Lou w skupisku Hongkeng"
+    ],
+    "attractions": [
+      {
+        "name": "Tianluokeng Tulou Cluster",
+        "lat": 24.5836,
+        "lon": 117.0466,
+        "price_pln": "ok. 50-60 PLN",
+        "time": "1-2 h",
+        "note": "Najbardziej fotogeniczne skupisko, najlepiej z punktu widokowego nad doliną."
+      },
+      {
+        "name": "Yunshuiyao Ancient Town",
+        "lat": 24.6106,
+        "lon": 117.0236,
+        "price_pln": "w pakiecie Nanjing",
+        "time": "1 h",
+        "note": "Spacer nad rzeką, stare drzewa i herbaciarnie."
+      },
+      {
+        "name": "Chengqi Lou",
+        "lat": 24.6696,
+        "lon": 116.9908,
+        "price_pln": "ok. 50-60 PLN",
+        "time": "1 h",
+        "note": "Strona Yongding; dokładać tylko, jeśli kierowca ma czas przed Xiamen."
       }
     ]
   }

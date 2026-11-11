@@ -27,13 +27,22 @@ zmiana wizualna musi byc sprawdzona w przegladarce, a nie tylko w HTML-u.
 
 ## Zakres obecnej trasy
 
+- Plan v2 (decyzja z 2026-11-11): 17-22.12 we dwoje na wschodzie (Chaozhou,
+  Shantou, tulou, Xiamen), 22.12 dolacza Kamil, 23-26.12 Shenzhen z day tripami
+  do Makao i Hongkongu, 26.12 wieczorem dolacza ekipa (przylot HKG 19:00),
+  27.12-3.01 Guangxi (Yangshuo, Sylwester w Yangshuo, Nanning), 4-5.01 Guangzhou,
+  6.01 wylot. Ekipa zostaje do 11.01 i wylatuje z Szanghaju. Xiamen i tulou
+  wrocily na mape tylko jako ten modul; reszta Fujianu, Hainan i Longji nadal poza mapa.
+- Plan dni ma pole `who` (kto jest danego dnia); pokazuje sie w panelu planu,
+  w tabeli na `itinerary.html` i w kolumnie `kto` w `itinerary.csv`.
 - Aktualnie trzymamy zakres pod realne 2-3 tygodnie i budzet okolo 8 tys. PLN.
 - Yunnan, Guizhou i Sichuan zostaly wyrzucone z mapy, bo nie ma na nie czasu w tej
   wersji wyjazdu.
 - Hongkong i Makao sa ograniczone do day tripow, zeby nie rozbijac budzetu noclegami.
 - Priorytetowe regiony mapy po odchudzeniu planu: Guangdong, Guangxi, Hongkong i
-  Makao. Hainan, Fujian, Yunnan, Guizhou i Sichuan nie powinny wracac na mape
-  bez osobnej decyzji, bo rozbijaja czas i budzet.
+  Makao, plus modul Xiamen/tulou z planu v2. Hainan, reszta Fujianu, Yunnan,
+  Guizhou i Sichuan nie powinny wracac na mape bez osobnej decyzji, bo rozbijaja
+  czas i budzet.
 - Nanning i Fangchenggang zostaly dodane jako wazne punkty Guangxi.
 - Noclegi planujemy ostroznie: srednio okolo 50 PLN za osobe za noc, z wyjatkami tam,
   gdzie lokalizacja mocno oszczedza czas.

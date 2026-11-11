@@ -195,6 +195,26 @@ main {
   line-height: 1.45;
 }
 .route-section { margin-top: 18px; }
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.day-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.day-table th,
+.day-table td {
+  padding: 7px 9px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+}
+.day-table th { background: #f1f5f9; }
+.day-table td:first-child { font-weight: 700; white-space: nowrap; }
+.day-table td:nth-child(3) { color: #9a3412; font-weight: 600; }
 .route-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }

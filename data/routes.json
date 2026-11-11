@@ -33,7 +33,7 @@
   },
   {
     "id": "guangzhou_zhuhai",
-    "layer": "local_hub",
+    "layer": "optional",
     "from": "guangzhou",
     "to": "zhuhai",
     "mode": "intercity rail",
@@ -44,7 +44,7 @@
   },
   {
     "id": "zhuhai_macau",
-    "layer": "local_hub",
+    "layer": "optional",
     "from": "zhuhai",
     "to": "macau",
     "mode": "border crossing",
@@ -55,7 +55,7 @@
   },
   {
     "id": "guangzhou_guilin",
-    "layer": "hub_hsr",
+    "layer": "optional",
     "from": "guangzhou",
     "to": "guilin",
     "mode": "HSR",
@@ -84,7 +84,7 @@
     "time": "2,5-3,5 h pociąg; ok. 4 h hotel-hotel",
     "cost_pln": "75-140 PLN",
     "cost_mid_pln": 105,
-    "note": "Najprostszy sposób, żeby dołożyć Nanning po module Guilin/Yangshuo."
+    "note": "1.1: Yangshuo/Guilin -> Nanning. Długi weekend w Chinach: bilety kupić od razu."
   },
   {
     "id": "nanning_fangchenggang",
@@ -110,7 +110,7 @@
   },
   {
     "id": "nanning_shenzhen",
-    "layer": "hub_hsr",
+    "layer": "optional",
     "from": "nanning",
     "to": "shenzhen",
     "mode": "HSR",
@@ -121,14 +121,14 @@
   },
   {
     "id": "yangshuo_shenzhen",
-    "layer": "optional",
+    "layer": "hub_hsr",
     "from": "yangshuo",
     "to": "shenzhen",
     "mode": "HSR via Guilin/Guangzhou",
     "time": "5-7 h drzwi do drzwi",
     "cost_pln": "150-260 PLN",
     "cost_mid_pln": 200,
-    "note": "Długi, ale sensowny transfer do bazy na Hongkong."
+    "note": "27.12: wszyscy z Shenzhen North do Yangshuo/Guilin, dzień po przylocie ekipy."
   },
   {
     "id": "shenzhen_hongkong",
@@ -139,7 +139,7 @@
     "time": "2-3,5 h day trip logistics",
     "cost_pln": "30-120 PLN",
     "cost_mid_pln": 65,
-    "note": "Day trip działa; Sylwester bez noclegu jest trudny."
+    "note": "26.12: Hongkong w dzień, 19:00 odbiór ekipy z lotniska HKG, nocleg w Shenzhen."
   },
   {
     "id": "hongkong_macau",
@@ -154,7 +154,7 @@
   },
   {
     "id": "shenzhen_chaozhou",
-    "layer": "hub_hsr",
+    "layer": "optional",
     "from": "shenzhen",
     "to": "chaozhou",
     "mode": "HSR",
@@ -172,6 +172,72 @@
     "time": "2-3 h pociąg; 3-4 h hotel-hotel",
     "cost_pln": "80-160 PLN",
     "cost_mid_pln": 120,
-    "note": "Powrót do Guangzhou z buforem przed wylotem."
+    "note": "Pierwszy odcinek trasy: Guangzhou -> Chaozhou 18.12."
+  },
+  {
+    "id": "chaozhou_tulou",
+    "layer": "local_hub",
+    "from": "chaozhou",
+    "to": "tulou",
+    "mode": "private car",
+    "time": "2,5-3 h autem",
+    "cost_pln": "ok. 250 PLN/os. (kierowca na cały dzień, auto na 2 osoby)",
+    "cost_mid_pln": 250,
+    "note": "20.12: kierowca z Chaozhou przez tulou do Xiamen; cena do potwierdzenia."
+  },
+  {
+    "id": "tulou_xiamen",
+    "layer": "local_hub",
+    "from": "tulou",
+    "to": "xiamen",
+    "mode": "private car",
+    "time": "2-2,5 h autem",
+    "cost_pln": "w cenie kierowcy z Chaozhou",
+    "cost_mid_pln": 0,
+    "note": "Ten sam kierowca kończy dzień w hotelu w Xiamen."
+  },
+  {
+    "id": "xiamen_guangzhou",
+    "layer": "hub_hsr",
+    "from": "xiamen",
+    "to": "guangzhou",
+    "mode": "HSR",
+    "time": "3,5-4,5 h pociąg",
+    "cost_pln": "120-160 PLN",
+    "cost_mid_pln": 140,
+    "note": "22.12: powrót do Guangzhou na przylot Kamila (CAN 22:55)."
+  },
+  {
+    "id": "guangzhou_shenzhen",
+    "layer": "hub_hsr",
+    "from": "guangzhou",
+    "to": "shenzhen",
+    "mode": "HSR",
+    "time": "30-45 min pociąg; 1-1,5 h hotel-hotel",
+    "cost_pln": "40-50 PLN",
+    "cost_mid_pln": 45,
+    "note": "23.12: Guangzhou South -> Shenzhen North, kursy co kilkanaście minut."
+  },
+  {
+    "id": "shenzhen_macau",
+    "layer": "local_hub",
+    "from": "shenzhen",
+    "to": "macau",
+    "mode": "ferry",
+    "time": "ok. 1 h prom + granica",
+    "cost_pln": "90-120 PLN w jedną stronę",
+    "cost_mid_pln": 200,
+    "note": "25.12: day trip promem z Shekou; powrót wieczorem do Shenzhen."
+  },
+  {
+    "id": "nanning_guangzhou",
+    "layer": "hub_hsr",
+    "from": "nanning",
+    "to": "guangzhou",
+    "mode": "HSR",
+    "time": "3,5-4,5 h pociąg",
+    "cost_pln": "110-140 PLN",
+    "cost_mid_pln": 120,
+    "note": "4.1: powrót do Guangzhou na dwa ostatnie dni przed wylotem 6.1."
   }
 ]

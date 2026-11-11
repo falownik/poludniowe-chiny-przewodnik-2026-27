@@ -8,8 +8,10 @@ clicking a place opens a dedicated guide page for that stop.
 
 ## What The Site Shows
 
-- Current South China route hubs and optional extensions after trimming Hainan,
-  Fujian, Yunnan, Guizhou, and Sichuan from this version.
+- Current South China route hubs (plan v2: Chaoshan, Fujian tulou and Xiamen,
+  Shenzhen with Macau/Hong Kong day trips, Guangxi, Guangzhou) and optional
+  extensions. Hainan, the rest of Fujian, Yunnan, Guizhou, and Sichuan stay out.
+- Day-by-day plan showing who travels when (us, Kamil, the group).
 - Average budget lodging price per person per night in PLN.
 - Key attractions for each region.
 - Travel time and indicative transport cost between places.

@@ -8,7 +8,7 @@
   {
     "title": "Scenariusz B: brak przedluzenia na 2027 i brak wizy",
     "status": "wariant ryzykowny dla styczniowego Makao/HK",
-    "summary": "Nie należy wtedy planować wyjścia z Chin kontynentalnych do Hongkongu lub Makao po 31.12, bo powrót do Guangzhou/Shenzhen byłby ponownym wjazdem do mainlandu. Najprostsza korekta to przesunąć Makao/HK przed koniec grudnia albo zrobić 4.01 dzień w Guangzhou.",
+    "summary": "Nie należy wtedy planować wyjścia z Chin kontynentalnych do Hongkongu lub Makao po 31.12, bo powrót byłby ponownym wjazdem do mainlandu. Aktualny plan ma Makao (25.12) i Hongkong (26.12) przed końcem roku, więc dotyczy to tylko ekipy, która po 6.01 chce jechać do Hongkongu i dalej do Szanghaju.",
     "decision": "Nie robić styczniowego day tripu granicznego bez wizy lub oficjalnego potwierdzenia zasad na 2027."
   },
   {
@@ -20,7 +20,7 @@
   {
     "title": "Scenariusz D: próba użycia tranzytu 240 h jako obejścia",
     "status": "nie traktować jako bazowego planu",
-    "summary": "Tranzyt 240 h ma własną logikę portów, obszarów i biletu do kraju lub regionu trzeciego. Może działać w określonych routingach, ale nie jest prostym zamiennikiem turystycznego wjazdu przy pętli po Chinach kontynentalnych.",
+    "summary": "Tranzyt 240 h ma własną logikę portów, obszarów i biletu do kraju lub regionu trzeciego. Dla ekipy routing Hongkong -> Szanghaj -> Polska (9-11.01) może się kwalifikować, ale nie jest prostym zamiennikiem turystycznego wjazdu.",
     "decision": "Używać tylko po osobnym sprawdzeniu konkretnego routingu; nie budować na tym głównego planu."
   }
 ]

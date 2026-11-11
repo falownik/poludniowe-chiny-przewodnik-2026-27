@@ -45,6 +45,15 @@
     "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Panoramic_Dinghu.jpg/960px-Panoramic_Dinghu.jpg"
   },
   {
+    "id": "fujian_tulou",
+    "title": "Fujian tulou",
+    "commons_title": "File:20121101 Tianluokeng Tulou 02.jpg",
+    "artist": "Windmemories",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:20121101_Tianluokeng_Tulou_02.jpg",
+    "file": "assets/images/fujian_tulou.jpg"
+  },
+  {
     "id": "fuli_ancient_town",
     "title": "Fuli Ancient Town, Yangshuo",
     "commons_title": "File:Fuli (China) 01.JPG",
@@ -241,6 +250,15 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:WUTONG_MOUNTAIN,_SHENZHEN_(23).jpg",
     "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/WUTONG_MOUNTAIN%2C_SHENZHEN_%2823%29.jpg/960px-WUTONG_MOUNTAIN%2C_SHENZHEN_%2823%29.jpg"
+  },
+  {
+    "id": "xiamen_gulangyu",
+    "title": "Gulangyu, Xiamen",
+    "commons_title": "File:Gulangyu Island,Xiamen City.JPG",
+    "artist": "螺钉",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gulangyu_Island,Xiamen_City.JPG",
+    "file": "assets/images/xiamen_gulangyu.jpg"
   },
   {
     "id": "yangshuo_yulong",

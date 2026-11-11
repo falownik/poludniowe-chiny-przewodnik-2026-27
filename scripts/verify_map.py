@@ -120,7 +120,9 @@ def main() -> None:
     require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
     require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
     require(any(place["id"] == "detian" for place in places), "Detian is missing from places")
-    require(all(place["id"] not in {"hainan", "xiamen", "longji"} for place in places), "removed Hainan/Xiamen/Longji places should not be mapped")
+    require(all(place["id"] not in {"hainan", "longji"} for place in places), "removed Hainan/Longji places should not be mapped")
+    require(any(place["id"] == "xiamen" for place in places), "Xiamen is missing from places (plan v2)")
+    require(any(place["id"] == "tulou" for place in places), "Tulou is missing from places (plan v2)")
     flight_routes = [route for route in routes if "flight" in route["mode"].lower()]
     if flight_routes:
         require(any(route.get("train_alt") for route in flight_routes), "flight routes lack train alternatives")
@@ -129,13 +131,18 @@ def main() -> None:
     require(all(route.get("layer") in {"hub_hsr", "local_hub", "optional"} for route in routes), "route has invalid layer")
     require(any(route["id"] == "nanning_shenzhen" for route in routes), "Nanning-Shenzhen hub route is missing")
     require(any(route["id"] == "nanning_detian" for route in routes), "Nanning-Detian route is missing")
+    for route_id in ["xiamen_guangzhou", "guangzhou_shenzhen", "shenzhen_macau", "yangshuo_shenzhen", "nanning_guangzhou"]:
+        require(
+            any(route["id"] == route_id and route.get("layer") in {"hub_hsr", "local_hub"} for route in routes),
+            f"plan v2 route missing or hidden: {route_id}",
+        )
     require(
         any(route["id"] == "nanning_fangchenggang" and route.get("layer") == "local_hub" for route in routes),
         "Fangchenggang day-trip route should be local_hub",
     )
     require(
-        all(route["from"] not in {"hainan", "xiamen", "longji"} and route["to"] not in {"hainan", "xiamen", "longji"} for route in routes),
-        "routes should not reference removed Hainan/Xiamen/Longji places",
+        all(route["from"] not in {"hainan", "longji"} and route["to"] not in {"hainan", "longji"} for route in routes),
+        "routes should not reference removed Hainan/Longji places",
     )
 
     required_phrases = [
@@ -154,7 +161,8 @@ def main() -> None:
         "itinerary-day",
         "data-place-ids",
         "Poprawiony plan",
-        "Sylwester w Chaoshan",
+        "Sylwester w Yangshuo",
+        "itinerary-who",
         "itinerary-marker-active",
         "markerNames",
         "legend-toggle",
@@ -193,7 +201,6 @@ def main() -> None:
     require("<th>Koszt</th>" not in html, "route cost column should not be visible in the sidebar")
     require('"collapsed": true' in html, "layer control should start collapsed")
     require("places/hainan.html" not in html, "map should not link removed Hainan page")
-    require("places/xiamen.html" not in html, "map should not link removed Xiamen page")
     require("places/longji.html" not in html, "map should not link removed Longji page")
     require("Longji Rice Terraces" not in html, "map should not contain removed Longji point")
 
@@ -236,10 +243,10 @@ def main() -> None:
         require(props.get("color") in html, f"HTML missing province color: {props.get('name')}")
         require(html_contains_json_text(html, props.get("description", "")), f"HTML missing province description: {props.get('name')}")
 
-    for removed_name in ["Kunming / Yunnan", "Yunnan", "Guizhou", "Syczuan", "Hainan", "Fujian", "Xiamen", "Longji"]:
+    for removed_name in ["Kunming / Yunnan", "Yunnan", "Guizhou", "Syczuan", "Hainan", "Longji"]:
         require(removed_name not in html, f"HTML still contains removed region: {removed_name}")
 
-    for stale_name in ["hainan.html", "xiamen.html", "longji.html"]:
+    for stale_name in ["hainan.html", "longji.html"]:
         require(not (PLACES_DIR / stale_name).exists(), f"stale removed place page should be deleted: {stale_name}")
 
     image_files = list((DOCS / "assets" / "images").glob("*"))
@@ -254,8 +261,13 @@ def main() -> None:
     require(ITINERARY_CSV.exists(), "itinerary CSV is missing")
     itinerary_rows = list(csv.DictReader(ITINERARY_CSV.read_text(encoding="utf-8-sig").splitlines()))
     require(len(itinerary_rows) >= 20, "itinerary CSV should cover the full trip")
-    require({"data", "miejsce", "nocleg", "plan_dnia", "przejazdy", "place_ids"}.issubset(itinerary_rows[0].keys()), "itinerary CSV lacks required columns")
-    require(any(row["data"] == "31.12" and "Chaozhou" in row["nocleg"] for row in itinerary_rows), "itinerary CSV should keep New Year's Eve in Chaozhou")
+    require({"data", "miejsce", "kto", "nocleg", "plan_dnia", "przejazdy", "place_ids"}.issubset(itinerary_rows[0].keys()), "itinerary CSV lacks required columns")
+    require(any(row["data"] == "31.12" and "Yangshuo" in row["nocleg"] for row in itinerary_rows), "itinerary CSV should have New Year's Eve in Yangshuo")
+    require(any(row["data"] == "26.12" and "ekipa" in row["kto"] for row in itinerary_rows), "itinerary CSV should mark the group joining on 26.12")
+    require(any(row["data"] == "11.1" for row in itinerary_rows), "itinerary CSV should run until the group flies home on 11.1")
+    itinerary_html = (DOCS / "itinerary.html").read_text(encoding="utf-8")
+    require("Dzień po dniu: kto gdzie" in itinerary_html, "itinerary page missing day-by-day table")
+    require(itinerary_html.count("<tr><td>") >= len(itinerary_rows), "itinerary page day table is incomplete")
     for page_name in ["places/index.html", "itinerary.html", "research.html", "food.html", "practical.html"]:
         page = DOCS / page_name
         require(page.exists(), f"missing static guide page: {page_name}")
@@ -314,7 +326,7 @@ def main() -> None:
     require("dish-grid" in food_html, "food page missing dish gallery")
     require("potraw" in food_html, "food page missing dish section")
     require(food_html.count('class="dish-card"') >= 50, "food page should list at least 50 dishes")
-    for removed_food_term in ["Hainan", "Fujian", "Xiamen", "Longji", "Sichuan", "tulou", "Fuzhou", "Wuyi", "Haikou", "Sanya", "Wanning"]:
+    for removed_food_term in ["Hainan", "Longji", "Sichuan", "Fuzhou", "Wuyi", "Haikou", "Sanya", "Wanning"]:
         require(removed_food_term not in food_html, f"food page still contains out-of-plan term: {removed_food_term}")
     for image_name in REQUIRED_FOOD_IMAGES:
         require((DOCS / "assets" / "images" / image_name).exists(), f"missing food image file: {image_name}")
