@@ -1333,8 +1333,8 @@
   "to": "guangzhou",
   "mode": "HSR",
   "time": "G2861 10:18 → Guangzhou East 11:19 (1 h)",
-  "cost_pln": "ok. 25 zł/os.",
-  "cost_mid_pln": 25,
+  "cost_pln": "ok. 27 zł/os. (¥45,5)",
+  "cost_mid_pln": 27,
   "note": "4.01: Zhaoqingdong → Guangzhou East, potem 4 przystanki linią 1 do Dongshankou. Sprzedaż od 21.12. Zapasowo: D7137 08:08 do Guangzhou South. Linia po torach z OpenStreetMap, ostatnie km do Guangzhou East orientacyjnie.",
   "geometry": [
    [
