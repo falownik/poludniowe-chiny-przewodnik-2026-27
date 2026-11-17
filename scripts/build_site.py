@@ -797,13 +797,13 @@ def write_itinerary_csv() -> None:
     buffer = io.StringIO(newline="")
     writer = csv.writer(buffer)
     writer.writerow(["data", "miejsce", "kto", "nocleg", "plan_dnia", "przejazdy", "place_ids"])
-    for day in build_map.TRIP_DAYS:
+    for day in build_map.plan_c_trip_days():
         writer.writerow(
             [
                 day.get("date", ""),
                 day.get("title", ""),
                 day.get("who", ""),
-                ITINERARY_NIGHTS.get(day.get("date", ""), ""),
+                day.get("night") or ITINERARY_NIGHTS.get(day.get("date", ""), ""),
                 day.get("detail", ""),
                 itinerary_transfer(day),
                 ";".join(day.get("place_ids", [])),
@@ -895,6 +895,7 @@ def image_tag(image_id: str, image_paths: dict[str, str], alt: str, prefix: str 
 def nav(prefix: str, current: str) -> str:
     items = [
         ("map", "Mapa", f"{prefix}index.html"),
+        ("plant", "Wersja T", f"{prefix}wersja-t.html"),
         ("planc", "Wersja C", f"{prefix}wersja-c.html"),
         # Hidden from the menu for now (pages are still built and reachable by direct link):
         # ("photos", "Zdjęcia: B vs C", f"{prefix}zdjecia.html"),
@@ -1318,16 +1319,16 @@ def build_itinerary_page(
         f"<td>{esc(day['date'])}</td>"
         f"<td>{esc(day['title'])}</td>"
         f"<td>{esc(day.get('who', ''))}</td>"
-        f"<td>{esc(ITINERARY_NIGHTS.get(day['date'], ''))}</td>"
+        f"<td>{esc(day.get('night') or ITINERARY_NIGHTS.get(day['date'], ''))}</td>"
         f"<td>{esc(day['detail'])}</td>"
         "</tr>"
-        for day in build_map.TRIP_DAYS
+        for day in build_map.plan_c_trip_days()
     )
     body = f"""
     <section class="page-intro">
       <p class="eyebrow">Trasa robocza</p>
       <h1>Układ podróży i przejazdy</h1>
-      <p>Wersja 2 planu: 17-22.12 my dwoje na wschodzie (Chaozhou, Shantou, tulou, Xiamen), 22.12 dołącza Kamil, 23-26.12 Shenzhen z Makao i Hongkongiem, 26.12 wieczorem dołącza ekipa, 27.12-3.01 Guangxi (Yangshuo, Sylwester, Nanning), 4-5.01 Guangzhou, 6.01 wylot. Ekipa zostaje do 11.01 i kończy w Szanghaju.</p>
+      <p>Wersja T: 17–22.12 my dwoje w Chaozhou, 22–24.12 z Kamilem w Hongkongu, 24–26.12 Shenzhen, 26.12 wieczorem dołącza ekipa w Zhuhai, 28.12 Makau, 29.12–2.01 Yangshuo z Sylwestrem, 2–4.01 Zhaoqing, 4–6.01 Kanton, 6.01 wylot. Ekipa zostaje do 11.01 i kończy w Szanghaju.</p>
       <div class="fact-strip">
         <span>{len(places)} miejsc</span>
         <span>{len(routes)} odcinków</span>
@@ -1617,8 +1618,8 @@ def build_photos_page() -> str:
     return page_shell("Zdjęcia: B vs C", "photos", body)
 
 
-def build_plan_c_page() -> str:
-    plan = load_json(build_map.DATA_DIR / "plan_c.json")
+def build_plan_c_page(variant: str = "c") -> str:
+    plan = load_json(build_map.DATA_DIR / f"plan_{variant}.json")
     photo_config = load_json(build_map.DATA_DIR / "variant_photos.json")
     sources_path = build_map.DATA_DIR / "variant_photo_sources.json"
     sources = load_json(sources_path) if sources_path.exists() else {}
@@ -1707,6 +1708,9 @@ def build_plan_c_page() -> str:
 
     def bullets(items: list[str]) -> str:
         return "<ul>" + "".join(f"<li>{item}</li>" for item in items) + "</ul>"
+
+    if variant == "t":
+        return plan_t_body(day_cards, thumb, bullets)
 
     who = bullets([
         "<strong>My dwoje:</strong> wylot z Warszawy 16.12, przylot do Kantonu (Guangzhou, CAN) 17.12 o 22:55 przez Monachium i Szanghaj.",
@@ -1827,6 +1831,110 @@ def build_plan_c_page() -> str:
     </section>
     """
     return page_shell("Wersja C", "planc", body)
+
+
+def plan_t_body(day_cards: str, thumb: Any, bullets: Any) -> str:
+    """Wersja T: the current plan mirrored from the sheet tab "Najlepszy plan. Ever. Tremendous"."""
+    who = bullets([
+        "<strong>My dwoje:</strong> wylot z Warszawy 16.12 przez Monachium i Szanghaj, przylot do Kantonu (CAN) 17.12 o 22:55.",
+        "<strong>Kamil:</strong> przylot do Kantonu 22.12 o 07:00 i od razu sam do Hongkongu. Spotykamy się tam w hotelu.",
+        "<strong>Ekipa:</strong> przylot do Hongkongu (HKG) 26.12 o 19:00. Sami jedziecie Golden Busem przez most do Zhuhai, czekamy w hotelu.",
+        "<strong>My + Kamil:</strong> wylot z Kantonu 6.01 o 08:00.",
+        "<strong>Ekipa:</strong> zostaje do 11.01: Kanton, Hongkong, Szanghaj i stamtąd wylot.",
+    ])
+    stages = [
+        ("17–22.12", "My dwoje w Chaozhou", "4 noce na starym mieście w Chaozhou: herbata gongfu, gęś, most Guangji. Wypady do Shantou na wołowy hot pot, do okrągłego domu Daoyun Lou albo na herbaciane wzgórza Fenghuang.", ["chaozhou", "shantou", "daoyun"]),
+        ("22–26.12", "Z Kamilem: Hongkong i Shenzhen", "Dwie noce w Hongkongu przed świętami (Peak, Star Ferry, Mong Kok), potem dwie w Shenzhen: elektronika w Huaqiangbei, Wigilia w mieście i 25.12 szlak na półwyspie Dapeng.", ["hongkong", "shenzhen", "dapeng"]),
+        ("26–29.12", "Wszyscy w Zhuhai", "26.12 wieczorem przypływamy promem z Shekou, ekipa dojeżdża autobusem przez most. 27.12 odpoczynek po locie na wyspie Qi'ao, 28.12 Makau pieszo przez Gongbei.", ["zhuhai", "macau"]),
+        ("29.12–2.01", "Yangshuo i Sylwester", "Bezpośredni pociąg do Yangshuo. Rowery i tratwy na Yulong, Moon Hill, Sylwester na West Street, 1.01 Xingping i rzeka Li, 2.01 wschód słońca z TV Tower.", ["yangshuo", "xingping"]),
+        ("2–6.01", "Zhaoqing i Kanton", "Dwie noce przy Seven Star Crags i wypad na górę Dinghu, potem 40 minut pociągiem do Kantonu: Dongshankou, Chen Clan, Shamian, Foshan.", ["zhaoqing", "guangzhou", "foshan"]),
+        ("6–11.01", "Ekipa sama", "Kanton → Hongkong → Szanghaj → 11.01 wylot do Polski.", ["hongkong", "shanghai"]),
+    ]
+    stage_cards = "".join(
+        f"""
+        <article class="cstage">
+          <p class="eyebrow">{esc(dates)}</p>
+          <h3>{esc(title)}</h3>
+          <p>{esc(text)}</p>
+          <div class="cstage-thumbs">{''.join(thumb(pid) for pid in ids)}</div>
+        </article>
+        """
+        for dates, title, text, ids in stages
+    )
+    why = bullets([
+        "Mało przenosin: najkrótszy pobyt to 2 noce, a w Chaozhou i Yangshuo śpimy po 4 noce.",
+        "Hongkong 22–24.12 w zwykłe dni robocze, zanim zaczną się świąteczne tłumy i ceny.",
+        "Zhuhai zamiast nocy w Shenzhen: ekipa ma krótszą drogę z lotniska, a Makau jest pieszo przez granicę.",
+        "Bezpośrednie pociągi Zhuhai → Yangshuo i Yangshuo → Zhaoqing, bez przesiadek z walizkami.",
+        "3.01 (szczyt powrotów po długim weekendzie) siedzimy w Zhaoqing, a do Kantonu jedziemy dopiero 4.01.",
+        "Hongkong i Makau robimy przed 31.12, więc nasz wjazd do Chin mieści się w ruchu bezwizowym na 2026.",
+    ])
+    weather = bullets([
+        "<strong>Chaozhou, Hongkong, Shenzhen, Zhuhai, Kanton:</strong> ok. 18–21° w dzień, 10–14° w nocy.",
+        "<strong>Yangshuo, Xingping:</strong> 12–14° w dzień, 5–7° w nocy, czasem mży i jest mgliście.",
+        "<strong>Zhaoqing:</strong> ok. 17–19° w dzień, ok. 10° w nocy.",
+        "<strong>Szanghaj (ekipa 9–11.01):</strong> ok. 8° w dzień, ok. 2° w nocy.",
+        "Na południu Chin <strong>nie ma centralnego ogrzewania</strong>. Weźcie ciepłą warstwę na wieczory i coś przeciwdeszczowego, a w hotelu pytajcie o klimatyzację z grzaniem.",
+    ])
+    formalities = bullets([
+        "Paszport ważny co najmniej 6 miesięcy. Pokazuje się go przy pociągach, promach, w hotelach i przy biletach do atrakcji.",
+        "Ruch bezwizowy dla Polaków: do 30 dni, dla wjazdów do 31.12.2026. Ekipa wjeżdża do Chin 26.12 w Zhuhai.",
+        "<strong>Uwaga, ekipa:</strong> wyjazd do Hongkongu 7.01 i lot do Szanghaju 9.01 to nowy wjazd, już w 2027. Trzeba sprawdzić, czy ruch bezwizowy przedłużono. Jeśli nie, zostaje tranzyt 240 h (Hongkong → Szanghaj → Polska). Nie kupujcie bezzwrotnego biletu do Szanghaju, zanim to się wyjaśni.",
+        "26.12 z lotniska do Zhuhai są trzy odprawy: wjazd do Hongkongu, wyjazd z Hongkongu na terminalu mostu i wjazd do Chin w Zhuhai. Kartę przyjazdu wypełnijcie online przed wylotem.",
+        "Alipay z podpiętą kartą (płatności, DiDi), eSIM, bo bez tego nie działa Google ani WhatsApp, adres hotelu po chińsku.",
+        "Bilety na szybką kolej przez Trip.com albo 12306. Sprzedaż rusza ok. 15 dni przed datą: G3792 na 29.12 od ok. 14–15.12, D1895 na 2.01 od ok. 18–19.12.",
+        "Ubezpieczenie podróżne.",
+    ])
+    costs = bullets([
+        "<strong>Noclegi:</strong> ok. 894 zł/os. za cały pobyt (20 nocy, policzone dla nas dwojga). Ekipa ma pokoje w Zhuhai, Yangshuo, Zhaoqing i Kantonie w tych samych hotelach.",
+        "<strong>Przejazdy:</strong> ok. 1100 zł/os. razem z DiDi i metrem. Same duże odcinki (pociągi i prom) to ok. 600 zł/os.",
+        "<strong>Atrakcje (podstawa):</strong> ok. 384 zł/os. Opcjonalnie: via ferrata, pokaz Impression, lekcja gotowania, masaż, Canton Tower, Macau Tower.",
+        "<strong>Pamiątki i jedzenie do zabrania:</strong> ok. 500 zł/os. Do UE nie wolno wwozić mięsa ani nabiału.",
+        "Kurs przyjęty w arkuszu: 0,6 zł za juana.",
+    ])
+    sheet_tabs = [
+        ("Najlepszy plan. Ever. Tremendous", "Aktualny plan dzień po dniu (to, co jest na tej stronie), z kosztami noclegów i przejazdów na osobę."),
+        ("Rezerwacje (hotele i pociągi)", "Hotele z datami, cenami i terminami darmowego anulowania oraz pociągi z datą startu sprzedaży."),
+        ("Atrakcje i plan B", "Ceny atrakcji ze źródłami, opcje dodatkowe, plan na deszcz i zimno, budżet na pamiątki."),
+    ]
+    tab_rows = "".join(f"<tr><td><strong>{esc(name)}</strong></td><td>{esc(text)}</td></tr>" for name, text in sheet_tabs)
+    body = f"""
+    <section class="page-intro">
+      <p class="eyebrow">Wersja T · aktualny plan</p>
+      <h1>Chiny 2026/27: Chaozhou, Hongkong, Zhuhai, Yangshuo, Zhaoqing</h1>
+      <p>To jest plan, który teraz rezerwujemy. Mniej przenosin, dłużej w jednym miejscu: Chaozhou, Hongkong i Shenzhen przed świętami, potem wszyscy razem w Zhuhai, Makau, Sylwester w Yangshuo, Zhaoqing i na koniec Kanton. Poniżej: kto kiedy dolatuje, trasa w skrócie, każdy dzień ze zdjęciami, pogoda, formalności i koszty.</p>
+      <div class="fact-strip">
+        <span>16.12 – 11.01</span>
+        <span>Guangdong · Hongkong · Makau · Guangxi</span>
+        <a href="index.html">Mapa trasy →</a>
+      </div>
+    </section>
+
+    <section class="text-block"><h2>Kto, kiedy, skąd</h2>{who}</section>
+
+    <section class="route-section">
+      <h2>Trasa w skrócie</h2>
+      <div class="cstage-grid">{stage_cards}</div>
+    </section>
+
+    <section class="route-section">
+      <h2>Dzień po dniu</h2>
+      <p class="section-lead">Zdjęcia przy każdym dniu przewijasz w bok (gest, kółko z Shift albo pasek pod zdjęciami). Kliknięcie zdjęcia otwiera jego źródło.</p>
+      <div class="cday-list">{day_cards}</div>
+    </section>
+
+    <section class="text-block"><h2>Dlaczego tak</h2>{why}</section>
+    <section class="text-block"><h2>Pogoda (średnie, nie prognoza)</h2>{weather}</section>
+    <section class="text-block"><h2>Formalności: co załatwić przed wyjazdem</h2>{formalities}</section>
+    <section class="text-block"><h2>Ile to kosztuje</h2>{costs}</section>
+
+    <section class="text-block">
+      <h2>Co jest w naszym arkuszu Google</h2>
+      <p>Szczegóły i aktualne ceny trzymamy w arkuszu. Najważniejsze zakładki:</p>
+      <div class="table-wrap"><table class="day-table plain-table"><tbody>{tab_rows}</tbody></table></div>
+    </section>
+    """
+    return page_shell("Wersja T", "plant", body)
 
 
 def predeparture_check_card(item: dict[str, Any]) -> str:
@@ -2684,12 +2792,13 @@ def build_site() -> None:
     write(DOCS_DIR / "food.html", build_food_page(image_paths))
     write(DOCS_DIR / "zdjecia.html", build_photos_page())
     write(DOCS_DIR / "wersja-c.html", build_plan_c_page())
+    write(DOCS_DIR / "wersja-t.html", build_plan_c_page("t"))
     write(DOCS_DIR / "practical.html", build_practical_page(predeparture_checks, formality_scenarios, attraction_budget))
     write(DOCS_DIR / ".nojekyll", "")
 
     print(f"Place pages: {len(places)}")
     print(f"Nearby research points: {len(nearby_places)}")
-    print("Static guide pages: wersja-c.html, zdjecia.html, places/index.html, itinerary.html, research.html, food.html, practical.html")
+    print("Static guide pages: wersja-t.html, wersja-c.html, zdjecia.html, places/index.html, itinerary.html, research.html, food.html, practical.html")
 
 
 if __name__ == "__main__":

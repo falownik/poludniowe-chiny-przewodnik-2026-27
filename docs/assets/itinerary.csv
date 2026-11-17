@@ -1,28 +1,28 @@
 ﻿data,miejsce,kto,nocleg,plan_dnia,przejazdy,place_ids
-16.12,Warszawa,My (2),samolot,Wylot WAW 17:00 -> MUC -> PVG.,Wylot WAW 17:00 -> MUC -> PVG.,
-17.12,Guangzhou,My (2),Guangzhou,"PVG 16:50 (wjazd do Chin), PVG -> CAN 22:55, hotel w Guangzhou.","PVG 16:50 (wjazd do Chin), PVG -> CAN 22:55, hotel w Guangzhou.",guangzhou
-18.12,Chaozhou,My (2),Chaozhou,Guangzhou -> Chaozhou; stare miasto i wieczorem most Guangji.,Guangzhou -> Chaozhou; stare miasto i wieczorem most Guangji.,guangzhou;chaozhou
-19.12,Chaozhou / Shantou,My (2),Chaozhou,"Paifang Street, Kaiyuan, herbata gongfu; wieczorem hot pot wołowy w Shantou.",,chaozhou
-20.12,Tulou -> Xiamen,My (2),Xiamen,Kierowca na cały dzień: Chaozhou -> tulou (Nanjing/Yongding) -> Xiamen.,Kierowca na cały dzień: Chaozhou -> tulou (Nanjing/Yongding) -> Xiamen.,chaozhou;tulou;xiamen
-21.12,Xiamen,My (2),Xiamen,"Gulangyu rano, potem Shapowei i Nanputuo. Kamil wylatuje z Warszawy.",,xiamen
-22.12,Guangzhou,"My (2), Kamil przylatuje",Guangzhou,Xiamen -> Guangzhou; wieczorem odbiór Kamila z CAN (22:55).,Xiamen -> Guangzhou; wieczorem odbiór Kamila z CAN (22:55).,xiamen;guangzhou
-23.12,Shenzhen,My + Kamil,Shenzhen,"Rano dim sum w Guangzhou, po południu Guangzhou -> Shenzhen.","Rano dim sum w Guangzhou, po południu Guangzhou -> Shenzhen.",guangzhou;shenzhen
-24.12,Shenzhen,My + Kamil,Shenzhen,"Futian, Huaqiangbei, Shenzhen Bay; Wigilia (opcja: zamienić z Makao).",,shenzhen
-25.12,Makao z Shenzhen,My + Kamil,Shenzhen,"Day trip promem z Shekou: stare centrum, Taipa, egg tarty. Ekipa wylatuje.","Day trip promem z Shekou: stare centrum, Taipa, egg tarty. Ekipa wylatuje.",shenzhen;macau
-26.12,Hongkong + ekipa,"My + Kamil, ekipa przylatuje",Shenzhen,"Hongkong w dzień; 19:00 odbiór ekipy z HKG, wieczorem wszyscy do Shenzhen.",,shenzhen;hongkong
-27.12,Yangshuo,Wszyscy,Yangshuo,Shenzhen North -> Guilin/Yangshuo całą grupą.,Shenzhen North -> Guilin/Yangshuo całą grupą.,shenzhen;guilin;yangshuo
-28.12,Yangshuo,Wszyscy,Yangshuo,"Rzeka Yulong, rower/skuter i tratwa.",,yangshuo
-29.12,Yangshuo,Wszyscy,Yangshuo,Xingping / Li River i Laozhai Hill.,,yangshuo;guilin
-30.12,Yangshuo,Wszyscy,Yangshuo,"Moon Hill, wioski albo dzień zapasowy na pogodę.",,yangshuo
-31.12,Yangshuo,Wszyscy,Yangshuo,Sylwester w Yangshuo (West Street albo cicho nad Yulong).,,yangshuo
-1.1,Nanning,Wszyscy,Nanning,"Yangshuo/Guilin -> Nanning; długi weekend, bilety kupić od razu.","Yangshuo/Guilin -> Nanning; długi weekend, bilety kupić od razu.",yangshuo;guilin;nanning
-2.1,Detian,Wszyscy,Nanning,Długi day trip do Detian Waterfall / Mingshi.,Długi day trip do Detian Waterfall / Mingshi.,nanning;detian
-3.1,Fangchenggang / Nanning,Wszyscy,Nanning,Fangchenggang/Dongxing albo Qingxiu i miasto.,,nanning;fangchenggang
-4.1,Guangzhou,Wszyscy,Guangzhou,"Nanning -> Guangzhou, wieczorem Liwan.","Nanning -> Guangzhou, wieczorem Liwan.",nanning;guangzhou
-5.1,Guangzhou / Foshan,Wszyscy,Guangzhou (blisko CAN),Foshan/Shunde albo Guangzhou; nocleg blisko lotniska CAN.,,guangzhou;shunde_foshan
-6.1,Powrót / ekipa w Guangzhou,Ekipa (my + Kamil wylatujemy),Guangzhou (ekipa),My + Kamil: CAN 08:00 -> PEK -> MUC -> WAW 22:30. Ekipa zostaje w Guangzhou.,My + Kamil: CAN 08:00 -> PEK -> MUC -> WAW 22:30. Ekipa zostaje w Guangzhou.,guangzhou
-7.1,Shenzhen (ekipa),Ekipa,Shenzhen,Ekipa: Guangzhou -> Shenzhen.,Ekipa: Guangzhou -> Shenzhen.,guangzhou;shenzhen
-8.1,Hongkong (ekipa),Ekipa,Hongkong,Ekipa: Hongkong; wyjazd z Chin kontynentalnych.,,shenzhen;hongkong
-9.1,Szanghaj (ekipa),Ekipa,Szanghaj,Ekipa: lot Hongkong -> Szanghaj; wjazd w 2027 do sprawdzenia (tranzyt 240 h albo wiza).,Ekipa: lot Hongkong -> Szanghaj; wjazd w 2027 do sprawdzenia (tranzyt 240 h albo wiza).,
-10.1,Szanghaj (ekipa),Ekipa,Szanghaj,Ekipa: Szanghaj.,,
-11.1,Powrót ekipy,Ekipa,brak / powrót,Ekipa: wylot z Szanghaju.,,
+16.12,Warszawa → Monachium → Szanghaj,my dwoje,samolot,Wylot z Warszawy przez Monachium do Szanghaju (PVG).,,
+17.12,Kanton (Guangzhou North),my dwoje,Super 8 Huadu przy Guangzhou North (zarezerwowane),"Wjazd do Chin w Szanghaju, lot do Kantonu, przylot o 22:55. DiDi z lotniska pod stację Guangzhou North.",,guangzhou
+18.12,Chaozhou,my dwoje,"Chaozhou, Sihan Courtyard (zarezerwowane)","G6175 09:02 Guangzhou North → Chaoshan 12:24, DiDi na stare miasto. Spacer, gęś, herbata gongfu, wieczorem podświetlony most Guangji.",,chaozhou
+19.12,Shantou,my dwoje,Chaozhou,"Stare miasto Shantou z arkadami qilou, wieczorem wołowy hot pot.",,chaozhou
+20.12,Okolice Chaozhou,my dwoje,Chaozhou,"Daoyun Lou, ośmiokątny okrągły dom Hakka (ok. 1,5 h), albo herbaciane wzgórza Fenghuang. Z kierowcą umówić też powrót.",,chaozhou
+21.12,Okolice Chaozhou,my dwoje,Chaozhou,"Na luzie: Longhu, wyspa Nan'ao albo Fenghuang. Kamil wylatuje z Polski.",,chaozhou
+22.12,Chaozhou → Hongkong,my dwoje + Kamil,"Hongkong, Wellyet Guest House (Mirador Mansion, Tsim Sha Tsui)","Pociąg Chaoshan → Hong Kong West Kowloon (ok. 2,5 h, ok. 126 zł). Kamil ląduje w CAN o 07:00 i jedzie sam do Hongkongu. Spotkanie w hotelu.",,hongkong
+23.12,Hongkong,my + Kamil,Hongkong,"Hongkong w dzień roboczy: Central, Peak Tram, Star Ferry. Wieczorem Mong Kok i Temple Street.",,hongkong
+24.12,Hongkong → Shenzhen,my + Kamil,"Shenzhen, Tourism Trend Hotel (Huaqiangbei)","Rano MTR do granicy i do Shenzhen. Huaqiangbei (elektronika), OCT Loft. Wieczorem Wigilia w mieście.",,shenzhen
+25.12,Shenzhen / Dapeng,my + Kamil,Shenzhen,"Szlak wybrzeżem półwyspu Dapeng, Dongchong → Xichong (wyjazd najpóźniej o 7:30, bywa zamykany przy złej pogodzie).",,dapeng
+26.12,Shenzhen → Zhuhai,"my + Kamil, wieczorem ekipa","Zhuhai, Phoenix Valley (Gongbei)","Rano Shenzhen: Shekou, park Lianhuashan. Wieczorem prom Shekou → Zhuhai Jiuzhou (18:00 albo 19:30, ok. 1 h, ¥140), DiDi do hotelu. Ekipa ląduje w HKG o 19:00 i jedzie sama Golden Busem przez most. Spotykamy się w hotelu ok. 22–23.",,shenzhen;zhuhai
+27.12,Zhuhai,wszyscy,Zhuhai,"Na spokojnie po locie: wyspa Qi'ao, promenada Lovers' Road, owoce morza.",,zhuhai
+28.12,Makau,wszyscy,Zhuhai,"Pieszo przez przejście Gongbei. Ruiny św. Pawła, Senado, Taipa, egg tarty. Dla chętnych taras Macau Tower.",,macau
+29.12,Zhuhai → Yangshuo,wszyscy,"Yangshuo, Shushe Treehouse (550 m od West Street)",G3792 09:07 Zhuhai → Yangshuo 12:16 bez przesiadki. Po południu rowery nad rzeką Yulong.,,yangshuo
+30.12,Yangshuo,wszyscy,Yangshuo,"Rowery albo skutery nad Yulong, tratwa bambusowa, Moon Hill. Dla chętnych wspinaczka albo via ferrata.",,yangshuo
+31.12,Yangshuo (Sylwester),wszyscy,Yangshuo,"W dzień spokojnie (Fuli, kawiarnie z widokiem). Wieczorem Sylwester na West Street, do hotelu wracamy pieszo.",,yangshuo
+1.01,Xingping,wszyscy,Yangshuo,"Wypad do Xingping wynajętym busikiem albo autobusem (ok. 1 h). Rzeka Li, widok z banknotu 20 juanów, Laozhai Hill. Wieczorem powrót do Yangshuo.",,xingping
+2.01,Yangshuo → Zhaoqing,wszyscy,"Zhaoqing, Starisland Lakeview (Seven Star Crags)","O świcie Yangshuo TV Tower (wejście przy targu na Pantao Rd, ok. 10 min od hotelu). D1895 11:54 → Zhaoqingdong 13:41, po południu Seven Star Crags.",,yangshuo;zhaoqing
+3.01,Zhaoqing / Dinghu,wszyscy,Zhaoqing,"Góra Dinghu: las, wodospady, klasztor Qingyun. Ruszamy rano. 3.01 to szczyt powrotów po długim weekendzie, więc zostajemy na miejscu.",,zhaoqing
+4.01,Zhaoqing → Kanton,wszyscy,"Kanton, Manning Hotel (Dongshankou)","Rano Zhaoqingdong → Guangzhounan (ok. 40 min), metro do Dongshankou. Wille, kawiarnie, wieczorem rejs po Rzece Perłowej.",,guangzhou
+5.01,Kanton / Foshan,wszyscy,Kanton,"Foshan (świątynia Zumiao) albo Shunde. Chen Clan Academy, wyspa Shamian. Wieczorem pakowanie i ostatnia wspólna kolacja.",,shunde_foshan;guangzhou
+6.01,Powrót / Kanton,"my + Kamil wylot, ekipa zostaje",ekipa: Kanton,"My + Kamil: DiDi z Dongshankou na CAN ok. 5:15, lot 08:00 → PEK → MUC → WAW. Ekipa zostaje w Kantonie.",,guangzhou
+7.01,Kanton → Hongkong,ekipa,Hongkong,Ekipa jedzie do Hongkongu (szybka kolej ok. 1 h).,,hongkong
+8.01,Hongkong,ekipa,Hongkong,"Miasto, Peak, Mong Kok, ewentualnie szlak Dragon's Back.",,hongkong
+9.01,Hongkong → Szanghaj,ekipa,Szanghaj,"Lot do Szanghaju albo nocny pociąg D908 19:49 → 06:45. To nowy wjazd do Chin, już w 2027 (patrz Formalności).",,shanghai
+10.01,Szanghaj,ekipa,Szanghaj,"Bund, stare miasto. Zimno: ok. 8° w dzień, 2° w nocy.",,shanghai
+11.01,Powrót ekipy,ekipa,,Wylot z Szanghaju do Polski.,,

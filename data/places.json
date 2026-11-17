@@ -1,727 +1,548 @@
 [
-  {
-    "id": "guangzhou",
-    "name": "Guangzhou / Kanton",
-    "region": "Guangdong",
-    "kind": "base",
-    "lat": 23.1291,
-    "lon": 113.2644,
-    "priority": "start/end anchor",
-    "suggested_nights": "3-4 noce łącznie",
-    "avg_lodging_pln_pp": 60,
-    "lodging_range_pln_pp": "45-85 PLN/os./noc w hostelu lub prostym pokoju dla 2 osób",
-    "budget_note": "Najlepszy stosunek ceny do logistyki. Ostatnia noc przed wylotem powinna być tutaj.",
-    "photo_id": "guangzhou_chen_clan",
-    "summary": "Najlepszy punkt wejścia i wyjścia: dim sum, Liwan, Shamian, Chen Clan, Pearl River i szybkie połączenia kolejowe.",
-    "what_to_see": [
-      "Chen Clan Ancestral Hall",
-      "Liwan / Xiguan / Yongqing Fang",
-      "Shamian Island",
-      "Pearl River i Huacheng Square",
-      "Shunde/Foshan jako tani kulinarny day trip"
-    ],
-    "attractions": [
-      {
-        "name": "Chen Clan Ancestral Hall",
-        "lat": 23.129,
-        "lon": 113.246,
-        "price_pln": "ok. 5 PLN",
-        "time": "1,5-2 h",
-        "note": "Najlepszy detal rzemiosła Lingnan."
-      },
-      {
-        "name": "Shamian Island",
-        "lat": 23.109,
-        "lon": 113.239,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Spokojny spacer po dawnej wyspie koncesyjnej."
-      },
-      {
-        "name": "Huacheng Square / Canton Tower view",
-        "lat": 23.12,
-        "lon": 113.324,
-        "price_pln": "0 PLN z zewnątrz",
-        "time": "1-2 h",
-        "note": "Najlepiej po zmroku."
-      }
-    ]
-  },
-  {
-    "id": "shunde_foshan",
-    "name": "Shunde / Foshan",
-    "region": "Guangdong",
-    "kind": "daytrip",
-    "lat": 22.805,
-    "lon": 113.293,
-    "priority": "food day trip",
-    "suggested_nights": "0-1 noc",
-    "avg_lodging_pln_pp": 50,
-    "lodging_range_pln_pp": "40-70 PLN/os./noc, ale zwykle wystarczy day trip z Guangzhou",
-    "budget_note": "Tani sposób na mocny dzień kulinarny bez drogich hoteli.",
-    "photo_id": "char_siu",
-    "summary": "Kulinarny satelita Guangzhou: Shunde food, Foshan ancestral temple, Lingnan Tiandi.",
-    "what_to_see": [
-      "Zumiao w Foshan",
-      "Lingnan Tiandi",
-      "Shunde na ryby, mleczne desery, hotpot i kuchnię kantońską"
-    ],
-    "attractions": [
-      {
-        "name": "Foshan Zumiao",
-        "lat": 23.03,
-        "lon": 113.112,
-        "price_pln": "ok. 10-15 PLN",
-        "time": "1-2 h",
-        "note": "Klasyczna architektura i lokalny kontekst."
-      }
-    ]
-  },
-  {
-    "id": "chaozhou",
-    "name": "Chaozhou / Shantou",
-    "region": "Chaoshan, Guangdong",
-    "kind": "food_extension",
-    "lat": 23.6618,
-    "lon": 116.6226,
-    "priority": "food extension",
-    "suggested_nights": "2 noce (18-20.12)",
-    "avg_lodging_pln_pp": 50,
-    "lodging_range_pln_pp": "40-70 PLN/os./noc",
-    "budget_note": "Bardzo dobry value: zwykle taniej niż Hongkong i Makao, a kulinarnie to jeden z najmocniejszych punktów trasy.",
-    "photo_id": "chaozhou_guangji",
-    "summary": "Najlepszy moduł foodie poza Guangzhou: herbata gongfu, gęś, congee, owoce morza, stare ulice.",
-    "what_to_see": [
-      "Guangji Bridge",
-      "Paifang Street",
-      "Herbata gongfu",
-      "Shantou old town",
-      "Chaoshan beef hotpot i oyster omelette"
-    ],
-    "attractions": [
-      {
-        "name": "Guangji Bridge",
-        "lat": 23.665,
-        "lon": 116.656,
-        "price_pln": "płatne wejście zależnie od sezonu",
-        "time": "1-2 h",
-        "note": "Najlepiej późnym popołudniem."
-      },
-      {
-        "name": "Paifang Street",
-        "lat": 23.662,
-        "lon": 116.644,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Jedzenie i stara oś miasta."
-      }
-    ]
-  },
-  {
-    "id": "tulou",
-    "name": "Tulou Fujian",
-    "region": "Nanjing / Yongding, Fujian",
-    "kind": "rural",
-    "lat": 24.618,
-    "lon": 117.03,
-    "priority": "wersja C: nocleg w tulou",
-    "suggested_nights": "1 noc w tulou (20.12)",
-    "avg_lodging_pln_pp": 60,
-    "lodging_range_pln_pp": "40-90 PLN/os./noc w prostych pensjonatach",
-    "budget_note": "Największy koszt to kierowca na cały dzień (ok. 500 PLN/auto). Bilety ok. 50-60 PLN za skupisko.",
-    "photo_id": "fujian_tulou",
-    "summary": "Okrągłe i kwadratowe gliniane domy-twierdze Hakka i Minnan (UNESCO). Najlepiej z kierowcą po drodze z Chaozhou do Xiamen.",
-    "what_to_see": [
-      "Tianluokeng: „cztery dania i zupa”",
-      "Yunshuiyao i Taxia: wioski nad rzeką",
-      "Chengqi Lou: „król tulou”",
-      "Zhencheng Lou w skupisku Hongkeng"
-    ],
-    "attractions": [
-      {
-        "name": "Tianluokeng Tulou Cluster",
-        "lat": 24.5836,
-        "lon": 117.0466,
-        "price_pln": "ok. 50-60 PLN",
-        "time": "1-2 h",
-        "note": "Najbardziej fotogeniczne skupisko, najlepiej z punktu widokowego nad doliną."
-      },
-      {
-        "name": "Yunshuiyao Ancient Town",
-        "lat": 24.6106,
-        "lon": 117.0236,
-        "price_pln": "w pakiecie Nanjing",
-        "time": "1 h",
-        "note": "Spacer nad rzeką, stare drzewa i herbaciarnie."
-      },
-      {
-        "name": "Chengqi Lou",
-        "lat": 24.6696,
-        "lon": 116.9908,
-        "price_pln": "ok. 50-60 PLN",
-        "time": "1 h",
-        "note": "Strona Yongding; dokładać tylko, jeśli kierowca ma czas przed Xiamen."
-      }
-    ]
-  },
-  {
-    "id": "xiamen",
-    "name": "Xiamen",
-    "region": "Xiamen, Fujian",
-    "kind": "base",
-    "lat": 24.4798,
-    "lon": 118.0894,
-    "priority": "east coast module",
-    "suggested_nights": "2 noce (20-22.12)",
-    "avg_lodging_pln_pp": 70,
-    "lodging_range_pln_pp": "50-110 PLN/os./noc",
-    "budget_note": "Droższe niż Chaoshan, ale nadal rozsądne. Najlepiej spać przy Zhongshan Road albo Shapowei, blisko promu na Gulangyu.",
-    "photo_id": "xiamen_gulangyu",
-    "summary": "Nadmorskie miasto Minnan: wyspa Gulangyu bez samochodów, świątynia Nanputuo, Shapowei i makaron shacha. W grudniu ok. 15-20°C.",
-    "what_to_see": [
-      "Gulangyu (UNESCO) rano, zanim przypłyną tłumy",
-      "Świątynia Nanputuo",
-      "Shapowei: dawny port rybacki, kawiarnie i galerie",
-      "Huandao Road rowerem wzdłuż morza",
-      "Shacha noodles, oyster omelette, zupa z orzeszków"
-    ],
-    "attractions": [
-      {
-        "name": "Gulangyu",
-        "lat": 24.4475,
-        "lon": 118.0662,
-        "price_pln": "ok. 20-50 PLN prom",
-        "time": "pół dnia",
-        "note": "Prom z terminalu Dongdu; bilet kupić wcześniej na paszport, bo potrafi się wyprzedać."
-      },
-      {
-        "name": "Nanputuo Temple",
-        "lat": 24.4416,
-        "lon": 118.0973,
-        "price_pln": "0 PLN",
-        "time": "1 h",
-        "note": "Obok kampus Uniwersytetu Xiamen, wejście zwykle za rezerwacją."
-      },
-      {
-        "name": "Shapowei",
-        "lat": 24.4446,
-        "lon": 118.088,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Dobry blok na popołudnie i kolację."
-      }
-    ]
-  },
-  {
-    "id": "shenzhen",
-    "name": "Shenzhen",
-    "region": "Guangdong",
-    "kind": "budget_base",
-    "lat": 22.5431,
-    "lon": 114.0579,
-    "priority": "cheap Hong Kong base",
-    "suggested_nights": "4 noce (23–26.12)",
-    "avg_lodging_pln_pp": 65,
-    "lodging_range_pln_pp": "50-90 PLN/os./noc w prostym hotelu/hostelu",
-    "budget_note": "Najpraktyczniejsza baza do taniego day tripu do Hongkongu.",
-    "photo_id": "shenzhen_skyline",
-    "summary": "Nowoczesna baza przy granicy z Hongkongiem. Nie dla zabytków, tylko dla logistyki, skyline i transportu.",
-    "what_to_see": [
-      "Futian skyline",
-      "Huaqiangbei",
-      "Nantou Ancient City",
-      "Shenzhen Bay Park",
-      "Day trip do Hongkongu"
-    ],
-    "attractions": [
-      {
-        "name": "Huaqiangbei",
-        "lat": 22.545,
-        "lon": 114.086,
-        "price_pln": "0 PLN",
-        "time": "2-4 h",
-        "note": "Elektronika i technomiejskie Shenzhen."
-      },
-      {
-        "name": "Shenzhen Bay Park",
-        "lat": 22.506,
-        "lon": 113.944,
-        "price_pln": "0 PLN",
-        "time": "1-3 h",
-        "note": "Dobry zachód i widok w stronę HK."
-      }
-    ]
-  },
-  {
-    "id": "dapeng",
-    "name": "Półwysep Dapeng",
-    "region": "Guangdong (Shenzhen)",
-    "kind": "rural",
-    "lat": 22.53,
-    "lon": 114.55,
-    "priority": "wersja C: dzień natury 24.12",
-    "suggested_nights": "0 nocy / day trip z Shenzhen (24.12)",
-    "avg_lodging_pln_pp": 0,
-    "lodging_range_pln_pp": "nocleg w Shenzhen",
-    "budget_note": "Dojazd z centrum Shenzhen ok. 1,5 h (metro + autobus albo DiDi).",
-    "photo_id": "c_dapeng_xichong",
-    "summary": "Zielony, górzysty półwysep na wschód od Shenzhen. Szlak wybrzeżem Dongchong → Xichong (4–5 h) po skałach i zatoczkach, na koniec plaża Xichong.",
-    "what_to_see": [
-      "Szlak Dongchong → Xichong",
-      "Plaża Xichong",
-      "Twierdza Dapeng (Ming)",
-      "Wioski rybackie"
-    ],
-    "attractions": [
-      {
-        "name": "Plaża Xichong",
-        "lat": 22.479,
-        "lon": 114.539,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Koniec szlaku, najładniejsza plaża Shenzhen."
-      },
-      {
-        "name": "Twierdza Dapeng",
-        "lat": 22.5988,
-        "lon": 114.5098,
-        "price_pln": "0 PLN",
-        "time": "1 h",
-        "note": "Stare miasteczko-forteca z czasów Ming."
-      }
-    ]
-  },
-  {
-    "id": "macau",
-    "name": "Makao",
-    "region": "Makao SAR",
-    "kind": "daytrip",
-    "lat": 22.1987,
-    "lon": 113.5439,
-    "priority": "day trip only on budget",
-    "suggested_nights": "0 nocy przy budżecie 8k",
-    "avg_lodging_pln_pp": 230,
-    "lodging_range_pln_pp": "200-450 PLN/os./noc i więcej w święta",
-    "budget_note": "Day trip promem z Shekou (Shenzhen) 25.12. Nocleg w Makao szybko psuje budżet.",
-    "photo_id": "macau_st_paul",
-    "summary": "Najlepsze miejsce na świąteczny klimat bez spania: Ruiny św. Pawła, Senado, Taipa, egg tarty.",
-    "what_to_see": [
-      "Ruiny św. Pawła",
-      "Senado Square",
-      "Taipa Village",
-      "Coloane, jeśli macie więcej czasu",
-      "Egg tart i kuchnia makaoska"
-    ],
-    "attractions": [
-      {
-        "name": "Ruiny św. Pawła",
-        "lat": 22.1975,
-        "lon": 113.5409,
-        "price_pln": "0 PLN",
-        "time": "30-60 min",
-        "note": "Rano, zanim schody zapełnią się tłumem."
-      },
-      {
-        "name": "Senado Square",
-        "lat": 22.1935,
-        "lon": 113.5398,
-        "price_pln": "0 PLN",
-        "time": "30-60 min",
-        "note": "Portugalska kostka, fasady i chińskie szyldy."
-      },
-      {
-        "name": "Taipa Village",
-        "lat": 22.1535,
-        "lon": 113.5567,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Najlepszy pomost między starym Makao a Cotai."
-      }
-    ]
-  },
-  {
-    "id": "hongkong",
-    "name": "Hongkong",
-    "region": "Hong Kong SAR",
-    "kind": "daytrip",
+ {
+  "id": "guangzhou",
+  "name": "Guangzhou / Kanton",
+  "region": "Guangdong",
+  "kind": "base",
+  "lat": 23.1291,
+  "lon": 113.2644,
+  "priority": "start i koniec trasy",
+  "suggested_nights": "1 noc (17.12) + 2 noce (4–6.01)",
+  "avg_lodging_pln_pp": 50,
+  "lodging_range_pln_pp": "Super 8 Huadu 26 zł/os. (1 noc), Manning Dongshankou 125 zł/os. (2 noce)",
+  "budget_note": "17.12 tylko nocleg przy Guangzhou North pod poranny pociąg. 4–6.01 Dongshankou, ekipa zostaje do 7.01.",
+  "photo_id": "guangzhou_chen_clan",
+  "summary": "Pierwsza noc przy stacji Guangzhou North i dwie ostatnie w Dongshankou: wille z czasów republiki, kawiarnie, Chen Clan, Shamian i nocny rejs po Rzece Perłowej.",
+  "what_to_see": [
+   "Dongshankou: wille i kawiarnie",
+   "Chen Clan Academy",
+   "Wyspa Shamian",
+   "Nocny rejs po Rzece Perłowej",
+   "Foshan / Shunde jako wypad 5.01"
+  ],
+  "attractions": [
+   {
+    "name": "Chen Clan Academy",
+    "lat": 23.129,
+    "lon": 113.246,
+    "price_pln": "ok. 6 zł",
+    "time": "1,5–2 h",
+    "note": "Najlepszy detal rzemiosła Lingnan."
+   },
+   {
+    "name": "Shamian Island",
+    "lat": 23.109,
+    "lon": 113.239,
+    "price_pln": "0 zł",
+    "time": "1–2 h",
+    "note": "Spokojny spacer po dawnej wyspie koncesyjnej."
+   },
+   {
+    "name": "Dongshankou",
+    "lat": 23.1255,
+    "lon": 113.2965,
+    "price_pln": "0 zł",
+    "time": "pół dnia",
+    "note": "Okolica hotelu Manning: wille, kawiarnie, sklepiki."
+   },
+   {
+    "name": "Rejs nocny po Rzece Perłowej",
+    "lat": 23.112,
+    "lon": 113.27,
+    "price_pln": "ok. 50 zł",
+    "time": "1–1,5 h",
+    "note": "Na miejscu albo przez Trip.com."
+   }
+  ]
+ },
+ {
+  "id": "chaozhou",
+  "name": "Chaozhou / Shantou",
+  "region": "Chaoshan, Guangdong",
+  "kind": "base",
+  "lat": 23.6618,
+  "lon": 116.6226,
+  "priority": "my dwoje 18–22.12",
+  "suggested_nights": "4 noce (18–22.12)",
+  "avg_lodging_pln_pp": 31,
+  "lodging_range_pln_pp": "Sihan Courtyard na starym mieście: 122 zł/os. za 4 noce",
+  "budget_note": "Zarezerwowane. Darmowe anulowanie do 17.12, 12:00 czasu chińskiego.",
+  "photo_id": "chaozhou_guangji",
+  "summary": "Baza na 4 noce na starym mieście: herbata gongfu, gęś, wołowy hot pot w Shantou, okrągły dom Daoyun Lou i herbaciane wzgórza Fenghuang.",
+  "what_to_see": [
+   "Most Guangji (wieczorem podświetlony)",
+   "Paifang Street i świątynia Kaiyuan",
+   "Shantou: stare miasto i hot pot",
+   "Daoyun Lou albo Fenghuang",
+   "Longhu i wyspa Nan'ao"
+  ],
+  "attractions": [
+   {
+    "name": "Most Guangji",
+    "lat": 23.665,
+    "lon": 116.656,
+    "price_pln": "ok. 12 zł",
+    "time": "1–2 h",
+    "note": "Bilet za jedno wejście, kasa do ok. 16–17."
+   },
+   {
+    "name": "Paifang Street",
+    "lat": 23.662,
+    "lon": 116.644,
+    "price_pln": "0 zł",
+    "time": "1–2 h",
+    "note": "Jedzenie i stara oś miasta."
+   },
+   {
+    "name": "Świątynia Kaiyuan",
+    "lat": 23.6605,
+    "lon": 116.6443,
+    "price_pln": "0 zł",
+    "time": "1 h",
+    "note": "Buddyjska świątynia z czasów Tang."
+   },
+   {
+    "name": "Stare miasto Shantou",
+    "lat": 23.355,
+    "lon": 116.674,
+    "price_pln": "0 zł",
+    "time": "pół dnia",
+    "note": "Arkady qilou, wieczorem wołowy hot pot."
+   },
+   {
+    "name": "Daoyun Lou",
+    "lat": 23.835,
+    "lon": 117.008,
+    "price_pln": "ok. 12 zł",
+    "time": "pół dnia z dojazdem",
+    "note": "Ok. 1,5 h od Chaozhou; bywał remont, sprawdzić przed wyjazdem."
+   }
+  ]
+ },
+ {
+  "id": "hongkong",
+  "name": "Hongkong",
+  "region": "Hong Kong SAR",
+  "kind": "base",
+  "lat": 22.3193,
+  "lon": 114.1694,
+  "priority": "my + Kamil 22–24.12, ekipa 7–9.01",
+  "suggested_nights": "2 noce (22–24.12)",
+  "avg_lodging_pln_pp": 84,
+  "lodging_range_pln_pp": "Wellyet Guest House, Mirador Mansion: ¥834 za pokój na 3 os. na 2 noce (167 zł/os.)",
+  "budget_note": "Najdroższy nocleg trasy, ale 2 noce w centrum oszczędzają ok. 3 h dojazdów z Shenzhen.",
+  "photo_id": "hongkong_victoria_harbour",
+  "summary": "Dwie noce w Tsim Sha Tsui przed świętami: Peak Tram, Star Ferry, Central i Mong Kok w normalny dzień roboczy, bez świątecznych tłumów.",
+  "what_to_see": [
+   "Victoria Peak (Peak Tram)",
+   "Star Ferry przez port",
+   "Central / Sheung Wan",
+   "Mong Kok i Temple Street wieczorem",
+   "Victoria Harbour w blue hour"
+  ],
+  "attractions": [
+   {
+    "name": "Victoria Peak (Peak Tram)",
+    "lat": 22.2759,
+    "lon": 114.1455,
+    "price_pln": "ok. 64 zł w obie strony",
+    "time": "2–3 h",
+    "note": "HK$116; z tarasem Sky Terrace HK$182. Tylko przy dobrej widoczności."
+   },
+   {
+    "name": "Star Ferry",
+    "lat": 22.294,
+    "lon": 114.169,
+    "price_pln": "ok. 3 zł",
+    "time": "15–30 min",
+    "note": "Najtańszy rytuał portu."
+   },
+   {
+    "name": "Victoria Harbour",
+    "lat": 22.293,
+    "lon": 114.172,
+    "price_pln": "0 zł",
+    "time": "1–2 h",
+    "note": "Promenada w Tsim Sha Tsui, obok hotelu."
+   },
+   {
+    "name": "Mong Kok",
     "lat": 22.3193,
     "lon": 114.1694,
-    "priority": "wersja C: odbiór ekipy z HKG 26.12; ekipa 8.01",
-    "suggested_nights": "0 nocy przy budżecie 8k",
-    "avg_lodging_pln_pp": 260,
-    "lodging_range_pln_pp": "230-500 PLN/os./noc i więcej przy Sylwestrze",
-    "budget_note": "Day trip z Shenzhen jest sensowny. Sylwester bez noclegu będzie logistycznie ciężki.",
-    "photo_id": "hongkong_victoria_harbour",
-    "summary": "Największy miejski kontrast trasy: port, MTR, skyline, promy, jedzenie i gęstość Kowloonu.",
-    "what_to_see": [
-      "Victoria Harbour",
-      "Star Ferry",
-      "Central / Sheung Wan",
-      "Mong Kok",
-      "Peak tylko przy dobrej widoczności"
-    ],
-    "attractions": [
-      {
-        "name": "Victoria Harbour",
-        "lat": 22.293,
-        "lon": 114.169,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Najlepiej w blue hour."
-      },
-      {
-        "name": "Star Ferry",
-        "lat": 22.294,
-        "lon": 114.169,
-        "price_pln": "kilka PLN",
-        "time": "15-30 min",
-        "note": "Najtańszy rytuał portu."
-      },
-      {
-        "name": "Victoria Peak",
-        "lat": 22.2759,
-        "lon": 114.1455,
-        "price_pln": "płatny tram/taras",
-        "time": "2-3 h",
-        "note": "Tylko przy dobrej widoczności."
-      }
-    ]
-  },
-  {
-    "id": "lantau",
-    "name": "Lantau (Hongkong)",
-    "region": "Hongkong",
-    "kind": "rural",
-    "lat": 22.254,
-    "lon": 113.905,
-    "priority": "wersja C: natura 26.12 przed odbiorem ekipy",
-    "suggested_nights": "0 nocy / day trip (26.12)",
-    "avg_lodging_pln_pp": 0,
-    "lodging_range_pln_pp": "nocleg w Shenzhen",
-    "budget_note": "Kolejka Ngong Ping 360 ok. 140–200 PLN w obie strony, tańszy jest autobus z Tung Chung.",
-    "photo_id": "c_lantau_buddha",
-    "summary": "Górzysta wyspa obok lotniska HKG: Big Buddha i klasztor Po Lin w Ngong Ping, wioska rybacka Tai O na palach. O 19:00 odbiór ekipy z lotniska obok.",
-    "what_to_see": [
-      "Tian Tan Buddha i Po Lin",
-      "Kolejka Ngong Ping 360",
-      "Wioska Tai O",
-      "Szlak Lantau Peak (opcja)"
-    ],
-    "attractions": [
-      {
-        "name": "Tian Tan Buddha",
-        "lat": 22.254,
-        "lon": 113.905,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Kolejkę kupić online."
-      },
-      {
-        "name": "Tai O",
-        "lat": 22.2533,
-        "lon": 113.8622,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Domy na palach, suszone ryby."
-      }
-    ]
-  },
-  {
-    "id": "nanning",
-    "name": "Nanning",
-    "region": "Guangxi",
-    "kind": "transfer_base",
-    "lat": 22.817,
-    "lon": 108.366,
-    "priority": "wersja C: start Guangxi i baza na Detian",
-    "suggested_nights": "1 noc (27.12)",
-    "avg_lodging_pln_pp": 50,
-    "lodging_range_pln_pp": "40-70 PLN/os./noc w prostym hotelu lub hostelu",
-    "budget_note": "Dobra tania baza, jeśli chcecie dołożyć południowe Guangxi bez lotu. Nie jest tak widowiskowy jak Yangshuo, ale logistycznie działa.",
-    "photo_id": "detian_waterfall",
-    "summary": "Stolica Guangxi i praktyczna baza kolejowa do lokalnych wypadów: Detian, Fangchenggang/Dongxing i południowego pogranicza. Najlepsza jako 1-2 noce, nie jako główny cel.",
-    "what_to_see": [
-      "Qingxiu Mountain",
-      "Three Streets and Two Alleys",
-      "Zhongshan Road / lokalne jedzenie nocne",
-      "Guangxi Museum of Nationalities",
-      "Day trip do Detian Waterfall",
-      "Day trip do Fangchenggang/Dongxing"
-    ],
-    "attractions": [
-      {
-        "name": "Qingxiu Mountain",
-        "lat": 22.789,
-        "lon": 108.395,
-        "price_pln": "ok. 10-15 PLN",
-        "time": "2-4 h",
-        "note": "Najlepszy zielony punkt miasta; duży park, pagody i widoki."
-      },
-      {
-        "name": "Three Streets and Two Alleys",
-        "lat": 22.817,
-        "lon": 108.319,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Najwygodniejszy wieczorny spacer w centrum."
-      },
-      {
-        "name": "Guangxi Museum of Nationalities",
-        "lat": 22.766,
-        "lon": 108.397,
-        "price_pln": "zwykle 0 PLN",
-        "time": "1,5-2 h",
-        "note": "Dobry kontekst Zhuang, Dong, Miao i południowego Guangxi."
-      }
-    ]
-  },
-  {
-    "id": "detian",
-    "name": "Wodospad Detian",
-    "region": "Guangxi / Chongzuo",
-    "kind": "rural",
-    "lat": 22.854,
-    "lon": 106.722,
-    "priority": "wersja C: 28.12 (poniedziałek, mało ludzi)",
-    "suggested_nights": "nocleg 28.12 w Detian albo w Mingshi",
-    "avg_lodging_pln_pp": 0,
-    "lodging_range_pln_pp": "0 PLN/os./noc w wariancie day trip; wolniejsza wersja wymagałaby noclegu w Chongzuo/Mingshi",
-    "budget_note": "Koszt robi głównie transport, nie nocleg. Zostawić tylko wtedy, gdy grupa chce mocny krajobraz graniczny i akceptuje długi dzień.",
-    "photo_id": "detian_waterfall",
-    "summary": "Wodospad na granicy Chin i Wietnamu oraz krasowe okolice Mingshi. To najładniejszy, ale też najdłuższy wypad z Nanning.",
-    "what_to_see": [
-      "Detian Waterfall przy granicy z Wietnamem",
-      "Krasowy krajobraz Chongzuo",
-      "Mingshi countryside, jeśli logistycznie da się połączyć",
-      "Widoki i zdjęcia zamiast miejskiego zwiedzania"
-    ],
-    "attractions": [
-      {
-        "name": "Detian Waterfall",
-        "lat": 22.854,
-        "lon": 106.722,
-        "price_pln": "ok. 40-80 PLN scenic area / zależnie od pakietu",
-        "time": "3-4 h na miejscu",
-        "note": "Najmocniejszy krajobrazowy punkt z Nanning, ale wymaga długiego dojazdu."
-      },
-      {
-        "name": "Mingshi countryside",
-        "lat": 22.765,
-        "lon": 106.934,
-        "price_pln": "0-80 PLN zależnie od formy zwiedzania",
-        "time": "1-3 h, jeśli dzień nie jest przeładowany",
-        "note": "Krasowe pagórki i rzeka; dobre tylko przy dobrze ułożonym transporcie."
-      }
-    ]
-  },
-  {
-    "id": "mingshi",
-    "name": "Mingshi Tianyuan",
-    "region": "Guangxi",
-    "kind": "rural",
-    "lat": 22.703,
-    "lon": 106.896,
-    "priority": "wersja C: nocleg 28.12 przy Detian albo w Mingshi",
-    "suggested_nights": "1 noc (28.12, Detian albo Mingshi)",
-    "avg_lodging_pln_pp": 60,
-    "lodging_range_pln_pp": "40-90 PLN/os./noc w guesthousie",
-    "budget_note": "Kierowca z Nanning na 28–29.12, koszt dzielony na całą ekipę.",
-    "photo_id": "c_mingshi",
-    "summary": "Krasowa dolina koło Detian: rzeka, pola, wioski Zhuang, bambusowe tratwy. Jak Yangshuo, tylko spokojniej i cieplej.",
-    "what_to_see": [
-      "Tratwy bambusowe po rzece Mingshi",
-      "Pola i wioski Zhuang",
-      "Poranne mgły"
-    ],
-    "attractions": [
-      {
-        "name": "Mingshi Tianyuan",
-        "lat": 22.7025,
-        "lon": 106.8954,
-        "price_pln": "ok. 30-60 PLN z tratwą",
-        "time": "2-3 h",
-        "note": "Najlepiej rano."
-      }
-    ]
-  },
-  {
-    "id": "yangshuo",
-    "name": "Yangshuo / Yulong River",
-    "region": "Guangxi",
-    "kind": "rural",
-    "lat": 24.7785,
-    "lon": 110.4966,
-    "priority": "best rural/nature value",
-    "suggested_nights": "3 noce (29–31.12, Sylwester)",
-    "avg_lodging_pln_pp": 50,
-    "lodging_range_pln_pp": "40-75 PLN/os./noc; taniej poza West Street",
-    "budget_note": "Najlepszy kompromis krajobrazu, ceny i logistyki dla 2-3 tygodni.",
-    "photo_id": "yangshuo_yulong",
-    "summary": "Krasowe wzgórza, rzeka Yulong, rowery/skutery, Moon Hill i spokojniejsze wioski poza West Street.",
-    "what_to_see": [
-      "Yulong River",
-      "Moon Hill",
-      "Xingping / Li River viewpoint",
-      "Rower lub skuter przez pola",
-      "West Street tylko jako wieczorne zaplecze"
-    ],
-    "attractions": [
-      {
-        "name": "Yulong River",
-        "lat": 24.756,
-        "lon": 110.443,
-        "price_pln": "0 PLN spacer / tratwy płatne",
-        "time": "pół dnia",
-        "note": "Najładniejszy spokojny krajobraz Yangshuo."
-      },
-      {
-        "name": "Moon Hill",
-        "lat": 24.744,
-        "lon": 110.494,
-        "price_pln": "ok. 5-16 PLN",
-        "time": "1,5-2 h",
-        "note": "Schody i widok przez łuk skalny."
-      }
-    ]
-  },
-  {
-    "id": "xingping",
-    "name": "Xingping / rzeka Li",
-    "region": "Guangxi",
-    "kind": "rural",
-    "lat": 24.919,
-    "lon": 110.524,
-    "priority": "wersja C: 31.12 w dzień + nocleg 1.01",
-    "suggested_nights": "1-2 noce (1–2.01)",
-    "avg_lodging_pln_pp": 55,
-    "lodging_range_pln_pp": "40-80 PLN/os./noc w guesthousie nad rzeką",
-    "budget_note": "Autobus z Yangshuo ok. 40 min, kilka PLN.",
-    "photo_id": "c_xingping",
-    "summary": "Stara wioska nad rzeką Li z widokiem z banknotu 20 juanów. Tratwy, szlak wzdłuż rzeki, spokojne noclegi nad wodą.",
-    "what_to_see": [
-      "Widok z banknotu 20 juanów",
-      "Tratwa po rzece Li",
-      "Laozhai Hill (zachód słońca)",
-      "Stara uliczka Xingping"
-    ],
-    "attractions": [
-      {
-        "name": "Laozhai Hill",
-        "lat": 24.9205,
-        "lon": 110.5225,
-        "price_pln": "0-10 PLN",
-        "time": "1 h",
-        "note": "Strome schody, widok na zakole rzeki."
-      }
-    ]
-  },
-  {
-    "id": "guilin",
-    "name": "Guilin",
-    "region": "Guangxi",
-    "kind": "optional_extension",
-    "lat": 25.2736,
-    "lon": 110.29,
-    "priority": "rail base for Yangshuo/Nanning",
-    "suggested_nights": "0-1 noc",
-    "avg_lodging_pln_pp": 50,
-    "lodging_range_pln_pp": "40-70 PLN/os./noc",
-    "budget_note": "Dobre jako przesiadka, ale na noclegi lepszy klimat ma Yangshuo.",
-    "photo_id": "guilin_li_river",
-    "summary": "Miasto-brama do rzeki Li, Yangshuo i dalszej pętli Guangxi. Dobre na spokojny start po HSR.",
-    "what_to_see": [
-      "Two Rivers Four Lakes",
-      "Guilin rice noodles",
-      "Reed Flute Cave przy deszczu",
-      "Transfer do Yangshuo lub Nanning"
-    ],
-    "attractions": [
-      {
-        "name": "Two Rivers Four Lakes",
-        "lat": 25.273,
-        "lon": 110.29,
-        "price_pln": "0 PLN spacer / rejs płatny",
-        "time": "1-2 h",
-        "note": "Dobry wieczorny spacer po przyjeździe."
-      }
-    ]
-  },
-  {
-    "id": "fangchenggang",
-    "name": "Fangchenggang / Dongxing",
-    "region": "Guangxi coast",
-    "kind": "optional_extension",
-    "lat": 21.686,
-    "lon": 108.354,
-    "priority": "coast and Vietnam-border day trip",
-    "suggested_nights": "0 nocy / day trip z Nanning",
-    "avg_lodging_pln_pp": 0,
-    "lodging_range_pln_pp": "0 PLN/os./noc w planie day trip; nocleg tylko, jeśli świadomie chcecie zwolnić tempo",
-    "budget_note": "Budżetowy morski akcent Guangxi bez dokładania lotów. Sensowny tylko jako konkretny wypad z Nanning, nie jako osobna baza z walizkami.",
-    "photo_id": "detian_waterfall",
-    "summary": "Day trip z Nanning na wybrzeże Beibu Gulf i do Dongxing przy granicy z Wietnamem. Bardziej lokalnie i portowo niż pocztówkowo.",
-    "what_to_see": [
-      "Dongxing border area",
-      "Beilun River i pogranicze z Wietnamem",
-      "Jiangshan Peninsula / Bailangtan",
-      "Seafood i proste nadmorskie kolacje",
-      "Powrót na noc do Nanning"
-    ],
-    "attractions": [
-      {
-        "name": "Dongxing Border Gate",
-        "lat": 21.546,
-        "lon": 107.971,
-        "price_pln": "0 PLN bez przekraczania granicy",
-        "time": "1-2 h",
-        "note": "Atmosfera miasta granicznego; bez planu wietnamskiego nie kombinować z przejściem."
-      },
-      {
-        "name": "Jiangshan Peninsula / Bailangtan",
-        "lat": 21.535,
-        "lon": 108.256,
-        "price_pln": "0-20 PLN zależnie od odcinka",
-        "time": "pół dnia",
-        "note": "Najprostszy morski akcent Fangchenggang."
-      },
-      {
-        "name": "Fangchenggang waterfront",
-        "lat": 21.686,
-        "lon": 108.354,
-        "price_pln": "0 PLN",
-        "time": "1-2 h",
-        "note": "Port, promenady i kolacja z owocami morza."
-      }
-    ]
-  },
-  {
-    "id": "zhuhai",
-    "name": "Zhuhai",
-    "region": "Guangdong",
-    "kind": "optional_extension",
-    "lat": 22.2707,
-    "lon": 113.5767,
-    "priority": "cheap Macau base",
-    "suggested_nights": "1-2 noce",
-    "avg_lodging_pln_pp": 55,
-    "lodging_range_pln_pp": "45-80 PLN/os./noc przy Gongbei przy dobrym dealu",
-    "budget_note": "Śpijcie tutaj, jeśli Makao ma być day tripem bez drogich hoteli.",
-    "photo_id": "macau_senado",
-    "summary": "Praktyczna baza do Makao przez Gongbei/Hengqin. Sama w sobie spokojna, morska, tańsza.",
-    "what_to_see": [
-      "Gongbei border",
-      "Lovers' Road",
-      "Day trip do Makao"
-    ],
-    "attractions": [
-      {
-        "name": "Gongbei Port",
-        "lat": 22.215,
-        "lon": 113.549,
-        "price_pln": "0 PLN",
-        "time": "granica 30-90 min",
-        "note": "Najważniejsza praktyczna brama do Makao."
-      }
-    ]
-  }
+    "price_pln": "0 zł",
+    "time": "wieczór",
+    "note": "Targi i neony."
+   }
+  ]
+ },
+ {
+  "id": "shenzhen",
+  "name": "Shenzhen",
+  "region": "Guangdong",
+  "kind": "base",
+  "lat": 22.5431,
+  "lon": 114.0579,
+  "priority": "my + Kamil 24–26.12",
+  "suggested_nights": "2 noce (24–26.12)",
+  "avg_lodging_pln_pp": 55,
+  "lodging_range_pln_pp": "Tourism Trend Hotel, Huaqiangbei, pokój na 3: ok. 110 zł/os. za 2 noce",
+  "budget_note": "Wigilia w mieście, 25.12 Dapeng, 26.12 wieczorem prom do Zhuhai.",
+  "photo_id": "shenzhen_skyline",
+  "summary": "Futurystyczne miasto przy granicy z Hongkongiem: rynek elektroniki Huaqiangbei, OCT Loft, park Lianhuashan i wypad na półwysep Dapeng.",
+  "what_to_see": [
+   "Huaqiangbei (elektronika)",
+   "OCT Loft",
+   "Park Lianhuashan i widok na Futian",
+   "Shekou",
+   "Półwysep Dapeng 25.12"
+  ],
+  "attractions": [
+   {
+    "name": "Huaqiangbei",
+    "lat": 22.545,
+    "lon": 114.086,
+    "price_pln": "0 zł",
+    "time": "2–4 h",
+    "note": "Elektronika, obok hotelu (metro Yannan)."
+   },
+   {
+    "name": "OCT Loft",
+    "lat": 22.5405,
+    "lon": 113.9955,
+    "price_pln": "0 zł",
+    "time": "1–2 h",
+    "note": "Dawne fabryki, galerie i kawiarnie."
+   },
+   {
+    "name": "Park Lianhuashan",
+    "lat": 22.554,
+    "lon": 114.055,
+    "price_pln": "0 zł",
+    "time": "1–2 h",
+    "note": "Widok na skyline Futian."
+   },
+   {
+    "name": "Shekou Cruise Centre",
+    "lat": 22.4875,
+    "lon": 113.9125,
+    "price_pln": "prom 84 zł",
+    "time": "1 h rejsu",
+    "note": "Prom do Zhuhai 26.12 (metro Taiziwan)."
+   }
+  ]
+ },
+ {
+  "id": "dapeng",
+  "name": "Półwysep Dapeng",
+  "region": "Guangdong (Shenzhen)",
+  "kind": "rural",
+  "lat": 22.53,
+  "lon": 114.55,
+  "priority": "25.12 dzień natury",
+  "suggested_nights": "0 nocy, wypad z Shenzhen (25.12)",
+  "avg_lodging_pln_pp": 0,
+  "lodging_range_pln_pp": "nocleg w Shenzhen",
+  "budget_note": "Dojazd z centrum Shenzhen ok. 1,5 h (bus E11 albo DiDi). Szlak bywa zamykany przy złej pogodzie.",
+  "photo_id": "c_dapeng_xichong",
+  "summary": "Zielony, górzysty półwysep na wschód od Shenzhen. Szlak wybrzeżem Dongchong → Xichong (4–5 h) po skałach i zatoczkach, na koniec plaża Xichong.",
+  "what_to_see": [
+   "Szlak Dongchong → Xichong",
+   "Plaża Xichong",
+   "Twierdza Dapeng (Ming)",
+   "Wioski rybackie"
+  ],
+  "attractions": [
+   {
+    "name": "Plaża Xichong",
+    "lat": 22.479,
+    "lon": 114.539,
+    "price_pln": "0 PLN",
+    "time": "1-2 h",
+    "note": "Koniec szlaku, najładniejsza plaża Shenzhen."
+   },
+   {
+    "name": "Twierdza Dapeng",
+    "lat": 22.5988,
+    "lon": 114.5098,
+    "price_pln": "0 PLN",
+    "time": "1 h",
+    "note": "Stare miasteczko-forteca z czasów Ming."
+   }
+  ]
+ },
+ {
+  "id": "zhuhai",
+  "name": "Zhuhai",
+  "region": "Guangdong",
+  "kind": "base",
+  "lat": 22.2707,
+  "lon": 113.5767,
+  "priority": "wszyscy 26–29.12, baza na Makau",
+  "suggested_nights": "3 noce (26–29.12)",
+  "avg_lodging_pln_pp": 40,
+  "lodging_range_pln_pp": "Phoenix Valley, Gongbei, 4 pokoje: ¥1608 (121 zł/os. za 3 noce); taniej Hai Yue S ¥1268",
+  "budget_note": "Hotel z całodobową recepcją, bo ekipa dojeżdża ok. 22–23.",
+  "photo_id": "t_zhuhai",
+  "summary": "Spokojne miasto nad morzem przy granicy z Makau. Tu dołącza ekipa: dzień odpoczynku na Qi'ao i promenadzie, potem Makau pieszo przez Gongbei.",
+  "what_to_see": [
+   "Wyspa Qi'ao",
+   "Promenada Lovers' Road i posąg Rybaczki",
+   "Owoce morza",
+   "Przejście Gongbei do Makau"
+  ],
+  "attractions": [
+   {
+    "name": "Wyspa Qi'ao",
+    "lat": 22.418,
+    "lon": 113.63,
+    "price_pln": "0 zł",
+    "time": "pół dnia",
+    "note": "Namorzyny, stara wioska, świątynie."
+   },
+   {
+    "name": "Lovers' Road i Rybaczka",
+    "lat": 22.2563,
+    "lon": 113.5935,
+    "price_pln": "0 zł",
+    "time": "1–2 h",
+    "note": "Promenada nad morzem."
+   },
+   {
+    "name": "Gongbei Port",
+    "lat": 22.215,
+    "lon": 113.549,
+    "price_pln": "0 zł",
+    "time": "granica 30–90 min",
+    "note": "Pieszo do Makau, obok hotelu."
+   },
+   {
+    "name": "Port promowy Jiuzhou",
+    "lat": 22.2452,
+    "lon": 113.5948,
+    "price_pln": "0 zł",
+    "time": "-",
+    "note": "Tu przypływa prom z Shekou 26.12."
+   }
+  ]
+ },
+ {
+  "id": "macau",
+  "name": "Makao",
+  "region": "Makao SAR",
+  "kind": "daytrip",
+  "lat": 22.1987,
+  "lon": 113.5439,
+  "priority": "28.12 wypad z Zhuhai",
+  "suggested_nights": "0 nocy, pieszo z Zhuhai",
+  "avg_lodging_pln_pp": 0,
+  "lodging_range_pln_pp": "nocleg w Zhuhai",
+  "budget_note": "Powrót do Chin jeszcze w 2026, więc ruch bezwizowy bez problemu.",
+  "photo_id": "macau_st_paul",
+  "summary": "Wypad pieszo przez Gongbei: ruiny św. Pawła, Senado, Taipa i egg tarty. Dla chętnych taras Macau Tower.",
+  "what_to_see": [
+   "Ruiny św. Pawła",
+   "Senado Square",
+   "Taipa Village",
+   "Macau Tower dla chętnych",
+   "Egg tart i kuchnia makaoska"
+  ],
+  "attractions": [
+   {
+    "name": "Ruiny św. Pawła",
+    "lat": 22.1975,
+    "lon": 113.5409,
+    "price_pln": "0 PLN",
+    "time": "30-60 min",
+    "note": "Rano, zanim schody zapełnią się tłumem."
+   },
+   {
+    "name": "Senado Square",
+    "lat": 22.1935,
+    "lon": 113.5398,
+    "price_pln": "0 PLN",
+    "time": "30-60 min",
+    "note": "Portugalska kostka, fasady i chińskie szyldy."
+   },
+   {
+    "name": "Taipa Village",
+    "lat": 22.1535,
+    "lon": 113.5567,
+    "price_pln": "0 PLN",
+    "time": "1-2 h",
+    "note": "Najlepszy pomost między starym Makao a Cotai."
+   },
+   {
+    "name": "Macau Tower",
+    "lat": 22.1797,
+    "lon": 113.5371,
+    "price_pln": "ok. 115 zł",
+    "time": "1 h",
+    "note": "MOP 208, opcjonalnie."
+   }
+  ]
+ },
+ {
+  "id": "yangshuo",
+  "name": "Yangshuo / Yulong River",
+  "region": "Guangxi",
+  "kind": "rural",
+  "lat": 24.7785,
+  "lon": 110.4966,
+  "priority": "wszyscy 29.12–2.01, Sylwester",
+  "suggested_nights": "4 noce (29.12–2.01)",
+  "avg_lodging_pln_pp": 33,
+  "lodging_range_pln_pp": "Shushe Treehouse, 4 pokoje: ok. ¥1765 (ok. 132 zł/os. za 4 noce; cena 4. nocy do sprawdzenia)",
+  "budget_note": "Na Sylwestra rezerwować jak najszybciej.",
+  "photo_id": "yangshuo_yulong",
+  "summary": "Krasowe wzgórza, rzeka Yulong, rowery i tratwy, Sylwester na West Street, a na koniec wschód słońca z TV Tower.",
+  "what_to_see": [
+   "Rowery nad Yulong",
+   "Tratwa bambusowa",
+   "Moon Hill",
+   "Sylwester na West Street",
+   "Wschód słońca z TV Tower (2.01)"
+  ],
+  "attractions": [
+   {
+    "name": "Tratwa na Yulong",
+    "lat": 24.756,
+    "lon": 110.443,
+    "price_pln": "ok. 78 zł/os.",
+    "time": "1–2 h",
+    "note": "¥200–320 za tratwę na 2 os., zależnie od odcinka."
+   },
+   {
+    "name": "Moon Hill",
+    "lat": 24.744,
+    "lon": 110.494,
+    "price_pln": "ok. 9 zł",
+    "time": "1,5–2 h",
+    "note": "Schody i widok przez łuk skalny."
+   },
+   {
+    "name": "Yangshuo TV Tower",
+    "lat": 24.7765,
+    "lon": 110.4925,
+    "price_pln": "opłata lokalna, sprawdzić",
+    "time": "ok. 1 h",
+    "note": "Wejście przy targu na Pantao Rd, ok. 10 min od hotelu. Najlepiej o świcie."
+   },
+   {
+    "name": "West Street",
+    "lat": 24.7797,
+    "lon": 110.4945,
+    "price_pln": "0 zł",
+    "time": "wieczór",
+    "note": "Sylwester, bary otwarte długo po północy."
+   }
+  ]
+ },
+ {
+  "id": "xingping",
+  "name": "Xingping / rzeka Li",
+  "region": "Guangxi",
+  "kind": "daytrip",
+  "lat": 24.919,
+  "lon": 110.524,
+  "priority": "1.01 wypad z Yangshuo",
+  "suggested_nights": "0 nocy, wypad z Yangshuo",
+  "avg_lodging_pln_pp": 0,
+  "lodging_range_pln_pp": "nocleg w Yangshuo",
+  "budget_note": "Wynajęty busik dla całej ekipy albo autobus (ok. 1 h).",
+  "photo_id": "c_xingping",
+  "summary": "Stara wioska nad rzeką Li z widokiem z banknotu 20 juanów. Tratwy, szlak wzdłuż rzeki, spokojne noclegi nad wodą.",
+  "what_to_see": [
+   "Widok z banknotu 20 juanów",
+   "Tratwa po rzece Li",
+   "Laozhai Hill (zachód słońca)",
+   "Stara uliczka Xingping"
+  ],
+  "attractions": [
+   {
+    "name": "Laozhai Hill",
+    "lat": 24.9205,
+    "lon": 110.5225,
+    "price_pln": "0 zł",
+    "time": "1 h",
+    "note": "Strome schody, widok na zakole rzeki. Jeśli TV Tower się uda, można pominąć."
+   },
+   {
+    "name": "Tratwa na rzece Li",
+    "lat": 24.93,
+    "lon": 110.53,
+    "price_pln": "ok. 60 zł/os.",
+    "time": "1 h",
+    "note": "Widok z banknotu 20 juanów."
+   }
+  ]
+ },
+ {
+  "id": "zhaoqing",
+  "name": "Zhaoqing",
+  "region": "Guangdong",
+  "kind": "rural",
+  "lat": 23.075,
+  "lon": 112.475,
+  "priority": "wszyscy 2–4.01",
+  "suggested_nights": "2 noce (2–4.01)",
+  "avg_lodging_pln_pp": 46,
+  "lodging_range_pln_pp": "Starisland Lakeview, 4 pokoje: ¥1216 (91 zł/os. za 2 noce)",
+  "budget_note": "3.01 to szczyt powrotów po długim weekendzie, więc zostajemy na miejscu zamiast jechać.",
+  "photo_id": "t_zhaoqing",
+  "summary": "Wapienne skały nad jeziorami tuż przy mieście (Seven Star Crags) i góra Dinghu z lasem, wodospadami i klasztorem. Spokojne dwa dni po Yangshuo, 40 min od Kantonu.",
+  "what_to_see": [
+   "Seven Star Crags (jeziora i skały)",
+   "Jaskinia w Seven Star Crags",
+   "Góra Dinghu: wodospady, klasztor Qingyun",
+   "Stare mury miejskie"
+  ],
+  "attractions": [
+   {
+    "name": "Seven Star Crags",
+    "lat": 23.077,
+    "lon": 112.473,
+    "price_pln": "72 zł bilet łączony z Dinghu",
+    "time": "pół dnia",
+    "note": "Osobno po ¥70; podobno za darmo po 19:00."
+   },
+   {
+    "name": "Góra Dinghu",
+    "lat": 23.168,
+    "lon": 112.536,
+    "price_pln": "w bilecie łączonym",
+    "time": "cały dzień",
+    "note": "Las, wodospady, klasztor Qingyun. Ruszać rano."
+   }
+  ]
+ },
+ {
+  "id": "shunde_foshan",
+  "name": "Shunde / Foshan",
+  "region": "Guangdong",
+  "kind": "daytrip",
+  "lat": 22.805,
+  "lon": 113.293,
+  "priority": "5.01 wypad z Kantonu",
+  "suggested_nights": "0 nocy, wypad z Kantonu",
+  "avg_lodging_pln_pp": 0,
+  "lodging_range_pln_pp": "nocleg w Kantonie",
+  "budget_note": "Tani sposób na mocny dzień kulinarny bez drogich hoteli.",
+  "photo_id": "char_siu",
+  "summary": "Kulinarny satelita Guangzhou: Shunde food, Foshan ancestral temple, Lingnan Tiandi.",
+  "what_to_see": [
+   "Zumiao w Foshan",
+   "Lingnan Tiandi",
+   "Shunde na ryby, mleczne desery, hotpot i kuchnię kantońską"
+  ],
+  "attractions": [
+   {
+    "name": "Świątynia Zumiao",
+    "lat": 23.03,
+    "lon": 113.112,
+    "price_pln": "ok. 12 zł",
+    "time": "1–2 h",
+    "note": "8:30–18:00."
+   }
+  ]
+ }
 ]

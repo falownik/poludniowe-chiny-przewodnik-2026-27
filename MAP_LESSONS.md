@@ -91,3 +91,16 @@ zmiana wizualna musi byc sprawdzona w przegladarce, a nie tylko w HTML-u.
   czytelnosc markerow, tras i popupow.
 - Kolejne zmiany powinny byc male i testowane po drodze, bo najwieksze regresje
   powstawaly przy poprawianiu layoutu bez ogladania wyniku w przegladarce.
+
+## Wersja T (2026-11-17)
+
+- Aktualny plan to wersja T (zakładka arkusza „Najlepszy plan. Ever. Tremendous”):
+  Chaozhou 18–22.12, Hongkong 22–24.12, Shenzhen 24–26.12, Zhuhai 26–29.12 (Makau
+  28.12), Yangshuo 29.12–2.01 (Xingping 1.01), Zhaoqing 2–4.01, Kanton 4–6.01.
+  Dane: `data/plan_t.json`; mapa i `wersja-t.html` czytają ten plik. `plan_c.json`
+  i `wersja-c.html` zostają jako archiwum.
+- Tulou, Xiamen, Nanning, Detian, Mingshi, Lantau i Guilin zniknęły z mapy.
+- Kafelki CartoDB zaczęły zwracać „API KEY REQUIRED”, więc domyślna mapa to
+  OpenStreetMap, plus nakładka Esri z podpisami łacińskimi (pinyin) obok znaków.
+- Commons szybko odpowiada 429; pobieranie zdjęć robić z przerwami i venv-owym
+  Pythonem (msys Python ma problem z certyfikatami SSL).

@@ -44,15 +44,6 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "file": "assets/images/variants/chaozhou-guangji-bridge-20191211-4948907a.jpg"
   },
-  "File:Dapeng Fortress, Shenzhen.jpg": {
-    "commons_title": "File:Dapeng Fortress, Shenzhen.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Dapeng_Fortress%2C_Shenzhen.jpg/960px-Dapeng_Fortress%2C_Shenzhen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:Dapeng_Fortress,_Shenzhen.jpg",
-    "artist": "Dinkun Chen",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "file": "assets/images/variants/dapeng-fortress-shenzhen-82fdf55f.jpg"
-  },
   "File:Huaqiangbei July 2024 (1).jpg": {
     "commons_title": "File:Huaqiangbei July 2024 (1).jpg",
     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Huaqiangbei_July_2024_%281%29.jpg/960px-Huaqiangbei_July_2024_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -62,14 +53,23 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "file": "assets/images/variants/huaqiangbei-july-2024-1-8f266316.jpg"
   },
-  "File:Macau - Ruins of Saint Paul's (Ank Kumar) 01.jpg": {
-    "commons_title": "File:Macau - Ruins of Saint Paul's (Ank Kumar) 01.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Macau_-_Ruins_of_Saint_Paul%27s_%28Ank_Kumar%29_01.jpg/960px-Macau_-_Ruins_of_Saint_Paul%27s_%28Ank_Kumar%29_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:Macau_-_Ruins_of_Saint_Paul%27s_(Ank_Kumar)_01.jpg",
-    "artist": "Ank Kumar",
+  "File:Kaiyuan Temple of Chaozhou 2010.jpg": {
+    "commons_title": "File:Kaiyuan Temple of Chaozhou 2010.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Kaiyuan_Temple_of_Chaozhou_2010.jpg/960px-Kaiyuan_Temple_of_Chaozhou_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Kaiyuan_Temple_of_Chaozhou_2010.jpg",
+    "artist": "Polar1",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "file": "assets/images/variants/kaiyuan-temple-of-chaozhou-2010-df7eda79.jpg"
+  },
+  "File:Lianhuashan Park Shenzen China 1310769.jpg": {
+    "commons_title": "File:Lianhuashan Park Shenzen China 1310769.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Lianhuashan_Park_Shenzen_China_1310769.jpg/960px-Lianhuashan_Park_Shenzen_China_1310769.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Lianhuashan_Park_Shenzen_China_1310769.jpg",
+    "artist": "Ermell",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "file": "assets/images/variants/macau-ruins-of-saint-paul-s-ank-kumar-01-4f67dde3.jpg"
+    "file": "assets/images/variants/lianhuashan-park-shenzen-china-1310769-16306d35.jpg"
   },
   "File:Nanputuo Temple, Xiamen.jpg": {
     "commons_title": "File:Nanputuo Temple, Xiamen.jpg",
@@ -79,6 +79,15 @@
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "file": "assets/images/variants/nanputuo-temple-xiamen-d3b1298b.jpg"
+  },
+  "File:OCT LOFT, SHENZHEN (52).jpg": {
+    "commons_title": "File:OCT LOFT, SHENZHEN (52).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/OCT_LOFT%2C_SHENZHEN_%2852%29.jpg/960px-OCT_LOFT%2C_SHENZHEN_%2852%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:OCT_LOFT,_SHENZHEN_(52).jpg",
+    "artist": "Dinkun Chen",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/oct-loft-shenzhen-52-cb4d2718.jpg"
   },
   "File:Paifangjie.jpg": {
     "commons_title": "File:Paifangjie.jpg",
@@ -143,15 +152,6 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
     "file": "assets/images/variants/woman-crossing-a-bridge-on-gulangyu-island-xiamen-china-1611-66f72520.jpg"
   },
-  "File:YANGMEI KENG, DAPENG SUBDISTRICT, SHENZHEN (12).jpg": {
-    "commons_title": "File:YANGMEI KENG, DAPENG SUBDISTRICT, SHENZHEN (12).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/YANGMEI_KENG%2C_DAPENG_SUBDISTRICT%2C_SHENZHEN_%2812%29.jpg/960px-YANGMEI_KENG%2C_DAPENG_SUBDISTRICT%2C_SHENZHEN_%2812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:YANGMEI_KENG,_DAPENG_SUBDISTRICT,_SHENZHEN_(12).jpg",
-    "artist": "Dinkun Chen",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "file": "assets/images/variants/yangmei-keng-dapeng-subdistrict-shenzhen-12-10f8b54f.jpg"
-  },
   "File:Yongqingfang 1.jpg": {
     "commons_title": "File:Yongqingfang 1.jpg",
     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Yongqingfang_1.jpg/960px-Yongqingfang_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -206,6 +206,15 @@
     "license_url": "https://creativecommons.org/licenses/by/4.0",
     "file": "assets/images/variants/2024-12-27-a-star-ferry-crosses-victoria-harbour-1-a662c20c.jpg"
   },
+  "File:Dapeng Fortress, Shenzhen.jpg": {
+    "commons_title": "File:Dapeng Fortress, Shenzhen.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Dapeng_Fortress%2C_Shenzhen.jpg/960px-Dapeng_Fortress%2C_Shenzhen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Dapeng_Fortress,_Shenzhen.jpg",
+    "artist": "Dinkun Chen",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/dapeng-fortress-shenzhen-82fdf55f.jpg"
+  },
   "File:Detian Falls, China Viet Border (49304427072).jpg": {
     "commons_title": "File:Detian Falls, China Viet Border (49304427072).jpg",
     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Detian_Falls%2C_China_Viet_Border_%2849304427072%29.jpg/960px-Detian_Falls%2C_China_Viet_Border_%2849304427072%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -214,33 +223,6 @@
     "license": "CC BY-SA 2.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
     "file": "assets/images/variants/detian-falls-china-viet-border-49304427072-7230e28e.jpg"
-  },
-  "File:Detian Falls Tour Boats.jpg": {
-    "commons_title": "File:Detian Falls Tour Boats.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Detian_Falls_Tour_Boats.jpg/960px-Detian_Falls_Tour_Boats.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:Detian_Falls_Tour_Boats.jpg",
-    "artist": "TeaFriend",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "file": "assets/images/variants/detian-falls-tour-boats-0b381caf.jpg"
-  },
-  "File:Foshan Ancestral Temple 2.jpg": {
-    "commons_title": "File:Foshan Ancestral Temple 2.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Foshan_Ancestral_Temple_2.jpg/960px-Foshan_Ancestral_Temple_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:Foshan_Ancestral_Temple_2.jpg",
-    "artist": "钉钉",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "file": "assets/images/variants/foshan-ancestral-temple-2-a3d486b4.jpg"
-  },
-  "File:Foshan Shunde Qinghui Yuan 2024-05-11 16.06.40.jpg": {
-    "commons_title": "File:Foshan Shunde Qinghui Yuan 2024-05-11 16.06.40.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg/960px-Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg",
-    "artist": "古海岸遗址",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "file": "assets/images/variants/foshan-shunde-qinghui-yuan-2024-05-11-16-06-40-56c369fa.jpg"
   },
   "File:Li River and mountains in Yangshuo County, Guilin2.jpg": {
     "commons_title": "File:Li River and mountains in Yangshuo County, Guilin2.jpg",
@@ -259,6 +241,15 @@
     "license": "CC BY-SA 3.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "file": "assets/images/variants/li-river-at-xingping-1-d7b7b7e0.jpg"
+  },
+  "File:Macau - Ruins of Saint Paul's (Ank Kumar) 01.jpg": {
+    "commons_title": "File:Macau - Ruins of Saint Paul's (Ank Kumar) 01.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Macau_-_Ruins_of_Saint_Paul%27s_%28Ank_Kumar%29_01.jpg/960px-Macau_-_Ruins_of_Saint_Paul%27s_%28Ank_Kumar%29_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Macau_-_Ruins_of_Saint_Paul%27s_(Ank_Kumar)_01.jpg",
+    "artist": "Ank Kumar",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/macau-ruins-of-saint-paul-s-ank-kumar-01-4f67dde3.jpg"
   },
   "File:Nanning Confucian Temple and Mount Qingxiu Shan, June 2023.jpg": {
     "commons_title": "File:Nanning Confucian Temple and Mount Qingxiu Shan, June 2023.jpg",
@@ -287,6 +278,15 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "file": "assets/images/variants/tai-o-fisherman-s-village-fb80fb76.jpg"
   },
+  "File:The Peak Tram, Hong Kong (Ank Kumar) 02.jpg": {
+    "commons_title": "File:The Peak Tram, Hong Kong (Ank Kumar) 02.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/The_Peak_Tram%2C_Hong_Kong_%28Ank_Kumar%29_02.jpg/960px-The_Peak_Tram%2C_Hong_Kong_%28Ank_Kumar%29_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Peak_Tram,_Hong_Kong_(Ank_Kumar)_02.jpg",
+    "artist": "Ank Kumar",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/the-peak-tram-hong-kong-ank-kumar-02-d26ff80c.jpg"
+  },
   "File:Tian Tan Buddha 2023081302.jpg": {
     "commons_title": "File:Tian Tan Buddha 2023081302.jpg",
     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Tian_Tan_Buddha_2023081302.jpg/960px-Tian_Tan_Buddha_2023081302.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -314,6 +314,15 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "file": "assets/images/variants/xingping-77-ef800f4e.jpg"
   },
+  "File:YANGMEI KENG, DAPENG SUBDISTRICT, SHENZHEN (12).jpg": {
+    "commons_title": "File:YANGMEI KENG, DAPENG SUBDISTRICT, SHENZHEN (12).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/YANGMEI_KENG%2C_DAPENG_SUBDISTRICT%2C_SHENZHEN_%2812%29.jpg/960px-YANGMEI_KENG%2C_DAPENG_SUBDISTRICT%2C_SHENZHEN_%2812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:YANGMEI_KENG,_DAPENG_SUBDISTRICT,_SHENZHEN_(12).jpg",
+    "artist": "Dinkun Chen",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/yangmei-keng-dapeng-subdistrict-shenzhen-12-10f8b54f.jpg"
+  },
   "File:Yangshuo Yulong River.JPG": {
     "commons_title": "File:Yangshuo Yulong River.JPG",
     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Yangshuo_Yulong_River.JPG/960px-Yangshuo_Yulong_River.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -322,6 +331,141 @@
     "license": "CC0",
     "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "file": "assets/images/variants/yangshuo-yulong-river-dbc0afa6.jpg"
+  },
+  "File:Yangshuo from TV tower hill 01.JPG": {
+    "commons_title": "File:Yangshuo from TV tower hill 01.JPG",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Yangshuo_from_TV_tower_hill_01.JPG/960px-Yangshuo_from_TV_tower_hill_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Yangshuo_from_TV_tower_hill_01.JPG",
+    "artist": "Immanuel Giel",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/yangshuo-from-tv-tower-hill-01-653ff886.jpg"
+  },
+  "File:Yulong River Bamboo raft boatmen - panoramio.jpg": {
+    "commons_title": "File:Yulong River Bamboo raft boatmen - panoramio.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Yulong_River_Bamboo_raft_boatmen_-_panoramio.jpg/960px-Yulong_River_Bamboo_raft_boatmen_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Yulong_River_Bamboo_raft_boatmen_-_panoramio.jpg",
+    "artist": "Annette Teng",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "file": "assets/images/variants/yulong-river-bamboo-raft-boatmen-panoramio-cd26ead7.jpg"
+  },
+  "File:氹仔村 - Taipa Village - 2016.06 - panoramio.jpg": {
+    "commons_title": "File:氹仔村 - Taipa Village - 2016.06 - panoramio.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/%E6%B0%B9%E4%BB%94%E6%9D%91_-_Taipa_Village_-_2016.06_-_panoramio.jpg/960px-%E6%B0%B9%E4%BB%94%E6%9D%91_-_Taipa_Village_-_2016.06_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:%E6%B0%B9%E4%BB%94%E6%9D%91_-_Taipa_Village_-_2016.06_-_panoramio.jpg",
+    "artist": "rheins",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "file": "assets/images/variants/taipa-village-2016-06-panoramio-1a27987a.jpg"
+  },
+  "File:20241207 Aerial view of Portas do Cerco and Gongbei Port.jpg": {
+    "commons_title": "File:20241207 Aerial view of Portas do Cerco and Gongbei Port.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/20241207_Aerial_view_of_Portas_do_Cerco_and_Gongbei_Port.jpg/960px-20241207_Aerial_view_of_Portas_do_Cerco_and_Gongbei_Port.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:20241207_Aerial_view_of_Portas_do_Cerco_and_Gongbei_Port.jpg",
+    "artist": "Windmemories",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/20241207-aerial-view-of-portas-do-cerco-and-gongbei-port-6432b8f8.jpg"
+  },
+  "File:Detian Falls Tour Boats.jpg": {
+    "commons_title": "File:Detian Falls Tour Boats.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Detian_Falls_Tour_Boats.jpg/960px-Detian_Falls_Tour_Boats.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Detian_Falls_Tour_Boats.jpg",
+    "artist": "TeaFriend",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/detian-falls-tour-boats-0b381caf.jpg"
+  },
+  "File:Foshan Ancestral Temple 2.jpg": {
+    "commons_title": "File:Foshan Ancestral Temple 2.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Foshan_Ancestral_Temple_2.jpg/960px-Foshan_Ancestral_Temple_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Foshan_Ancestral_Temple_2.jpg",
+    "artist": "钉钉",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/foshan-ancestral-temple-2-a3d486b4.jpg"
+  },
+  "File:Foshan Shunde Qinghui Yuan 2024-05-11 16.06.40.jpg": {
+    "commons_title": "File:Foshan Shunde Qinghui Yuan 2024-05-11 16.06.40.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg/960px-Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Foshan_Shunde_Qinghui_Yuan_2024-05-11_16.06.40.jpg",
+    "artist": "古海岸遗址",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/foshan-shunde-qinghui-yuan-2024-05-11-16-06-40-56c369fa.jpg"
+  },
+  "File:Macau-Zhuhai Skyline seen from Lovers Road.jpg": {
+    "commons_title": "File:Macau-Zhuhai Skyline seen from Lovers Road.jpg",
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Macau-Zhuhai_Skyline_seen_from_Lovers_Road.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "source": "https://commons.wikimedia.org/wiki/File:Macau-Zhuhai_Skyline_seen_from_Lovers_Road.jpg",
+    "artist": "User: (WT-shared) Uvacavmatt at wts wikivoyage",
+    "license": "Public domain",
+    "license_url": "",
+    "file": "assets/images/variants/macau-zhuhai-skyline-seen-from-lovers-road-284cd287.jpg"
+  },
+  "File:Qi'ao Island2021.jpg": {
+    "commons_title": "File:Qi'ao Island2021.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Qi%27ao_Island2021.jpg/960px-Qi%27ao_Island2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Qi%27ao_Island2021.jpg",
+    "artist": "Charlie fong",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/qi-ao-island2021-30ef3f10.jpg"
+  },
+  "File:Qixingyan Bridge, Seven Star Crags 20260217.jpg": {
+    "commons_title": "File:Qixingyan Bridge, Seven Star Crags 20260217.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Qixingyan_Bridge%2C_Seven_Star_Crags_20260217.jpg/960px-Qixingyan_Bridge%2C_Seven_Star_Crags_20260217.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Qixingyan_Bridge,_Seven_Star_Crags_20260217.jpg",
+    "artist": "Jasonjiang.1998",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/qixingyan-bridge-seven-star-crags-20260217-a5c8de89.jpg"
+  },
+  "File:Sunset at the Bund, Shanghai 2019.jpg": {
+    "commons_title": "File:Sunset at the Bund, Shanghai 2019.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Sunset_at_the_Bund%2C_Shanghai_2019.jpg/960px-Sunset_at_the_Bund%2C_Shanghai_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunset_at_the_Bund,_Shanghai_2019.jpg",
+    "artist": "David Zhang from Canada",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "file": "assets/images/variants/sunset-at-the-bund-shanghai-2019-44a7a2a2.jpg"
+  },
+  "File:The Bund, Shanghai at night.jpg": {
+    "commons_title": "File:The Bund, Shanghai at night.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/The_Bund%2C_Shanghai_at_night.jpg/960px-The_Bund%2C_Shanghai_at_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Bund,_Shanghai_at_night.jpg",
+    "artist": "Lloyd Tudor",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/the-bund-shanghai-at-night-530a3825.jpg"
+  },
+  "File:View from Observation Deck of Zhaoqing Railway Station, Star Lake of Zhaoqing 20251208.jpg": {
+    "commons_title": "File:View from Observation Deck of Zhaoqing Railway Station, Star Lake of Zhaoqing 20251208.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/View_from_Observation_Deck_of_Zhaoqing_Railway_Station%2C_Star_Lake_of_Zhaoqing_20251208.jpg/960px-View_from_Observation_Deck_of_Zhaoqing_Railway_Station%2C_Star_Lake_of_Zhaoqing_20251208.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:View_from_Observation_Deck_of_Zhaoqing_Railway_Station,_Star_Lake_of_Zhaoqing_20251208.jpg",
+    "artist": "Jasonjiang.1998",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/view-from-observation-deck-of-zhaoqing-railway-station-star--70e53462.jpg"
+  },
+  "File:Wulong Pavilion & Qixing Bridge, Seven Star Crags 20260217.jpg": {
+    "commons_title": "File:Wulong Pavilion & Qixing Bridge, Seven Star Crags 20260217.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Wulong_Pavilion_%26_Qixing_Bridge%2C_Seven_Star_Crags_20260217.jpg/960px-Wulong_Pavilion_%26_Qixing_Bridge%2C_Seven_Star_Crags_20260217.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Wulong_Pavilion_%26_Qixing_Bridge,_Seven_Star_Crags_20260217.jpg",
+    "artist": "Jasonjiang.1998",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/wulong-pavilion-qixing-bridge-seven-star-crags-20260217-6d7a4857.jpg"
+  },
+  "File:Zhuhai Fisher Girl statue dllu.jpg": {
+    "commons_title": "File:Zhuhai Fisher Girl statue dllu.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Zhuhai_Fisher_Girl_statue_dllu.jpg/960px-Zhuhai_Fisher_Girl_statue_dllu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:Zhuhai_Fisher_Girl_statue_dllu.jpg",
+    "artist": "Dllu",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "file": "assets/images/variants/zhuhai-fisher-girl-statue-dllu-353d5da1.jpg"
   },
   "File:明仕田園, 廣西省 - panoramio.jpg": {
     "commons_title": "File:明仕田園, 廣西省 - panoramio.jpg",
@@ -350,31 +494,58 @@
     "license_url": "https://creativecommons.org/licenses/by/3.0",
     "file": "assets/images/variants/panoramio-3-419539fd.jpg"
   },
-  "File:氹仔村 - Taipa Village - 2016.06 - panoramio.jpg": {
-    "commons_title": "File:氹仔村 - Taipa Village - 2016.06 - panoramio.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/%E6%B0%B9%E4%BB%94%E6%9D%91_-_Taipa_Village_-_2016.06_-_panoramio.jpg/960px-%E6%B0%B9%E4%BB%94%E6%9D%91_-_Taipa_Village_-_2016.06_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:%E6%B0%B9%E4%BB%94%E6%9D%91_-_Taipa_Village_-_2016.06_-_panoramio.jpg",
-    "artist": "rheins",
-    "license": "CC BY 3.0",
-    "license_url": "https://creativecommons.org/licenses/by/3.0",
-    "file": "assets/images/variants/taipa-village-2016-06-panoramio-1a27987a.jpg"
+  "File:珠海淇澳岛文昌宫.jpg": {
+    "commons_title": "File:珠海淇澳岛文昌宫.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/%E7%8F%A0%E6%B5%B7%E6%B7%87%E6%BE%B3%E5%B2%9B%E6%96%87%E6%98%8C%E5%AE%AB.jpg/960px-%E7%8F%A0%E6%B5%B7%E6%B7%87%E6%BE%B3%E5%B2%9B%E6%96%87%E6%98%8C%E5%AE%AB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:%E7%8F%A0%E6%B5%B7%E6%B7%87%E6%BE%B3%E5%B2%9B%E6%96%87%E6%98%8C%E5%AE%AB.jpg",
+    "artist": "Mx. Granger",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "file": "assets/images/variants/photo-3b6ac4cc.jpg"
   },
-  "File:Sunset at the Bund, Shanghai 2019.jpg": {
-    "commons_title": "File:Sunset at the Bund, Shanghai 2019.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Sunset_at_the_Bund%2C_Shanghai_2019.jpg/960px-Sunset_at_the_Bund%2C_Shanghai_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:Sunset_at_the_Bund,_Shanghai_2019.jpg",
-    "artist": "David Zhang from Canada",
-    "license": "CC BY-SA 2.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-    "file": "assets/images/variants/sunset-at-the-bund-shanghai-2019-44a7a2a2.jpg"
-  },
-  "File:The Bund, Shanghai at night.jpg": {
-    "commons_title": "File:The Bund, Shanghai at night.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/The_Bund%2C_Shanghai_at_night.jpg/960px-The_Bund%2C_Shanghai_at_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "source": "https://commons.wikimedia.org/wiki/File:The_Bund,_Shanghai_at_night.jpg",
-    "artist": "Lloyd Tudor",
+  "File:肇庆鼎湖山飞水潭-2020年1月.jpg": {
+    "commons_title": "File:肇庆鼎湖山飞水潭-2020年1月.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/%E8%82%87%E5%BA%86%E9%BC%8E%E6%B9%96%E5%B1%B1%E9%A3%9E%E6%B0%B4%E6%BD%AD-2020%E5%B9%B41%E6%9C%88.jpg/960px-%E8%82%87%E5%BA%86%E9%BC%8E%E6%B9%96%E5%B1%B1%E9%A3%9E%E6%B0%B4%E6%BD%AD-2020%E5%B9%B41%E6%9C%88.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:%E8%82%87%E5%BA%86%E9%BC%8E%E6%B9%96%E5%B1%B1%E9%A3%9E%E6%B0%B4%E6%BD%AD-2020%E5%B9%B41%E6%9C%88.jpg",
+    "artist": "星星",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "file": "assets/images/variants/the-bund-shanghai-at-night-530a3825.jpg"
+    "file": "assets/images/variants/2020-1-1f8a28f8.jpg"
+  },
+  "File:道韵楼全景.jpg": {
+    "commons_title": "File:道韵楼全景.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/%E9%81%93%E9%9F%B5%E6%A5%BC%E5%85%A8%E6%99%AF.jpg/960px-%E9%81%93%E9%9F%B5%E6%A5%BC%E5%85%A8%E6%99%AF.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%81%93%E9%9F%B5%E6%A5%BC%E5%85%A8%E6%99%AF.jpg",
+    "artist": "Zzjgbc at Chinese Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "file": "assets/images/variants/photo-9cf887f2.jpg"
+  },
+  "File:道韵楼外观.jpg": {
+    "commons_title": "File:道韵楼外观.jpg",
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/64/%E9%81%93%E9%9F%B5%E6%A5%BC%E5%A4%96%E8%A7%82.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%81%93%E9%9F%B5%E6%A5%BC%E5%A4%96%E8%A7%82.jpg",
+    "artist": "Zzjgbc at Chinese Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "file": "assets/images/variants/photo-9024dbe8.jpg"
+  },
+  "File:道韵楼局部.jpg": {
+    "commons_title": "File:道韵楼局部.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/%E9%81%93%E9%9F%B5%E6%A5%BC%E5%B1%80%E9%83%A8.jpg/960px-%E9%81%93%E9%9F%B5%E6%A5%BC%E5%B1%80%E9%83%A8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "source": "https://commons.wikimedia.org/wiki/File:%E9%81%93%E9%9F%B5%E6%A5%BC%E5%B1%80%E9%83%A8.jpg",
+    "artist": "Franco508",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "file": "assets/images/variants/photo-7201bed1.jpg"
+  },
+  "File:Dinghushan dingyuan.JPG": {
+    "commons_title": "File:Dinghushan dingyuan.JPG",
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/61/Dinghushan_dingyuan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "source": "https://commons.wikimedia.org/wiki/File:Dinghushan_dingyuan.JPG",
+    "artist": "空雨",
+    "license": "Public domain",
+    "license_url": "",
+    "file": "assets/images/variants/dinghushan-dingyuan-f7c53993.jpg"
   }
 }

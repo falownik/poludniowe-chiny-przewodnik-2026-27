@@ -597,7 +597,7 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
     <div id="trip-panel">
       <h1>Południe Chin 2026/27</h1>
       <p>Mapa planistyczna: noclegi, atrakcje, day tripy, transport i budżet. Najedź na marker, żeby zobaczyć zdjęcie i skrót; kliknij, żeby otworzyć szczegóły.</p>
-      <p class="panel-links"><a href="wersja-c.html">Wersja C</a></p>
+      <p class="panel-links"><a href="wersja-t.html">Wersja T</a> · <a href="wersja-c.html">Wersja C (archiwum)</a></p>
       <p>Kolorowe obszary pokazują prowincje i regiony administracyjne objęte planem. Warstwę można włączać i wyłączać w panelu mapy.</p>
       <h2>Budżet noclegów</h2>
       <p>Cel użytkownika: średnio około <strong>50 PLN/os./noc</strong>. Zielone markery są najbliżej celu; czerwone traktuj jako day trip albo wyjątek.</p>
@@ -613,9 +613,9 @@ def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) ->
     """
 
 
-PLAN_C = DATA_DIR / "plan_c.json"
+PLAN_C = DATA_DIR / "plan_t.json"
 # plan_c.json uses gallery place ids; a few map markers are named differently.
-PLAN_C_TO_MAP_IDS = {"shantou": "chaozhou", "foshan": "shunde_foshan"}
+PLAN_C_TO_MAP_IDS = {"shantou": "chaozhou", "daoyun": "chaozhou", "foshan": "shunde_foshan"}
 
 
 def plan_c_trip_days() -> list[dict[str, Any]]:
@@ -625,7 +625,7 @@ def plan_c_trip_days() -> list[dict[str, Any]]:
     days = []
     for day in load_json(PLAN_C)["days"]:
         place_ids = list(dict.fromkeys(PLAN_C_TO_MAP_IDS.get(pid, pid) for pid in day["ids"]))
-        days.append({"date": day["date"], "title": day["place"], "detail": day["plan"], "who": day["who"], "place_ids": place_ids})
+        days.append({"date": day["date"], "title": day["place"], "detail": day["plan"], "who": day["who"], "night": day.get("night", ""), "place_ids": place_ids})
     return days
 
 
@@ -651,7 +651,7 @@ def build_itinerary_panel(places: list[dict[str, Any]]) -> str:
     return f"""
     <button id="plan-panel-toggle" class="panel-toggle panel-toggle-plan" type="button" aria-controls="plan-panel" aria-expanded="true">Ukryj plan</button>
     <aside id="plan-panel">
-      <h2>Plan: wersja C (więcej natury, Sylwester w Yangshuo)</h2>
+      <h2>Plan: wersja T (Chaozhou, Hongkong, Zhuhai, Sylwester w Yangshuo, Zhaoqing)</h2>
       <div class="itinerary-days">
         {''.join(rows)}
       </div>
@@ -1479,9 +1479,20 @@ def build_map() -> None:
         tiles=None,
         prefer_canvas=True,
     )
-    folium.TileLayer("CartoDB positron", name="Jasna mapa", control=True).add_to(fmap)
+    # CartoDB basemaps now require an API key, so OpenStreetMap is the default.
     folium.TileLayer("OpenStreetMap", name="OpenStreetMap", control=True).add_to(fmap)
-    folium.TileLayer("CartoDB dark_matter", name="Ciemna mapa", control=True).add_to(fmap)
+    folium.TileLayer("Esri.WorldGrayCanvas", name="Jasna mapa (Esri)", control=True, show=False).add_to(fmap)
+    folium.TileLayer("Esri.WorldImagery", name="Satelita (Esri)", control=True, show=False).add_to(fmap)
+    # OSM labels in China are characters only; this transparent Esri layer adds Latin (pinyin) place names on top.
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+        attr="Labels &copy; Esri",
+        name="Podpisy pinyin (Esri)",
+        overlay=True,
+        control=True,
+        show=True,
+        max_zoom=18,
+    ).add_to(fmap)
 
     add_province_layer(fmap, provinces)
     add_routes(fmap, routes, places_by_id)

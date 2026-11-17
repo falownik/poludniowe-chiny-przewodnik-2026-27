@@ -117,35 +117,23 @@ def main() -> None:
             require(budget.get(key), f"attraction budget lacks {key}: {budget.get('title')}")
         require(len(budget["items"]) >= 4, f"attraction budget needs at least four items: {budget['title']}")
     require(len(attributions) >= len({place["photo_id"] for place in places}), "missing image attributions")
-    require(any(place["id"] == "nanning" for place in places), "Nanning is missing from places")
-    require(any(place["id"] == "fangchenggang" for place in places), "Fangchenggang is missing from places")
-    require(any(place["id"] == "detian" for place in places), "Detian is missing from places")
-    require(all(place["id"] not in {"hainan", "longji"} for place in places), "removed Hainan/Longji places should not be mapped")
-    require(any(place["id"] == "xiamen" for place in places), "Xiamen is missing from places (plan v2)")
-    require(any(place["id"] == "tulou" for place in places), "Tulou is missing from places (plan v2)")
+    for place_id in ["guangzhou", "chaozhou", "hongkong", "shenzhen", "dapeng", "zhuhai", "macau", "yangshuo", "xingping", "zhaoqing"]:
+        require(any(place["id"] == place_id for place in places), f"variant T place missing: {place_id}")
+    for removed_id in ["hainan", "longji", "tulou", "xiamen", "nanning", "detian", "mingshi", "lantau", "fangchenggang"]:
+        require(all(place["id"] != removed_id for place in places), f"place outside variant T should not be mapped: {removed_id}")
     flight_routes = [route for route in routes if "flight" in route["mode"].lower()]
     if flight_routes:
         require(any(route.get("train_alt") for route in flight_routes), "flight routes lack train alternatives")
     route_layers = {route.get("layer") for route in routes}
     require({"hub_hsr", "local_hub", "optional"}.issubset(route_layers), "route layer split is incomplete")
     require(all(route.get("layer") in {"hub_hsr", "local_hub", "optional"} for route in routes), "route has invalid layer")
-    require(any(route["id"] == "nanning_shenzhen" for route in routes), "Nanning-Shenzhen hub route is missing")
-    require(any(route["id"] == "nanning_detian" for route in routes), "Nanning-Detian route is missing")
-    for place_id in ["dapeng", "lantau", "mingshi", "xingping"]:
-        require(any(place["id"] == place_id for place in places), f"variant C place missing: {place_id}")
     for route_id in [
-        "chaozhou_tulou", "tulou_xiamen", "xiamen_guangzhou", "guangzhou_shenzhen", "shenzhen_dapeng", "shenzhen_macau",
-        "hongkong_lantau", "nanning_shenzhen", "nanning_detian", "detian_mingshi", "mingshi_nanning",
-        "nanning_yangshuo", "yangshuo_xingping", "yangshuo_guangzhou",
+        "guangzhou_chaozhou", "chaozhou_hongkong", "hongkong_shenzhen", "shenzhen_dapeng", "shenzhen_zhuhai",
+        "hongkong_zhuhai", "zhuhai_macau", "zhuhai_yangshuo", "yangshuo_xingping", "yangshuo_zhaoqing", "zhaoqing_guangzhou",
     ]:
         require(
             any(route["id"] == route_id and route.get("layer") in {"hub_hsr", "local_hub"} for route in routes),
-            f"variant C route missing or hidden: {route_id}",
-        )
-    for route_id in ["yangshuo_shenzhen", "nanning_guangzhou", "nanning_fangchenggang"]:
-        require(
-            all(route.get("layer") == "optional" for route in routes if route["id"] == route_id),
-            f"variant B-only route should be optional in variant C: {route_id}",
+            f"variant T route missing or hidden: {route_id}",
         )
     require(
         all(route["from"] not in {"hainan", "longji"} and route["to"] not in {"hainan", "longji"} for route in routes),
@@ -167,7 +155,8 @@ def main() -> None:
         "plan-panel",
         "itinerary-day",
         "data-place-ids",
-        "Plan: wersja C",
+        "Plan: wersja T",
+        "wersja-t.html",
         "Sylwester w Yangshuo",
         "itinerary-who",
         "itinerary-marker-active",
@@ -186,8 +175,7 @@ def main() -> None:
         "Pętla HSR",
         "Wypady z baz",
         "opcje rezerwowe, domyślnie wyłączone",
-        "Wodospad Detian", "Mingshi Tianyuan", "Półwysep Dapeng", "Lantau (Hongkong)", "Xingping / rzeka Li",
-        "Fangchenggang / Dongxing",
+        "Półwysep Dapeng", "Xingping / rzeka Li", "Zhaoqing", "Zhuhai",
         "leaflet-tooltip.route-tooltip",
         "width: max-content",
         "overflow-wrap: break-word",
@@ -215,7 +203,7 @@ def main() -> None:
         require(place["name"] in html, f"HTML missing place: {place['name']}")
         require(f"places/{place['id']}.html" in html, f"HTML missing place page link: {place['name']}")
         require(str(place["avg_lodging_pln_pp"]) in html, f"HTML missing lodging price for: {place['name']}")
-        require(place.get("summary", "") in html, f"HTML missing region summary for: {place['name']}")
+        require(html_contains_text(html, place.get("summary", "")), f"HTML missing region summary for: {place['name']}")
         require(place.get("what_to_see"), f"place lacks what_to_see list: {place['name']}")
         require(place.get("attractions"), f"place lacks attractions: {place['name']}")
 
@@ -223,7 +211,7 @@ def main() -> None:
         require(page.exists(), f"missing place page: {page}")
         page_html = page.read_text(encoding="utf-8")
         require(place["name"] in page_html, f"place page missing title: {place['name']}")
-        require(place.get("summary", "") in page_html, f"place page missing summary: {place['name']}")
+        require(html_contains_text(page_html, place.get("summary", "")), f"place page missing summary: {place['name']}")
         require("../index.html" in page_html, f"place page missing map backlink: {place['name']}")
         require("../assets/site.css" in page_html, f"place page missing site CSS: {place['name']}")
         require("Połączenia z mapy" in page_html, f"place page missing route section: {place['name']}")
@@ -257,6 +245,11 @@ def main() -> None:
     for stale_name in ["hainan.html", "longji.html"]:
         require(not (PLACES_DIR / stale_name).exists(), f"stale removed place page should be deleted: {stale_name}")
 
+    plan_t_html = (DOCS / "wersja-t.html").read_text(encoding="utf-8")
+    require("Wersja T" in plan_t_html, "variant T page missing title")
+    require(plan_t_html.count('class="cday"') >= 26, "variant T page should list every day")
+    require("Seven Star Crags" in plan_t_html and "Sylwester" in plan_t_html, "variant T page lacks key stops")
+
     image_files = list((DOCS / "assets" / "images").glob("*"))
     require(len(image_files) >= len({place["photo_id"] for place in places}), "not enough copied images")
 
@@ -265,14 +258,14 @@ def main() -> None:
     route_cost_rows = list(csv.DictReader(ROUTE_COST_CSV.read_text(encoding="utf-8-sig").splitlines()))
     require(len(route_cost_rows) == len(routes), "route cost CSV row count does not match routes")
     require({"route_id", "warstwa", "z", "do", "koszt_pln", "srodek_kosztu_pln"}.issubset(route_cost_rows[0].keys()), "route cost CSV lacks required columns")
-    require(any(row["route_id"] == "nanning_shenzhen" for row in route_cost_rows), "route cost CSV missing Nanning-Shenzhen")
+    require(any(row["route_id"] == "zhuhai_yangshuo" for row in route_cost_rows), "route cost CSV missing Zhuhai-Yangshuo")
     require(ITINERARY_CSV.exists(), "itinerary CSV is missing")
     itinerary_rows = list(csv.DictReader(ITINERARY_CSV.read_text(encoding="utf-8-sig").splitlines()))
     require(len(itinerary_rows) >= 20, "itinerary CSV should cover the full trip")
     require({"data", "miejsce", "kto", "nocleg", "plan_dnia", "przejazdy", "place_ids"}.issubset(itinerary_rows[0].keys()), "itinerary CSV lacks required columns")
     require(any(row["data"] == "31.12" and "Yangshuo" in row["nocleg"] for row in itinerary_rows), "itinerary CSV should have New Year's Eve in Yangshuo")
     require(any(row["data"] == "26.12" and "ekipa" in row["kto"] for row in itinerary_rows), "itinerary CSV should mark the group joining on 26.12")
-    require(any(row["data"] == "11.1" for row in itinerary_rows), "itinerary CSV should run until the group flies home on 11.1")
+    require(any(row["data"] == "11.01" for row in itinerary_rows), "itinerary CSV should run until the group flies home on 11.01")
     itinerary_html = (DOCS / "itinerary.html").read_text(encoding="utf-8")
     require("Dzień po dniu: kto gdzie" in itinerary_html, "itinerary page missing day-by-day table")
     require(itinerary_html.count("<tr><td>") >= len(itinerary_rows), "itinerary page day table is incomplete")

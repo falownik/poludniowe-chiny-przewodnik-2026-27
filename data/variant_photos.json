@@ -344,6 +344,10 @@
         {
           "commons_title": "File:20230206 Kaiyuan Temple, Chaozhou 01.jpg",
           "caption": "Świątynia Kaiyuan"
+        },
+        {
+          "commons_title": "File:Kaiyuan Temple of Chaozhou 2010.jpg",
+          "caption": "Świątynia Kaiyuan"
         }
       ]
     },
@@ -416,6 +420,14 @@
         {
           "commons_title": "File:20201112 The skyline at Shenzhen Bay.jpg",
           "caption": "Zatoka Shenzhen"
+        },
+        {
+          "commons_title": "File:OCT LOFT, SHENZHEN (52).jpg",
+          "caption": "OCT Loft"
+        },
+        {
+          "commons_title": "File:Lianhuashan Park Shenzen China 1310769.jpg",
+          "caption": "Park Lianhuashan"
         }
       ]
     },
@@ -468,6 +480,10 @@
         {
           "commons_title": "File:Victoria Harbour Hong Kong and Star Ferry.JPG",
           "caption": "Victoria Harbour i panorama wyspy HK"
+        },
+        {
+          "commons_title": "File:The Peak Tram, Hong Kong (Ank Kumar) 02.jpg",
+          "caption": "Peak Tram na Victoria Peak"
         }
       ]
     },
@@ -504,6 +520,14 @@
         {
           "commons_title": "File:1 aerial yangshuo panorama 2017.jpg",
           "caption": "Panorama krasu wokół Yangshuo"
+        },
+        {
+          "commons_title": "File:Yangshuo from TV tower hill 01.JPG",
+          "caption": "Widok z TV Tower na Yangshuo"
+        },
+        {
+          "commons_title": "File:Yulong River Bamboo raft boatmen - panoramio.jpg",
+          "caption": "Tratwy bambusowe na Yulong"
         }
       ]
     },
@@ -608,6 +632,74 @@
         {
           "commons_title": "File:Sunset at the Bund, Shanghai 2019.jpg",
           "caption": "Zachód słońca nad Bundem i Pudong"
+        }
+      ]
+    },
+    {
+      "id": "daoyun",
+      "name": "Daoyun Lou (Raoping)",
+      "kind": "wioska / dom Hakka",
+      "summary": "Największy okrągły dom (tulou) w Guangdongu, ok. 1,5 h od Chaozhou. Ośmiokątny pierścień z setkami izb wokół wspólnego dziedzińca, wciąż zamieszkany.",
+      "photos": [
+        {
+          "commons_title": "File:道韵楼全景.jpg",
+          "caption": "Daoyun Lou z góry"
+        },
+        {
+          "commons_title": "File:道韵楼外观.jpg",
+          "caption": "Mury zewnętrzne"
+        },
+        {
+          "commons_title": "File:道韵楼局部.jpg",
+          "caption": "Fragment pierścienia"
+        }
+      ]
+    },
+    {
+      "id": "zhuhai",
+      "name": "Zhuhai (Gongbei, Qi'ao)",
+      "kind": "miasto nad morzem",
+      "summary": "Spokojne, zielone miasto nad morzem przy granicy z Makau. Promenada Lovers' Road, posąg Rybaczki, wyspa Qi'ao z namorzynami i starą wioską. Baza na 3 noce i pieszy wypad do Makau.",
+      "photos": [
+        {
+          "commons_title": "File:Zhuhai Fisher Girl statue dllu.jpg",
+          "caption": "Posąg Rybaczki, symbol Zhuhai"
+        },
+        {
+          "commons_title": "File:Qi'ao Island2021.jpg",
+          "caption": "Wyspa Qi'ao"
+        },
+        {
+          "commons_title": "File:珠海淇澳岛文昌宫.jpg",
+          "caption": "Świątynia Wenchang na Qi'ao"
+        },
+        {
+          "commons_title": "File:20241207 Aerial view of Portas do Cerco and Gongbei Port.jpg",
+          "caption": "Przejście Gongbei do Makau"
+        }
+      ]
+    },
+    {
+      "id": "zhaoqing",
+      "name": "Zhaoqing (Seven Star Crags, Dinghu)",
+      "kind": "natura przy mieście",
+      "summary": "Wapienne skały nad jeziorami tuż przy mieście (Seven Star Crags) i góra Dinghu z lasem, wodospadami i klasztorem Qingyun. Spokojna baza na 2 noce po Yangshuo.",
+      "photos": [
+        {
+          "commons_title": "File:Wulong Pavilion & Qixing Bridge, Seven Star Crags 20260217.jpg",
+          "caption": "Seven Star Crags: pawilon Wulong i most"
+        },
+        {
+          "commons_title": "File:Qixingyan Bridge, Seven Star Crags 20260217.jpg",
+          "caption": "Most Qixingyan nad jeziorem"
+        },
+        {
+          "commons_title": "File:View from Observation Deck of Zhaoqing Railway Station, Star Lake of Zhaoqing 20251208.jpg",
+          "caption": "Star Lake i skały widziane ze stacji"
+        },
+        {
+          "commons_title": "File:肇庆鼎湖山飞水潭-2020年1月.jpg",
+          "caption": "Dinghu: wodospad Feishui Tan (styczeń)"
         }
       ]
     }

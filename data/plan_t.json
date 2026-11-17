@@ -1,0 +1,32 @@
+{
+  "updated": "2026-11-17",
+  "days": [
+    {"date": "16.12", "who": "my dwoje", "place": "Warszawa → Monachium → Szanghaj", "plan": "Wylot z Warszawy przez Monachium do Szanghaju (PVG).", "night": "samolot", "ids": []},
+    {"date": "17.12", "who": "my dwoje", "place": "Kanton (Guangzhou North)", "plan": "Wjazd do Chin w Szanghaju, lot do Kantonu, przylot o 22:55. DiDi z lotniska pod stację Guangzhou North.", "night": "Super 8 Huadu przy Guangzhou North (zarezerwowane)", "ids": ["guangzhou"]},
+    {"date": "18.12", "who": "my dwoje", "place": "Chaozhou", "plan": "G6175 09:02 Guangzhou North → Chaoshan 12:24, DiDi na stare miasto. Spacer, gęś, herbata gongfu, wieczorem podświetlony most Guangji.", "night": "Chaozhou, Sihan Courtyard (zarezerwowane)", "ids": ["chaozhou"]},
+    {"date": "19.12", "who": "my dwoje", "place": "Shantou", "plan": "Stare miasto Shantou z arkadami qilou, wieczorem wołowy hot pot.", "night": "Chaozhou", "ids": ["shantou"]},
+    {"date": "20.12", "who": "my dwoje", "place": "Okolice Chaozhou", "plan": "Daoyun Lou, ośmiokątny okrągły dom Hakka (ok. 1,5 h), albo herbaciane wzgórza Fenghuang. Z kierowcą umówić też powrót.", "night": "Chaozhou", "ids": ["daoyun"]},
+    {"date": "21.12", "who": "my dwoje", "place": "Okolice Chaozhou", "plan": "Na luzie: Longhu, wyspa Nan'ao albo Fenghuang. Kamil wylatuje z Polski.", "night": "Chaozhou", "ids": ["chaozhou"]},
+    {"date": "22.12", "who": "my dwoje + Kamil", "place": "Chaozhou → Hongkong", "plan": "Pociąg Chaoshan → Hong Kong West Kowloon (ok. 2,5 h, ok. 126 zł). Kamil ląduje w CAN o 07:00 i jedzie sam do Hongkongu. Spotkanie w hotelu.", "night": "Hongkong, Wellyet Guest House (Mirador Mansion, Tsim Sha Tsui)", "ids": ["hongkong"]},
+    {"date": "23.12", "who": "my + Kamil", "place": "Hongkong", "plan": "Hongkong w dzień roboczy: Central, Peak Tram, Star Ferry. Wieczorem Mong Kok i Temple Street.", "night": "Hongkong", "ids": ["hongkong"]},
+    {"date": "24.12", "who": "my + Kamil", "place": "Hongkong → Shenzhen", "plan": "Rano MTR do granicy i do Shenzhen. Huaqiangbei (elektronika), OCT Loft. Wieczorem Wigilia w mieście.", "night": "Shenzhen, Tourism Trend Hotel (Huaqiangbei)", "ids": ["shenzhen"]},
+    {"date": "25.12", "who": "my + Kamil", "place": "Shenzhen / Dapeng", "plan": "Szlak wybrzeżem półwyspu Dapeng, Dongchong → Xichong (wyjazd najpóźniej o 7:30, bywa zamykany przy złej pogodzie).", "night": "Shenzhen", "ids": ["dapeng"]},
+    {"date": "26.12", "who": "my + Kamil, wieczorem ekipa", "place": "Shenzhen → Zhuhai", "plan": "Rano Shenzhen: Shekou, park Lianhuashan. Wieczorem prom Shekou → Zhuhai Jiuzhou (18:00 albo 19:30, ok. 1 h, ¥140), DiDi do hotelu. Ekipa ląduje w HKG o 19:00 i jedzie sama Golden Busem przez most. Spotykamy się w hotelu ok. 22–23.", "night": "Zhuhai, Phoenix Valley (Gongbei)", "ids": ["shenzhen", "zhuhai"]},
+    {"date": "27.12", "who": "wszyscy", "place": "Zhuhai", "plan": "Na spokojnie po locie: wyspa Qi'ao, promenada Lovers' Road, owoce morza.", "night": "Zhuhai", "ids": ["zhuhai"]},
+    {"date": "28.12", "who": "wszyscy", "place": "Makau", "plan": "Pieszo przez przejście Gongbei. Ruiny św. Pawła, Senado, Taipa, egg tarty. Dla chętnych taras Macau Tower.", "night": "Zhuhai", "ids": ["macau"]},
+    {"date": "29.12", "who": "wszyscy", "place": "Zhuhai → Yangshuo", "plan": "G3792 09:07 Zhuhai → Yangshuo 12:16 bez przesiadki. Po południu rowery nad rzeką Yulong.", "night": "Yangshuo, Shushe Treehouse (550 m od West Street)", "ids": ["yangshuo"]},
+    {"date": "30.12", "who": "wszyscy", "place": "Yangshuo", "plan": "Rowery albo skutery nad Yulong, tratwa bambusowa, Moon Hill. Dla chętnych wspinaczka albo via ferrata.", "night": "Yangshuo", "ids": ["yangshuo"]},
+    {"date": "31.12", "who": "wszyscy", "place": "Yangshuo (Sylwester)", "plan": "W dzień spokojnie (Fuli, kawiarnie z widokiem). Wieczorem Sylwester na West Street, do hotelu wracamy pieszo.", "night": "Yangshuo", "ids": ["yangshuo"]},
+    {"date": "1.01", "who": "wszyscy", "place": "Xingping", "plan": "Wypad do Xingping wynajętym busikiem albo autobusem (ok. 1 h). Rzeka Li, widok z banknotu 20 juanów, Laozhai Hill. Wieczorem powrót do Yangshuo.", "night": "Yangshuo", "ids": ["xingping"]},
+    {"date": "2.01", "who": "wszyscy", "place": "Yangshuo → Zhaoqing", "plan": "O świcie Yangshuo TV Tower (wejście przy targu na Pantao Rd, ok. 10 min od hotelu). D1895 11:54 → Zhaoqingdong 13:41, po południu Seven Star Crags.", "night": "Zhaoqing, Starisland Lakeview (Seven Star Crags)", "ids": ["yangshuo", "zhaoqing"]},
+    {"date": "3.01", "who": "wszyscy", "place": "Zhaoqing / Dinghu", "plan": "Góra Dinghu: las, wodospady, klasztor Qingyun. Ruszamy rano. 3.01 to szczyt powrotów po długim weekendzie, więc zostajemy na miejscu.", "night": "Zhaoqing", "ids": ["zhaoqing"]},
+    {"date": "4.01", "who": "wszyscy", "place": "Zhaoqing → Kanton", "plan": "Rano Zhaoqingdong → Guangzhounan (ok. 40 min), metro do Dongshankou. Wille, kawiarnie, wieczorem rejs po Rzece Perłowej.", "night": "Kanton, Manning Hotel (Dongshankou)", "ids": ["guangzhou"]},
+    {"date": "5.01", "who": "wszyscy", "place": "Kanton / Foshan", "plan": "Foshan (świątynia Zumiao) albo Shunde. Chen Clan Academy, wyspa Shamian. Wieczorem pakowanie i ostatnia wspólna kolacja.", "night": "Kanton", "ids": ["foshan", "guangzhou"]},
+    {"date": "6.01", "who": "my + Kamil wylot, ekipa zostaje", "place": "Powrót / Kanton", "plan": "My + Kamil: DiDi z Dongshankou na CAN ok. 5:15, lot 08:00 → PEK → MUC → WAW. Ekipa zostaje w Kantonie.", "night": "ekipa: Kanton", "ids": ["guangzhou"]},
+    {"date": "7.01", "who": "ekipa", "place": "Kanton → Hongkong", "plan": "Ekipa jedzie do Hongkongu (szybka kolej ok. 1 h).", "night": "Hongkong", "ids": ["hongkong"]},
+    {"date": "8.01", "who": "ekipa", "place": "Hongkong", "plan": "Miasto, Peak, Mong Kok, ewentualnie szlak Dragon's Back.", "night": "Hongkong", "ids": ["hongkong"]},
+    {"date": "9.01", "who": "ekipa", "place": "Hongkong → Szanghaj", "plan": "Lot do Szanghaju albo nocny pociąg D908 19:49 → 06:45. To nowy wjazd do Chin, już w 2027 (patrz Formalności).", "night": "Szanghaj", "ids": ["shanghai"]},
+    {"date": "10.01", "who": "ekipa", "place": "Szanghaj", "plan": "Bund, stare miasto. Zimno: ok. 8° w dzień, 2° w nocy.", "night": "Szanghaj", "ids": ["shanghai"]},
+    {"date": "11.01", "who": "ekipa", "place": "Powrót ekipy", "plan": "Wylot z Szanghaju do Polski.", "night": "", "ids": []}
+  ]
+}

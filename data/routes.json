@@ -1,320 +1,213 @@
 [
-  {
-    "id": "can_to_city",
-    "layer": "local_hub",
-    "from": "guangzhou",
-    "to": "guangzhou",
-    "mode": "airport transfer",
-    "time": "45-90 min",
-    "cost_pln": "5-120 PLN",
-    "cost_mid_pln": 45,
-    "note": "Metro tanio, taxi/Didi wygodniej po przylocie 22:55.",
-    "geometry": [
-      [
-        23.3924,
-        113.2988
-      ],
-      [
-        23.1291,
-        113.2644
-      ]
-    ]
-  },
-  {
-    "id": "guangzhou_shunde",
-    "layer": "local_hub",
-    "from": "guangzhou",
-    "to": "shunde_foshan",
-    "mode": "metro / rail / taxi",
-    "time": "1-2 h drzwi do drzwi",
-    "cost_pln": "15-60 PLN",
-    "cost_mid_pln": 35,
-    "note": "Najtańszy kulinarny day trip z Guangzhou."
-  },
-  {
-    "id": "guangzhou_zhuhai",
-    "layer": "optional",
-    "from": "guangzhou",
-    "to": "zhuhai",
-    "mode": "intercity rail",
-    "time": "1-1,5 h pociąg; 3-4 h z granicą do Makao",
-    "cost_pln": "35-60 PLN",
-    "cost_mid_pln": 45,
-    "note": "Budżetowa brama do Makao."
-  },
-  {
-    "id": "zhuhai_macau",
-    "layer": "optional",
-    "from": "zhuhai",
-    "to": "macau",
-    "mode": "border crossing",
-    "time": "30-90 min granica + lokalny transport",
-    "cost_pln": "0-25 PLN",
-    "cost_mid_pln": 10,
-    "note": "Spać w Zhuhai, zwiedzać Makao w dzień."
-  },
-  {
-    "id": "guangzhou_guilin",
-    "layer": "optional",
-    "from": "guangzhou",
-    "to": "guilin",
-    "mode": "HSR",
-    "time": "2,5-3 h pociąg; 4-5 h hotel-hotel",
-    "cost_pln": "80-140 PLN",
-    "cost_mid_pln": 110,
-    "note": "Najlepszy dojazd do Guangxi."
-  },
-  {
-    "id": "guilin_yangshuo",
-    "layer": "optional",
-    "from": "guilin",
-    "to": "yangshuo",
-    "mode": "HSR / bus / car",
-    "time": "1-2 h",
-    "cost_pln": "20-80 PLN",
-    "cost_mid_pln": 45,
-    "note": "Yangshuo lepsze na noclegi niż Guilin, jeśli chcecie krajobraz."
-  },
-  {
-    "id": "guilin_nanning",
-    "layer": "optional",
-    "from": "guilin",
-    "to": "nanning",
-    "mode": "HSR",
-    "time": "2,5-3,5 h pociąg; ok. 4 h hotel-hotel",
-    "cost_pln": "75-140 PLN",
-    "cost_mid_pln": 105,
-    "note": "1.1: Yangshuo/Guilin -> Nanning. Długi weekend w Chinach: bilety kupić od razu."
-  },
-  {
-    "id": "nanning_fangchenggang",
-    "layer": "optional",
-    "from": "nanning",
-    "to": "fangchenggang",
-    "mode": "HSR / D-train",
-    "time": "ok. 50-70 min pociągiem; 1,5-2 h hotel-hotel",
-    "cost_pln": "25-45 PLN",
-    "cost_mid_pln": 35,
-    "note": "Day trip z Nanning na wybrzeże Guangxi i okolice granicy z Wietnamem; bez przenoszenia walizek."
-  },
-  {
-    "id": "nanning_detian",
-    "layer": "local_hub",
-    "from": "nanning",
-    "to": "detian",
-    "mode": "private car",
-    "time": "ok. 3 h autem (28.12)",
-    "cost_pln": "120-250 PLN",
-    "cost_mid_pln": 185,
-    "note": "Wersja C: kierowca dla całej ekipy, koszt dzielony."
-  },
-  {
-    "id": "nanning_shenzhen",
-    "layer": "hub_hsr",
-    "from": "shenzhen",
-    "to": "nanning",
-    "mode": "HSR",
-    "time": "ok. 4 h szybką koleją (27.12)",
-    "cost_pln": "180-300 PLN",
-    "cost_mid_pln": 240,
-    "note": "Wersja C: cała ekipa z Shenzhen North do Nanning na start Guangxi."
-  },
-  {
-    "id": "yangshuo_shenzhen",
-    "layer": "optional",
-    "from": "yangshuo",
-    "to": "shenzhen",
-    "mode": "HSR via Guilin/Guangzhou",
-    "time": "5-7 h drzwi do drzwi",
-    "cost_pln": "150-260 PLN",
-    "cost_mid_pln": 200,
-    "note": "27.12: wszyscy z Shenzhen North do Yangshuo/Guilin, dzień po przylocie ekipy."
-  },
-  {
-    "id": "shenzhen_hongkong",
-    "layer": "local_hub",
-    "from": "shenzhen",
-    "to": "hongkong",
-    "mode": "metro border / HSR",
-    "time": "2-3,5 h day trip logistics",
-    "cost_pln": "30-120 PLN",
-    "cost_mid_pln": 65,
-    "note": "26.12: Hongkong w dzień, 19:00 odbiór ekipy z lotniska HKG, nocleg w Shenzhen."
-  },
-  {
-    "id": "hongkong_macau",
-    "layer": "optional",
-    "from": "hongkong",
-    "to": "macau",
-    "mode": "ferry / HZMB bus",
-    "time": "2-3 h realnie",
-    "cost_pln": "70-130 PLN",
-    "cost_mid_pln": 95,
-    "note": "Przy budżecie lepiej nie łączyć noclegów HK i Makao."
-  },
-  {
-    "id": "shenzhen_chaozhou",
-    "layer": "optional",
-    "from": "shenzhen",
-    "to": "chaozhou",
-    "mode": "HSR",
-    "time": "2-3 h pociąg; 3,5-4,5 h hotel-hotel",
-    "cost_pln": "90-160 PLN",
-    "cost_mid_pln": 120,
-    "note": "Dobry tani moduł kulinarny po Hongkongu."
-  },
-  {
-    "id": "chaozhou_guangzhou",
-    "layer": "hub_hsr",
-    "from": "chaozhou",
-    "to": "guangzhou",
-    "mode": "HSR",
-    "time": "2-3 h pociąg; 3-4 h hotel-hotel",
-    "cost_pln": "80-160 PLN",
-    "cost_mid_pln": 120,
-    "note": "Pierwszy odcinek trasy: Guangzhou -> Chaozhou 18.12."
-  },
-  {
-    "id": "chaozhou_tulou",
-    "layer": "local_hub",
-    "from": "chaozhou",
-    "to": "tulou",
-    "mode": "private car",
-    "time": "2,5-3 h autem",
-    "cost_pln": "ok. 250 PLN/os. (kierowca na cały dzień, auto na 2 osoby)",
-    "cost_mid_pln": 250,
-    "note": "20.12: kierowca z Chaozhou przez tulou do Xiamen; cena do potwierdzenia."
-  },
-  {
-    "id": "tulou_xiamen",
-    "layer": "local_hub",
-    "from": "tulou",
-    "to": "xiamen",
-    "mode": "private car",
-    "time": "2-2,5 h autem",
-    "cost_pln": "w cenie kierowcy z Chaozhou",
-    "cost_mid_pln": 0,
-    "note": "Ten sam kierowca kończy dzień w hotelu w Xiamen."
-  },
-  {
-    "id": "xiamen_guangzhou",
-    "layer": "hub_hsr",
-    "from": "xiamen",
-    "to": "guangzhou",
-    "mode": "HSR",
-    "time": "3,5-4,5 h pociąg",
-    "cost_pln": "120-160 PLN",
-    "cost_mid_pln": 140,
-    "note": "22.12: powrót do Guangzhou na przylot Kamila (CAN 22:55)."
-  },
-  {
-    "id": "guangzhou_shenzhen",
-    "layer": "hub_hsr",
-    "from": "guangzhou",
-    "to": "shenzhen",
-    "mode": "HSR",
-    "time": "30-45 min pociąg; 1-1,5 h hotel-hotel",
-    "cost_pln": "40-50 PLN",
-    "cost_mid_pln": 45,
-    "note": "23.12: Guangzhou South -> Shenzhen North, kursy co kilkanaście minut."
-  },
-  {
-    "id": "shenzhen_macau",
-    "layer": "local_hub",
-    "from": "shenzhen",
-    "to": "macau",
-    "mode": "ferry",
-    "time": "ok. 1 h prom + granica",
-    "cost_pln": "90-120 PLN w jedną stronę",
-    "cost_mid_pln": 200,
-    "note": "25.12: day trip promem z Shekou; powrót wieczorem do Shenzhen."
-  },
-  {
-    "id": "nanning_guangzhou",
-    "layer": "optional",
-    "from": "nanning",
-    "to": "guangzhou",
-    "mode": "HSR",
-    "time": "3,5-4,5 h pociąg",
-    "cost_pln": "110-140 PLN",
-    "cost_mid_pln": 120,
-    "note": "4.1: powrót do Guangzhou na dwa ostatnie dni przed wylotem 6.1."
-  },
-  {
-    "id": "detian_mingshi",
-    "layer": "local_hub",
-    "from": "detian",
-    "to": "mingshi",
-    "mode": "private car",
-    "time": "ok. 1 h autem",
-    "cost_pln": "w cenie kierowcy",
-    "cost_mid_pln": 0,
-    "note": "Wersja C: nocleg 28.12 przy Detian albo w Mingshi, rano 29.12 dolina Mingshi."
-  },
-  {
-    "id": "mingshi_nanning",
-    "layer": "local_hub",
-    "from": "mingshi",
-    "to": "nanning",
-    "mode": "private car",
-    "time": "ok. 2,5-3 h autem (29.12)",
-    "cost_pln": "w cenie kierowcy",
-    "cost_mid_pln": 0,
-    "note": "Powrót do Nanning na pociąg do Yangshuo."
-  },
-  {
-    "id": "nanning_yangshuo",
-    "layer": "hub_hsr",
-    "from": "nanning",
-    "to": "yangshuo",
-    "mode": "HSR",
-    "time": "ok. 2,5-3 h (29.12)",
-    "cost_pln": "80-100 PLN",
-    "cost_mid_pln": 90,
-    "note": "Wersja C: długi dzień 29.12, nocleg w Yangshuo blisko centrum."
-  },
-  {
-    "id": "yangshuo_xingping",
-    "layer": "local_hub",
-    "from": "yangshuo",
-    "to": "xingping",
-    "mode": "bus / DiDi",
-    "time": "ok. 40 min",
-    "cost_pln": "5-30 PLN",
-    "cost_mid_pln": 10,
-    "note": "31.12 wypad w dzień, 1–2.01 nocleg nad rzeką."
-  },
-  {
-    "id": "yangshuo_guangzhou",
-    "layer": "hub_hsr",
-    "from": "yangshuo",
-    "to": "guangzhou",
-    "mode": "HSR",
-    "time": "ok. 3 h (3.01)",
-    "cost_pln": "90-120 PLN",
-    "cost_mid_pln": 105,
-    "note": "Wersja C: bezpośredni pociąg, długi weekend, bilety kupić od razu."
-  },
-  {
-    "id": "shenzhen_dapeng",
-    "layer": "local_hub",
-    "from": "shenzhen",
-    "to": "dapeng",
-    "mode": "metro + bus / DiDi",
-    "time": "ok. 1,5 h",
-    "cost_pln": "10-60 PLN",
-    "cost_mid_pln": 20,
-    "note": "24.12 szlak Dongchong → Xichong, wieczorem powrót na Wigilię."
-  },
-  {
-    "id": "hongkong_lantau",
-    "layer": "local_hub",
-    "from": "hongkong",
-    "to": "lantau",
-    "mode": "MTR + kolejka / bus",
-    "time": "ok. 1 h",
-    "cost_pln": "20-200 PLN",
-    "cost_mid_pln": 60,
-    "note": "26.12 rano z Shenzhen przez granicę na Lantau; HKG jest obok."
-  }
+ {
+  "id": "can_to_city",
+  "layer": "local_hub",
+  "from": "guangzhou",
+  "to": "guangzhou",
+  "mode": "airport transfer",
+  "time": "ok. 30–45 min",
+  "cost_pln": "ok. 18–25 zł/os.",
+  "cost_mid_pln": 20,
+  "note": "17.12: DiDi z lotniska pod Guangzhou North (przylot 22:55). 6.01: DiDi z Dongshankou na lotnisko ok. 5:15.",
+  "geometry": [
+   [
+    23.3924,
+    113.2988
+   ],
+   [
+    23.1291,
+    113.2644
+   ]
+  ]
+ },
+ {
+  "id": "guangzhou_chaozhou",
+  "layer": "hub_hsr",
+  "from": "guangzhou",
+  "to": "chaozhou",
+  "mode": "HSR",
+  "time": "G6175 09:02 → 12:24 (3 h 22 min)",
+  "cost_pln": "137 zł/os.",
+  "cost_mid_pln": 137,
+  "note": "18.12: Guangzhou North → Chaoshan, potem DiDi na stare miasto."
+ },
+ {
+  "id": "chaozhou_hongkong",
+  "layer": "hub_hsr",
+  "from": "chaozhou",
+  "to": "hongkong",
+  "mode": "HSR",
+  "time": "ok. 2,5 h",
+  "cost_pln": "ok. 126 zł/os. (¥210)",
+  "cost_mid_pln": 126,
+  "note": "22.12: Chaoshan → Hong Kong West Kowloon, ok. 10 kursów dziennie; Kamil jedzie sam z CAN."
+ },
+ {
+  "id": "hongkong_shenzhen",
+  "layer": "local_hub",
+  "from": "hongkong",
+  "to": "shenzhen",
+  "mode": "metro border",
+  "time": "ok. 1–1,5 h",
+  "cost_pln": "ok. 20–30 zł/os.",
+  "cost_mid_pln": 30,
+  "note": "24.12: MTR do granicy, przejście pieszo, metro do Huaqiangbei."
+ },
+ {
+  "id": "shenzhen_dapeng",
+  "layer": "local_hub",
+  "from": "shenzhen",
+  "to": "dapeng",
+  "mode": "metro + bus / DiDi",
+  "time": "ok. 1,5 h",
+  "cost_pln": "ok. 24 zł/os.",
+  "cost_mid_pln": 24,
+  "note": "25.12: szlak Dongchong → Xichong, wieczorem powrót do Shenzhen."
+ },
+ {
+  "id": "shenzhen_zhuhai",
+  "layer": "hub_hsr",
+  "from": "shenzhen",
+  "to": "zhuhai",
+  "mode": "ferry",
+  "time": "ok. 1 h (18:00 albo 19:30; ostatni 21:00)",
+  "cost_pln": "84 zł/os. (¥140)",
+  "cost_mid_pln": 84,
+  "note": "26.12: prom Shekou Cruise Centre → Zhuhai Jiuzhou, potem DiDi do Gongbei.",
+  "geometry": [
+   [
+    22.5431,
+    114.0579
+   ],
+   [
+    22.4875,
+    113.9125
+   ],
+   [
+    22.2452,
+    113.5948
+   ],
+   [
+    22.2707,
+    113.5767
+   ]
+  ]
+ },
+ {
+  "id": "hongkong_zhuhai",
+  "layer": "local_hub",
+  "from": "hongkong",
+  "to": "zhuhai",
+  "mode": "HZMB bus (border)",
+  "time": "ok. 2–2,5 h z lotniska (dwie odprawy)",
+  "cost_pln": "ok. 36 zł/os. (HK$65)",
+  "cost_mid_pln": 36,
+  "note": "26.12: ekipa sama: z HKG busem B4 na terminal mostu i Golden Bus do Zhuhai.",
+  "geometry": [
+   [
+    22.308,
+    113.918
+   ],
+   [
+    22.2885,
+    113.9397
+   ],
+   [
+    22.2125,
+    113.5835
+   ],
+   [
+    22.2707,
+    113.5767
+   ]
+  ]
+ },
+ {
+  "id": "zhuhai_macau",
+  "layer": "local_hub",
+  "from": "zhuhai",
+  "to": "macau",
+  "mode": "border crossing (pieszo)",
+  "time": "30–90 min granica",
+  "cost_pln": "ok. 24 zł/os. z autobusami w Makau",
+  "cost_mid_pln": 24,
+  "note": "28.12: pieszo przez Gongbei, wieczorem powrót do Zhuhai."
+ },
+ {
+  "id": "zhuhai_yangshuo",
+  "layer": "hub_hsr",
+  "from": "zhuhai",
+  "to": "yangshuo",
+  "mode": "HSR",
+  "time": "G3792 09:07 → 12:16 (3 h 9 min)",
+  "cost_pln": "157 zł/os. (¥261)",
+  "cost_mid_pln": 157,
+  "note": "29.12: bez przesiadki, sprzedaż biletów od ok. 14–15.12."
+ },
+ {
+  "id": "yangshuo_xingping",
+  "layer": "local_hub",
+  "from": "yangshuo",
+  "to": "xingping",
+  "mode": "van / bus",
+  "time": "ok. 1 h",
+  "cost_pln": "ok. 12 zł/os. (busik dzielony)",
+  "cost_mid_pln": 12,
+  "note": "1.01: wynajęty busik albo autobus, wieczorem powrót do Yangshuo."
+ },
+ {
+  "id": "yangshuo_zhaoqing",
+  "layer": "hub_hsr",
+  "from": "yangshuo",
+  "to": "zhaoqing",
+  "mode": "HSR",
+  "time": "D1895 11:54 → 13:41 (1 h 47 min)",
+  "cost_pln": "79 zł/os. (¥131)",
+  "cost_mid_pln": 79,
+  "note": "2.01: po świcie na TV Tower; sprzedaż biletów od ok. 18–19.12."
+ },
+ {
+  "id": "zhaoqing_guangzhou",
+  "layer": "hub_hsr",
+  "from": "zhaoqing",
+  "to": "guangzhou",
+  "mode": "HSR",
+  "time": "ok. 40 min (np. D7137 08:08)",
+  "cost_pln": "19 zł/os. (¥32)",
+  "cost_mid_pln": 19,
+  "note": "4.01: Zhaoqingdong → Guangzhounan, metro do Dongshankou."
+ },
+ {
+  "id": "guangzhou_shunde",
+  "layer": "local_hub",
+  "from": "guangzhou",
+  "to": "shunde_foshan",
+  "mode": "metro / rail / taxi",
+  "time": "1-2 h drzwi do drzwi",
+  "cost_pln": "ok. 24 zł/os.",
+  "cost_mid_pln": 24,
+  "note": "5.01: Foshan albo Shunde, wieczorem powrót do Kantonu."
+ },
+ {
+  "id": "hongkong_macau",
+  "layer": "optional",
+  "from": "hongkong",
+  "to": "macau",
+  "mode": "ferry / HZMB bus",
+  "time": "ok. 1–1,5 h",
+  "cost_pln": "ok. 90 zł/os.",
+  "cost_mid_pln": 90,
+  "note": "Opcja dla ekipy, gdyby robili Hongkong od razu po przylocie: 28.12 prom HK → Makau i pieszo do Zhuhai."
+ },
+ {
+  "id": "guangzhou_hongkong",
+  "layer": "optional",
+  "from": "guangzhou",
+  "to": "hongkong",
+  "mode": "HSR",
+  "time": "ok. 1 h",
+  "cost_pln": "ok. 130 zł/os.",
+  "cost_mid_pln": 130,
+  "note": "7.01: ekipa z Kantonu do Hongkongu (West Kowloon)."
+ }
 ]

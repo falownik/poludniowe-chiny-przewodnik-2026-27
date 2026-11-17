@@ -18,24 +18,6 @@
     "file": "assets/images/variants/sunset-on-xichong-7790aa69.jpg"
   },
   {
-    "id": "c_lantau_buddha",
-    "title": "Tian Tan Buddha, Lantau",
-    "commons_title": "File:Tian Tan Buddha 2023081302.jpg",
-    "artist": "Huangdan2060",
-    "license": "CC BY 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Tian_Tan_Buddha_2023081302.jpg",
-    "file": "assets/images/variants/tian-tan-buddha-2023081302-50a43259.jpg"
-  },
-  {
-    "id": "c_mingshi",
-    "title": "Mingshi Tianyuan",
-    "commons_title": "File:明仕田園, 廣西省 - panoramio (3).jpg",
-    "artist": "tsechanwah",
-    "license": "CC BY 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:%E6%98%8E%E4%BB%95%E7%94%B0%E5%9C%92,_%E5%BB%A3%E8%A5%BF%E7%9C%81_-_panoramio_(3).jpg",
-    "file": "assets/images/variants/panoramio-3-419539fd.jpg"
-  },
-  {
     "id": "c_xingping",
     "title": "Li River at Xingping",
     "commons_title": "File:Li River at Xingping 1.jpg",
@@ -79,15 +61,6 @@
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Panoramic_Dinghu.jpg",
     "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Panoramic_Dinghu.jpg/960px-Panoramic_Dinghu.jpg"
-  },
-  {
-    "id": "fujian_tulou",
-    "title": "Fujian tulou",
-    "commons_title": "File:20121101 Tianluokeng Tulou 02.jpg",
-    "artist": "Windmemories",
-    "license": "CC BY-SA 4.0",
-    "source": "https://commons.wikimedia.org/wiki/File:20121101_Tianluokeng_Tulou_02.jpg",
-    "file": "assets/images/fujian_tulou.jpg"
   },
   {
     "id": "fuli_ancient_town",
@@ -160,15 +133,6 @@
     "license": "Wikimedia Commons",
     "source": "https://commons.wikimedia.org/wiki/File:Longhu_Village_12.jpg",
     "file": "https://commons.wikimedia.org/wiki/Special:FilePath/Longhu_Village_12.jpg?width=900"
-  },
-  {
-    "id": "macau_senado",
-    "title": "Senado Square",
-    "commons_title": "File:'Senado Square' during Christmas festivities..jpg",
-    "artist": "Rudolph.A.furtado",
-    "license": "Public domain",
-    "source": "https://commons.wikimedia.org/wiki/File:%27Senado_Square%27_during_Christmas_festivities..jpg",
-    "file": "assets/images/macau_senado.jpg"
   },
   {
     "id": "macau_st_paul",
@@ -279,6 +243,24 @@
     "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Silver_Cave_%E9%8A%80%E5%AD%90%E5%B2%A9_-_panoramio.jpg/960px-Silver_Cave_%E9%8A%80%E5%AD%90%E5%B2%A9_-_panoramio.jpg"
   },
   {
+    "id": "t_zhaoqing",
+    "title": "Seven Star Crags, Zhaoqing",
+    "commons_title": "File:Wulong Pavilion & Qixing Bridge, Seven Star Crags 20260217.jpg",
+    "artist": "Jasonjiang.1998",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wulong_Pavilion_%26_Qixing_Bridge,_Seven_Star_Crags_20260217.jpg",
+    "file": "assets/images/variants/wulong-pavilion-qixing-bridge-seven-star-crags-20260217-6d7a4857.jpg"
+  },
+  {
+    "id": "t_zhuhai",
+    "title": "Posąg Rybaczki, Zhuhai",
+    "commons_title": "File:Zhuhai Fisher Girl statue dllu.jpg",
+    "artist": "Dllu",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zhuhai_Fisher_Girl_statue_dllu.jpg",
+    "file": "assets/images/variants/zhuhai-fisher-girl-statue-dllu-353d5da1.jpg"
+  },
+  {
     "id": "wutong_mountain",
     "title": "Wutong Mountain, Shenzhen",
     "commons_title": "File:WUTONG MOUNTAIN, SHENZHEN (23).jpg",
@@ -286,15 +268,6 @@
     "license": "CC BY-SA 4.0",
     "source": "https://commons.wikimedia.org/wiki/File:WUTONG_MOUNTAIN,_SHENZHEN_(23).jpg",
     "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/WUTONG_MOUNTAIN%2C_SHENZHEN_%2823%29.jpg/960px-WUTONG_MOUNTAIN%2C_SHENZHEN_%2823%29.jpg"
-  },
-  {
-    "id": "xiamen_gulangyu",
-    "title": "Gulangyu, Xiamen",
-    "commons_title": "File:Gulangyu Island,Xiamen City.JPG",
-    "artist": "螺钉",
-    "license": "CC BY-SA 3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:Gulangyu_Island,Xiamen_City.JPG",
-    "file": "assets/images/xiamen_gulangyu.jpg"
   },
   {
     "id": "yangshuo_yulong",

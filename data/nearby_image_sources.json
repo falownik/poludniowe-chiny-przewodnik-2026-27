@@ -205,5 +205,23 @@
     "license": "CC BY-SA 3.0",
     "source": "https://commons.wikimedia.org/wiki/File:Li_River_at_Xingping_1.jpg",
     "file": "assets/images/variants/li-river-at-xingping-1-d7b7b7e0.jpg"
+  },
+  {
+    "id": "t_zhuhai",
+    "title": "Posąg Rybaczki, Zhuhai",
+    "commons_title": "File:Zhuhai Fisher Girl statue dllu.jpg",
+    "artist": "Dllu",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Zhuhai_Fisher_Girl_statue_dllu.jpg",
+    "file": "assets/images/variants/zhuhai-fisher-girl-statue-dllu-353d5da1.jpg"
+  },
+  {
+    "id": "t_zhaoqing",
+    "title": "Seven Star Crags, Zhaoqing",
+    "commons_title": "File:Wulong Pavilion & Qixing Bridge, Seven Star Crags 20260217.jpg",
+    "artist": "Jasonjiang.1998",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wulong_Pavilion_%26_Qixing_Bridge,_Seven_Star_Crags_20260217.jpg",
+    "file": "assets/images/variants/wulong-pavilion-qixing-bridge-seven-star-crags-20260217-6d7a4857.jpg"
   }
 ]
