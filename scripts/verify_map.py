@@ -141,15 +141,10 @@ def main() -> None:
     )
 
     required_phrases = [
-        "Południe Chin 2026/27",
-        "Budżet noclegów",
-        "Przejazdy",
         "Prowincje i regiony",
-        "Kolorowe obszary",
         "Atrakcje",
         "Otwórz stronę miejsca",
         "popup-actions",
-        "trip-panel-toggle",
         "Research hubów",
         "plan-panel-toggle",
         "plan-panel",
@@ -162,10 +157,7 @@ def main() -> None:
         "itinerary-marker-active",
         "markerNames",
         "legend-toggle",
-        "trip-panel-hidden",
         "legend-hidden",
-        '<body class="trip-panel-hidden legend-hidden">',
-        'document.body.classList.add("trip-panel-hidden")',
         'document.body.classList.add("legend-hidden")',
         "route-tooltip-card",
         "route-layer-hub-hsr",
@@ -193,6 +185,9 @@ def main() -> None:
         require(html_contains_json_text(html, phrase), f"HTML missing phrase: {phrase}")
 
     require("route-label" not in html, "route labels should not be rendered permanently")
+    require("trip-panel" not in html, "the left trip panel was removed and should not come back")
+    require('<body class="legend-hidden">' in html, "legend should start hidden")
+    require('"zoomControl": "topright"' in html or "zoomControl: \"topright\"" in html or 'topright' in html, "map controls should sit on the right")
     require("<th>Koszt</th>" not in html, "route cost column should not be visible in the sidebar")
     require('"collapsed": true' in html, "layer control should start collapsed")
     require("places/hainan.html" not in html, "map should not link removed Hainan page")

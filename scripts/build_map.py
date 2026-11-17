@@ -560,59 +560,6 @@ def route_coords(route: dict[str, Any], places_by_id: dict[str, dict[str, Any]])
     return [[start["lat"], start["lon"]], [end["lat"], end["lon"]]]
 
 
-def build_sidebar(places: list[dict[str, Any]], routes: list[dict[str, Any]]) -> str:
-    place_name_by_id = {place["id"]: place["name"] for place in places}
-
-    def route_name(route: dict[str, Any]) -> str:
-        from_name = place_name_by_id.get(route["from"], route["from"])
-        to_name = place_name_by_id.get(route["to"], route["to"])
-        if route["from"] == route["to"]:
-            return f"{from_name}: {route['mode']}"
-        return f"{from_name} → {to_name}"
-
-    def route_table(layer: str) -> str:
-        layer_routes = [route for route in routes if route_layer_key(route) == layer]
-        rows = "".join(
-            f"<tr><td>{esc(route_name(route))}</td><td>{esc(route['time'])}</td></tr>"
-            for route in layer_routes
-        )
-        if not rows:
-            return ""
-        meta = ROUTE_LAYERS[layer]
-        return f"""
-      <h3 class="panel-subhead">{esc(meta['short'])}</h3>
-      <table>
-        <thead><tr><th>Odcinek</th><th>Czas</th></tr></thead>
-        <tbody>{rows}</tbody>
-      </table>
-        """
-
-    place_rows = "".join(
-        f"<tr><td>{esc(place['name'])}</td><td>{esc(place['avg_lodging_pln_pp'])} PLN</td><td>{esc(place['suggested_nights'])}</td></tr>"
-        for place in sorted(places, key=lambda item: item["avg_lodging_pln_pp"])
-    )
-    route_sections = route_table("hub_hsr") + route_table("local_hub")
-    return f"""
-    <button id="trip-panel-toggle" class="panel-toggle panel-toggle-left" type="button" aria-controls="trip-panel" aria-expanded="false">Pokaż panel</button>
-    <div id="trip-panel">
-      <h1>Południe Chin 2026/27</h1>
-      <p>Mapa planistyczna: noclegi, atrakcje, day tripy, transport i budżet. Najedź na marker, żeby zobaczyć zdjęcie i skrót; kliknij, żeby otworzyć szczegóły.</p>
-      <p class="panel-links"><a href="wersja-t.html">Wersja T</a> · <a href="side-questy.html">Side questy</a></p>
-      <p>Kolorowe obszary pokazują prowincje i regiony administracyjne objęte planem. Warstwę można włączać i wyłączać w panelu mapy.</p>
-      <h2>Budżet noclegów</h2>
-      <p>Cel użytkownika: średnio około <strong>50 PLN/os./noc</strong>. Zielone markery są najbliżej celu; czerwone traktuj jako day trip albo wyjątek.</p>
-      <table>
-        <thead><tr><th>Miejsce</th><th>Śr.</th><th>Pobyt</th></tr></thead>
-        <tbody>{place_rows}</tbody>
-      </table>
-      <h2>Przejazdy</h2>
-      <p>W panelu warstw są osobno: pętla HSR między hubami oraz lokalne wypady z baz. Koszt przejazdu pojawia się dopiero po najechaniu na linię na mapie.</p>
-      {route_sections}
-      <p>Opcje rezerwowe są w osobnej warstwie mapy i startują wyłączone.</p>
-    </div>
-    """
-
-
 PLAN_C = DATA_DIR / "plan_t.json"
 # plan_c.json uses gallery place ids; a few map markers are named differently.
 PLAN_C_TO_MAP_IDS = {"shantou": "chaozhou", "daoyun": "chaozhou", "foshan": "shunde_foshan"}
@@ -652,6 +599,7 @@ def build_itinerary_panel(places: list[dict[str, Any]]) -> str:
     <button id="plan-panel-toggle" class="panel-toggle panel-toggle-plan" type="button" aria-controls="plan-panel" aria-expanded="true">Ukryj plan</button>
     <aside id="plan-panel">
       <h2>Plan: wersja T (Chaozhou, Hongkong, Zhuhai, Sylwester w Yangshuo, Zhaoqing)</h2>
+      <p class="panel-links"><a href="wersja-t.html">Wersja T: opis dzień po dniu</a> <a href="side-questy.html">Side questy</a></p>
       <div class="itinerary-days">
         {''.join(rows)}
       </div>
@@ -663,27 +611,6 @@ def build_styles() -> str:
     return """
     <style>
       body { font-family: "Segoe UI", Arial, sans-serif; }
-      #trip-panel {
-        position: fixed;
-        z-index: 9999;
-        top: 12px;
-        left: 12px;
-        width: 360px;
-        max-height: calc(100vh - 24px);
-        overflow: auto;
-        background: rgba(255,255,255,0.94);
-        border: 1px solid #cbd5e1;
-        box-shadow: 0 10px 28px rgba(15,23,42,0.16);
-        border-radius: 8px;
-        padding: 14px 15px 16px;
-        color: #172033;
-        transition: transform 180ms ease, opacity 180ms ease;
-      }
-      body.trip-panel-hidden #trip-panel {
-        transform: translateX(calc(-100% - 32px));
-        opacity: 0;
-        pointer-events: none;
-      }
       .panel-toggle {
         position: fixed;
         z-index: 10000;
@@ -701,12 +628,6 @@ def build_styles() -> str:
         cursor: pointer;
       }
       .panel-toggle:hover { background: #f8fafc; }
-      .panel-toggle-left {
-        top: 12px;
-        left: 388px;
-        transition: left 180ms ease;
-      }
-      body.trip-panel-hidden .panel-toggle-left { left: 12px; }
       .panel-toggle-right {
         right: 12px;
         bottom: 28px;
@@ -715,14 +636,6 @@ def build_styles() -> str:
         top: 12px;
         right: 58px;
       }
-      #trip-panel h1 { font-size: 18px; margin: 0 0 8px; }
-      #trip-panel h2 { font-size: 14px; margin: 14px 0 6px; }
-      #trip-panel .panel-subhead {
-        margin: 10px 0 5px;
-        font-size: 12px;
-        color: #0f172a;
-      }
-      #trip-panel p { font-size: 12px; line-height: 1.35; margin: 0 0 8px; }
       .panel-links { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
       .panel-links a {
         display: inline-flex;
@@ -737,14 +650,11 @@ def build_styles() -> str:
         font-size: 11px;
         font-weight: 600;
       }
-      #trip-panel table { width: 100%; border-collapse: collapse; font-size: 11px; }
-      #trip-panel th, #trip-panel td { border-top: 1px solid #e2e8f0; padding: 4px 3px; vertical-align: top; }
-      #trip-panel th { text-align: left; color: #475569; }
       #plan-panel {
         position: fixed;
         z-index: 9998;
         top: 54px;
-        right: 12px;
+        right: 58px;
         width: 344px;
         max-height: calc(100vh - 88px);
         overflow: auto;
@@ -1053,27 +963,13 @@ def build_styles() -> str:
         line-height: 1.3;
       }
       @media (max-width: 800px) {
-        #trip-panel {
-          position: static;
-          width: auto;
-          max-height: none;
-          margin: 50px 8px 8px;
-        }
-        body.trip-panel-hidden #trip-panel {
-          display: none;
-        }
-        .panel-toggle-left {
-          top: 8px;
-          left: 8px;
-        }
-        body.trip-panel-hidden .panel-toggle-left { left: 8px; }
         .panel-toggle-right {
           right: 8px;
           bottom: 8px;
         }
         .panel-toggle-plan {
           top: 8px;
-          right: 8px;
+          right: 54px;
         }
         #plan-panel {
           position: static;
@@ -1157,7 +1053,6 @@ def build_panel_script(
     script = """
     <script>
       (function () {
-        document.body.classList.add("trip-panel-hidden");
         document.body.classList.add("legend-hidden");
 
         function bindPanelToggle(buttonId, hiddenClass, openText, closedText) {
@@ -1259,7 +1154,6 @@ def build_panel_script(
           });
         }
 
-        bindPanelToggle("trip-panel-toggle", "trip-panel-hidden", "Ukryj panel", "Pokaż panel");
         bindPanelToggle("legend-toggle", "legend-hidden", "Ukryj legendę", "Pokaż legendę");
         bindPanelToggle("plan-panel-toggle", "plan-panel-hidden", "Ukryj plan", "Pokaż plan");
         window.addEventListener("load", bindItineraryHover);
@@ -1495,6 +1389,7 @@ def build_map() -> None:
         control_scale=True,
         tiles=None,
         prefer_canvas=True,
+        zoom_control="topright",
     )
     # CartoDB basemaps now require an API key, so OpenStreetMap is the default.
     folium.TileLayer("OpenStreetMap", name="OpenStreetMap", control=True).add_to(fmap)
@@ -1532,11 +1427,10 @@ def build_map() -> None:
     )
 
     MiniMap(toggle_display=True, minimized=True).add_to(fmap)
-    Fullscreen(position="topleft").add_to(fmap)
+    Fullscreen(position="topright").add_to(fmap)
     LayerControl(collapsed=True).add_to(fmap)
 
     fmap.get_root().header.add_child(folium.Element(build_styles()))
-    fmap.get_root().html.add_child(folium.Element(build_sidebar(places, routes)))
     fmap.get_root().html.add_child(folium.Element(build_itinerary_panel(places)))
     fmap.get_root().html.add_child(folium.Element(build_legend(provinces)))
     fmap.get_root().html.add_child(
@@ -1546,7 +1440,7 @@ def build_map() -> None:
     fmap.save(OUTPUT)
     html = OUTPUT.read_text(encoding="utf-8").replace(
         "<body>",
-        '<body class="trip-panel-hidden legend-hidden">',
+        '<body class="legend-hidden">',
         1,
     )
     OUTPUT.write_text("\n".join(line.rstrip() for line in html.splitlines()) + "\n", encoding="utf-8")
