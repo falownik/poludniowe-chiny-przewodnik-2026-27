@@ -1091,7 +1091,7 @@ def build_places_index(places: list[dict[str, Any]], image_paths: dict[str, str]
     <section class="page-intro">
       <p class="eyebrow">Indeks miejsc</p>
       <h1>Miejsca w aktualnym planie</h1>
-      <p>Wersja 2: najpierw wschodnie wybrzeże (Chaoshan, tulou, Xiamen), potem Shenzhen z day tripami do Makao i Hongkongu, Guangxi z ekipą i finał w Guangzhou. Każde miejsce jest albo noclegową bazą z planu, albo krótkim wypadem bez przenoszenia walizek.</p>
+      <p>Wersja T: Chaozhou, Hongkong i Shenzhen przed świętami, potem z ekipą Zhuhai i Makau, Yangshuo z Sylwestrem, Zhaoqing i finał w Kantonie. Każde miejsce jest albo noclegową bazą z planu, albo krótkim wypadem bez przenoszenia walizek.</p>
     </section>
     <section class="place-grid">{cards}</section>
     """
@@ -1457,25 +1457,20 @@ def clean_thumb_url(url: str) -> str:
     return url.split("?", 1)[0]
 
 
-def place_day_ranges(days: list[dict[str, Any]], key: str) -> dict[str, list[str]]:
-    """Map place id -> list of dates on which it appears in variant column `key`."""
-    result: dict[str, list[str]] = {}
-    for day in days:
-        for place_id in day[f"{key}_ids"]:
-            result.setdefault(place_id, []).append(day["date"])
-    return result
-
-
 def build_photos_page() -> str:
     config_path = build_map.DATA_DIR / "variant_photos.json"
     sources_path = build_map.DATA_DIR / "variant_photo_sources.json"
     config = load_json(config_path)
     sources = load_json(sources_path) if sources_path.exists() else {}
-    days = config["days"]
-    places = config["places"]
+    days = load_json(build_map.DATA_DIR / "plan_t.json")["days"]
+    in_t: dict[str, list[str]] = {}
+    for day in days:
+        for place_id in day["ids"]:
+            in_t.setdefault(place_id, []).append(day["date"])
+    # Only places on the current route, in the order we visit them.
+    by_id = {place["id"]: place for place in config["places"]}
+    places = [by_id[place_id] for place_id in in_t if place_id in by_id]
     names = {place["id"]: place["name"] for place in places}
-    in_b = place_day_ranges(days, "b")
-    in_c = place_day_ranges(days, "c")
     extra_path = build_map.DATA_DIR / "extra_photo_links.json"
     extra_links = load_json(extra_path) if extra_path.exists() else {}
 
@@ -1520,29 +1515,18 @@ def build_photos_page() -> str:
 
     table_rows = "".join(
         f"""
-        <tr class="{'diff' if day['b'] != day['c'] else ''}">
+        <tr>
           <td>{esc(day['date'])}</td>
-          <td>{place_links(day['b'], day['b_ids'])}</td>
-          <td>{place_links(day['c'], day['c_ids'])}</td>
+          <td>{place_links(day['place'], [pid for pid in day['ids'] if pid in names])}</td>
+          <td>{esc(day['who'])}</td>
         </tr>
         """
         for day in days
     )
 
     def variant_badges(place_id: str) -> str:
-        b_days, c_days = in_b.get(place_id, []), in_c.get(place_id, [])
-        badges = []
-        if b_days and c_days:
-            badges.append("<span class=\"vbadge both\">w obu wariantach</span>")
-        elif c_days:
-            badges.append("<span class=\"vbadge only-c\">tylko opcja 2 (C)</span>")
-        elif b_days:
-            badges.append("<span class=\"vbadge only-b\">tylko v2 (B)</span>")
-        b_text = ", ".join(b_days) if b_days else "brak"
-        c_text = ", ".join(c_days) if c_days else "brak"
-        badges.append(f"<span class=\"vdays\"><strong>B:</strong> {esc(b_text)}</span>")
-        badges.append(f"<span class=\"vdays\"><strong>C:</strong> {esc(c_text)}</span>")
-        return "".join(badges)
+        dates = in_t.get(place_id, [])
+        return f"<span class=\"vdays\"><strong>W planie:</strong> {esc(', '.join(dates))}</span>"
 
     def figure(photo: dict[str, str], place_name: str) -> str:
         meta = sources.get(photo["commons_title"])
@@ -1580,27 +1564,26 @@ def build_photos_page() -> str:
         for place in places
     )
     toc = "".join(f"<a href=\"#{esc(place['id'])}\">{esc(place['name'])}</a>" for place in places)
-    diff_count = sum(1 for day in days if day["b"] != day["c"])
     photo_count = sum(1 for place in places for photo in place["photos"] if photo["commons_title"] in sources)
 
     body = f"""
     <section class="page-intro">
       <p class="eyebrow">Zdjęcia</p>
-      <h1>Co jest w każdym miejscu: wariant B vs C</h1>
-      <p>Porównanie dwóch kolumn z arkusza „Rozkład jazdy v2”: <strong>B = „Miejsce”</strong> (plan v2) i <strong>C = „Miejsce (opcja 2)”</strong>, czyli wariant z większą ilością natury. Każde miejsce ma kilka zdjęć z Wikimedia Commons z podpisem, autorem, licencją i linkiem do źródła. Kliknij zdjęcie, żeby otworzyć stronę źródłową.</p>
+      <h1>Co jest w każdym miejscu na trasie</h1>
+      <p>Zdjęcia wszystkich miejsc z wersji T, w kolejności, w jakiej je odwiedzamy. Każde zdjęcie ma podpis, autora, licencję i link do źródła. Kliknij zdjęcie, żeby otworzyć stronę źródłową.</p>
       <div class="fact-strip">
         <span>{len(places)} miejsc</span>
         <span>{photo_count} zdjęć ze źródłami</span>
-        <span>{diff_count} dni różni się między B i C</span>
+        <a href="wersja-t.html">Plan dzień po dniu →</a>
       </div>
     </section>
 
     <section class="route-section">
       <h2>Dzień po dniu</h2>
-      <p class="section-lead">Wiersze podświetlone na żółto to dni, w których warianty się różnią. Kliknij nazwę miejsca, żeby przejść do zdjęć.</p>
+      <p class="section-lead">Kliknij nazwę miejsca, żeby przejść do jego zdjęć.</p>
       <div class="table-wrap">
         <table class="day-table variant-table">
-          <thead><tr><th>Data</th><th>B: Miejsce (wersja B)</th><th>C: Miejsce (wersja C, więcej wsi)</th></tr></thead>
+          <thead><tr><th>Data</th><th>Miejsce</th><th>Kto</th></tr></thead>
           <tbody>{table_rows}</tbody>
         </table>
       </div>
@@ -1615,7 +1598,7 @@ def build_photos_page() -> str:
       <p>Wszystkie zdjęcia pochodzą z <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (kopie w rozmiarze 960 px trzymamy w repo, żeby strona ładowała się niezawodnie). Autor i licencja (CC BY, CC BY-SA, CC0 lub domena publiczna) są podane pod każdym zdjęciem, a link prowadzi do strony pliku z pełnym opisem. Zdjęcia robiono w różnych porach roku, więc zimą (grudzień–styczeń) zieleń i woda mogą wyglądać skromniej, a niebo częściej jest szare.</p>
     </section>
     """
-    return page_shell("Zdjęcia: B vs C", "photos", body)
+    return page_shell("Zdjęcia", "photos", body)
 
 
 def build_plan_c_page(variant: str = "c") -> str:
