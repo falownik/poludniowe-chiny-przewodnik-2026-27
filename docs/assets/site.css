@@ -695,6 +695,70 @@ main {
 .cday-body h3 { margin: 0 0 4px; }
 .cday-body p { margin: 0 0 4px; line-height: 1.5; }
 .cday-night { color: var(--teal); font-size: 0.88rem; font-weight: 600; }
+.quest-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--soft);
+  padding: 10px 0;
+  margin: 18px 0 6px;
+  border-bottom: 1px solid var(--line);
+}
+.quest-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.quest-filter {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.quest-filter.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+.quest-toc { margin-top: 8px; font-size: 0.88rem; color: var(--muted); }
+.quest-hub {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  scroll-margin-top: 110px;
+}
+.quest-hub h2 { margin: 2px 0 6px; }
+.quest-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.quest {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--soft);
+}
+.quest p { margin: 4px 0 0; overflow-wrap: break-word; }
+.quest-head { display: flex; flex-direction: column; gap: 4px; }
+.quest-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.quest-tag {
+  font-size: 0.75rem;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #e6eef6;
+  color: var(--ink);
+}
+.quest-tag.tag-natura, .quest-tag.tag-wieś { background: #dcfce7; }
+.quest-tag.tag-jedzenie { background: #fef3c7; }
+.quest-tag.tag-adrenalina { background: #fee2e2; }
+.quest-tag.tag-chill { background: #e0f2fe; }
+.quest-tag.tag-noc { background: #ede9fe; }
+.quest-meta { color: var(--muted); font-size: 0.88rem; }
+.quest-challenges { list-style: none; padding: 0; }
+.quest-challenges li { margin: 6px 0; }
+.quest-challenges input { margin-right: 6px; }
 @media (max-width: 900px) {
   .cday { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .strip-tile img { height: 160px; }

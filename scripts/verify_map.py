@@ -250,6 +250,12 @@ def main() -> None:
     require(plan_t_html.count('class="cday"') >= 26, "variant T page should list every day")
     require("Seven Star Crags" in plan_t_html and "Sylwester" in plan_t_html, "variant T page lacks key stops")
 
+    quests_html = (DOCS / "side-questy.html").read_text(encoding="utf-8")
+    require(quests_html.count('class="quest-hub"') >= 7, "side quests page should cover every hub")
+    require("quest-filter" in quests_html, "side quests page lacks tag filters")
+    require(not (DOCS / "wersja-c.html").exists(), "variant C page should no longer be published")
+    require("wersja-c.html" not in html, "map should not link the removed variant C page")
+
     image_files = list((DOCS / "assets" / "images").glob("*"))
     require(len(image_files) >= len({place["photo_id"] for place in places}), "not enough copied images")
 

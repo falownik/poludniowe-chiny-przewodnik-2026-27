@@ -896,7 +896,7 @@ def nav(prefix: str, current: str) -> str:
     items = [
         ("map", "Mapa", f"{prefix}index.html"),
         ("plant", "Wersja T", f"{prefix}wersja-t.html"),
-        ("planc", "Wersja C", f"{prefix}wersja-c.html"),
+        ("quests", "Side questy", f"{prefix}side-questy.html"),
         # Hidden from the menu for now (pages are still built and reachable by direct link):
         # ("photos", "Zdjęcia: B vs C", f"{prefix}zdjecia.html"),
         # ("places", "Miejsca", f"{prefix}places/"),
@@ -1907,6 +1907,7 @@ def plan_t_body(day_cards: str, thumb: Any, bullets: Any) -> str:
         <span>16.12 – 11.01</span>
         <span>Guangdong · Hongkong · Makau · Guangxi</span>
         <a href="index.html">Mapa trasy →</a>
+        <a href="side-questy.html">Side questy: co robić osobno →</a>
       </div>
     </section>
 
@@ -1935,6 +1936,116 @@ def plan_t_body(day_cards: str, thumb: Any, bullets: Any) -> str:
     </section>
     """
     return page_shell("Wersja T", "plant", body)
+
+
+QUEST_TAG_LABELS = {
+    "natura": "natura",
+    "wieś": "wieś",
+    "jedzenie": "jedzenie",
+    "kultura": "kultura",
+    "miasto": "miasto",
+    "zakupy": "zakupy",
+    "chill": "chill",
+    "noc": "wieczór / noc",
+    "adrenalina": "adrenalina",
+}
+
+
+def build_side_quests_page() -> str:
+    data = load_json(build_map.DATA_DIR / "side_quests.json")
+    split_rows = "".join(
+        f"<tr><td><strong>{esc(day['date'])}</strong></td><td>{esc(day['where'])}</td><td>{esc(day['who'])}</td><td>{esc(day['idea'])}</td></tr>"
+        for day in data["split_days"]
+    )
+
+    def quest(item: dict[str, Any]) -> str:
+        tags = item.get("tags", [])
+        pills = "".join(f"<span class=\"quest-tag tag-{esc(tag)}\">{esc(QUEST_TAG_LABELS.get(tag, tag))}</span>" for tag in tags)
+        return f"""
+          <li class="quest" data-tags="{esc(' '.join(tags))}">
+            <div class="quest-head"><strong>{esc(item['title'])}</strong><span class="quest-tags">{pills}</span></div>
+            <p class="quest-meta">{esc(item.get('time', ''))} · {esc(item.get('cost', ''))}</p>
+            <p>{esc(item.get('note', ''))}</p>
+          </li>"""
+
+    hubs = "".join(
+        f"""
+        <section class="quest-hub" id="{esc(hub['id'])}">
+          <p class="eyebrow">{esc(hub['dates'])}</p>
+          <h2>{esc(hub['name'])}</h2>
+          <p>{esc(hub['intro'])}</p>
+          <ul class="quest-list">{''.join(quest(item) for item in hub['quests'])}</ul>
+        </section>"""
+        for hub in data["hubs"]
+    )
+    used_tags = [tag for tag in QUEST_TAG_LABELS if any(tag in item.get("tags", []) for hub in data["hubs"] for item in hub["quests"])]
+    filters = "<button type=\"button\" class=\"quest-filter active\" data-tag=\"\">wszystko</button>" + "".join(
+        f"<button type=\"button\" class=\"quest-filter\" data-tag=\"{esc(tag)}\">{esc(QUEST_TAG_LABELS[tag])}</button>" for tag in used_tags
+    )
+    toc = " · ".join(f"<a href=\"#{esc(hub['id'])}\">{esc(hub['name'])}</a>" for hub in data["hubs"])
+    challenges = "".join(f"<li><label><input type=\"checkbox\"> {esc(text)}</label></li>" for text in data["challenges"])
+    quest_count = sum(len(hub["quests"]) for hub in data["hubs"])
+
+    body = f"""
+    <section class="page-intro">
+      <p class="eyebrow">Side questy · wersja T</p>
+      <h1>Co robić, gdy każdy chce czegoś innego</h1>
+      <p>Plan dnia jest wspólny, ale w każdym miejscu da się rozdzielić na kilka godzin. Poniżej najpierw dni, które najlepiej nadają się na rozdzielenie, potem pomysły dla każdego miejsca. Filtrem wybierzesz to, co lubisz: naturę, jedzenie, adrenalinę albo chill. Ceny są orientacyjne, w złotówkach na osobę.</p>
+      <div class="fact-strip">
+        <span>{quest_count} pomysłów w {len(data['hubs'])} miejscach</span>
+        <a href="wersja-t.html">Plan dzień po dniu →</a>
+      </div>
+    </section>
+
+    <section class="text-block">
+      <h2>Kiedy najłatwiej się rozdzielić</h2>
+      <div class="table-wrap"><table class="day-table plain-table">
+        <thead><tr><th>Kiedy</th><th>Gdzie</th><th>Kto</th><th>Pomysł</th></tr></thead>
+        <tbody>{split_rows}</tbody>
+      </table></div>
+    </section>
+
+    <nav class="quest-toolbar" aria-label="Filtry">
+      <div class="quest-filters">{filters}</div>
+      <div class="quest-toc">{toc}</div>
+    </nav>
+
+    {hubs}
+
+    <section class="text-block">
+      <h2>Wyzwania na cały wyjazd</h2>
+      <p>Dla chętnych. Odhaczenie zapamiętuje tylko ta przeglądarka.</p>
+      <ul class="quest-challenges">{challenges}</ul>
+    </section>
+
+    <script>
+    (function () {{
+      const buttons = document.querySelectorAll('.quest-filter');
+      buttons.forEach(function (button) {{
+        button.addEventListener('click', function () {{
+          const tag = button.dataset.tag;
+          buttons.forEach(function (b) {{ b.classList.toggle('active', b === button); }});
+          document.querySelectorAll('.quest').forEach(function (q) {{
+            q.hidden = Boolean(tag) && !q.dataset.tags.split(' ').includes(tag);
+          }});
+          document.querySelectorAll('.quest-hub').forEach(function (hub) {{
+            hub.hidden = !hub.querySelector('.quest:not([hidden])');
+          }});
+        }});
+      }});
+      const boxes = document.querySelectorAll('.quest-challenges input');
+      let saved = [];
+      try {{ saved = JSON.parse(localStorage.getItem('sideQuestChallenges') || '[]'); }} catch (e) {{}}
+      boxes.forEach(function (box, i) {{
+        box.checked = Boolean(saved[i]);
+        box.addEventListener('change', function () {{
+          try {{ localStorage.setItem('sideQuestChallenges', JSON.stringify([...boxes].map(function (b) {{ return b.checked; }}))); }} catch (e) {{}}
+        }});
+      }});
+    }})();
+    </script>
+    """
+    return page_shell("Side questy", "quests", body)
 
 
 def predeparture_check_card(item: dict[str, Any]) -> str:
@@ -2737,6 +2848,70 @@ main {
 .cday-body h3 { margin: 0 0 4px; }
 .cday-body p { margin: 0 0 4px; line-height: 1.5; }
 .cday-night { color: var(--teal); font-size: 0.88rem; font-weight: 600; }
+.quest-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--soft);
+  padding: 10px 0;
+  margin: 18px 0 6px;
+  border-bottom: 1px solid var(--line);
+}
+.quest-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.quest-filter {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.quest-filter.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+.quest-toc { margin-top: 8px; font-size: 0.88rem; color: var(--muted); }
+.quest-hub {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  scroll-margin-top: 110px;
+}
+.quest-hub h2 { margin: 2px 0 6px; }
+.quest-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.quest {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--soft);
+}
+.quest p { margin: 4px 0 0; overflow-wrap: break-word; }
+.quest-head { display: flex; flex-direction: column; gap: 4px; }
+.quest-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.quest-tag {
+  font-size: 0.75rem;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #e6eef6;
+  color: var(--ink);
+}
+.quest-tag.tag-natura, .quest-tag.tag-wieś { background: #dcfce7; }
+.quest-tag.tag-jedzenie { background: #fef3c7; }
+.quest-tag.tag-adrenalina { background: #fee2e2; }
+.quest-tag.tag-chill { background: #e0f2fe; }
+.quest-tag.tag-noc { background: #ede9fe; }
+.quest-meta { color: var(--muted); font-size: 0.88rem; }
+.quest-challenges { list-style: none; padding: 0; }
+.quest-challenges li { margin: 6px 0; }
+.quest-challenges input { margin-right: 6px; }
 @media (max-width: 900px) {
   .cday { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .strip-tile img { height: 160px; }
@@ -2791,14 +2966,15 @@ def build_site() -> None:
     write(DOCS_DIR / "research.html", build_research_page(nearby_places, image_paths, hub_playbooks))
     write(DOCS_DIR / "food.html", build_food_page(image_paths))
     write(DOCS_DIR / "zdjecia.html", build_photos_page())
-    write(DOCS_DIR / "wersja-c.html", build_plan_c_page())
+    (DOCS_DIR / "wersja-c.html").unlink(missing_ok=True)
+    write(DOCS_DIR / "side-questy.html", build_side_quests_page())
     write(DOCS_DIR / "wersja-t.html", build_plan_c_page("t"))
     write(DOCS_DIR / "practical.html", build_practical_page(predeparture_checks, formality_scenarios, attraction_budget))
     write(DOCS_DIR / ".nojekyll", "")
 
     print(f"Place pages: {len(places)}")
     print(f"Nearby research points: {len(nearby_places)}")
-    print("Static guide pages: wersja-t.html, wersja-c.html, zdjecia.html, places/index.html, itinerary.html, research.html, food.html, practical.html")
+    print("Static guide pages: wersja-t.html, side-questy.html, zdjecia.html, places/index.html, itinerary.html, research.html, food.html, practical.html")
 
 
 if __name__ == "__main__":
