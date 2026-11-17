@@ -1865,7 +1865,7 @@ def plan_t_body(day_cards: str, thumb: Any, bullets: Any) -> str:
         "<strong>Uwaga, ekipa:</strong> wyjazd do Hongkongu 7.01 i lot do Szanghaju 9.01 to nowy wjazd, już w 2027. Trzeba sprawdzić, czy ruch bezwizowy przedłużono. Jeśli nie, zostaje tranzyt 240 h (Hongkong → Szanghaj → Polska). Nie kupujcie bezzwrotnego biletu do Szanghaju, zanim to się wyjaśni.",
         "26.12 z lotniska do Zhuhai są trzy odprawy: wjazd do Hongkongu, wyjazd z Hongkongu na terminalu mostu i wjazd do Chin w Zhuhai. Kartę przyjazdu wypełnijcie online przed wylotem.",
         "Alipay z podpiętą kartą (płatności, DiDi), eSIM, bo bez tego nie działa Google ani WhatsApp, adres hotelu po chińsku.",
-        "Bilety na szybką kolej przez Trip.com albo 12306. Sprzedaż rusza ok. 15 dni przed datą: G3792 na 29.12 od ok. 14–15.12, D1895 na 2.01 od ok. 18–19.12.",
+        "Bilety na szybką kolej przez Trip.com albo 12306. Sprzedaż w 12306 rusza 14 dni przed datą przejazdu, o 14:00 czasu chińskiego (07:00 w Polsce): G3792 na 29.12 od 15.12, D1895 na 2.01 od 19.12, pociąg do Hongkongu na 22.12 od 8.12.",
         "Ubezpieczenie podróżne.",
     ])
     costs = bullets([

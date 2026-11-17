@@ -364,10 +364,10 @@
   "from": "chaozhou",
   "to": "hongkong",
   "mode": "HSR",
-  "time": "ok. 2,5 h",
+  "time": "G6573 08:47 → 11:34 (2 h 47 min), bez przesiadki",
   "cost_pln": "ok. 126 zł/os. (¥210)",
   "cost_mid_pln": 126,
-  "note": "22.12: Chaoshan → Hong Kong West Kowloon, ok. 10 kursów dziennie; Kamil jedzie sam z CAN. Linia po torach z OpenStreetMap.",
+  "note": "22.12: Chaoshan → Hong Kong West Kowloon, bezpośrednio G6573 08:47 albo G919 11:26 (sprzedaż od 8.12); Kamil jedzie sam z CAN. Linia po torach z OpenStreetMap.",
   "geometry": [
    [
     23.53064,
@@ -716,7 +716,7 @@
   "time": "G3792 09:07 → 12:16 (3 h 9 min)",
   "cost_pln": "157 zł/os. (¥261)",
   "cost_mid_pln": 157,
-  "note": "29.12: bez przesiadki, sprzedaż biletów od ok. 14–15.12. Stacja Yangshuo leży ok. 15 km od miasta, DiDi ok. 30 min. Linia po torach z OpenStreetMap.",
+  "note": "29.12: bez przesiadki, sprzedaż biletów od 15.12, 14:00 czasu chińskiego (07:00 w Polsce); zapasowe: G3750 07:48 i G3876 11:30. Stacja Yangshuo leży ok. 35 km od miasta, w Xingping: DiDi 45–60 min, ok. ¥100–115 za auto, albo autobus ze stacji ok. ¥20. Linia po torach z OpenStreetMap.",
   "geometry": [
    [
     22.23536,
@@ -1114,7 +1114,7 @@
   "track_traced": true,
   "stations": [
    "Zhuhai (珠海)",
-   "Yangshuo (阳朔), ok. 15 km od miasta"
+   "Yangshuo (阳朔), w Xingping, ok. 35 km od miasta"
   ]
  },
  {
@@ -1137,7 +1137,7 @@
   "time": "D1895 11:54 → 13:41 (1 h 47 min)",
   "cost_pln": "79 zł/os. (¥131)",
   "cost_mid_pln": 79,
-  "note": "2.01: po świcie na TV Tower; sprzedaż biletów od ok. 18–19.12. Stacja Yangshuo leży ok. 15 km od miasta, DiDi ok. 30 min; Zhaoqingdong jest w Dinghu, ok. 20 min DiDi do hotelu. Linia po torach z OpenStreetMap.",
+  "note": "2.01: po świcie na TV Tower; sprzedaż biletów od 19.12; zapasowe tego dnia: D2987 14:13, D1835 14:51. Stacja Yangshuo leży ok. 35 km od miasta, w Xingping: DiDi 45–60 min, ok. ¥100–115 za auto, albo autobus ze stacji ok. ¥20; Zhaoqingdong jest w Dinghu, ok. 20 min DiDi do hotelu. Linia po torach z OpenStreetMap.",
   "geometry": [
    [
     24.90852,
@@ -1322,7 +1322,7 @@
   ],
   "track_traced": true,
   "stations": [
-   "Yangshuo (阳朔), ok. 15 km od miasta",
+   "Yangshuo (阳朔), w Xingping, ok. 35 km od miasta",
    "Zhaoqingdong (肇庆东), w Dinghu"
   ]
  },
@@ -1335,7 +1335,7 @@
   "time": "ok. 40 min (np. D7137 08:08)",
   "cost_pln": "19 zł/os. (¥32)",
   "cost_mid_pln": 19,
-  "note": "4.01: Zhaoqingdong → Guangzhounan, metro do Dongshankou. Linia po torach z OpenStreetMap.",
+  "note": "4.01: Zhaoqingdong → Guangzhounan, metro do Dongshankou. Linia po torach z OpenStreetMap. Wygodniej: G2861 10:18 Zhaoqingdong → Guangzhou East 11:19, a stamtąd 4 przystanki linią 1 do Dongshankou.",
   "geometry": [
    [
     23.15324,
@@ -1496,11 +1496,11 @@
   "layer": "local_hub",
   "from": "yangshuo",
   "to": "yangshuo",
-  "mode": "DiDi stacja Yangshuo ↔ hotel w mieście",
-  "time": "ok. 30 min",
-  "cost_pln": "ok. 10–15 zł/os. (auto na kilka osób)",
-  "cost_mid_pln": 12,
-  "note": "29.12 przyjazd, 2.01 odjazd do Zhaoqing.",
+  "mode": "DiDi albo autobus: stacja Yangshuo (w Xingping) ↔ hotel w mieście",
+  "time": "45–60 min (w święta korki)",
+  "cost_pln": "ok. ¥100–115 za auto (ok. 15–20 zł/os. przy 4 os.), autobus ok. 12 zł",
+  "cost_mid_pln": 18,
+  "note": "29.12 przyjazd, 2.01 odjazd. Stacja leży w Xingping, ok. 35 km od West Street. 2.01 (długi weekend) wyjechać z hotelu najpóźniej ok. 10:15.",
   "geometry": [
    [
     24.90852,
