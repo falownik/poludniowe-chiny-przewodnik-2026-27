@@ -1428,5 +1428,110 @@
   "cost_pln": "ok. 130 zł/os.",
   "cost_mid_pln": 130,
   "note": "7.01: ekipa z Kantonu do Hongkongu (West Kowloon)."
+ },
+ {
+  "id": "transfer_guangzhou_north",
+  "layer": "local_hub",
+  "from": "guangzhou",
+  "to": "guangzhou",
+  "mode": "DiDi stacja Guangzhou North ↔ hotel Super 8",
+  "time": "ok. 5 min pieszo / DiDi",
+  "cost_pln": "0–10 zł/os.",
+  "cost_mid_pln": 3,
+  "note": "17.12 nocleg tuż przy stacji, 18.12 rano pociąg G6175.",
+  "geometry": [
+   [
+    23.34567,
+    113.20473
+   ],
+   [
+    23.3775,
+    113.201
+   ]
+  ]
+ },
+ {
+  "id": "transfer_chaoshan",
+  "layer": "local_hub",
+  "from": "chaozhou",
+  "to": "chaozhou",
+  "mode": "DiDi stacja Chaoshan ↔ stare miasto Chaozhou",
+  "time": "ok. 30–40 min",
+  "cost_pln": "ok. 15–25 zł/os.",
+  "cost_mid_pln": 20,
+  "note": "18.12 przyjazd i 22.12 odjazd do Hongkongu.",
+  "geometry": [
+   [
+    23.53064,
+    116.55553
+   ],
+   [
+    23.6618,
+    116.6226
+   ]
+  ]
+ },
+ {
+  "id": "transfer_yangshuo",
+  "layer": "local_hub",
+  "from": "yangshuo",
+  "to": "yangshuo",
+  "mode": "DiDi stacja Yangshuo ↔ hotel w mieście",
+  "time": "ok. 30 min",
+  "cost_pln": "ok. 10–15 zł/os. (auto na kilka osób)",
+  "cost_mid_pln": 12,
+  "note": "29.12 przyjazd, 2.01 odjazd do Zhaoqing.",
+  "geometry": [
+   [
+    24.90852,
+    110.62828
+   ],
+   [
+    24.7785,
+    110.4966
+   ]
+  ]
+ },
+ {
+  "id": "transfer_zhaoqingdong",
+  "layer": "local_hub",
+  "from": "zhaoqing",
+  "to": "zhaoqing",
+  "mode": "DiDi stacja Zhaoqingdong (Dinghu) ↔ hotel przy Seven Star Crags",
+  "time": "ok. 20–30 min",
+  "cost_pln": "ok. 10–15 zł/os. (auto na kilka osób)",
+  "cost_mid_pln": 12,
+  "note": "2.01 przyjazd, 4.01 rano odjazd do Kantonu. Stacja jest w dzielnicy Dinghu, blisko góry Dinghu.",
+  "geometry": [
+   [
+    23.19029,
+    112.76583
+   ],
+   [
+    23.075,
+    112.475
+   ]
+  ]
+ },
+ {
+  "id": "transfer_guangzhou_south",
+  "layer": "local_hub",
+  "from": "guangzhou",
+  "to": "guangzhou",
+  "mode": "Metro Guangzhou South ↔ Dongshankou",
+  "time": "ok. 40 min",
+  "cost_pln": "ok. 5 zł/os.",
+  "cost_mid_pln": 5,
+  "note": "4.01 z pociągu z Zhaoqing metrem do hotelu Manning.",
+  "geometry": [
+   [
+    23.01093,
+    113.24987
+   ],
+   [
+    23.1255,
+    113.2965
+   ]
+  ]
  }
 ]

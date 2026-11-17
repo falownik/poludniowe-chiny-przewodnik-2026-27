@@ -14,3 +14,8 @@ zhaoqing_guangzhou,hub_hsr,Zhaoqing,Guangzhou / Kanton,HSR,ok. 40 min (np. D7137
 guangzhou_shunde,local_hub,Guangzhou / Kanton,Shunde / Foshan,metro / rail / taxi,1-2 h drzwi do drzwi,ok. 24 zł/os.,24,"5.01: Foshan albo Shunde, wieczorem powrót do Kantonu.",,,
 hongkong_macau,optional,Hongkong,Makao,ferry / HZMB bus,"ok. 1–1,5 h",ok. 90 zł/os.,90,"Opcja dla ekipy, gdyby robili Hongkong od razu po przylocie: 28.12 prom HK → Makau i pieszo do Zhuhai.",,,
 guangzhou_hongkong,optional,Guangzhou / Kanton,Hongkong,HSR,ok. 1 h,ok. 130 zł/os.,130,7.01: ekipa z Kantonu do Hongkongu (West Kowloon).,,,
+transfer_guangzhou_north,local_hub,Guangzhou / Kanton,Guangzhou / Kanton,DiDi stacja Guangzhou North ↔ hotel Super 8,ok. 5 min pieszo / DiDi,0–10 zł/os.,3,"17.12 nocleg tuż przy stacji, 18.12 rano pociąg G6175.",,,
+transfer_chaoshan,local_hub,Chaozhou / Shantou,Chaozhou / Shantou,DiDi stacja Chaoshan ↔ stare miasto Chaozhou,ok. 30–40 min,ok. 15–25 zł/os.,20,18.12 przyjazd i 22.12 odjazd do Hongkongu.,,,
+transfer_yangshuo,local_hub,Yangshuo / Yulong River,Yangshuo / Yulong River,DiDi stacja Yangshuo ↔ hotel w mieście,ok. 30 min,ok. 10–15 zł/os. (auto na kilka osób),12,"29.12 przyjazd, 2.01 odjazd do Zhaoqing.",,,
+transfer_zhaoqingdong,local_hub,Zhaoqing,Zhaoqing,DiDi stacja Zhaoqingdong (Dinghu) ↔ hotel przy Seven Star Crags,ok. 20–30 min,ok. 10–15 zł/os. (auto na kilka osób),12,"2.01 przyjazd, 4.01 rano odjazd do Kantonu. Stacja jest w dzielnicy Dinghu, blisko góry Dinghu.",,,
+transfer_guangzhou_south,local_hub,Guangzhou / Kanton,Guangzhou / Kanton,Metro Guangzhou South ↔ Dongshankou,ok. 40 min,ok. 5 zł/os.,5,4.01 z pociągu z Zhaoqing metrem do hotelu Manning.,,,
