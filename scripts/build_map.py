@@ -1434,6 +1434,7 @@ def add_routes(
         key: FeatureGroup(name=meta["name"], show=bool(meta["show"]))
         for key, meta in ROUTE_LAYERS.items()
     }
+    drawn_stations: set[tuple[float, float]] = set()
     for route in routes:
         coords = route_coords(route, places_by_id)
         layer_key = route_layer_key(route)
@@ -1454,6 +1455,22 @@ def add_routes(
         if meta.get("dash_array"):
             line_kwargs["dash_array"] = meta["dash_array"]
         folium.PolyLine(**line_kwargs).add_to(route_groups[layer_key])
+        # Traced train lines end at the real station, often far from the place marker.
+        for station, point in zip(route.get("stations", []), (coords[0], coords[-1])):
+            key = (round(point[0], 3), round(point[1], 3))
+            if key in drawn_stations:
+                continue
+            drawn_stations.add(key)
+            folium.CircleMarker(
+                location=point,
+                radius=6,
+                color=meta["color"],
+                weight=3,
+                fill=True,
+                fill_color="#ffffff",
+                fill_opacity=1,
+                tooltip=f"Stacja: {station}",
+            ).add_to(route_groups[layer_key])
     for route_group in route_groups.values():
         route_group.add_to(fmap)
 

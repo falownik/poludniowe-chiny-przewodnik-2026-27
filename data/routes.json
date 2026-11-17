@@ -352,7 +352,11 @@
     116.55553
    ]
   ],
-  "track_traced": true
+  "track_traced": true,
+  "stations": [
+   "Guangzhou North (广州北)",
+   "Chaoshan (潮汕)"
+  ]
  },
  {
   "id": "chaozhou_hongkong",
@@ -606,7 +610,11 @@
     114.15921
    ]
   ],
-  "track_traced": true
+  "track_traced": true,
+  "stations": [
+   "Chaoshan (潮汕)",
+   "Hong Kong West Kowloon (香港西九龙)"
+  ]
  },
  {
   "id": "hongkong_shenzhen",
@@ -1103,7 +1111,11 @@
     110.62828
    ]
   ],
-  "track_traced": true
+  "track_traced": true,
+  "stations": [
+   "Zhuhai (珠海)",
+   "Yangshuo (阳朔), ok. 15 km od miasta"
+  ]
  },
  {
   "id": "yangshuo_xingping",
@@ -1308,7 +1320,11 @@
     112.76583
    ]
   ],
-  "track_traced": true
+  "track_traced": true,
+  "stations": [
+   "Yangshuo (阳朔), ok. 15 km od miasta",
+   "Zhaoqingdong (肇庆东), w Dinghu"
+  ]
  },
  {
   "id": "zhaoqing_guangzhou",
@@ -1394,7 +1410,11 @@
     113.24987
    ]
   ],
-  "track_traced": true
+  "track_traced": true,
+  "stations": [
+   "Zhaoqingdong (肇庆东), w Dinghu",
+   "Guangzhou South (广州南)"
+  ]
  },
  {
   "id": "guangzhou_shunde",
