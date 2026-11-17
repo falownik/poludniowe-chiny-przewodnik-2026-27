@@ -1126,7 +1126,7 @@
   "time": "ok. 1 h",
   "cost_pln": "ok. 12 zł/os. (busik dzielony)",
   "cost_mid_pln": 12,
-  "note": "1.01: wynajęty busik albo autobus, wieczorem powrót do Yangshuo."
+  "note": "30.12: wynajęty busik albo autobus, wieczorem powrót do Yangshuo. Środa przed długim weekendem, więc mniej ludzi."
  },
  {
   "id": "yangshuo_zhaoqing",
@@ -1332,18 +1332,18 @@
   "from": "zhaoqing",
   "to": "guangzhou",
   "mode": "HSR",
-  "time": "ok. 40 min (np. D7137 08:08)",
-  "cost_pln": "19 zł/os. (¥32)",
-  "cost_mid_pln": 19,
-  "note": "4.01: Zhaoqingdong → Guangzhounan, metro do Dongshankou. Linia po torach z OpenStreetMap. Wygodniej: G2861 10:18 Zhaoqingdong → Guangzhou East 11:19, a stamtąd 4 przystanki linią 1 do Dongshankou.",
+  "time": "G2861 10:18 → Guangzhou East 11:19 (1 h)",
+  "cost_pln": "ok. 25 zł/os.",
+  "cost_mid_pln": 25,
+  "note": "4.01: Zhaoqingdong → Guangzhou East, potem 4 przystanki linią 1 do Dongshankou. Sprzedaż od 21.12. Zapasowo: D7137 08:08 do Guangzhou South. Linia po torach z OpenStreetMap, ostatnie km do Guangzhou East orientacyjnie.",
   "geometry": [
    [
     23.15324,
     112.80512
    ],
    [
-    23.13263,
-    112.82827
+    23.13484,
+    112.82407
    ],
    [
     23.09909,
@@ -1354,16 +1354,16 @@
     112.92516
    ],
    [
-    23.08384,
-    112.94933
+    23.08413,
+    112.94772
    ],
    [
     23.08854,
     112.97487
    ],
    [
-    23.07751,
-    113.00753
+    23.07747,
+    113.0063
    ],
    [
     23.08613,
@@ -1390,30 +1390,18 @@
     113.19133
    ],
    [
-    23.09611,
-    113.19795
+    23.149,
+    113.257
    ],
    [
-    23.06929,
-    113.20429
-   ],
-   [
-    23.03403,
-    113.21965
-   ],
-   [
-    23.02033,
-    113.24183
-   ],
-   [
-    23.01093,
-    113.24987
+    23.1505,
+    113.3245
    ]
   ],
   "track_traced": true,
   "stations": [
    "Zhaoqingdong (肇庆东), w Dinghu",
-   "Guangzhou South (广州南)"
+   "Guangzhou East (广州东)"
   ]
  },
  {
@@ -1534,19 +1522,19 @@
   ]
  },
  {
-  "id": "transfer_guangzhou_south",
+  "id": "transfer_guangzhou_east",
   "layer": "local_hub",
   "from": "guangzhou",
   "to": "guangzhou",
-  "mode": "Metro Guangzhou South ↔ Dongshankou",
-  "time": "ok. 40 min",
-  "cost_pln": "ok. 5 zł/os.",
-  "cost_mid_pln": 5,
+  "mode": "Metro Guangzhou East ↔ Dongshankou",
+  "time": "ok. 15 min (linia 1, 4 przystanki)",
+  "cost_pln": "ok. 3 zł/os.",
+  "cost_mid_pln": 3,
   "note": "4.01 z pociągu z Zhaoqing metrem do hotelu Manning.",
   "geometry": [
    [
-    23.01093,
-    113.24987
+    23.1505,
+    113.3245
    ],
    [
     23.1255,

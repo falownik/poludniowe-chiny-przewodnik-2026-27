@@ -1829,7 +1829,7 @@ def plan_t_body(day_cards: str, thumb: Any, bullets: Any) -> str:
         ("17–22.12", "My dwoje w Chaozhou", "4 noce na starym mieście w Chaozhou: herbata gongfu, gęś, most Guangji. Wypady do Shantou na wołowy hot pot, do okrągłego domu Daoyun Lou albo na herbaciane wzgórza Fenghuang.", ["chaozhou", "shantou", "daoyun"]),
         ("22–26.12", "Z Kamilem: Hongkong i Shenzhen", "Dwie noce w Hongkongu przed świętami (Peak, Star Ferry, Mong Kok), potem dwie w Shenzhen: elektronika w Huaqiangbei, Wigilia w mieście i 25.12 szlak na półwyspie Dapeng.", ["hongkong", "shenzhen", "dapeng"]),
         ("26–29.12", "Wszyscy w Zhuhai", "26.12 wieczorem przypływamy promem z Shekou, ekipa dojeżdża autobusem przez most. 27.12 odpoczynek po locie na wyspie Qi'ao, 28.12 Makau pieszo przez Gongbei.", ["zhuhai", "macau"]),
-        ("29.12–2.01", "Yangshuo i Sylwester", "Bezpośredni pociąg do Yangshuo. Rowery i tratwy na Yulong, Moon Hill, Sylwester na West Street, 1.01 Xingping i rzeka Li, 2.01 wschód słońca z TV Tower.", ["yangshuo", "xingping"]),
+        ("29.12–2.01", "Yangshuo i Sylwester", "Bezpośredni pociąg do Yangshuo. 30.12 Xingping i rzeka Li, zanim zaczną się tłumy długiego weekendu. 31.12 rowery i tratwy na Yulong, wieczorem Sylwester na West Street. 1.01 odpoczynek, 2.01 wschód słońca z TV Tower.", ["yangshuo", "xingping"]),
         ("2–6.01", "Zhaoqing i Kanton", "Dwie noce przy Seven Star Crags i wypad na górę Dinghu, potem 40 minut pociągiem do Kantonu: Dongshankou, Chen Clan, Shamian, Foshan.", ["zhaoqing", "guangzhou", "foshan"]),
         ("6–11.01", "Ekipa sama", "Kanton → Hongkong → Szanghaj → 11.01 wylot do Polski.", ["hongkong", "shanghai"]),
     ]
@@ -1849,6 +1849,7 @@ def plan_t_body(day_cards: str, thumb: Any, bullets: Any) -> str:
         "Hongkong 22–24.12 w zwykłe dni robocze, zanim zaczną się świąteczne tłumy i ceny.",
         "Zhuhai zamiast nocy w Shenzhen: ekipa ma krótszą drogę z lotniska, a Makau jest pieszo przez granicę.",
         "Bezpośrednie pociągi Zhuhai → Yangshuo i Yangshuo → Zhaoqing, bez przesiadek z walizkami.",
+        "Xingping robimy 30.12, w środę przed długim weekendem 1–3.01, a nie 1.01, kiedy będą tam tłumy.",
         "3.01 (szczyt powrotów po długim weekendzie) siedzimy w Zhaoqing, a do Kantonu jedziemy dopiero 4.01.",
         "Hongkong i Makau robimy przed 31.12, więc nasz wjazd do Chin mieści się w ruchu bezwizowym na 2026.",
     ])

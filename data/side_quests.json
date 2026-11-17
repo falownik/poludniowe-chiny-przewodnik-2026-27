@@ -1,113 +1,647 @@
 {
   "updated": "2026-11-17",
   "split_days": [
-    {"date": "19–21.12", "where": "Chaozhou", "who": "my dwoje", "idea": "Każdy dzień to osobny wypad (Shantou, Daoyun Lou, Fenghuang, Nan'ao), więc możemy się rozdzielić na pół dnia, a wieczorem spotkać na hot pocie."},
-    {"date": "23.12", "where": "Hongkong", "who": "my + Kamil", "idea": "Ktoś na Peak i do Central, ktoś na szlak Dragon's Back albo na wyspę Lamma. Spotkanie wieczorem na Symphony of Lights."},
-    {"date": "26.12 rano", "where": "Shenzhen", "who": "my + Kamil", "idea": "Do promu o 18:00 każdy robi swoje: elektronika, park, wioska malarzy Dafen albo wieżowiec Ping An."},
-    {"date": "27.12", "where": "Zhuhai", "who": "wszyscy", "idea": "Dzień po locie ekipy: kto zmęczony, ten śpi i je owoce morza; kto ma siłę, jedzie rowerem na Qi'ao albo do Hengqin."},
-    {"date": "28.12", "where": "Makau", "who": "wszyscy", "idea": "Wspólnie stare centrum, potem się rozdzielamy: kasyna i pokazy w Cotai, Coloane albo Macau Tower."},
-    {"date": "30–31.12", "where": "Yangshuo", "who": "wszyscy", "idea": "Najlepsze miejsce na rozdzielenie: jedni na via ferratę albo wspinaczkę, inni na rowery, tratwę albo lekcję gotowania. Sylwester razem."},
-    {"date": "3.01", "where": "Zhaoqing", "who": "wszyscy", "idea": "Dinghu dla chętnych na cały dzień; reszta rowerem wokół jezior Seven Star Crags i do starego miasta."},
-    {"date": "5.01", "where": "Kanton", "who": "wszyscy", "idea": "Foshan z pokazem kung fu albo Shunde na jedzenie albo zakupy i muzea w Kantonie. Kolacja pożegnalna razem."}
+    {
+      "date": "19–21.12",
+      "where": "Chaozhou",
+      "who": "my dwoje",
+      "idea": "Każdy dzień to osobny wypad (Shantou, Daoyun Lou, Fenghuang, Nan'ao), więc możemy się rozdzielić na pół dnia, a wieczorem spotkać na hot pocie."
+    },
+    {
+      "date": "23.12",
+      "where": "Hongkong",
+      "who": "my + Kamil",
+      "idea": "Ktoś na Peak i do Central, ktoś na szlak Dragon's Back albo na wyspę Lamma. Spotkanie wieczorem na Symphony of Lights."
+    },
+    {
+      "date": "26.12 rano",
+      "where": "Shenzhen",
+      "who": "my + Kamil",
+      "idea": "Do promu o 18:00 każdy robi swoje: elektronika, park, wioska malarzy Dafen albo wieżowiec Ping An."
+    },
+    {
+      "date": "27.12",
+      "where": "Zhuhai",
+      "who": "wszyscy",
+      "idea": "Dzień po locie ekipy: kto zmęczony, ten śpi i je owoce morza; kto ma siłę, jedzie rowerem na Qi'ao albo do Hengqin."
+    },
+    {
+      "date": "28.12",
+      "where": "Makau",
+      "who": "wszyscy",
+      "idea": "Wspólnie stare centrum, potem się rozdzielamy: kasyna i pokazy w Cotai, Coloane albo Macau Tower."
+    },
+    {
+      "date": "31.12 i 1.01",
+      "where": "Yangshuo",
+      "who": "wszyscy",
+      "idea": "Najlepsze dni na rozdzielenie: jedni na via ferratę albo wspinaczkę, inni na rowery, tratwę, lekcję gotowania albo masaż. Sylwester razem."
+    },
+    {
+      "date": "3.01",
+      "where": "Zhaoqing",
+      "who": "wszyscy",
+      "idea": "Dinghu dla chętnych na cały dzień; reszta rowerem wokół jezior Seven Star Crags i do starego miasta."
+    },
+    {
+      "date": "5.01",
+      "where": "Kanton",
+      "who": "wszyscy",
+      "idea": "Foshan z pokazem kung fu albo Shunde na jedzenie albo zakupy i muzea w Kantonie. Kolacja pożegnalna razem."
+    }
   ],
   "hubs": [
     {
-      "id": "chaozhou", "name": "Chaozhou i Shantou", "dates": "18–22.12 (my dwoje)",
+      "id": "chaozhou",
+      "name": "Chaozhou i Shantou",
+      "dates": "18–22.12 (my dwoje)",
       "intro": "Stolica kuchni Teochew i herbaty gongfu. Wszystko jest blisko, a DiDi tanie, więc łatwo rozbić się na mniejsze wypady.",
       "quests": [
-        {"title": "Most Guangji i mury nad rzeką", "tags": ["kultura"], "time": "1–2 h", "cost": "ok. 12 zł", "note": "Ruchomy most z łodzi. Wieczorem podświetlony, z murów najlepszy widok."},
-        {"title": "Herbata gongfu z degustacją dancong", "tags": ["jedzenie", "chill"], "time": "1–2 h", "cost": "ok. 30–100 zł", "note": "W herbaciarni na starym mieście. Dobry moment, żeby kupić herbatę na prezent."},
-        {"title": "Wołowy hot pot w Shantou", "tags": ["jedzenie"], "time": "wieczór", "cost": "ok. 40–60 zł/os.", "note": "Wołowina krojona przy was, każda część gotowana inną liczbę sekund."},
-        {"title": "Stare miasto Shantou (Small Park, arkady qilou)", "tags": ["miasto", "kultura"], "time": "pół dnia", "cost": "0 zł", "note": "Zaniedbane, fotogeniczne kamienice z lat 30. Pociągiem albo autobusem ok. 40 min."},
-        {"title": "Daoyun Lou, ośmiokątny dom Hakka", "tags": ["kultura", "wieś"], "time": "pół dnia", "cost": "ok. 12 zł + dojazd", "note": "Największy okrągły dom w Guangdongu. Sprawdzić, czy nie ma remontu."},
-        {"title": "Herbaciane wzgórza Fenghuang", "tags": ["natura", "wieś"], "time": "cały dzień", "cost": "dojazd DiDi ok. 1,5 h", "note": "Tarasy herbaciane, wioski, degustacja prosto u producenta."},
-        {"title": "Wyspa Nan'ao", "tags": ["natura", "chill"], "time": "cały dzień", "cost": "dojazd ok. 1,5 h", "note": "Mostem z Shantou. Plaże i wybrzeże, zimą pusto."},
-        {"title": "Świątynia Kaiyuan i świątynia Han Yu", "tags": ["kultura"], "time": "1–2 h", "cost": "0–10 zł", "note": "Spokojne, dobre na deszcz."}
+        {
+          "title": "Most Guangji i mury nad rzeką",
+          "tags": [
+            "kultura"
+          ],
+          "time": "1–2 h",
+          "cost": "ok. 12 zł",
+          "note": "Ruchomy most z łodzi. Wieczorem podświetlony, z murów najlepszy widok."
+        },
+        {
+          "title": "Herbata gongfu z degustacją dancong",
+          "tags": [
+            "jedzenie",
+            "chill"
+          ],
+          "time": "1–2 h",
+          "cost": "ok. 30–100 zł",
+          "note": "W herbaciarni na starym mieście. Dobry moment, żeby kupić herbatę na prezent."
+        },
+        {
+          "title": "Wołowy hot pot w Shantou",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "wieczór",
+          "cost": "ok. 40–60 zł/os.",
+          "note": "Wołowina krojona przy was, każda część gotowana inną liczbę sekund."
+        },
+        {
+          "title": "Stare miasto Shantou (Small Park, arkady qilou)",
+          "tags": [
+            "miasto",
+            "kultura"
+          ],
+          "time": "pół dnia",
+          "cost": "0 zł",
+          "note": "Zaniedbane, fotogeniczne kamienice z lat 30. Pociągiem albo autobusem ok. 40 min."
+        },
+        {
+          "title": "Daoyun Lou, ośmiokątny dom Hakka",
+          "tags": [
+            "kultura",
+            "wieś"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 12 zł + dojazd",
+          "note": "Największy okrągły dom w Guangdongu. Sprawdzić, czy nie ma remontu."
+        },
+        {
+          "title": "Herbaciane wzgórza Fenghuang",
+          "tags": [
+            "natura",
+            "wieś"
+          ],
+          "time": "cały dzień",
+          "cost": "dojazd DiDi ok. 1,5 h",
+          "note": "Tarasy herbaciane, wioski, degustacja prosto u producenta."
+        },
+        {
+          "title": "Wyspa Nan'ao",
+          "tags": [
+            "natura",
+            "chill"
+          ],
+          "time": "cały dzień",
+          "cost": "dojazd ok. 1,5 h",
+          "note": "Mostem z Shantou. Plaże i wybrzeże, zimą pusto."
+        },
+        {
+          "title": "Świątynia Kaiyuan i świątynia Han Yu",
+          "tags": [
+            "kultura"
+          ],
+          "time": "1–2 h",
+          "cost": "0–10 zł",
+          "note": "Spokojne, dobre na deszcz."
+        }
       ]
     },
     {
-      "id": "hongkong", "name": "Hongkong", "dates": "22–24.12 (my + Kamil); ekipa 7–9.01",
+      "id": "hongkong",
+      "name": "Hongkong",
+      "dates": "22–24.12 (my + Kamil); ekipa 7–9.01",
       "intro": "Komunikacja jest prosta (karta Octopus, MTR, promy), więc każdy może jechać gdzie chce i dołączyć wieczorem.",
       "quests": [
-        {"title": "Victoria Peak (Peak Tram)", "tags": ["miasto"], "time": "2–3 h", "cost": "ok. 64 zł", "note": "Tylko przy dobrej widoczności. Za darmo jest widok ze ścieżki Lugard Road."},
-        {"title": "Szlak Dragon's Back", "tags": ["natura"], "time": "3–4 h", "cost": "ok. 10 zł dojazd", "note": "Grzbietem nad morzem, kończy się na plaży Big Wave Bay albo w Shek O."},
-        {"title": "Wyspa Lamma i owoce morza", "tags": ["natura", "jedzenie", "chill"], "time": "pół dnia", "cost": "prom ok. 15 zł", "note": "Bez samochodów. Spacer z Yung Shue Wan do Sok Kwu Wan i kolacja nad wodą."},
-        {"title": "Star Ferry i Symphony of Lights o 20:00", "tags": ["miasto", "noc"], "time": "1 h", "cost": "ok. 3 zł", "note": "Najtańszy widok na skyline."},
-        {"title": "Sham Shui Po: elektronika, tkaniny, jedzenie", "tags": ["zakupy", "jedzenie"], "time": "2–3 h", "cost": "0 zł", "note": "Bardziej lokalne niż Mong Kok."},
-        {"title": "M+ albo Hong Kong Palace Museum", "tags": ["kultura"], "time": "2–3 h", "cost": "ok. 30–60 zł", "note": "Na deszcz. Obok promenada West Kowloon."},
-        {"title": "Dim sum: Tim Ho Wan albo herbaciarnia", "tags": ["jedzenie"], "time": "1 h", "cost": "ok. 30–50 zł/os.", "note": "Najtańsza restauracja z gwiazdką Michelin."},
-        {"title": "Lantau: Wielki Budda i wioska Tai O", "tags": ["kultura", "natura"], "time": "cały dzień", "cost": "kolejka ok. 150–250 zł", "note": "Dla ekipy 7–8.01. Kolejkę kupić online, można też wejść pieszo."}
+        {
+          "title": "Victoria Peak (Peak Tram)",
+          "tags": [
+            "miasto"
+          ],
+          "time": "2–3 h",
+          "cost": "ok. 64 zł",
+          "note": "Tylko przy dobrej widoczności. Za darmo jest widok ze ścieżki Lugard Road."
+        },
+        {
+          "title": "Szlak Dragon's Back",
+          "tags": [
+            "natura"
+          ],
+          "time": "3–4 h",
+          "cost": "ok. 10 zł dojazd",
+          "note": "Grzbietem nad morzem, kończy się na plaży Big Wave Bay albo w Shek O."
+        },
+        {
+          "title": "Wyspa Lamma i owoce morza",
+          "tags": [
+            "natura",
+            "jedzenie",
+            "chill"
+          ],
+          "time": "pół dnia",
+          "cost": "prom ok. 15 zł",
+          "note": "Bez samochodów. Spacer z Yung Shue Wan do Sok Kwu Wan i kolacja nad wodą."
+        },
+        {
+          "title": "Star Ferry i Symphony of Lights o 20:00",
+          "tags": [
+            "miasto",
+            "noc"
+          ],
+          "time": "1 h",
+          "cost": "ok. 3 zł",
+          "note": "Najtańszy widok na skyline."
+        },
+        {
+          "title": "Sham Shui Po: elektronika, tkaniny, jedzenie",
+          "tags": [
+            "zakupy",
+            "jedzenie"
+          ],
+          "time": "2–3 h",
+          "cost": "0 zł",
+          "note": "Bardziej lokalne niż Mong Kok."
+        },
+        {
+          "title": "M+ albo Hong Kong Palace Museum",
+          "tags": [
+            "kultura"
+          ],
+          "time": "2–3 h",
+          "cost": "ok. 30–60 zł",
+          "note": "Na deszcz. Obok promenada West Kowloon."
+        },
+        {
+          "title": "Dim sum: Tim Ho Wan albo herbaciarnia",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "1 h",
+          "cost": "ok. 30–50 zł/os.",
+          "note": "Najtańsza restauracja z gwiazdką Michelin."
+        },
+        {
+          "title": "Lantau: Wielki Budda i wioska Tai O",
+          "tags": [
+            "kultura",
+            "natura"
+          ],
+          "time": "cały dzień",
+          "cost": "kolejka ok. 150–250 zł",
+          "note": "Dla ekipy 7–8.01. Kolejkę kupić online, można też wejść pieszo."
+        }
       ]
     },
     {
-      "id": "shenzhen", "name": "Shenzhen", "dates": "24–26.12 (my + Kamil)",
+      "id": "shenzhen",
+      "name": "Shenzhen",
+      "dates": "24–26.12 (my + Kamil)",
       "intro": "Futurystyczne miasto, w którym każdy znajdzie coś innego: elektronika, design, natura. Metro dojeżdża prawie wszędzie.",
       "quests": [
-        {"title": "Huaqiangbei: polowanie na gadżety", "tags": ["zakupy"], "time": "2–4 h", "cost": "ile kto wyda", "note": "Kilka pięter części, dronów, kabli i dziwnych wynalazków. Targować się."},
-        {"title": "Szlak wybrzeżem Dapeng", "tags": ["natura"], "time": "cały dzień", "cost": "ok. 24 zł dojazd", "note": "Zaplanowane na 25.12. Dongchong → Xichong po skałach."},
-        {"title": "Wutong Shan, najwyższa góra Shenzhen", "tags": ["natura"], "time": "pół dnia", "cost": "0 zł", "note": "Alternatywa dla Dapeng, bliżej miasta. Schody i widok na Hongkong."},
-        {"title": "OCT Loft i wioska malarzy Dafen", "tags": ["kultura", "zakupy"], "time": "pół dnia", "cost": "0 zł", "note": "W Dafen powstaje masa kopii obrazów. Można zamówić własny portret."},
-        {"title": "Ping An Finance Centre, taras na 116. piętrze", "tags": ["miasto"], "time": "1 h", "cost": "ok. 120 zł", "note": "Jeden z najwyższych budynków świata."},
-        {"title": "Zachód słońca w Shenzhen Bay Park", "tags": ["chill", "noc"], "time": "1–2 h", "cost": "0 zł", "note": "Promenada nad zatoką z widokiem na Hongkong."},
-        {"title": "Shekou i Sea World", "tags": ["jedzenie", "noc"], "time": "wieczór", "cost": "0 zł", "note": "Knajpy i bary obok terminalu promowego. Dobre przed promem 26.12."}
+        {
+          "title": "Huaqiangbei: polowanie na gadżety",
+          "tags": [
+            "zakupy"
+          ],
+          "time": "2–4 h",
+          "cost": "ile kto wyda",
+          "note": "Kilka pięter części, dronów, kabli i dziwnych wynalazków. Targować się."
+        },
+        {
+          "title": "Szlak wybrzeżem Dapeng",
+          "tags": [
+            "natura"
+          ],
+          "time": "cały dzień",
+          "cost": "ok. 24 zł dojazd",
+          "note": "Zaplanowane na 25.12. Dongchong → Xichong po skałach."
+        },
+        {
+          "title": "Wutong Shan, najwyższa góra Shenzhen",
+          "tags": [
+            "natura"
+          ],
+          "time": "pół dnia",
+          "cost": "0 zł",
+          "note": "Alternatywa dla Dapeng, bliżej miasta. Schody i widok na Hongkong."
+        },
+        {
+          "title": "OCT Loft i wioska malarzy Dafen",
+          "tags": [
+            "kultura",
+            "zakupy"
+          ],
+          "time": "pół dnia",
+          "cost": "0 zł",
+          "note": "W Dafen powstaje masa kopii obrazów. Można zamówić własny portret."
+        },
+        {
+          "title": "Ping An Finance Centre, taras na 116. piętrze",
+          "tags": [
+            "miasto"
+          ],
+          "time": "1 h",
+          "cost": "ok. 120 zł",
+          "note": "Jeden z najwyższych budynków świata."
+        },
+        {
+          "title": "Zachód słońca w Shenzhen Bay Park",
+          "tags": [
+            "chill",
+            "noc"
+          ],
+          "time": "1–2 h",
+          "cost": "0 zł",
+          "note": "Promenada nad zatoką z widokiem na Hongkong."
+        },
+        {
+          "title": "Shekou i Sea World",
+          "tags": [
+            "jedzenie",
+            "noc"
+          ],
+          "time": "wieczór",
+          "cost": "0 zł",
+          "note": "Knajpy i bary obok terminalu promowego. Dobre przed promem 26.12."
+        }
       ]
     },
     {
-      "id": "zhuhai", "name": "Zhuhai i Makau", "dates": "26–29.12 (wszyscy)",
+      "id": "zhuhai",
+      "name": "Zhuhai i Makau",
+      "dates": "26–29.12 (wszyscy)",
       "intro": "Do Makau idzie się pieszo z hotelu. 27.12 to dzień odpoczynku po locie ekipy, więc każdy robi tyle, ile ma siły.",
       "quests": [
-        {"title": "Rowerem po promenadzie Lovers' Road", "tags": ["chill", "natura"], "time": "2 h", "cost": "rower miejski kilka zł", "note": "Kilkanaście km nad morzem, posąg Rybaczki po drodze."},
-        {"title": "Wyspa Qi'ao: namorzyny i stara wioska", "tags": ["natura", "wieś"], "time": "pół dnia", "cost": "0 zł + DiDi", "note": "Kładki przez namorzyny, świątynie, ciche uliczki."},
-        {"title": "Owoce morza na targu", "tags": ["jedzenie"], "time": "wieczór", "cost": "ok. 50–100 zł/os.", "note": "Kupujesz na targu, a kuchnia obok przyrządza (np. przy Xiangzhou)."},
-        {"title": "Makau: ruiny św. Pawła, Senado, twierdza Guia", "tags": ["kultura"], "time": "pół dnia", "cost": "0 zł", "note": "Rano, zanim zrobi się tłok. Z twierdzy Guia widok na całe miasto."},
-        {"title": "Coloane i tarta z jajkiem u Lord Stow's", "tags": ["jedzenie", "chill"], "time": "2–3 h", "cost": "ok. 10 zł za tartę", "note": "Najspokojniejsza część Makau."},
-        {"title": "Kasyna i darmowe pokazy w Cotai", "tags": ["noc", "miasto"], "time": "wieczór", "cost": "0 zł (bez grania)", "note": "Wenecja pod dachem, fontanny, pokazy. Wejście za darmo."},
-        {"title": "Macau Tower: taras albo bungee", "tags": ["adrenalina"], "time": "1–2 h", "cost": "taras ok. 115 zł, bungee bardzo drogo", "note": "Jeden z najwyższych skoków bungee na świecie."},
-        {"title": "Kanapka z kotletem wieprzowym (pork chop bun)", "tags": ["jedzenie"], "time": "30 min", "cost": "ok. 25 zł", "note": "Klasyk Makau, np. na Taipie."}
+        {
+          "title": "Rowerem po promenadzie Lovers' Road",
+          "tags": [
+            "chill",
+            "natura"
+          ],
+          "time": "2 h",
+          "cost": "rower miejski kilka zł",
+          "note": "Kilkanaście km nad morzem, posąg Rybaczki po drodze."
+        },
+        {
+          "title": "Wyspa Qi'ao: namorzyny i stara wioska",
+          "tags": [
+            "natura",
+            "wieś"
+          ],
+          "time": "pół dnia",
+          "cost": "0 zł + DiDi",
+          "note": "Kładki przez namorzyny, świątynie, ciche uliczki."
+        },
+        {
+          "title": "Owoce morza na targu",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "wieczór",
+          "cost": "ok. 50–100 zł/os.",
+          "note": "Kupujesz na targu, a kuchnia obok przyrządza (np. przy Xiangzhou)."
+        },
+        {
+          "title": "Makau: ruiny św. Pawła, Senado, twierdza Guia",
+          "tags": [
+            "kultura"
+          ],
+          "time": "pół dnia",
+          "cost": "0 zł",
+          "note": "Rano, zanim zrobi się tłok. Z twierdzy Guia widok na całe miasto."
+        },
+        {
+          "title": "Coloane i tarta z jajkiem u Lord Stow's",
+          "tags": [
+            "jedzenie",
+            "chill"
+          ],
+          "time": "2–3 h",
+          "cost": "ok. 10 zł za tartę",
+          "note": "Najspokojniejsza część Makau."
+        },
+        {
+          "title": "Kasyna i darmowe pokazy w Cotai",
+          "tags": [
+            "noc",
+            "miasto"
+          ],
+          "time": "wieczór",
+          "cost": "0 zł (bez grania)",
+          "note": "Wenecja pod dachem, fontanny, pokazy. Wejście za darmo."
+        },
+        {
+          "title": "Macau Tower: taras albo bungee",
+          "tags": [
+            "adrenalina"
+          ],
+          "time": "1–2 h",
+          "cost": "taras ok. 115 zł, bungee bardzo drogo",
+          "note": "Jeden z najwyższych skoków bungee na świecie."
+        },
+        {
+          "title": "Kanapka z kotletem wieprzowym (pork chop bun)",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "30 min",
+          "cost": "ok. 25 zł",
+          "note": "Klasyk Makau, np. na Taipie."
+        }
       ]
     },
     {
-      "id": "yangshuo", "name": "Yangshuo i Xingping", "dates": "29.12–2.01 (wszyscy)",
+      "id": "yangshuo",
+      "name": "Yangshuo i Xingping",
+      "dates": "29.12–2.01 (wszyscy)",
       "intro": "Najlepsze miejsce na side questy: krajobraz jest wszędzie, a od adrenaliny po masaż stóp każdy znajdzie coś dla siebie. Rowery i skutery wypożycza się na każdym rogu.",
       "quests": [
-        {"title": "Rowerem albo skuterem nad Yulong", "tags": ["natura"], "time": "pół dnia", "cost": "ok. 15–50 zł", "note": "Drogi wśród pól i wapiennych wzgórz, Dragon Bridge po drodze."},
-        {"title": "Tratwa bambusowa na Yulong", "tags": ["natura", "chill"], "time": "1–2 h", "cost": "ok. 78 zł/os.", "note": "Najspokojniejsza godzina wyjazdu."},
-        {"title": "Via ferrata na Ruyi Peak", "tags": ["adrenalina"], "time": "pół dnia", "cost": "ok. 235 zł", "note": "Stalowe liny i drabinki na ścianie. Na miejscu może być taniej."},
-        {"title": "Kurs wspinaczki skałkowej", "tags": ["adrenalina"], "time": "pół dnia", "cost": "ok. 150–250 zł", "note": "Yangshuo to jedna z wspinaczkowych stolic Azji. Kursy dla początkujących."},
-        {"title": "Moon Hill", "tags": ["natura"], "time": "1,5–2 h", "cost": "ok. 9 zł", "note": "Ok. 800 schodów do łuku skalnego."},
-        {"title": "Wschód słońca z TV Tower", "tags": ["natura"], "time": "1 h", "cost": "opłata lokalna", "note": "Zaplanowane na 2.01, ale można też wcześniej."},
-        {"title": "Pieszo wzdłuż rzeki Li z Yangdi do Xingping", "tags": ["natura"], "time": "4–5 h", "cost": "dojazd + krótki prom", "note": "Najpiękniejszy odcinek rzeki. Alternatywa dla busika 1.01 dla chodziarzy."},
-        {"title": "Xianggong Shan, punkt widokowy nad zakolem Li", "tags": ["natura"], "time": "2–3 h z dojazdem", "cost": "ok. 15 zł", "note": "Klasyczny widok na mgły nad rzeką o świcie."},
-        {"title": "Lekcja gotowania z targiem", "tags": ["jedzenie"], "time": "pół dnia", "cost": "ok. 120 zł", "note": "Zakupy na targu i gotowanie kilku dań, np. ryby w piwie."},
-        {"title": "Pokaz „Impression Liu Sanjie” na rzece", "tags": ["noc", "kultura"], "time": "1 h", "cost": "ok. 140 zł", "note": "Setki aktorów i światła na tle gór."},
-        {"title": "Jaskinia Silver Cave", "tags": ["natura"], "time": "2–3 h", "cost": "ok. 40–60 zł", "note": "Na deszcz."},
-        {"title": "Masaż stóp po rowerach", "tags": ["chill"], "time": "1 h", "cost": "ok. 75 zł", "note": "Wszędzie przy West Street."}
+        {
+          "title": "Rowerem albo skuterem nad Yulong",
+          "tags": [
+            "natura"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 15–50 zł",
+          "note": "Drogi wśród pól i wapiennych wzgórz, Dragon Bridge po drodze."
+        },
+        {
+          "title": "Tratwa bambusowa na Yulong",
+          "tags": [
+            "natura",
+            "chill"
+          ],
+          "time": "1–2 h",
+          "cost": "ok. 78 zł/os.",
+          "note": "Najspokojniejsza godzina wyjazdu."
+        },
+        {
+          "title": "Via ferrata na Ruyi Peak",
+          "tags": [
+            "adrenalina"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 235 zł",
+          "note": "Stalowe liny i drabinki na ścianie. Na miejscu może być taniej."
+        },
+        {
+          "title": "Kurs wspinaczki skałkowej",
+          "tags": [
+            "adrenalina"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 150–250 zł",
+          "note": "Yangshuo to jedna z wspinaczkowych stolic Azji. Kursy dla początkujących."
+        },
+        {
+          "title": "Moon Hill",
+          "tags": [
+            "natura"
+          ],
+          "time": "1,5–2 h",
+          "cost": "ok. 9 zł",
+          "note": "Ok. 800 schodów do łuku skalnego."
+        },
+        {
+          "title": "Wschód słońca z TV Tower",
+          "tags": [
+            "natura"
+          ],
+          "time": "1 h",
+          "cost": "opłata lokalna",
+          "note": "Zaplanowane na 2.01, ale można też wcześniej."
+        },
+        {
+          "title": "Pieszo wzdłuż rzeki Li z Yangdi do Xingping",
+          "tags": [
+            "natura"
+          ],
+          "time": "4–5 h",
+          "cost": "dojazd + krótki prom",
+          "note": "Najpiękniejszy odcinek rzeki. Alternatywa dla busika 1.01 dla chodziarzy."
+        },
+        {
+          "title": "Xianggong Shan, punkt widokowy nad zakolem Li",
+          "tags": [
+            "natura"
+          ],
+          "time": "2–3 h z dojazdem",
+          "cost": "ok. 15 zł",
+          "note": "Klasyczny widok na mgły nad rzeką o świcie."
+        },
+        {
+          "title": "Lekcja gotowania z targiem",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 120 zł",
+          "note": "Zakupy na targu i gotowanie kilku dań, np. ryby w piwie."
+        },
+        {
+          "title": "Pokaz „Impression Liu Sanjie” na rzece",
+          "tags": [
+            "noc",
+            "kultura"
+          ],
+          "time": "1 h",
+          "cost": "ok. 140 zł",
+          "note": "Setki aktorów i światła na tle gór."
+        },
+        {
+          "title": "Jaskinia Silver Cave",
+          "tags": [
+            "natura"
+          ],
+          "time": "2–3 h",
+          "cost": "ok. 40–60 zł",
+          "note": "Na deszcz."
+        },
+        {
+          "title": "Masaż stóp po rowerach",
+          "tags": [
+            "chill"
+          ],
+          "time": "1 h",
+          "cost": "ok. 75 zł",
+          "note": "Wszędzie przy West Street."
+        }
       ]
     },
     {
-      "id": "zhaoqing", "name": "Zhaoqing", "dates": "2–4.01 (wszyscy)",
+      "id": "zhaoqing",
+      "name": "Zhaoqing",
+      "dates": "2–4.01 (wszyscy)",
       "intro": "Spokojna baza po Sylwestrze. 3.01 to dobry dzień na rozdzielenie: góra Dinghu dla chodziarzy, jeziora i miasto dla reszty.",
       "quests": [
-        {"title": "Rowerem wokół jezior Seven Star Crags", "tags": ["natura", "chill"], "time": "2–3 h", "cost": "rower kilka zł", "note": "Ścieżki po groblach między skałami, obok hotelu."},
-        {"title": "Jaskinia w Seven Star Crags (łódką)", "tags": ["natura"], "time": "1 h", "cost": "w bilecie albo dopłata", "note": "Podziemne jezioro."},
-        {"title": "Góra Dinghu: wodospad Feishui i klasztor Qingyun", "tags": ["natura", "kultura"], "time": "cały dzień", "cost": "w bilecie łączonym (72 zł)", "note": "Jeden z najstarszych rezerwatów w Chinach. Wegetariański obiad w klasztorze."},
-        {"title": "Stare mury miasta z czasów Song", "tags": ["kultura", "miasto"], "time": "1–2 h", "cost": "0 zł", "note": "Spacer po murach, wieczorem dobrze oświetlone."},
-        {"title": "Kamienie do tuszu Duan (Duanyan)", "tags": ["kultura", "zakupy"], "time": "1–2 h", "cost": "od 50 zł za kamień", "note": "Słynne kamienie kaligraficzne z Zhaoqing. Muzeum i sklepy."},
-        {"title": "Zongzi z Zhaoqing (pierożki ryżowe w liściach)", "tags": ["jedzenie"], "time": "30 min", "cost": "ok. 10 zł", "note": "Lokalna specjalność, duże i z fasolą."}
+        {
+          "title": "Rowerem wokół jezior Seven Star Crags",
+          "tags": [
+            "natura",
+            "chill"
+          ],
+          "time": "2–3 h",
+          "cost": "rower kilka zł",
+          "note": "Ścieżki po groblach między skałami, obok hotelu."
+        },
+        {
+          "title": "Jaskinia w Seven Star Crags (łódką)",
+          "tags": [
+            "natura"
+          ],
+          "time": "1 h",
+          "cost": "w bilecie albo dopłata",
+          "note": "Podziemne jezioro."
+        },
+        {
+          "title": "Góra Dinghu: wodospad Feishui i klasztor Qingyun",
+          "tags": [
+            "natura",
+            "kultura"
+          ],
+          "time": "cały dzień",
+          "cost": "w bilecie łączonym (72 zł)",
+          "note": "Jeden z najstarszych rezerwatów w Chinach. Wegetariański obiad w klasztorze."
+        },
+        {
+          "title": "Stare mury miasta z czasów Song",
+          "tags": [
+            "kultura",
+            "miasto"
+          ],
+          "time": "1–2 h",
+          "cost": "0 zł",
+          "note": "Spacer po murach, wieczorem dobrze oświetlone."
+        },
+        {
+          "title": "Kamienie do tuszu Duan (Duanyan)",
+          "tags": [
+            "kultura",
+            "zakupy"
+          ],
+          "time": "1–2 h",
+          "cost": "od 50 zł za kamień",
+          "note": "Słynne kamienie kaligraficzne z Zhaoqing. Muzeum i sklepy."
+        },
+        {
+          "title": "Zongzi z Zhaoqing (pierożki ryżowe w liściach)",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "30 min",
+          "cost": "ok. 10 zł",
+          "note": "Lokalna specjalność, duże i z fasolą."
+        }
       ]
     },
     {
-      "id": "guangzhou", "name": "Kanton i Foshan", "dates": "4–6.01 (wszyscy); ekipa do 7.01",
+      "id": "guangzhou",
+      "name": "Kanton i Foshan",
+      "dates": "4–6.01 (wszyscy); ekipa do 7.01",
       "intro": "Ostatnie dwa dni: dużo jedzenia, trochę zakupów i pakowanie. Metro dojeżdża wszędzie, również do Foshan.",
       "quests": [
-        {"title": "Dim sum na śniadanie w starej herbaciarni", "tags": ["jedzenie"], "time": "1–2 h", "cost": "ok. 30–60 zł/os.", "note": "Np. Taotaoju albo Panxi. Rano jest tłoczno, warto być wcześnie."},
-        {"title": "Nocny rejs po Rzece Perłowej", "tags": ["noc"], "time": "1–1,5 h", "cost": "ok. 50 zł", "note": "Podświetlone mosty i Canton Tower."},
-        {"title": "Taras Canton Tower", "tags": ["miasto"], "time": "1–2 h", "cost": "ok. 90 zł", "note": "Wyżej (450 m) drożej."},
-        {"title": "Yongqingfang i stare miasto Liwan", "tags": ["kultura", "miasto"], "time": "pół dnia", "cost": "0 zł", "note": "Kamienice Xiguan, rzemiosło, kawiarnie."},
-        {"title": "Guangdong Museum", "tags": ["kultura"], "time": "2–3 h", "cost": "0 zł (rezerwacja online)", "note": "Na deszcz."},
-        {"title": "Foshan: świątynia Zumiao i pokaz kung fu", "tags": ["kultura"], "time": "pół dnia", "cost": "ok. 12 zł", "note": "Szkoła Wong Fei-hunga, taniec lwa."},
-        {"title": "Shunde: podwójne mleko i rybne dania", "tags": ["jedzenie"], "time": "pół dnia", "cost": "ok. 40–80 zł/os.", "note": "Miasto gastronomii UNESCO, metro i DiDi."},
-        {"title": "Góra Baiyun kolejką linową", "tags": ["natura"], "time": "pół dnia", "cost": "ok. 30–50 zł", "note": "Zielony widok na miasto."}
+        {
+          "title": "Dim sum na śniadanie w starej herbaciarni",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "1–2 h",
+          "cost": "ok. 30–60 zł/os.",
+          "note": "Np. Taotaoju albo Panxi. Rano jest tłoczno, warto być wcześnie."
+        },
+        {
+          "title": "Nocny rejs po Rzece Perłowej",
+          "tags": [
+            "noc"
+          ],
+          "time": "1–1,5 h",
+          "cost": "ok. 50 zł",
+          "note": "Podświetlone mosty i Canton Tower."
+        },
+        {
+          "title": "Taras Canton Tower",
+          "tags": [
+            "miasto"
+          ],
+          "time": "1–2 h",
+          "cost": "ok. 90 zł",
+          "note": "Wyżej (450 m) drożej."
+        },
+        {
+          "title": "Yongqingfang i stare miasto Liwan",
+          "tags": [
+            "kultura",
+            "miasto"
+          ],
+          "time": "pół dnia",
+          "cost": "0 zł",
+          "note": "Kamienice Xiguan, rzemiosło, kawiarnie."
+        },
+        {
+          "title": "Guangdong Museum",
+          "tags": [
+            "kultura"
+          ],
+          "time": "2–3 h",
+          "cost": "0 zł (rezerwacja online)",
+          "note": "Na deszcz."
+        },
+        {
+          "title": "Foshan: świątynia Zumiao i pokaz kung fu",
+          "tags": [
+            "kultura"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 12 zł",
+          "note": "Szkoła Wong Fei-hunga, taniec lwa."
+        },
+        {
+          "title": "Shunde: podwójne mleko i rybne dania",
+          "tags": [
+            "jedzenie"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 40–80 zł/os.",
+          "note": "Miasto gastronomii UNESCO, metro i DiDi."
+        },
+        {
+          "title": "Góra Baiyun kolejką linową",
+          "tags": [
+            "natura"
+          ],
+          "time": "pół dnia",
+          "cost": "ok. 30–50 zł",
+          "note": "Zielony widok na miasto."
+        }
       ]
     }
   ],

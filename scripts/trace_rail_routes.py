@@ -29,6 +29,8 @@ STATIONS = {
     "west_kowloon": (22.3040, 114.1660),
     "zhuhai": (22.2149, 113.5457),
     "guangzhou_south": (22.9887, 113.2690),
+    "guangzhou_east": (23.1505, 113.3245),
+    "guangzhou_station": (23.1490, 113.2570),
     "foshan_west": (23.0569, 113.0480),
     "zhaoqing_east": (23.1760, 112.7900),
     "yangshuo": (24.8020, 110.5420),
@@ -39,6 +41,11 @@ RAIL_LEGS = {
     "zhuhai_yangshuo": ["zhuhai", "zhaoqing_east", "yangshuo"],
     "yangshuo_zhaoqing": ["yangshuo", "zhaoqing_east"],
     "zhaoqing_guangzhou": ["zhaoqing_east", "guangzhou_south"],
+}
+# Guangzhou station and Guangzhou East sit on lines missing from the high-speed
+# dump, so G2861 is traced to where it leaves that network and finished by hand.
+MANUAL_TAILS = {
+    "zhaoqing_guangzhou": ((23.1022, 113.1913), ["guangzhou_station", "guangzhou_east"]),
 }
 
 
@@ -183,6 +190,10 @@ def main() -> None:
             points.extend(coords[node] for node in (path if not points else path[1:]))
         if not ok:
             continue
+        if route_id in MANUAL_TAILS:
+            cut_point, tail = MANUAL_TAILS[route_id]
+            cut = min(range(len(points)), key=lambda i: dist(points[i], cut_point))
+            points = points[: cut + 1] + [STATIONS[name] for name in tail]
         line = simplify(points)
         length = sum(dist(p, q) for p, q in zip(points, points[1:]))
         by_id[route_id]["geometry"] = [[round(lat, 5), round(lon, 5)] for lat, lon in line]

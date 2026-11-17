@@ -143,18 +143,18 @@
     {
       "date": "30.12",
       "who": "wszyscy",
-      "place": "Yangshuo",
-      "plan": "Rowery albo skutery nad Yulong, tratwa bambusowa, Moon Hill. Dla chętnych wspinaczka albo via ferrata.",
+      "place": "Xingping",
+      "plan": "Wypad do Xingping wynajętym busikiem albo autobusem (ok. 1 h). Środa przed długim weekendem, więc mniej ludzi. Rzeka Li, widok z banknotu 20 juanów, Laozhai Hill. Wieczorem powrót do Yangshuo.",
       "night": "Yangshuo",
       "ids": [
-        "yangshuo"
+        "xingping"
       ]
     },
     {
       "date": "31.12",
       "who": "wszyscy",
       "place": "Yangshuo (Sylwester)",
-      "plan": "W dzień spokojnie (Fuli, kawiarnie z widokiem). Wieczorem Sylwester na West Street, do hotelu wracamy pieszo.",
+      "plan": "W dzień rowery albo skutery nad Yulong, tratwa bambusowa, Moon Hill. Dla chętnych wspinaczka albo via ferrata. Wieczorem Sylwester na West Street, do hotelu wracamy pieszo.",
       "night": "Yangshuo",
       "ids": [
         "yangshuo"
@@ -163,11 +163,11 @@
     {
       "date": "1.01",
       "who": "wszyscy",
-      "place": "Xingping",
-      "plan": "Wypad do Xingping wynajętym busikiem albo autobusem (ok. 1 h). Rzeka Li, widok z banknotu 20 juanów, Laozhai Hill. Wieczorem powrót do Yangshuo.",
+      "place": "Yangshuo (na luzie)",
+      "plan": "Odsypianie po Sylwestrze. Lekcja gotowania, masaż stóp, kawiarnie z widokiem, Moon Hill dla chętnych. To pierwszy dzień długiego weekendu, więc trzymamy się blisko hotelu.",
       "night": "Yangshuo",
       "ids": [
-        "xingping"
+        "yangshuo"
       ]
     },
     {
@@ -195,7 +195,7 @@
       "date": "4.01",
       "who": "wszyscy",
       "place": "Zhaoqing → Kanton",
-      "plan": "Rano Zhaoqingdong → Guangzhounan (ok. 40 min), metro do Dongshankou. Wille, kawiarnie, wieczorem rejs po Rzece Perłowej.",
+      "plan": "Na spokojnie śniadanie, DiDi na Zhaoqingdong (ok. 25 min). G2861 10:18 → Guangzhou East 11:19, potem 4 przystanki linią 1 do Dongshankou. Wille, kawiarnie, wieczorem rejs po Rzece Perłowej.",
       "night": "Kanton, Manning Hotel (Dongshankou)",
       "ids": [
         "guangzhou"
