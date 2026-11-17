@@ -1493,6 +1493,16 @@ def build_map() -> None:
         show=True,
         max_zoom=18,
     ).add_to(fmap)
+    folium.TileLayer(
+        tiles="https://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png",
+        attr='Koleje &copy; <a href="https://www.openrailwaymap.org/">OpenRailwayMap</a> (CC-BY-SA)',
+        name="Wszystkie linie kolejowe (OpenRailwayMap)",
+        overlay=True,
+        control=True,
+        show=False,
+        max_zoom=19,
+        subdomains="abc",
+    ).add_to(fmap)
 
     add_province_layer(fmap, provinces)
     add_routes(fmap, routes, places_by_id)

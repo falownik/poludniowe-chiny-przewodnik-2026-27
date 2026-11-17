@@ -104,3 +104,10 @@ zmiana wizualna musi byc sprawdzona w przegladarce, a nie tylko w HTML-u.
   OpenStreetMap, plus nakładka Esri z podpisami łacińskimi (pinyin) obok znaków.
 - Commons szybko odpowiada 429; pobieranie zdjęć robić z przerwami i venv-owym
   Pythonem (msys Python ma problem z certyfikatami SSL).
+- Linie pociągów (2026-11-17): `scripts/trace_rail_routes.py` prowadzi nasze odcinki
+  po torach z OpenStreetMap (dump Overpass `railway=rail` + `highspeed=yes`, `out skel geom`)
+  i zapisuje `geometry` w `routes.json`. Przerwy w grafie (gardła stacji bez tagu
+  highspeed) łata krótkimi połączeniami; stacje dobiera z promienia 3 km, bo jedna
+  przypięta nitka potrafiła wymusić objazd przez Kanton. Zhaoqingdong leży w Dinghu,
+  a stacja Yangshuo ok. 15 km od miasta. Warstwa OpenRailwayMap (wszystkie tory) jest
+  domyślnie wyłączona.
